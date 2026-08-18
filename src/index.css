@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-lm-bg text-gray-800 antialiased font-sans;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply relative inline-block uppercase italic font-bold tracking-wider pb-2 mb-12;
+  }
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1;
+  }
+  
+  .section-title-navy {
+    @apply text-lm-navy;
+  }
+  .section-title-navy::after {
+    @apply bg-lm-navy;
+  }
+
+  .section-title-olive {
+    @apply text-lm-olive;
+  }
+  .section-title-olive::after {
+    @apply bg-lm-olive;
+  }
+}

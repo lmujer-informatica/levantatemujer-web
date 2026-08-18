@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager - Fundación Levántate Mujer</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <!-- Incluir el script de Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <!-- Configuración de la Media Library personalizada para R2 a través de Vercel API -->
+  <script>
+    const R2MediaLibrary = {
+      name: 'r2-media',
+      init: ({ options, handleInsert }) => {
+        return {
+          show: () => {
+            // Crear un input de tipo file oculto
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*,application/pdf';
+            input.style.display = 'none';
+            
+            input.onchange = (e) => {
+              const file = e.target.files[0];
+              if (!file) return;
+
+              const reader = new FileReader();
+              reader.onloadend = async () => {
+                const base64 = reader.result.split(",")[1];
+                
+                try {
+                  // Mostrar indicador de carga (opcional, pero útil)
+                  document.body.style.cursor = 'wait';
+                  
+                  const response = await fetch("/api/upload", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                      file: base64,
+                      name: file.name,
+                      type: file.type
+                    }),
+                  });
+
+                  if (!response.ok) {
+                    throw new Error(`Error en la subida: ${response.statusText}`);
+                  }
+
+                  const data = await response.json();
+                  
+                  // Insertar la URL pública generada en el CMS
+                  handleInsert(data.url);
+                  
+                } catch (error) {
+                  console.error("Error subiendo archivo:", error);
+                  alert("Hubo un error al subir el archivo.");
+                } finally {
+                  document.body.style.cursor = 'default';
+                }
+              };
+              
+              reader.readAsDataURL(file);
+            };
+            
+            document.body.appendChild(input);
+            input.click();
+            document.body.removeChild(input);
+          },
+          enableStandalone: () => true,
+        };
+      }
+    };
+
+    CMS.registerMediaLibrary(R2MediaLibrary);
+  </script>
+</body>
+</html>

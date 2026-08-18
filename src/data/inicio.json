@@ -1,0 +1,45 @@
+{
+  "heroTitulo": "Levántate Mujer, Construye tu Futuro",
+  "heroSubtitulo": "Somos una fundación comprometida con el desarrollo integral, promoviendo la igualdad y brindando apoyo incondicional para que cada mujer alcance su máximo potencial en la sociedad.",
+  "heroImagenes": [
+    "https://images.unsplash.com/photo-1593113565694-c74384a621be?auto=format&fit=crop&q=80&w=2000"
+  ],
+  "estadisticas": [
+    {
+      "valor": "+5.000",
+      "etiqueta": "Mujeres Atendidas"
+    },
+    {
+      "valor": "+20",
+      "etiqueta": "Programas Activos"
+    },
+    {
+      "valor": "15",
+      "etiqueta": "Años de Experiencia"
+    },
+    {
+      "valor": "+1.200",
+      "etiqueta": "Capacitaciones"
+    }
+  ],
+  "programas": [
+    {
+      "nombre": "Prevención de Violencia",
+      "descripcion": "Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención.",
+      "imagen": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "nombre": "Empoderamiento Económico",
+      "descripcion": "Fomentamos la independencia económica a través de programas de emprendimiento, microcréditos y capacitación en habilidades técnicas demandadas por el mercado actual.",
+      "imagen": "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "nombre": "Educación Integral",
+      "descripcion": "Promovemos el acceso a la educación continua para niñas y mujeres jóvenes, ofreciendo becas, tutorías y talleres de liderazgo para asegurarles un futuro prometedor.",
+      "imagen": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600"
+    }
+  ],
+  "ayudaTitulo": "¿Necesitas ayuda o contención emocional inmediata?",
+  "ayudaTelefono": "800 123 456",
+  "ayudaHorario": "Horario: Lunes a Viernes, 08:00 - 20:00"
+}
