@@ -8,11 +8,21 @@
 </head>
 <body>
   <!-- Incluir Netlify Identity y configurarlo antes del CMS -->
+  <!-- Incluir Netlify Identity y configurarlo antes del CMS -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init({
         APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
+      });
+
+      // ESTO ES LO NUEVO: Redirigir al admin después de iniciar sesión
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
       });
     }
   </script>

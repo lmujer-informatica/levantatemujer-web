@@ -1,9 +1,10 @@
 backend:
   name: git-gateway
   branch: main
+  repo: "lmujer-informatica/levantatemujer-web"
   site_domain: "levantatemuejr.netlify.app"
   identity_url: "https://levantatemuejr.netlify.app/.netlify/identity"
-  gateway_url: "https://levantatemuejr.netlify.app/.netlify/git/github"
+  gateway_url: "https://levantatemuejr.netlify.app/.netlify/git"
   
 media_folder: "public/uploads"
 public_folder: "/uploads"
