@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-
+  site_domain: "levantatemujer.netlify.app"
+  
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
