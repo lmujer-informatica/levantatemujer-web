@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
-  branch: main # O la rama que estés usando
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 media_library:
   name: r2-media
@@ -10,11 +13,55 @@ collections:
     label: "Página de Inicio"
     file: "src/data/inicio.json"
     fields:
-      - {label: "Hero Título", name: "heroTitulo", widget: "string"}
-      - {label: "Hero Subtítulo", name: "heroSubtitulo", widget: "text"}
-      - {label: "Hero Imágenes", name: "heroImagenes", widget: "list", field: {label: "Imagen", name: "imagen", widget: "image"}}
-      - {label: "Nuestros Alcances (Estadísticas)", name: "estadisticas", widget: "list", fields: [{label: "Valor", name: "valor", widget: "string"}, {label: "Etiqueta", name: "etiqueta", widget: "string"}]}
-      - {label: "Programas Prioritarios", name: "programas", widget: "list", fields: [{label: "Nombre", name: "nombre", widget: "string"}, {label: "Descripción", name: "descripcion", widget: "text"}, {label: "Imagen", name: "imagen", widget: "image"}]}
-      - {label: "Línea de Ayuda - Título", name: "ayudaTitulo", widget: "string"}
-      - {label: "Línea de Ayuda - Teléfono", name: "ayudaTelefono", widget: "string"}
-      - {label: "Línea de Ayuda - Horario", name: "ayudaHorario", widget: "string"}
+      - label: "Hero Título"
+        name: "heroTitulo"
+        widget: "string"
+
+      - label: "Hero Subtítulo"
+        name: "heroSubtitulo"
+        widget: "text"
+
+      - label: "Hero Imágenes"
+        name: "heroImagenes"
+        widget: "list"
+        field:
+          label: "Imagen"
+          name: "imagen"
+          widget: "image"
+
+      - label: "Nuestros Alcances (Estadísticas)"
+        name: "estadisticas"
+        widget: "list"
+        fields:
+          - label: "Valor"
+            name: "valor"
+            widget: "string"
+          - label: "Etiqueta"
+            name: "etiqueta"
+            widget: "string"
+
+      - label: "Programas Prioritarios"
+        name: "programas"
+        widget: "list"
+        fields:
+          - label: "Nombre"
+            name: "nombre"
+            widget: "string"
+          - label: "Descripción"
+            name: "descripcion"
+            widget: "text"
+          - label: "Imagen"
+            name: "imagen"
+            widget: "image"
+
+      - label: "Línea de Ayuda - Título"
+        name: "ayudaTitulo"
+        widget: "string"
+
+      - label: "Línea de Ayuda - Teléfono"
+        name: "ayudaTelefono"
+        widget: "string"
+
+      - label: "Línea de Ayuda - Horario"
+        name: "ayudaHorario"
+        widget: "string"
