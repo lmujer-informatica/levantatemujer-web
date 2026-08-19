@@ -5,33 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Fundación Levántate Mujer</title>
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+</head>
+<body>
+  <!-- Incluir Netlify Identity y configurarlo antes del CMS -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    console.log("[Instrument] 1. Después de cargar el widget. APIUrl interno:", window.netlifyIdentity && window.netlifyIdentity.gotrue ? window.netlifyIdentity.gotrue.api.apiURL : "Indefinido/Sin GoTrue");
-
-    // Interceptar fetch para cazar quién llama a /settings
-    const originalFetch = window.fetch;
-    window.fetch = function() {
-      if (arguments[0] && typeof arguments[0] === 'string' && arguments[0].includes('/settings')) {
-        console.log("[Instrument] 3. FETCH DETECTADO a:", arguments[0]);
-        console.trace("[Instrument] Traza de ejecución para el fetch a /settings:");
-      }
-      return originalFetch.apply(this, arguments);
-    };
-
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init({
         APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
       });
-      console.log("[Instrument] 2. Después de ejecutar init() manual. APIUrl interno:", window.netlifyIdentity.gotrue ? window.netlifyIdentity.gotrue.api.apiURL : "Indefinido");
     }
-
-    window.addEventListener("load", () => {
-      console.log("[Instrument] 4. Después de cargar window (Decap CMS listo). APIUrl interno:", window.netlifyIdentity && window.netlifyIdentity.gotrue ? window.netlifyIdentity.gotrue.api.apiURL : "Indefinido");
-    });
   </script>
-</head>
-<body>
+
   <!-- Incluir el script de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
