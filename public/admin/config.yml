@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-  identity_url: "https://levantamujer.netlify.app/.netlify/identity"
-  gateway_url: "https://levantamujer.netlify.app/.netlify/git/github"
+  identity_url: "https://levantatemuejr.netlify.app/.netlify/identity"
+  gateway_url: "https://levantatemuejr.netlify.app/.netlify/git/github"
   
 media_folder: "public/uploads"
 public_folder: "/uploads"
