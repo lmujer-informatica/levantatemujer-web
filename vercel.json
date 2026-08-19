@@ -1,3 +1,10 @@
 {
-  "framework": "vite"
+  "framework": "vite",
+  
+  "rewrites": [
+    {
+      "source": "/.netlify/:path*",
+      "destination": "https://levantatemuejr.netlify.app/.netlify/:path*"
+    }
+  ]
 }

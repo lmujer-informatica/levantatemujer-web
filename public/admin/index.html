@@ -7,16 +7,16 @@
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
-  <!-- Incluir Netlify Identity y configurarlo antes del CMS -->
-  <!-- Incluir Netlify Identity y configurarlo antes del CMS -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Incluir Netlify Identity y forzar la URL mediante el atributo data -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js" data-netlify-identity-api-url="https://levantatemuejr.netlify.app/.netlify/identity"></script>
+  
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init({
         APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
       });
 
-      // ESTO ES LO NUEVO: Redirigir al admin después de iniciar sesión
+      // Redirigir al admin después de iniciar sesión
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
