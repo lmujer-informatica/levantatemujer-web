@@ -5,25 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Fundación Levántate Mujer</title>
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  
+  <!-- INICIO DEL PUENTE INTELIGENTE: Puesto en el head para que actúe al instante -->
+  <script>
+    if (window.location.hostname === "levantatemuejr.netlify.app") {
+      window.location.href = "https://levantatemujer-web.vercel.app/admin/" + window.location.hash;
+    }
+  </script>
+  <!-- FIN DEL PUENTE INTELIGENTE -->
 </head>
 <body>
-  <!-- Incluir Netlify Identity y forzar la URL mediante el atributo data -->
+  <!-- Incluir Netlify Identity -->
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js" data-netlify-identity-api-url="https://levantatemuejr.netlify.app/.netlify/identity"></script>
   
   <script>
-    // --- INICIO DEL PUENTE INTELIGENTE ---
-    // Si GitHub nos devuelve al dominio de Netlify con el token, saltamos inmediatamente a Vercel
-    if (window.location.hostname === "levantatemuejr.netlify.app" && window.location.hash.includes("token")) {
-      window.location.href = "https://levantatemujer-web.vercel.app/admin/" + window.location.hash;
-    }
-    // --- FIN DEL PUENTE INTELIGENTE ---
-
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init({
         APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
       });
 
-      // Redirigir al admin después de iniciar sesión si estamos en Vercel
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
@@ -37,14 +37,13 @@
   <!-- Incluir el script de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
-  <!-- Configuración de la Media Library personalizada para R2 a través de Vercel API -->
+  <!-- Configuración de la Media Library personalizada -->
   <script>
     const R2MediaLibrary = {
       name: 'r2-media',
       init: ({ options, handleInsert }) => {
         return {
           show: () => {
-            // Crear un input de tipo file oculto
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = 'image/*,application/pdf';
@@ -59,7 +58,6 @@
                 const base64 = reader.result.split(",")[1];
                 
                 try {
-                  // Mostrar indicador de carga
                   document.body.style.cursor = 'wait';
                   
                   const response = await fetch("/api/upload", {
@@ -79,8 +77,6 @@
                   }
 
                   const data = await response.json();
-                  
-                  // Insertar la URL pública generada en el CMS
                   handleInsert(data.url);
                   
                 } catch (error) {
