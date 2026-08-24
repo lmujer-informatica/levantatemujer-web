@@ -42,13 +42,11 @@ export default async function handler(req, res) {
     // Ejecutar subida
     await s3.send(new PutObjectCommand(uploadParams));
 
-    // La URL pública dependerá de cómo tengas configurado tu bucket público en R2.
-    // Por lo general Cloudflare te da una URL pública, por ejemplo:
-    // https://pub-xxxxxxxxxxxxxx.r2.dev/uploads/archivo.png
-    // Asumiremos que R2_PUBLIC_URL está configurada en Vercel.
-    const publicUrl = process.env.R2_PUBLIC_URL 
-      ? `${process.env.R2_PUBLIC_URL}/${fileName}` 
-      : `${process.env.R2_ENDPOINT}/${process.env.R2_BUCKET}/${fileName}`;
+    // Construir la URL pública final, evitando dobles slashes o slashes faltantes
+    const base = (process.env.R2_PUBLIC_URL || `${process.env.R2_ENDPOINT}/${process.env.R2_BUCKET}`)
+      .replace(/\/+$/, ''); // quita cualquier slash al final
+
+    const publicUrl = `${base}/${fileName}`;
 
     return res.status(200).json({ url: publicUrl });
   } catch (error) {
