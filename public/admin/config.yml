@@ -1,9 +1,14 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: lmujer-informatica/levantatemujer-web
   branch: main
-  repo: "lmujer-informatica/levantatemujer-web"
- 
-  
+  auth_endpoint: api/auth
+  squash_merges: true
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+
 media_folder: "public/uploads"
 public_folder: "/uploads"
 

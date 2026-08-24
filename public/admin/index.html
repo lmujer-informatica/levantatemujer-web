@@ -5,35 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Fundación Levántate Mujer</title>
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
-  
-  <!-- INICIO DEL PUENTE INTELIGENTE: Puesto en el head para que actúe al instante -->
-  <script>
-    if (window.location.hostname === "levantatemuejr.netlify.app"&& window.location.hash.includes("token")) {
-      window.location.href = "https://levantatemujer-web.vercel.app/admin/" + window.location.hash;
-    }
-  </script>
-  <!-- FIN DEL PUENTE INTELIGENTE -->
 </head>
 <body>
-  <!-- Incluir Netlify Identity -->
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js" data-netlify-identity-api-url="https://levantatemuejr.netlify.app/.netlify/identity"></script>
-  
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.init({
-        APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
-      });
-
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-
   <!-- Incluir el script de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
