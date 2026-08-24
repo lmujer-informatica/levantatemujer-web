@@ -22,17 +22,17 @@ export default function ProgramasPrioritarios() {
           
           {/* Tarjeta 1 (Puedes mapear esto si tienes más de 2) */}
           <TarjetaPrograma 
-            tituloFrente="Mujeres libres de Violencia"
-            tituloAtras="Respuesta a la trata de personas y migración"
-            descripcion="Resumen corto del Programa. Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus"
+            tituloFrente={programas[0].nombre}
+            tituloAtras="Descripción"
+            descripcion={programas[0].descripcion}
             imagenUrl={programas[0]?.imagen} 
           />
 
           {/* Tarjeta 2 */}
           <TarjetaPrograma 
-            tituloFrente="Empoderamiento Económico"
-            tituloAtras="Fomento al trabajo digno"
-            descripcion="Resumen corto del segundo Programa. Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra."
+            tituloFrente={programas[1].nombre}
+            tituloAtras="Descripción"
+            descripcion={programas[1].descripcion}
             imagenUrl={programas[1]?.imagen} 
           />
           
