@@ -11,12 +11,19 @@
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js" data-netlify-identity-api-url="https://levantatemuejr.netlify.app/.netlify/identity"></script>
   
   <script>
+    // --- INICIO DEL PUENTE INTELIGENTE ---
+    // Si GitHub nos devuelve al dominio de Netlify con el token, saltamos inmediatamente a Vercel
+    if (window.location.hostname === "levantatemuejr.netlify.app" && window.location.hash.includes("token")) {
+      window.location.href = "https://levantatemujer-web.vercel.app/admin/" + window.location.hash;
+    }
+    // --- FIN DEL PUENTE INTELIGENTE ---
+
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init({
         APIUrl: "https://levantatemuejr.netlify.app/.netlify/identity"
       });
 
-      // Redirigir al admin después de iniciar sesión
+      // Redirigir al admin después de iniciar sesión si estamos en Vercel
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
@@ -52,7 +59,7 @@
                 const base64 = reader.result.split(",")[1];
                 
                 try {
-                  // Mostrar indicador de carga (opcional, pero útil)
+                  // Mostrar indicador de carga
                   document.body.style.cursor = 'wait';
                   
                   const response = await fetch("/api/upload", {
