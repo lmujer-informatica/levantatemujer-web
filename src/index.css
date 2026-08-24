@@ -33,3 +33,21 @@
     @apply bg-lm-olive;
   }
 }
+
+
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-text-in {
+  animation: heroTextIn 0.8s ease-out;
+}

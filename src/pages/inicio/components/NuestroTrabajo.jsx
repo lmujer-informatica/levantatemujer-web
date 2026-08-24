@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function NuestroTrabajo() {
   return (
-    <section className="py-20 bg-lm-bg">
+    <section className="py-20 bg-[#EAF7FA]">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         <h2 className="section-title section-title-navy text-3xl md:text-4xl text-center mb-16">

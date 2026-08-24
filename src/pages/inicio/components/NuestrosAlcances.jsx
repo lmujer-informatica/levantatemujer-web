@@ -1,12 +1,12 @@
 import React from 'react';
-import inicioData from '../data/inicio.json';
+import inicioData from '../../../data/inicio.json';
 
 export default function NuestrosAlcances() {
   const data = inicioData.estadisticas || [];
 
   return (
-    <section className="py-20 bg-lm-bg">
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <section className="py-20 bg-[#EAF7FA]">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center ">
         
         <h2 className="section-title section-title-navy text-3xl md:text-4xl text-center mb-16">
           NUESTROS ALCANCES

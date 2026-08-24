@@ -1,5 +1,5 @@
 {
-  "heroTitulo": "Levántate Mujer, Construye tu Futuro",
+  "heroFrases":[ "Levántate Mujer, Construye tu Futuro", "frase 2"],
   "heroSubtitulo": "Somos una fundación comprometida con el desarrollo integral, promoviendo la igualdad y brindando apoyo incondicional para que cada mujer alcance su máximo potencial en la sociedad.",
   "heroImagenes": [
     "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
@@ -33,13 +33,15 @@
       "nombre": "Empoderamiento Económico",
       "descripcion": "Fomentamos la independencia económica a través de programas de emprendimiento, microcréditos y capacitación en habilidades técnicas demandadas por el mercado actual.",
       "imagen": "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      "nombre": "Educación Integral",
-      "descripcion": "Promovemos el acceso a la educación continua para niñas y mujeres jóvenes, ofreciendo becas, tutorías y talleres de liderazgo para asegurarles un futuro prometedor.",
-      "imagen": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600"
     }
+    
   ],
+  "lineaAyuda":{
+    
+      "mensaje":"Tu valentía abre caminos, nosotros acompañamos",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    
+  },
   "ayudaTitulo": "¿Necesitas ayuda o contención emocional inmediata?",
   "ayudaTelefono": "800 123 456",
   "ayudaHorario": "Horario: Lunes a Viernes, 08:00 - 20:00"

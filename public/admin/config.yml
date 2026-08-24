@@ -17,65 +17,102 @@ media_library:
   name: r2-media
 
 collections:
-  - name: "inicio"
-    label: "Página de Inicio"
-    files:
-      - label: "Contenido de Inicio"
-        name: "inicio"
-        file: "src/data/inicio.json"
-        fields:
-          - label: "Hero Título"
-            name: "heroTitulo"
+- name: "inicio"
+  label: "Página de Inicio"
+  files:
+    - label: "Contenido de Inicio"
+      name: "inicio"
+      file: "src/data/inicio.json"
+      fields:
+
+        # =========================
+        # HERO
+        # =========================
+
+        - label: "Hero - Frases"
+          name: "heroFrases"
+          widget: "list"
+          field:
+            label: "Frase"
+            name: "frase"
             widget: "string"
 
-          - label: "Hero Subtítulo"
-            name: "heroSubtitulo"
-            widget: "text"
+        - label: "Hero - Subtítulo"
+          name: "heroSubtitulo"
+          widget: "text"
 
-          - label: "Hero Imágenes"
-            name: "heroImagenes"
-            widget: "list"
-            field:
-              label: "Imagen"
+        - label: "Hero - Imágenes"
+          name: "heroImagenes"
+          widget: "list"
+          field:
+            label: "Imagen"
+            name: "imagen"
+            widget: "image"
+
+        # =========================
+        # ESTADÍSTICAS
+        # =========================
+
+        - label: "Nuestros Alcances"
+          name: "estadisticas"
+          widget: "list"
+          fields:
+            - label: "Valor"
+              name: "valor"
+              widget: "string"
+
+            - label: "Etiqueta"
+              name: "etiqueta"
+              widget: "string"
+
+        # =========================
+        # PROGRAMAS PRIORITARIOS
+        # =========================
+
+        - label: "Programas Prioritarios"
+          name: "programas"
+          widget: "list"
+          fields:
+            - label: "Nombre"
+              name: "nombre"
+              widget: "string"
+
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+
+            - label: "Imagen"
               name: "imagen"
               widget: "image"
 
-          - label: "Nuestros Alcances (Estadísticas)"
-            name: "estadisticas"
-            widget: "list"
-            fields:
-              - label: "Valor"
-                name: "valor"
-                widget: "string"
+        # =========================
+        # LÍNEA DE AYUDA
+        # =========================
 
-              - label: "Etiqueta"
-                name: "etiqueta"
-                widget: "string"
+        - label: "Línea de Ayuda"
+          name: "lineaAyuda"
+          widget: "object"
+          fields:
+            - label: "Mensaje"
+              name: "mensaje"
+              widget: "string"
 
-          - label: "Programas Prioritarios"
-            name: "programas"
-            widget: "list"
-            fields:
-              - label: "Nombre"
-                name: "nombre"
-                widget: "string"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
 
-              - label: "Descripción"
-                name: "descripcion"
-                widget: "text"
+        # =========================
+        # INFORMACIÓN DE AYUDA
+        # =========================
 
-              - label: "Imagen"
-                name: "imagen"
-                widget: "image"
+        - label: "Ayuda - Título"
+          name: "ayudaTitulo"
+          widget: "string"
 
-          - label: "Línea de Ayuda - Título"
-            name: "ayudaTitulo"
-            widget: "string"
+        - label: "Ayuda - Teléfono"
+          name: "ayudaTelefono"
+          widget: "string"
 
-          - label: "Línea de Ayuda - Teléfono"
-            name: "ayudaTelefono"
-            widget: "string"
-
-          - label: "Línea de Ayuda - Horario"
-            name: "ayudaHorario"
-            widget: "string"
+        - label: "Ayuda - Horario"
+          name: "ayudaHorario"
+          widget: "string"

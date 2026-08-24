@@ -1,25 +1,26 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import SeccionHero from './components/SeccionHero';
-import NuestrosAlcances from './components/NuestrosAlcances';
-import ProgramasPrioritarios from './components/ProgramasPrioritarios';
-import NuestroTrabajo from './components/NuestroTrabajo';
-import LineaAyuda from './components/LineaAyuda';
-import Footer from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/shared/Navbar';
+import Footer from './components/shared/Footer';
+
+import Inicio from './pages/inicio/Inicio';
+import QuienesSomos from './pages/quienesSomos/quienesSomos';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-lm-bg">
-      <Navbar />
-      <main className="flex-grow flex flex-col gap-0">
-        <SeccionHero />
-        <NuestrosAlcances />
-        <ProgramasPrioritarios />
-        <NuestroTrabajo />
-        <LineaAyuda />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col font-sans bg-lm-bg">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/quienesSomos" element={<QuienesSomos/>} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
