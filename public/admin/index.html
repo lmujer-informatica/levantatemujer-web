@@ -8,7 +8,7 @@
   
   <!-- INICIO DEL PUENTE INTELIGENTE: Puesto en el head para que actúe al instante -->
   <script>
-    if (window.location.hostname === "levantatemuejr.netlify.app") {
+    if (window.location.hostname === "levantatemuejr.netlify.app"&& window.location.hash.includes("token")) {
       window.location.href = "https://levantatemujer-web.vercel.app/admin/" + window.location.hash;
     }
   </script>
