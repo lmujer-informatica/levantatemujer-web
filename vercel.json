@@ -10,10 +10,6 @@
       "destination": "/admin/index.html"
     },
     {
-      "source": "/.netlify/:path*",
-      "destination": "https://levantatemuejr.netlify.app/.netlify/:path*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
