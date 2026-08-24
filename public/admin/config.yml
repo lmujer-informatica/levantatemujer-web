@@ -2,7 +2,7 @@ backend:
   name: github
   repo: lmujer-informatica/levantatemujer-web
   branch: main
-  base_url: https://levantatemujer-web.vercel.app/admin
+  base_url: https://levantatemujer-web.vercel.app
   auth_endpoint: /api/auth
   squash_merges: true
   commit_messages:
