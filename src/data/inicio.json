@@ -1,10 +1,13 @@
 {
-  "heroFrases":[ "Levántate Mujer, Construye tu Futuro", "frase 2"],
-  "heroSubtitulo": "Somos una fundación comprometida con el desarrollo integral, promoviendo la igualdad y brindando apoyo incondicional para que cada mujer alcance su máximo potencial en la sociedad.",
-  "heroImagenes": [
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+  "heroFrases": [
+    "Levántate Mujer, Construye tu Futuro",
+    "frase 2"
   ],
+  "ayudaHorario": "Horario: Lunes a Viernes, 08:00 - 20:00",
+  "lineaAyuda": {
+    "mensaje": "Tu valentía abre caminos, nosotros acompañamos",
+    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+  },
   "estadisticas": [
     {
       "valor": "+5.000",
@@ -23,26 +26,23 @@
       "etiqueta": "Capacitaciones"
     }
   ],
+  "ayudaTelefono": "800 123 456",
+  "ayudaTitulo": "¿Necesitas ayuda o contención emocional inmediata?",
   "programas": [
     {
-      "nombre": "Prevención de Violencia",
+      "nombre": "Mujeres libres de Violencia",
       "descripcion": "Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención.",
-      "imagen": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600"
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
     },
     {
-      "nombre": "Empoderamiento Económico",
-      "descripcion": "Fomentamos la independencia económica a través de programas de emprendimiento, microcréditos y capacitación en habilidades técnicas demandadas por el mercado actual.",
-      "imagen": "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=600"
+      "nombre": "Respuesta a la trata de personas y migración",
+      "descripcion": "Promovemos la protección y el acompañamiento integral de personas en situación de trata y migración, brindando orientación, asistencia y herramientas para fortalecer sus derechos, seguridad y oportunidades de integración.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545989910-WhatsApp_Image_2026-07-30_at_14.03.14_1_.jpeg"
     }
-    
   ],
-  "lineaAyuda":{
-    
-      "mensaje":"Tu valentía abre caminos, nosotros acompañamos",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
-    
-  },
-  "ayudaTitulo": "¿Necesitas ayuda o contención emocional inmediata?",
-  "ayudaTelefono": "800 123 456",
-  "ayudaHorario": "Horario: Lunes a Viernes, 08:00 - 20:00"
+  "heroImagenes": [
+    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
+    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+  ],
+  "heroSubtitulo": "Somos una fundación comprometida con el desarrollo integral, promoviendo la igualdad y brindando apoyo incondicional para que cada mujer alcance su máximo potencial en la sociedad."
 }
