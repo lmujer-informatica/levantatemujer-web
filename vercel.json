@@ -1,10 +1,21 @@
 {
   "framework": "vite",
-  
   "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
     {
       "source": "/.netlify/:path*",
       "destination": "https://levantatemuejr.netlify.app/.netlify/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
