@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import logo from '../../imagenes/logo.png';
 
 export default function Navbar() {
