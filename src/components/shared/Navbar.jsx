@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-full">
 
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="shrink-0 flex items-center">
             <NavLink
               to="/"
               onClick={handleNavigation}
@@ -38,7 +38,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex items-center justify-center px-8 text-sm font-medium transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-[2rem] shadow-md' // Gradiente y redondeo inferior
+                    ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md' // Gradiente y redondeo inferior
                     : 'text-lm-cyan hover:text-lm-navy'
                 }`
               }
@@ -51,7 +51,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex items-center justify-center text-center leading-tight text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-gradient-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-[2rem] px-6 shadow-md'
+                    ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md'
                     : 'text-lm-cyan hover:text-lm-navy'
                 }`
               }
@@ -74,7 +74,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex items-center justify-center text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-gradient-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-[2rem] px-6 shadow-md'
+                    ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md'
                     : 'text-lm-cyan hover:text-lm-navy'
                 }`
               }
@@ -87,7 +87,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `flex items-center justify-center text-center leading-tight text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-gradient-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-[2rem] px-6 shadow-md'
+                    ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md'
                     : 'text-lm-cyan hover:text-lm-navy'
                 }`
               }
@@ -101,7 +101,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-lm-cyan hover:text-lm-navy focus:outline-none"
+              className="text-lm-cyan hover:text-lm-navy focus:outline-hidden"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />

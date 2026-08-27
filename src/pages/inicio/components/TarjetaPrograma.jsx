@@ -3,13 +3,13 @@ import React from 'react';
 export default function TarjetaPrograma({ tituloFrente, tituloAtras, descripcion, imagenUrl }) {
   return (
     // Contenedor principal: define la perspectiva 3D y reacciona al hover ("group")
-    <div className="group h-[380px] w-full [perspective:1000px] cursor-pointer">
+    <div className="group h-[380px] w-full perspective-[1000px] cursor-pointer">
       
       {/* Contenedor interno: hace el giro de 180 grados. Debe preservar el estilo 3D */}
-      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg rounded-[45px]">
+      <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)] shadow-lg rounded-[45px]">
         
         {/* ================= CARA FRONTAL (Gris) ================= */}
-        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-[#a4aba4] rounded-[45px] p-5 flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 w-full h-full backface-hidden bg-[#a4aba4] rounded-[45px] p-5 flex flex-col justify-end overflow-hidden">
           
           {/* Contenedor de la Imagen o Placeholder */}
           <div className="absolute inset-4 bg-[#8b9289] rounded-[35px] flex items-center justify-center overflow-hidden border-2 border-[#a4aba4]/50">
@@ -32,7 +32,7 @@ export default function TarjetaPrograma({ tituloFrente, tituloAtras, descripcion
 
         {/* ================= CARA TRASERA (Verde Oliva) ================= */}
         {/* rotado 180deg por defecto para que quede de espaldas */}
-        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#a5b897] rounded-[45px] p-8 flex flex-col items-center justify-center text-center overflow-hidden border-8 border-[#b4cb56]/30">
+        <div className="absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] bg-[#a5b897] rounded-[45px] p-8 flex flex-col items-center justify-center text-center overflow-hidden border-8 border-[#b4cb56]/30">
           
           {/* Marca de agua (Placeholder gigante SVG) */}
           <div className="absolute inset-0 flex items-center justify-center opacity-15 pointer-events-none">
@@ -50,7 +50,7 @@ export default function TarjetaPrograma({ tituloFrente, tituloAtras, descripcion
             {descripcion}
           </p>
           
-          <button className="bg-[#00b4d8] text-white text-lg font-medium px-10 py-3 rounded-full shadow-lg hover:bg-[#0096b4] transition-colors z-10 focus:outline-none">
+          <button className="bg-[#00b4d8] text-white text-lg font-medium px-10 py-3 rounded-full shadow-lg hover:bg-[#0096b4] transition-colors z-10 focus:outline-hidden">
             Saber más
           </button>
         </div>

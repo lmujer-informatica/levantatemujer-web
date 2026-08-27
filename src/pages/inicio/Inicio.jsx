@@ -8,7 +8,7 @@ import LineaAyuda from './components/LineaAyuda';
 export default function Inicio() {
   return (
     
-      <main className="flex-grow flex flex-col gap-0">
+      <main className="grow flex flex-col gap-0">
         <SeccionHero />
         <NuestrosAlcances />
         <ProgramasPrioritarios />
