@@ -10,6 +10,8 @@ dist/
 .atl/
 graphify-out/
 PRODUCT.md
+.opencode/
+AGENTS.md
 # impeccable-ignore-start
 # Ephemeral output, runtime state, and per-dev overrides.
 # Unanchored: .impeccable may sit at the repo root or under a nested

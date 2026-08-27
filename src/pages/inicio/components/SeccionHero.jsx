@@ -67,7 +67,7 @@ export default function SeccionHero() {
 
           </div>
 
-          <button className="absolute bottom-10 px-8 py-3 bg-lm-cyan text-white text-lg font-medium rounded-full shadow-lg hover:bg-opacity-90 transition-transform hover:scale-105">
+          <button className="absolute bottom-10 px-8 py-3 bg-lm-cyan text-white text-lg font-medium rounded-full shadow-lg hover:bg-lm-cyan/90 transition-transform hover:scale-105">
             Ver Programas
           </button>
 

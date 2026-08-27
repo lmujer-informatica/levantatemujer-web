@@ -13,7 +13,7 @@ export default function NuestroTrabajo() {
           
           {/* Columna Izquierda: Testimonios */}
           <div className="flex flex-col h-[500px]">
-            <div className="bg-lm-cyan text-white text-center py-4 rounded-t-[30px] rounded-b-md shadow-sm z-10">
+            <div className="bg-lm-cyan text-white text-center py-4 rounded-t-[30px] rounded-b-md shadow-xs z-10">
               <h3 className="text-2xl font-light">Testimonios</h3>
             </div>
             <div className="bg-[#eafafa] flex-1 rounded-b-[30px] border border-[#d0f0f0] -mt-2 pt-8 p-6 flex flex-col items-center shadow-md">
@@ -30,7 +30,7 @@ export default function NuestroTrabajo() {
             <div className="bg-lm-cyan flex-1 flex flex-col items-center justify-center p-8 rounded-b-[50px] z-10 shadow-md">
               <p className="text-white font-medium mb-4">Encuentra esta y más</p>
               <h3 className="text-white text-4xl font-light mb-6">Noticias</h3>
-              <a href="#" className="text-[#a4c639] text-xl font-medium underline underline-offset-4 decoration-2 hover:text-white transition-colors">
+              <a href="#" className="text-lm-olive text-xl font-medium underline underline-offset-4 decoration-2 hover:text-white transition-colors">
                 Click Aquí
               </a>
             </div>
@@ -43,7 +43,7 @@ export default function NuestroTrabajo() {
 
           {/* Columna Derecha: Eventos */}
           <div className="flex flex-col h-[500px]">
-            <div className="bg-lm-cyan text-white text-center py-4 rounded-t-[30px] rounded-b-md shadow-sm z-10">
+            <div className="bg-lm-cyan text-white text-center py-4 rounded-t-[30px] rounded-b-md shadow-xs z-10">
               <h3 className="text-2xl font-light">Eventos</h3>
             </div>
             <div className="bg-[#eafafa] flex-1 rounded-b-[30px] border border-[#d0f0f0] -mt-2 pt-8 p-6 flex flex-col items-center shadow-md">
