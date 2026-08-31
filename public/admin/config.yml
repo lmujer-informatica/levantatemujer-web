@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: lmujer-informatica/levantatemujer-web
-  branch: main
+  branch: Diego
   base_url: https://levantatemujer-web.vercel.app
   auth_endpoint: /api/auth
   squash_merges: true
