@@ -116,6 +116,8 @@ collections:
         - label: "Ayuda - Horario"
           name: "ayudaHorario"
           widget: "string"
+
+
 # =========================
 # LÍNEA DE AYUDA
 # =========================
@@ -125,35 +127,33 @@ collections:
   files:
     - label: "Contenido de Línea de Ayuda"
       name: "contenidoLineaAyuda"
-      file: "src/data/lineaAyuda.json" # Asegúrate de que esta ruta sea 100% correcta
+      file: "src/data/lineaAyuda.json"
       fields:
 
         # =========================
-        # CARRUSEL DE FRASES
+        # CARRUSEL
         # =========================
-        - label: "Carrusel de Frases"
+        - label: "Carrusel"
           name: "carrusel"
           widget: "list"
           fields:
             - label: "Frase"
               name: "frase"
               widget: "string"
-
             - label: "Imagen"
               name: "imagen"
               widget: "image"
 
         # =========================
-        # NÚMEROS DE CONTACTO
+        # CONTACTOS
         # =========================
-        - label: "Números de Contacto"
+        - label: "Contactos"
           name: "contactos"
           widget: "list"
           fields:
             - label: "Ciudad"
               name: "ciudad"
               widget: "string"
-
             - label: "Número"
               name: "numero"
               widget: "string"
@@ -168,25 +168,19 @@ collections:
             - label: "Título"
               name: "titulo"
               widget: "string"
-
             - label: "Ley"
               name: "ley"
               widget: "string"
-
             - label: "Descripción de la Ley"
               name: "descripcion_ley"
               widget: "text"
-
             - label: "Imagen"
               name: "imagen"
               widget: "image"
-
-            # =========================
-            # PASOS (CORREGIDO)
-            # =========================
             - label: "Pasos"
               name: "pasos"
               widget: "list"
               field:
                 label: "Paso"
-                widget: "text" 
+                name: "paso"
+                widget: "text"
