@@ -116,3 +116,71 @@ collections:
         - label: "Ayuda - Horario"
           name: "ayudaHorario"
           widget: "string"
+
+
+# =========================
+# LÍNEA DE AYUDA
+# =========================
+
+- name: "lineaAyuda"
+  label: "Página de Línea de Ayuda"
+  files:
+    - label: "Contenido de Línea de Ayuda"
+      name: "contenidoLineaAyuda"
+      file: "src/data/lineaAyuda.json"
+      fields:
+
+        # =========================
+        # CARRUSEL
+        # =========================
+        - label: "Carrusel"
+          name: "carrusel"
+          widget: "list"
+          fields:
+            - label: "Frase"
+              name: "frase"
+              widget: "string"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
+
+        # =========================
+        # CONTACTOS
+        # =========================
+        - label: "Contactos"
+          name: "contactos"
+          widget: "list"
+          fields:
+            - label: "Ciudad"
+              name: "ciudad"
+              widget: "string"
+            - label: "Número"
+              name: "numero"
+              widget: "string"
+
+        # =========================
+        # DENUNCIAS
+        # =========================
+        - label: "Denuncias"
+          name: "denuncias"
+          widget: "list"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Ley"
+              name: "ley"
+              widget: "string"
+            - label: "Descripción de la Ley"
+              name: "descripcion_ley"
+              widget: "text"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
+            - label: "Pasos"
+              name: "pasos"
+              widget: "list"
+              field:
+                label: "Paso"
+                name: "paso"
+                widget: "text"

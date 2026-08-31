@@ -3,9 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 
 import Navbar from './components/shared/Navbar';
 import Footer from './components/shared/Footer';
+import SalidaSegura from './components/shared/SalidaSegura';
 
 import Inicio from './pages/inicio/Inicio';
 import QuienesSomos from './pages/quienesSomos/quienesSomos';
+import LineaAyuda from './pages/lineaAyuda/lineaAyuda';
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/quienesSomos" element={<QuienesSomos/>} />
+          <Route path="/lineaAyuda" element={<LineaAyuda />} />
         </Routes>
 
         <Footer />
+        <SalidaSegura />
       </div>
     </BrowserRouter>
   );

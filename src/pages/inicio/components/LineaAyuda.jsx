@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { use } from 'react';
+import { useNavigate } from 'react-router';
 import inicioData from '../../../data/inicio.json';
 
 export default function LineaAyuda() {
+  const navigate = useNavigate();
   return (
     <section className="w-full flex flex-col md:flex-row min-h-[300px]">
 
@@ -15,6 +17,7 @@ export default function LineaAyuda() {
         </div>
 
         <button
+          onClick={() => navigate('/lineaAyuda')}
           className="w-[85%] md:w-[80%] bg-[#08aadb] rounded-r-[3rem] shadow-[0_8px_15px_rgba(0,0,0,0.2)] hover:bg-[#0799c5] hover:w-[87%] md:hover:w-[82%] transition-all duration-300 focus:outline-hidden"
         >
           <div className="flex items-center justify-center py-5 md:py-6 text-white text-3xl font-medium tracking-wide">

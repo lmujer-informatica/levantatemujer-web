@@ -76,13 +76,13 @@ export default function Footer() {
 
       {/* Botón de Salida Segura (Sección Derecha) 
           Sustituye bg-[#a6c152] por bg-lm-olive si lo deseas */}
+      {/*   
       <button 
         onClick={handleSafeExit}
         title="Salir de esta página de inmediato"
         className="md:absolute right-0 top-0 bottom-0 w-full md:w-[320px] lg:w-[450px] bg-[#a6c152] md:rounded-l-[250px] flex items-center justify-center shadow-[-10px_0_20px_rgba(0,0,0,0.15)] z-20 cursor-pointer hover:bg-[#9cb64c] transition-all duration-300 group focus:outline-hidden focus:ring-4 focus:ring-red-500"
       >
         <div className="flex flex-col items-center mt-2 md:mt-0 md:ml-12">
-          {/* Drop-shadow para replicar el efecto de texto resaltado de la imagen */}
           <span className="text-white text-5xl lg:text-[4rem] italic font-bold leading-tight transform -skew-x-6 drop-shadow-lg group-hover:scale-105 transition-transform">
             Salida
           </span>
@@ -91,6 +91,7 @@ export default function Footer() {
           </span>
         </div>
       </button>
+      */}
 
     </footer>
   );
