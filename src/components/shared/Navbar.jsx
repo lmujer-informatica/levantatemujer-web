@@ -191,7 +191,7 @@ export default function Navbar() {
             </NavLink>
 
             <NavLink
-              to="/linea-ayuda"
+              to="/lineaAyuda"
               onClick={handleNavigation}
               className={({ isActive }) =>
                 `block px-3 py-2 rounded-md text-base font-medium ${
