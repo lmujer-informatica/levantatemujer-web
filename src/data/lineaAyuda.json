@@ -1,0 +1,77 @@
+{
+  "carrusel": [
+    {
+      "frase": "Carrusel de Frases",
+      "imagen": "/assets/linea-ayuda/carrusel-1.png"
+    },{
+      "frase": "frase 2",
+      "imagen": "/assets/linea-ayuda/carrusel-1.png"
+    }
+  ],
+  "contactos": [
+    {
+      "ciudad": "La Paz - El Alto",
+      "numero": "156"
+    },
+    {
+      "ciudad": "Oruro",
+      "numero": "800 10 8004"
+    },
+    {
+      "ciudad": "Potosí",
+      "numero": "800 10 8004"
+    },
+    {
+      "ciudad": "Cochabamba",
+      "numero": "71742126"
+    },
+    {
+      "ciudad": "Tarija",
+      "numero": "175"
+    },
+    {
+      "ciudad": "Chuquisaca",
+      "numero": "6453944"
+    },
+    {
+      "ciudad": "Pando",
+      "numero": "72042740"
+    },
+    {
+      "ciudad": "Beni",
+      "numero": "72042709"
+    },
+    {
+      "ciudad": "Santa Cruz",
+      "numero": "78183103"
+    },
+    {
+      "ciudad": "A nivel Nacional",
+      "numero": "110"
+    }
+  ],
+  "denuncias": [
+    {
+      "titulo": "Por Violencia",
+      "ley": "Ley 348",
+      "descripcion_ley": "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+      "imagen": "/assets/linea-ayuda/violencia.png",
+      "pasos": [
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi"
+      ]
+    },
+    {
+      "titulo": "Por Trata y Tráfico",
+      "ley": "Ley #",
+      "descripcion_ley": "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+      "imagen": "/assets/linea-ayuda/trata-trafico.png",
+      "pasos": [
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi",
+        "LLorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisq mauris mi"
+      ]
+    }
+  ]
+}
