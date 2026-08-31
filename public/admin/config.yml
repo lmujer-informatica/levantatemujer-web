@@ -116,7 +116,6 @@ collections:
         - label: "Ayuda - Horario"
           name: "ayudaHorario"
           widget: "string"
-
 # =========================
 # LÍNEA DE AYUDA
 # =========================
@@ -126,13 +125,12 @@ collections:
   files:
     - label: "Contenido de Línea de Ayuda"
       name: "contenidoLineaAyuda"
-      file: "src/data/lineaAyuda.json"
+      file: "src/data/lineaAyuda.json" # Asegúrate de que esta ruta sea 100% correcta
       fields:
 
         # =========================
         # CARRUSEL DE FRASES
         # =========================
-
         - label: "Carrusel de Frases"
           name: "carrusel"
           widget: "list"
@@ -148,7 +146,6 @@ collections:
         # =========================
         # NÚMEROS DE CONTACTO
         # =========================
-
         - label: "Números de Contacto"
           name: "contactos"
           widget: "list"
@@ -164,7 +161,6 @@ collections:
         # =========================
         # DENUNCIAS
         # =========================
-
         - label: "Denuncias"
           name: "denuncias"
           widget: "list"
@@ -186,13 +182,11 @@ collections:
               widget: "image"
 
             # =========================
-            # PASOS
+            # PASOS (CORREGIDO)
             # =========================
-
             - label: "Pasos"
               name: "pasos"
               widget: "list"
               field:
                 label: "Paso"
-                name: "paso"
-                widget: "text"
+                widget: "text" 
