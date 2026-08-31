@@ -117,9 +117,6 @@ collections:
           name: "ayudaHorario"
           widget: "string"
 
-
-
-
 # =========================
 # LÍNEA DE AYUDA
 # =========================
@@ -128,7 +125,7 @@ collections:
   label: "Página de Línea de Ayuda"
   files:
     - label: "Contenido de Línea de Ayuda"
-      name: "lineaAyuda"
+      name: "contenidoLineaAyuda"
       file: "src/data/lineaAyuda.json"
       fields:
 
@@ -189,7 +186,7 @@ collections:
               widget: "image"
 
             # =========================
-            # PASOS DE LA DENUNCIA
+            # PASOS
             # =========================
 
             - label: "Pasos"
