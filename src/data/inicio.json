@@ -11,20 +11,20 @@
   },
   "estadisticas": [
     {
-      "valor": "+5.000",
-      "etiqueta": "Mujeres Atendidas"
+      "valor": "6840",
+      "etiqueta": "Personas Capacitadas"
     },
     {
-      "valor": "+20",
-      "etiqueta": "Programas Activos"
+      "valor": "120",
+      "etiqueta": "Personas Atendidas"
     },
     {
-      "valor": "15",
-      "etiqueta": "Años de Experiencia"
+      "valor": "20110",
+      "etiqueta": "Personas Sensibilizadas"
     },
     {
-      "valor": "+1.200",
-      "etiqueta": "Capacitaciones"
+      "valor": "+200",
+      "etiqueta": "Personas y Organizaciones Voluntarias"
     }
   ],
   "ayudaTelefono": "800 123 456",
