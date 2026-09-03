@@ -6,26 +6,28 @@ import logo from "../../imagenes/logo.png";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [programasOpen, setProgramasOpen] = useState(false);
+    const [actividadOpen, setActividadOpen] = useState(false);
     const programasRef = useRef(null);
+    const actividadRef = useRef(null);
 
     // Close dropdown when clicking outside
     useEffect(() => {
         function handleClickOutside(event) {
-            if (
-                programasRef.current &&
-                !programasRef.current.contains(event.target)
-            ) {
+            if (programasRef.current && !programasRef.current.contains(event.target)) {
                 setProgramasOpen(false);
+            }
+            if (actividadRef.current && !actividadRef.current.contains(event.target)) {
+                setActividadOpen(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
-        return () =>
-            document.removeEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     const handleNavigation = () => {
         setIsOpen(false);
         setProgramasOpen(false);
+        setActividadOpen(false);
     };
 
     return (
@@ -126,10 +128,34 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        <button className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors">
-                            Actividad
-                            <ChevronDown className="w-4 h-4 fill-current" />
-                        </button>
+                        <div className="relative flex items-center" ref={actividadRef}>
+                            <button
+                                onClick={() => setActividadOpen(!actividadOpen)}
+                                className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors h-full"
+                            >
+                                Actividad
+                                <ChevronDown
+                                    className={`w-4 h-4 fill-current transition-transform ${actividadOpen ? "rotate-180" : ""}`}
+                                />
+                            </button>
+                            {actividadOpen && (
+                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
+                                    <NavLink
+                                        to="/noticias"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `px-4 py-2 text-sm transition-colors ${
+                                                isActive
+                                                    ? "bg-lm-cyan text-white"
+                                                    : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
+                                            }`
+                                        }
+                                    >
+                                        Noticias
+                                    </NavLink>
+                                </div>
+                            )}
+                        </div>
 
                         <NavLink
                             to="/contacto"
@@ -251,19 +277,34 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        <NavLink
-                            to="/actividad"
-                            onClick={handleNavigation}
-                            className={({ isActive }) =>
-                                `block px-3 py-2 rounded-md text-base font-medium ${
-                                    isActive
-                                        ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan"
-                                }`
-                            }
-                        >
-                            Actividad
-                        </NavLink>
+                        <div className="space-y-1">
+                            <button
+                                onClick={() => setActividadOpen(!actividadOpen)}
+                                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-lm-cyan"
+                            >
+                                Actividad
+                                <ChevronDown
+                                    className={`w-4 h-4 transition-transform ${actividadOpen ? "rotate-180" : ""}`}
+                                />
+                            </button>
+                            {actividadOpen && (
+                                <div className="pl-6 space-y-1">
+                                    <NavLink
+                                        to="/noticias"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                                isActive
+                                                    ? "bg-lm-cyan text-white"
+                                                    : "text-lm-cyan hover:bg-gray-50"
+                                            }`
+                                        }
+                                    >
+                                        Noticias
+                                    </NavLink>
+                                </div>
+                            )}
+                        </div>
 
                         <NavLink
                             to="/contacto"

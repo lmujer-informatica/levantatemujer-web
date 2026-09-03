@@ -9,6 +9,7 @@ import Inicio from "./pages/inicio/Inicio";
 import QuienesSomos from "./pages/quienesSomos/quienesSomos";
 import LineaAyuda from "./pages/lineaAyuda/lineaAyuda";
 import ProgramaI from "./pages/programaI/ProgramaI";
+import Noticias from "./pages/actividad/noticias/Noticias";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                             </div>
                         }
                     />
+                    <Route path="/noticias" element={<Noticias />} />
                 </Routes>
 
                 <Footer />
