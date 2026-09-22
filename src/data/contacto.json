@@ -1,0 +1,77 @@
+{
+    "heroFrases": ["Contáctanos", "Estamos para Ti", "Juntas Avanzamos"],
+    "lineaAyudaTexto": "Línea de Ayuda",
+    "contactoGeneral": {
+        "titulo": "Contacto General",
+        "mensajeImagen": "Escríbenos, juntos construimos soluciones.",
+        "imagen": ""
+    },
+    "postulacion": {
+        "titulo": "Postulación de profesionales",
+        "subtitulo": "Tu interés nos inspira, revisaremos tu perfil.",
+        "textoDescarga": "Descarga nuestro modelo de CV",
+        "imagen": ""
+    },
+    "sedes": [
+        {
+            "nombre": "La Paz",
+            "telefono": "+591 60000000",
+            "correo": "levantate@gmail.com",
+            "direccion": "Zona, calle, número",
+            "horario": "8:00 - 20:00",
+            "lat": -16.4955,
+            "lng": -68.1336,
+            "facebook": "#",
+            "instagram": "#",
+            "tiktok": "#"
+        },
+        {
+            "nombre": "El Alto",
+            "telefono": "+591 60000000",
+            "correo": "levantate@gmail.com",
+            "direccion": "Zona, calle, número",
+            "horario": "8:00 - 20:00",
+            "lat": -16.51,
+            "lng": -68.1625,
+            "facebook": "#",
+            "instagram": "#",
+            "tiktok": "#"
+        },
+        {
+            "nombre": "Oruro",
+            "telefono": "+591 60000000",
+            "correo": "levantate@gmail.com",
+            "direccion": "Zona, calle, número",
+            "horario": "8:00 - 20:00",
+            "lat": -17.9647,
+            "lng": -67.1063,
+            "facebook": "#",
+            "instagram": "#",
+            "tiktok": "#"
+        },
+        {
+            "nombre": "Santa Cruz",
+            "telefono": "+591 60000000",
+            "correo": "levantate@gmail.com",
+            "direccion": "Zona, calle, número",
+            "horario": "8:00 - 20:00",
+            "lat": -17.7833,
+            "lng": -63.1821,
+            "facebook": "#",
+            "instagram": "#",
+            "tiktok": "#"
+        },
+        {
+            "nombre": "Sucre",
+            "telefono": "+591 60000000",
+            "correo": "levantate@gmail.com",
+            "direccion": "Zona, calle, número",
+            "horario": "8:00 - 20:00",
+            "lat": -19.0353,
+            "lng": -65.2592,
+            "facebook": "#",
+            "instagram": "#",
+            "tiktok": "#"
+        }
+    ]
+}

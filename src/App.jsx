@@ -11,6 +11,7 @@ import LineaAyuda from "./pages/lineaAyuda/lineaAyuda";
 import ProgramaI from "./pages/programaI/ProgramaI";
 import Noticias from "./pages/actividad/noticias/Noticias";
 import Eventos from "./pages/eventos/Eventos";
+import Contacto from "./pages/contacto/Contacto";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     />
                     <Route path="/noticias" element={<Noticias />} />
                     <Route path="/eventos" element={<Eventos />} />
+                    <Route path="/contacto" element={<Contacto />} />
                 </Routes>
 
                 <Footer />

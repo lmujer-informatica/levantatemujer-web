@@ -1,186 +1,289 @@
 backend:
-  name: github
-  repo: lmujer-informatica/levantatemujer-web
-  branch: main
-  base_url: https://levantatemujer-web.vercel.app
-  auth_endpoint: /api/auth
-  squash_merges: true
-  commit_messages:
-    create: 'Create {{collection}} "{{slug}}"'
-    update: 'Update {{collection}} "{{slug}}"'
-    delete: 'Delete {{collection}} "{{slug}}"'
+    name: github
+    repo: lmujer-informatica/levantatemujer-web
+    branch: main
+    base_url: https://levantatemujer-web.vercel.app
+    auth_endpoint: /api/auth
+    squash_merges: true
+    commit_messages:
+        create: 'Create {{collection}} "{{slug}}"'
+        update: 'Update {{collection}} "{{slug}}"'
+        delete: 'Delete {{collection}} "{{slug}}"'
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
 media_library:
-  name: r2-media
+    name: r2-media
 
 collections:
-- name: "inicio"
-  label: "Página de Inicio"
-  files:
-    - label: "Contenido de Inicio"
-      name: "inicio"
-      file: "src/data/inicio.json"
-      fields:
+    - name: "inicio"
+      label: "Página de Inicio"
+      files:
+          - label: "Contenido de Inicio"
+            name: "inicio"
+            file: "src/data/inicio.json"
+            fields:
+                # =========================
+                # HERO
+                # =========================
 
-        # =========================
-        # HERO
-        # =========================
+                - label: "Hero - Frases"
+                  name: "heroFrases"
+                  widget: "list"
+                  field:
+                      label: "Frase"
+                      name: "frase"
+                      widget: "string"
 
-        - label: "Hero - Frases"
-          name: "heroFrases"
-          widget: "list"
-          field:
-            label: "Frase"
-            name: "frase"
-            widget: "string"
+                - label: "Hero - Subtítulo"
+                  name: "heroSubtitulo"
+                  widget: "text"
 
-        - label: "Hero - Subtítulo"
-          name: "heroSubtitulo"
-          widget: "text"
+                - label: "Hero - Imágenes"
+                  name: "heroImagenes"
+                  widget: "list"
+                  field:
+                      label: "Imagen"
+                      name: "imagen"
+                      widget: "image"
 
-        - label: "Hero - Imágenes"
-          name: "heroImagenes"
-          widget: "list"
-          field:
-            label: "Imagen"
-            name: "imagen"
-            widget: "image"
+                # =========================
+                # ESTADÍSTICAS
+                # =========================
 
-        # =========================
-        # ESTADÍSTICAS
-        # =========================
+                - label: "Nuestros Alcances"
+                  name: "estadisticas"
+                  widget: "list"
+                  fields:
+                      - label: "Valor"
+                        name: "valor"
+                        widget: "string"
 
-        - label: "Nuestros Alcances"
-          name: "estadisticas"
-          widget: "list"
-          fields:
-            - label: "Valor"
-              name: "valor"
-              widget: "string"
+                      - label: "Etiqueta"
+                        name: "etiqueta"
+                        widget: "string"
 
-            - label: "Etiqueta"
-              name: "etiqueta"
-              widget: "string"
+                # =========================
+                # PROGRAMAS PRIORITARIOS
+                # =========================
 
-        # =========================
-        # PROGRAMAS PRIORITARIOS
-        # =========================
+                - label: "Programas Prioritarios"
+                  name: "programas"
+                  widget: "list"
+                  fields:
+                      - label: "Nombre"
+                        name: "nombre"
+                        widget: "string"
 
-        - label: "Programas Prioritarios"
-          name: "programas"
-          widget: "list"
-          fields:
-            - label: "Nombre"
-              name: "nombre"
-              widget: "string"
+                      - label: "Descripción"
+                        name: "descripcion"
+                        widget: "text"
 
-            - label: "Descripción"
-              name: "descripcion"
-              widget: "text"
+                      - label: "Imagen"
+                        name: "imagen"
+                        widget: "image"
 
-            - label: "Imagen"
-              name: "imagen"
-              widget: "image"
+                # =========================
+                # LÍNEA DE AYUDA
+                # =========================
 
-        # =========================
-        # LÍNEA DE AYUDA
-        # =========================
+                - label: "Línea de Ayuda"
+                  name: "lineaAyuda"
+                  widget: "object"
+                  fields:
+                      - label: "Mensaje"
+                        name: "mensaje"
+                        widget: "string"
 
-        - label: "Línea de Ayuda"
-          name: "lineaAyuda"
-          widget: "object"
-          fields:
-            - label: "Mensaje"
-              name: "mensaje"
-              widget: "string"
+                      - label: "Imagen"
+                        name: "imagen"
+                        widget: "image"
 
-            - label: "Imagen"
-              name: "imagen"
-              widget: "image"
+                # =========================
+                # INFORMACIÓN DE AYUDA
+                # =========================
 
-        # =========================
-        # INFORMACIÓN DE AYUDA
-        # =========================
+                - label: "Ayuda - Título"
+                  name: "ayudaTitulo"
+                  widget: "string"
 
-        - label: "Ayuda - Título"
-          name: "ayudaTitulo"
-          widget: "string"
+                - label: "Ayuda - Teléfono"
+                  name: "ayudaTelefono"
+                  widget: "string"
 
-        - label: "Ayuda - Teléfono"
-          name: "ayudaTelefono"
-          widget: "string"
+                - label: "Ayuda - Horario"
+                  name: "ayudaHorario"
+                  widget: "string"
 
-        - label: "Ayuda - Horario"
-          name: "ayudaHorario"
-          widget: "string"
+    # =========================
+    # LÍNEA DE AYUDA
+    # =========================
 
+    - name: "lineaAyuda"
+      label: "Página de Línea de Ayuda"
+      files:
+          - label: "Contenido de Línea de Ayuda"
+            name: "contenidoLineaAyuda"
+            file: "src/data/lineaAyuda.json"
+            fields:
+                # =========================
+                # CARRUSEL
+                # =========================
+                - label: "Carrusel"
+                  name: "carrusel"
+                  widget: "list"
+                  fields:
+                      - label: "Frase"
+                        name: "frase"
+                        widget: "string"
+                      - label: "Imagen"
+                        name: "imagen"
+                        widget: "image"
 
-# =========================
-# LÍNEA DE AYUDA
-# =========================
+                # =========================
+                # CONTACTOS
+                # =========================
+                - label: "Contactos"
+                  name: "contactos"
+                  widget: "list"
+                  fields:
+                      - label: "Ciudad"
+                        name: "ciudad"
+                        widget: "string"
+                      - label: "Número"
+                        name: "numero"
+                        widget: "string"
 
-- name: "lineaAyuda"
-  label: "Página de Línea de Ayuda"
-  files:
-    - label: "Contenido de Línea de Ayuda"
-      name: "contenidoLineaAyuda"
-      file: "src/data/lineaAyuda.json"
-      fields:
+                # =========================
+                # DENUNCIAS
+                # =========================
+                - label: "Denuncias"
+                  name: "denuncias"
+                  widget: "list"
+                  fields:
+                      - label: "Título"
+                        name: "titulo"
+                        widget: "string"
+                      - label: "Ley"
+                        name: "ley"
+                        widget: "string"
+                      - label: "Descripción de la Ley"
+                        name: "descripcion_ley"
+                        widget: "text"
+                      - label: "Imagen"
+                        name: "imagen"
+                        widget: "image"
+                      - label: "Pasos"
+                        name: "pasos"
+                        widget: "list"
+                        field:
+                            label: "Paso"
+                            name: "paso"
+                            widget: "text"
 
-        # =========================
-        # CARRUSEL
-        # =========================
-        - label: "Carrusel"
-          name: "carrusel"
-          widget: "list"
-          fields:
-            - label: "Frase"
-              name: "frase"
-              widget: "string"
-            - label: "Imagen"
-              name: "imagen"
-              widget: "image"
-
-        # =========================
-        # CONTACTOS
-        # =========================
-        - label: "Contactos"
-          name: "contactos"
-          widget: "list"
-          fields:
-            - label: "Ciudad"
-              name: "ciudad"
-              widget: "string"
-            - label: "Número"
-              name: "numero"
-              widget: "string"
-
-        # =========================
-        # DENUNCIAS
-        # =========================
-        - label: "Denuncias"
-          name: "denuncias"
-          widget: "list"
-          fields:
-            - label: "Título"
-              name: "titulo"
-              widget: "string"
-            - label: "Ley"
-              name: "ley"
-              widget: "string"
-            - label: "Descripción de la Ley"
-              name: "descripcion_ley"
-              widget: "text"
-            - label: "Imagen"
-              name: "imagen"
-              widget: "image"
-            - label: "Pasos"
-              name: "pasos"
-              widget: "list"
-              field:
-                label: "Paso"
-                name: "paso"
-                widget: "text"
+    # =========================
+    # CONTACTO
+    # =========================
+    - name: "contacto"
+      label: "Página de Contacto"
+      files:
+          - label: "Contenido de Contacto"
+            name: "contenidoContacto"
+            file: "src/data/contacto.json"
+            fields:
+                - label: "Frases Hero"
+                  name: "heroFrases"
+                  widget: "list"
+                  field: { label: "Frase", name: "frase", widget: "string" }
+                - label: "Texto Barra Línea de Ayuda"
+                  name: "lineaAyudaTexto"
+                  widget: "string"
+                - label: "Contacto General"
+                  name: "contactoGeneral"
+                  widget: "object"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Mensaje Imagen",
+                            name: "mensajeImagen",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Imagen",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
+                - label: "Postulación de Profesionales"
+                  name: "postulacion"
+                  widget: "object"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Subtítulo",
+                            name: "subtitulo",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Texto Descarga CV",
+                            name: "textoDescarga",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Imagen",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
+                - label: "Sedes"
+                  name: "sedes"
+                  widget: "list"
+                  fields:
+                      - {
+                            label: "Nombre Sede",
+                            name: "nombre",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Teléfono",
+                            name: "telefono",
+                            widget: "string",
+                        }
+                      - { label: "Correo", name: "correo", widget: "string" }
+                      - {
+                            label: "Dirección",
+                            name: "direccion",
+                            widget: "string",
+                        }
+                      - { label: "Horario", name: "horario", widget: "string" }
+                      - {
+                            label: "Latitud",
+                            name: "lat",
+                            widget: "number",
+                            value_type: "float",
+                        }
+                      - {
+                            label: "Longitud",
+                            name: "lng",
+                            widget: "number",
+                            value_type: "float",
+                        }
+                      - {
+                            label: "Facebook URL",
+                            name: "facebook",
+                            widget: "string",
+                            required: false,
+                        }
+                      - {
+                            label: "Instagram URL",
+                            name: "instagram",
+                            widget: "string",
+                            required: false,
+                        }
+                      - {
+                            label: "TikTok URL",
+                            name: "tiktok",
+                            widget: "string",
+                            required: false,
+                        }
