@@ -1,0 +1,55 @@
+{
+    "heroFrases": [
+        "Juntas Transformamos",
+        "Eventos que Inspiran",
+        "Conectando Mujeres"
+    ],
+    "eventoDestacado": {
+        "fecha": "2026-09-25",
+        "titulo": "Taller de Empoderamiento Económico",
+        "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
+        "lugar": "La Paz - Centro Comunitario",
+        "hora": "09:00 - 12:00",
+        "imagen": "",
+        "dirigidoA": [
+            "Mujeres emprendedoras",
+            "Jóvenes universitarias",
+            "Líderes comunitarias",
+            "Madres cabeza de hogar",
+            "Voluntarias"
+        ]
+    },
+    "eventosCalendario": [
+        {
+            "fecha": "2026-09-07",
+            "nombre": "Taller Legal",
+            "color": "#2C8E9E"
+        },
+        {
+            "fecha": "2026-09-25",
+            "nombre": "Empoderamiento",
+            "color": "#93A635"
+        },
+        {
+            "fecha": "2026-09-29",
+            "nombre": "Charla Salud",
+            "color": "#2C8E9E"
+        }
+    ],
+    "tarjetasEventos": [
+        {
+            "fecha": "2026-09-25",
+            "titulo": "Taller de Empoderamiento Económico",
+            "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
+            "imagen": "",
+            "colorTema": "#2C8E9E"
+        },
+        {
+            "fecha": "2026-10-05",
+            "titulo": "Foro de Liderazgo Femenino",
+            "descripcion": "Encuentro de mujeres líderes para compartir experiencias, desafíos y estrategias de liderazgo en distintos ámbitos de la sociedad.",
+            "imagen": "",
+            "colorTema": "#93A635"
+        }
+    ]
+}

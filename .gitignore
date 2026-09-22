@@ -14,6 +14,8 @@ graphify-out/
 PRODUCT.md
 .opencode/
 AGENTS.md
+CLAUDE.md
+CONTEXT.md
 jr/
 # impeccable-ignore-start
 # Ephemeral output, runtime state, and per-dev overrides.

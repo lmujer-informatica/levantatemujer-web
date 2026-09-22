@@ -13,15 +13,22 @@ export default function Navbar() {
     // Close dropdown when clicking outside
     useEffect(() => {
         function handleClickOutside(event) {
-            if (programasRef.current && !programasRef.current.contains(event.target)) {
+            if (
+                programasRef.current &&
+                !programasRef.current.contains(event.target)
+            ) {
                 setProgramasOpen(false);
             }
-            if (actividadRef.current && !actividadRef.current.contains(event.target)) {
+            if (
+                actividadRef.current &&
+                !actividadRef.current.contains(event.target)
+            ) {
                 setActividadOpen(false);
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     const handleNavigation = () => {
@@ -128,7 +135,10 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        <div className="relative flex items-center" ref={actividadRef}>
+                        <div
+                            className="relative flex items-center"
+                            ref={actividadRef}
+                        >
                             <button
                                 onClick={() => setActividadOpen(!actividadOpen)}
                                 className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors h-full"
@@ -152,6 +162,19 @@ export default function Navbar() {
                                         }
                                     >
                                         Noticias
+                                    </NavLink>
+                                    <NavLink
+                                        to="/eventos"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `px-4 py-2 text-sm transition-colors ${
+                                                isActive
+                                                    ? "bg-lm-cyan text-white"
+                                                    : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
+                                            }`
+                                        }
+                                    >
+                                        Eventos
                                     </NavLink>
                                 </div>
                             )}
@@ -301,6 +324,19 @@ export default function Navbar() {
                                         }
                                     >
                                         Noticias
+                                    </NavLink>
+                                    <NavLink
+                                        to="/eventos"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                                isActive
+                                                    ? "bg-lm-cyan text-white"
+                                                    : "text-lm-cyan hover:bg-gray-50"
+                                            }`
+                                        }
+                                    >
+                                        Eventos
                                     </NavLink>
                                 </div>
                             )}
