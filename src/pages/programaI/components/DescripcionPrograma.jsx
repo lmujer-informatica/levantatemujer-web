@@ -1,6 +1,6 @@
 import React from "react";
-import serviciosIcon from "../../../imagenes/servicios.png";
-import testimoniosIcon from "../../../imagenes/testimonios.png";
+import serviciosIcon from "../../../imagenes/programaI/servicios.png";
+import testimoniosIcon from "../../../imagenes/programaI/testimonios.png";
 
 export default function DescripcionPrograma() {
     const handleTestimoniosClick = () => {
@@ -54,8 +54,8 @@ export default function DescripcionPrograma() {
 
                 {/* Columna Derecha: Contenedor curvado pegado al borde derecho de la página */}
                 <div className="w-full lg:w-[440px] xl:w-[500px] 2xl:w-[540px] shrink-0 flex justify-end">
-                    <div className="w-full bg-[#1B7B94] rounded-l-[80px] sm:rounded-l-[110px] lg:rounded-l-[140px] rounded-r-none py-8 sm:py-10 pl-6 sm:pl-8 lg:pl-12 pr-0 flex flex-col items-stretch justify-center gap-6 shadow-[-10px_6px_25px_rgba(0,0,0,0.08)]">
-                        {/* Botón Servicios pegado al borde derecho */}
+                    <div className="w-full bg-[#1B7B94] rounded-l-[80px] sm:rounded-l-[110px] lg:rounded-l-[140px] rounded-r-none py-8 sm:py-10 pl-6 sm:pl-8 lg:pl-12 pr-0 flex flex-col items-end justify-center gap-6 shadow-[-10px_6px_25px_rgba(0,0,0,0.08)]">
+                        {/* Botón Servicios (ligeramente más corto horizontalmente) */}
                         <div
                             role="button"
                             tabIndex={0}
@@ -63,7 +63,7 @@ export default function DescripcionPrograma() {
                             onKeyDown={(e) =>
                                 e.key === "Enter" && handleServiciosClick()
                             }
-                            className="w-full bg-white rounded-l-full rounded-r-none p-2 sm:p-2.5 pl-3 sm:pl-4 pr-6 sm:pr-8 flex items-center gap-3 sm:gap-5 shadow-md hover:bg-gray-50 hover:shadow-lg transition-all duration-200 cursor-pointer select-none"
+                            className="w-[86%] sm:w-[88%] bg-white rounded-l-full rounded-r-none p-2 sm:p-2.5 pl-3 sm:pl-4 pr-6 sm:pr-8 flex items-center gap-3 sm:gap-5 shadow-md hover:bg-gray-50 hover:shadow-lg transition-all duration-200 cursor-pointer select-none"
                         >
                             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#A2C738] flex items-center justify-center p-3 sm:p-3.5 shrink-0 shadow-xs">
                                 <img
@@ -77,7 +77,7 @@ export default function DescripcionPrograma() {
                             </span>
                         </div>
 
-                        {/* Botón Testimonios pegado al borde derecho */}
+                        {/* Botón Testimonios (ligeramente más largo, más cerca del centro) */}
                         <div
                             role="button"
                             tabIndex={0}

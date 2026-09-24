@@ -59,7 +59,7 @@ export default function ActividadesPrograma() {
                 {/* Section title */}
                 <div className="bg-lm-olive py-2 px-4 mb-6 flex items-center justify-center">
                     <h2 className="italic font-medium text-[#E3FFF8] text-2xl md:text-3xl tracking-wide">
-                        ACTIVIDAES
+                        ACTIVIDADES
                     </h2>
                 </div>
 

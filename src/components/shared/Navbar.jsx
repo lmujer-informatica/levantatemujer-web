@@ -116,7 +116,7 @@ export default function Navbar() {
                                             }`
                                         }
                                     >
-                                        Programa I
+                                        Mujeres Libres de Violencia
                                     </NavLink>
                                     <NavLink
                                         to="/programaII"
@@ -129,7 +129,7 @@ export default function Navbar() {
                                             }`
                                         }
                                     >
-                                        Programa II
+                                        Respuesta a la Trata e Inmigración
                                     </NavLink>
                                 </div>
                             )}

@@ -1,29 +1,35 @@
-import React from 'react';
+import React from "react";
+import mujeresLibresImg from "../../../imagenes/programaI/mujeres-libres.jpeg";
 
 export default function BannerPrograma() {
-  return (
-    <section className="relative w-full h-[220px] md:h-[280px] overflow-hidden bg-gray-400 flex items-center justify-center">
-      {/* Background image placeholder — replace src when real image is available */}
-      <div className="absolute inset-0 bg-gray-400 flex items-center justify-center">
-        <svg className="w-24 h-24 text-white opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-          <rect x="3" y="3" width="18" height="18" rx="2" />
-          <circle cx="8.5" cy="8.5" r="1.5" />
-          <polyline points="21 15 16 10 5 21" />
-        </svg>
-      </div>
+    return (
+        <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-white flex items-center justify-center">
+            {/* Background image container with real photo */}
+            <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[300px] sm:w-[420px] md:w-[520px] h-[260px] sm:h-[320px] md:h-[360px] rounded-2xl overflow-hidden relative shadow-md">
+                    <img
+                        src={mujeresLibresImg}
+                        alt="Mujeres Libres de Violencia"
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Subtle overlay for text contrast */}
+                    <div className="absolute inset-0 bg-black/25" />
+                </div>
+            </div>
 
-      {/* Green/olive overlay with italic title */}
-      <div className="absolute inset-0 flex items-center justify-start pl-12 md:pl-24">
-        <div className="relative">
-          {/* Olive accent bar behind text */}
-          <div className="absolute -inset-x-4 -inset-y-2 bg-lm-olive/80 -skew-x-2" />
-          <h1 className="relative italic font-medium text-[#E3FFF8] text-2xl md:text-4xl lg:text-5xl z-10 px-2">
-            Mujeres Libres de Violencia
-          </h1>
-          {/* Underline accent */}
-          <div className="relative h-[3px] bg-[#E3FFF8]/70 mt-1 w-full" />
-        </div>
-      </div>
-    </section>
-  );
+            {/* Glow effect and title */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative flex flex-col items-center justify-center">
+                    {/* Olive glow background */}
+                    <div className="absolute inset-0 bg-[#d8eb96]/80 blur-2xl rounded-full scale-150" />
+
+                    <h1 className="relative italic font-medium text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl z-10 px-4 drop-shadow-md text-center">
+                        Mujeres Libres de Violencia
+                    </h1>
+                    {/* Underline accent */}
+                    <div className="relative h-[2px] md:h-[3px] bg-white mt-2 w-[80%] md:w-[110%] z-10 shadow-xs" />
+                </div>
+            </div>
+        </section>
+    );
 }

@@ -18,12 +18,12 @@ export default function SeccionHero() {
     }, [frases.length]);
 
     return (
-        <div className="relative w-full h-[500px] overflow-hidden bg-lm-bg flex">
+        <div className="relative w-full min-h-[500px] md:h-[500px] overflow-hidden bg-lm-bg flex">
             {/* Mitad izquierda */}
-            <div className="w-full md:w-[65%] h-full bg-lm-olive flex flex-col justify-center relative z-10 pl-6 sm:pl-8 md:pl-[10%] pr-4">
+            <div className="w-full md:w-[60%] lg:w-[62%] h-full bg-lm-olive flex flex-col justify-center relative z-10 pl-6 sm:pl-8 md:pl-[8%] lg:pl-[10%] pr-4 py-8 md:py-0">
                 <h1
                     key={fraseActual}
-                    className="hero-text-in text-white text-4xl sm:text-5xl md:text-7xl font-normal leading-tight z-20 relative max-w-[95%] md:max-w-[75%]"
+                    className="hero-text-in text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-tight z-20 relative max-w-[95%] md:max-w-[85%]"
                 >
                     {frases.length > 0
                         ? frases[fraseActual]
@@ -34,29 +34,29 @@ export default function SeccionHero() {
                 <div className="flex md:hidden flex-wrap items-center gap-2 mt-6 z-20">
                     <NavLink
                         to="/quienesSomos"
-                        className="px-3.5 py-2 bg-white text-lm-navy text-xs font-semibold rounded-full shadow-md hover:bg-gray-100 active:scale-95 transition-transform"
+                        className="px-3.5 py-1.5 bg-white text-lm-navy text-xs font-semibold rounded-full shadow-md hover:bg-gray-100 active:scale-95 transition-transform"
                     >
                         Quiénes Somos
                     </NavLink>
                     <NavLink
                         to="/programaI"
-                        className="px-3.5 py-2 bg-lm-cyan text-white text-xs font-semibold rounded-full shadow-md hover:bg-lm-cyan/90 active:scale-95 transition-transform"
+                        className="px-3.5 py-1.5 bg-lm-cyan text-white text-xs font-semibold rounded-full shadow-md hover:bg-lm-cyan/90 active:scale-95 transition-transform"
                     >
-                        Programa I
+                        Mujeres Libres de Violencia
                     </NavLink>
                     <NavLink
                         to="/programaII"
-                        className="px-3.5 py-2 bg-lm-cyan text-white text-xs font-semibold rounded-full shadow-md hover:bg-lm-cyan/90 active:scale-95 transition-transform"
+                        className="px-3.5 py-1.5 bg-lm-cyan text-white text-xs font-semibold rounded-full shadow-md hover:bg-lm-cyan/90 active:scale-95 transition-transform"
                     >
-                        Programa II
+                        Respuesta a la Trata e Inmigración
                     </NavLink>
                 </div>
             </div>
 
             {/* Mitad derecha */}
-            <div className="hidden md:block absolute right-0 top-0 h-full w-[45%] z-20">
-                <div className="w-full h-full bg-[#EAF7FA] rounded-l-[150px] flex items-center justify-center relative p-8 lg:p-12 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]">
-                    <div className="w-[85%] lg:w-[80%] h-[65%] lg:h-[68%] bg-gray-400 rounded-xl relative flex flex-col items-center justify-center overflow-hidden mb-6">
+            <div className="hidden md:block absolute right-0 top-0 h-full w-[45%] lg:w-[46%] xl:w-[45%] z-20">
+                <div className="w-full h-full bg-[#EAF7FA] rounded-l-[150px] flex items-center justify-center relative p-6 lg:p-8 xl:p-10 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]">
+                    <div className="w-[85%] lg:w-[80%] h-[55%] lg:h-[58%] bg-gray-400 rounded-xl relative flex flex-col items-center justify-center overflow-hidden mb-16 lg:mb-14">
                         {inicioData.heroImagenes &&
                         inicioData.heroImagenes.length > 0 ? (
                             <img
@@ -89,26 +89,28 @@ export default function SeccionHero() {
                         )}
                     </div>
 
-                    {/* 3 Botones que reemplazan a "Ver Programas" */}
-                    <div className="absolute bottom-6 lg:bottom-8 left-0 right-0 px-4 flex items-center justify-center gap-2 lg:gap-3 z-30">
-                        <NavLink
-                            to="/quienesSomos"
-                            className="px-3 py-2 lg:px-4 lg:py-2.5 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
-                        >
-                            Quiénes Somos
-                        </NavLink>
-                        <NavLink
-                            to="/programaI"
-                            className="px-3 py-2 lg:px-4 lg:py-2.5 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
-                        >
-                            Programa I
-                        </NavLink>
-                        <NavLink
-                            to="/programaII"
-                            className="px-3 py-2 lg:px-4 lg:py-2.5 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
-                        >
-                            Programa II
-                        </NavLink>
+                    {/* 3 Botones ajustados al tamaño de los nuevos textos */}
+                    <div className="absolute bottom-3 lg:bottom-5 left-0 right-0 px-3 lg:px-6 flex flex-col items-center justify-center gap-1.5 lg:gap-2 z-30">
+                        <div className="flex flex-wrap items-center justify-center gap-1.5 lg:gap-2 w-full max-w-[460px]">
+                            <NavLink
+                                to="/quienesSomos"
+                                className="px-3 py-1.5 lg:px-4 lg:py-2 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
+                            >
+                                Quiénes Somos
+                            </NavLink>
+                            <NavLink
+                                to="/programaI"
+                                className="px-3 py-1.5 lg:px-4 lg:py-2 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
+                            >
+                                Mujeres Libres de Violencia
+                            </NavLink>
+                            <NavLink
+                                to="/programaII"
+                                className="px-3 py-1.5 lg:px-4 lg:py-2 bg-lm-cyan text-white text-xs lg:text-sm font-medium rounded-full shadow-md hover:bg-[#0093b4] transition-all duration-200 hover:scale-105 text-center whitespace-nowrap cursor-pointer"
+                            >
+                                Respuesta a la Trata e Inmigración
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
             </div>
