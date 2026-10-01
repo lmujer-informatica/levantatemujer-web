@@ -18,9 +18,9 @@ export default function SeccionHero() {
     }, [frases.length]);
 
     return (
-        <div className="relative w-full min-h-[500px] md:h-[500px] overflow-hidden bg-lm-bg flex">
-            {/* Mitad izquierda */}
-            <div className="w-full md:w-[60%] lg:w-[62%] h-full bg-lm-olive flex flex-col justify-center relative z-10 pl-6 sm:pl-8 md:pl-[8%] lg:pl-[10%] pr-4 py-8 md:py-0">
+        <div className="relative w-full h-auto md:h-[500px] overflow-hidden bg-lm-bg flex flex-col md:block">
+            {/* Mitad izquierda (Contenedor Verde) */}
+            <div className="w-full md:w-[60%] lg:w-[62%] h-auto md:h-full min-h-[300px] md:min-h-0 bg-lm-olive flex flex-col justify-center relative z-10 pl-6 sm:pl-8 md:pl-[8%] lg:pl-[10%] pr-4 py-10 md:py-0">
                 <h1
                     key={fraseActual}
                     className="hero-text-in text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-tight z-20 relative max-w-[95%] md:max-w-[85%]"
@@ -31,7 +31,7 @@ export default function SeccionHero() {
                 </h1>
 
                 {/* Botones de navegación en pantallas móviles */}
-                <div className="flex md:hidden flex-wrap items-center gap-2 mt-6 z-20">
+                <div className="flex md:hidden flex-wrap items-center gap-2 mt-8 z-20">
                     <NavLink
                         to="/quienesSomos"
                         className="px-3.5 py-1.5 bg-white text-lm-navy text-xs font-semibold rounded-full shadow-md hover:bg-gray-100 active:scale-95 transition-transform"
@@ -53,10 +53,12 @@ export default function SeccionHero() {
                 </div>
             </div>
 
-            {/* Mitad derecha */}
-            <div className="hidden md:block absolute right-0 top-0 h-full w-[45%] lg:w-[46%] xl:w-[45%] z-20">
-                <div className="w-full h-full bg-[#EAF7FA] rounded-l-[150px] flex items-center justify-center relative p-6 lg:p-8 xl:p-10 shadow-[-10px_0_30px_rgba(0,0,0,0.05)]">
-                    <div className="w-[85%] lg:w-[80%] h-[55%] lg:h-[58%] bg-gray-400 rounded-xl relative flex flex-col items-center justify-center overflow-hidden mb-16 lg:mb-14">
+            {/* Mitad derecha (Imagen y Botones Desktop) */}
+            <div className="w-full h-[250px] sm:h-[350px] md:h-full relative md:absolute md:right-0 md:top-0 md:w-[45%] lg:w-[46%] xl:w-[45%] z-20">
+                <div className="w-full h-full bg-[#EAF7FA] md:rounded-l-[150px] flex items-center justify-center relative md:p-6 lg:p-8 xl:p-10 md:shadow-[-10px_0_30px_rgba(0,0,0,0.05)]">
+                    
+                    {/* Contenedor de la Imagen */}
+                    <div className="w-full h-full md:w-[85%] lg:w-[80%] md:h-[55%] lg:h-[58%] bg-gray-400 md:rounded-xl relative flex flex-col items-center justify-center overflow-hidden md:mb-16 lg:mb-14">
                         {inicioData.heroImagenes &&
                         inicioData.heroImagenes.length > 0 ? (
                             <img
@@ -67,7 +69,7 @@ export default function SeccionHero() {
                         ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center text-white">
                                 <svg
-                                    className="w-48 h-48 opacity-80"
+                                    className="w-24 h-24 md:w-48 md:h-48 opacity-80"
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     stroke="currentColor"
@@ -89,8 +91,8 @@ export default function SeccionHero() {
                         )}
                     </div>
 
-                    {/* 3 Botones ajustados al tamaño de los nuevos textos */}
-                    <div className="absolute bottom-3 lg:bottom-5 left-0 right-0 px-3 lg:px-6 flex flex-col items-center justify-center gap-1.5 lg:gap-2 z-30">
+                    {/* 3 Botones para Desktop */}
+                    <div className="hidden md:flex absolute bottom-3 lg:bottom-5 left-0 right-0 px-3 lg:px-6 flex-col items-center justify-center gap-1.5 lg:gap-2 z-30">
                         <div className="flex flex-wrap items-center justify-center gap-1.5 lg:gap-2 w-full max-w-[460px]">
                             <NavLink
                                 to="/quienesSomos"
