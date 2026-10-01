@@ -23,17 +23,19 @@ export default function ProgramasPrioritarios() {
           {/* Tarjeta 1 (Puedes mapear esto si tienes más de 2) */}
           <TarjetaPrograma 
             tituloFrente={programas[0].nombre}
-            tituloAtras="Descripción"
+            tituloAtras="Mujeres Libres de Violencia"
             descripcion={programas[0].descripcion}
             imagenUrl={programas[0]?.imagen} 
+            linkUrl="/programaI"
           />
 
           {/* Tarjeta 2 */}
           <TarjetaPrograma 
             tituloFrente={programas[1].nombre}
-            tituloAtras="Descripción"
+            tituloAtras="Respuesta a la Trata e Inmigración"
             descripcion={programas[1].descripcion}
             imagenUrl={programas[1]?.imagen} 
+            linkUrl="/programaII"
           />
           
         </div>
