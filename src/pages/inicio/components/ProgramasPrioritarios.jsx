@@ -20,20 +20,20 @@ export default function ProgramasPrioritarios() {
         {/* Grid para las tarjetas flip */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-[900px]">
           
-          {/* Tarjeta 1 (Puedes mapear esto si tienes más de 2) */}
+          {/* Tarjeta 1 (Mujeres Libres de Violencia) */}
           <TarjetaPrograma 
-            tituloFrente={programas[0].nombre}
+            tituloFrente="Mujeres Libres de Violencia"
             tituloAtras="Mujeres Libres de Violencia"
-            descripcion={programas[0].descripcion}
+            descripcion="Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención."
             imagenUrl={programas[0]?.imagen} 
             linkUrl="/programaI"
           />
 
-          {/* Tarjeta 2 */}
+          {/* Tarjeta 2 (Respuesta a la Trata e Inmigración) */}
           <TarjetaPrograma 
-            tituloFrente={programas[1].nombre}
+            tituloFrente="Respuesta a la Trata e Inmigración"
             tituloAtras="Respuesta a la Trata e Inmigración"
-            descripcion={programas[1].descripcion}
+            descripcion="Promovemos la protección y el acompañamiento integral de personas en situación de trata y migración, brindando orientación, asistencia y herramientas para fortalecer sus derechos, seguridad y oportunidades de integración."
             imagenUrl={programas[1]?.imagen} 
             linkUrl="/programaII"
           />

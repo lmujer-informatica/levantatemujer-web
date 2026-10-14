@@ -1,20 +1,21 @@
 import React from "react";
+import programaIData from "../../../data/programaI.json";
 import mujeresLibresImg from "../../../imagenes/programaI/mujeres-libres.jpeg";
 
 export default function BannerPrograma() {
+    const imagenHero = programaIData?.heroImagen || mujeresLibresImg;
+
     return (
         <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-white flex items-center justify-center">
-            {/* Background image container with real photo */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[300px] sm:w-[420px] md:w-[520px] h-[260px] sm:h-[320px] md:h-[360px] rounded-2xl overflow-hidden relative shadow-md">
-                    <img
-                        src={mujeresLibresImg}
-                        alt="Mujeres Libres de Violencia"
-                        className="w-full h-full object-cover"
-                    />
-                    {/* Subtle overlay for text contrast */}
-                    <div className="absolute inset-0 bg-black/25" />
-                </div>
+            {/* Background image taking full container space */}
+            <div className="absolute inset-0 w-full h-full">
+                <img
+                    src={imagenHero}
+                    alt="Mujeres Libres de Violencia"
+                    className="w-full h-full object-cover"
+                />
+                {/* Overlay for contrast */}
+                <div className="absolute inset-0 bg-black/35" />
             </div>
 
             {/* Glow effect and title */}

@@ -1,30 +1,71 @@
 import React, { useState } from "react";
+import eventosData from "../../../data/eventos.json";
 
 const CITIES = ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre"];
 
-const ACTIVITIES = [
-    {
-        id: 1,
-        name: "Nombre",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
-        accentColor: "#15A4C9",
-    },
-    {
-        id: 2,
-        name: "Nombre",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
-        accentColor: "#BAcb5E",
-    },
-    {
-        id: 3,
-        name: "Nombre",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
-        accentColor: "#15A4C9",
-    },
-];
+/** Formateador de fecha a DD - MM - AAAA */
+function formatearFecha(fechaStr) {
+    if (!fechaStr) return "";
+    try {
+        const fecha = new Date(
+            fechaStr.includes("T") ? fechaStr : fechaStr + "T00:00:00"
+        );
+        if (isNaN(fecha.getTime())) return fechaStr;
+        const dd = String(fecha.getDate()).padStart(2, "0");
+        const mm = String(fecha.getMonth() + 1).padStart(2, "0");
+        const aaaa = fecha.getFullYear();
+        return `${dd} - ${mm} - ${aaaa}`;
+    } catch {
+        return fechaStr;
+    }
+}
+
+/** Obtiene las 3 actividades (eventos) con las fechas más próximas para la ciudad seleccionada */
+function obtenerActividadesProximas(eventos, ciudad) {
+    if (!Array.isArray(eventos)) return [];
+    const deCiudad = eventos.filter(
+        (ev) =>
+            ev &&
+            ev.ciudad &&
+            ev.ciudad.trim().toLowerCase() === ciudad.trim().toLowerCase()
+    );
+
+    if (deCiudad.length === 0) return [];
+
+    const hoy = new Date().setHours(0, 0, 0, 0);
+
+    // Separar en eventos futuros y pasados
+    const futuros = deCiudad.filter((ev) => {
+        const t = new Date(
+            ev.fecha?.includes("T") ? ev.fecha : ev.fecha + "T00:00:00"
+        ).getTime();
+        return !isNaN(t) && t >= hoy;
+    });
+
+    const pasados = deCiudad.filter((ev) => {
+        const t = new Date(
+            ev.fecha?.includes("T") ? ev.fecha : ev.fecha + "T00:00:00"
+        ).getTime();
+        return isNaN(t) || t < hoy;
+    });
+
+    // Los futuros se ordenan de más próximo a más lejano (ascendente)
+    futuros.sort(
+        (a, b) =>
+            new Date(a.fecha?.includes("T") ? a.fecha : a.fecha + "T00:00:00") -
+            new Date(b.fecha?.includes("T") ? b.fecha : b.fecha + "T00:00:00")
+    );
+
+    // Los pasados se ordenan del más reciente hacia atrás (descendente)
+    pasados.sort(
+        (a, b) =>
+            new Date(b.fecha?.includes("T") ? b.fecha : b.fecha + "T00:00:00") -
+            new Date(a.fecha?.includes("T") ? a.fecha : a.fecha + "T00:00:00")
+    );
+
+    const ordenados = [...futuros, ...pasados];
+    return ordenados.slice(0, 3);
+}
 
 /** Image placeholder SVG */
 function ImagePlaceholder({ className = "" }) {
@@ -50,6 +91,9 @@ function ImagePlaceholder({ className = "" }) {
 export default function ActividadesPrograma() {
     const [activeCity, setActiveCity] = useState("La Paz");
 
+    const poolEventos = eventosData?.tarjetasEventos || [];
+    const actividades = obtenerActividadesProximas(poolEventos, activeCity);
+
     return (
         <section
             id="actividades"
@@ -69,7 +113,7 @@ export default function ActividadesPrograma() {
                         <button
                             key={city}
                             onClick={() => setActiveCity(city)}
-                            className={`text-sm md:text-base font-medium transition-colors pb-1 ${
+                            className={`text-sm md:text-base font-medium transition-colors pb-1 cursor-pointer ${
                                 activeCity === city
                                     ? "text-lm-navy border-b-2 border-lm-navy"
                                     : "text-lm-navy/60 hover:text-lm-navy"
@@ -81,37 +125,66 @@ export default function ActividadesPrograma() {
                 </div>
 
                 {/* Activity cards grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {ACTIVITIES.map((activity) => (
-                        <div
-                            key={activity.id}
-                            className="bg-[#E3FFF8] rounded-t-[50px] rounded-b-xl overflow-hidden shadow-sm flex flex-col"
-                        >
-                            {/* Image */}
-                            <ImagePlaceholder className="w-full h-44 rounded-t-[50px]" />
+                {actividades.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {actividades.map((activity, idx) => {
+                            const accentColor =
+                                activity.colorTema ||
+                                (idx % 2 === 0 ? "#15A4C9" : "#BAcb5E");
 
-                            {/* Name label */}
-                            <div
-                                className="py-2 px-4 text-center font-medium text-white text-base"
-                                style={{
-                                    backgroundColor: activity.accentColor,
-                                }}
-                            >
-                                {activity.name}
-                            </div>
-
-                            {/* Description */}
-                            <div className="p-4 flex-1">
-                                <p
-                                    className="text-xs leading-relaxed"
-                                    style={{ color: activity.accentColor }}
+                            return (
+                                <div
+                                    key={activity.id || idx}
+                                    className="bg-[#E3FFF8] rounded-t-[50px] rounded-b-xl overflow-hidden shadow-sm flex flex-col"
                                 >
-                                    {activity.description}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                                    {/* Image */}
+                                    <div className="w-full h-44 rounded-t-[50px] overflow-hidden bg-gray-300">
+                                        {activity.imagen ? (
+                                            <img
+                                                src={activity.imagen}
+                                                alt={activity.titulo || "Actividad"}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <ImagePlaceholder className="w-full h-44 rounded-t-[50px]" />
+                                        )}
+                                    </div>
+
+                                    {/* Name label */}
+                                    <div
+                                        className="py-2 px-4 text-center font-medium text-white text-base truncate"
+                                        style={{ backgroundColor: accentColor }}
+                                    >
+                                        {activity.titulo || "Actividad"}
+                                    </div>
+
+                                    {/* Description and Date */}
+                                    <div className="p-4 flex-1 flex flex-col justify-between">
+                                        <p
+                                            className="text-xs leading-relaxed mb-3 line-clamp-3"
+                                            style={{ color: accentColor }}
+                                        >
+                                            {activity.descripcion ||
+                                                "Información sobre la actividad."}
+                                        </p>
+                                        {activity.fecha && (
+                                            <span
+                                                className="text-[11px] font-semibold opacity-90 self-end"
+                                                style={{ color: accentColor }}
+                                            >
+                                                {formatearFecha(activity.fecha)}
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <div className="text-center py-12 text-lm-navy/60 text-sm italic">
+                        No hay actividades programadas próximamente en {activeCity}.
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -7,8 +7,19 @@ import Personas_sensibilizadas from "../../../imagenes/Inicio/Personas_sensibili
 import Persona_y_organizaciones_voluntarias from "../../../imagenes/Inicio/Persona_ y_organizaciones_voluntarias.png";
 import Centros from "../../../imagenes/Inicio/Centros.png";
 
+const ESTADISTICAS_DEFAULT = [
+    { valor: "6840", etiqueta: "Personas Capacitadas" },
+    { valor: "120", etiqueta: "Personas Atendidas" },
+    { valor: "20110", etiqueta: "Personas Sensibilizadas" },
+    { valor: "+200", etiqueta: "Personas y Organizaciones Voluntarias" },
+    { valor: "6", etiqueta: "Centros en Bolivia" },
+];
+
 export default function NuestrosAlcances() {
-    const data = inicioData.estadisticas || [];
+    const data =
+        inicioData?.estadisticas && inicioData.estadisticas.length > 0
+            ? inicioData.estadisticas
+            : ESTADISTICAS_DEFAULT;
     const sectionRef = useRef(null);
     const [inView, setInView] = useState(false);
 

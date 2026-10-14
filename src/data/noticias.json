@@ -1,0 +1,42 @@
+{
+  "heroFrases": [
+    "Noticias y Novedades",
+    "Historias que Inspiran",
+    "Voces en Acción"
+  ],
+  "noticias": [
+    {
+      "id": 1,
+      "fecha": "2026-09-20",
+      "titulo": "Inicio de Talleres de Capacitación Técnica",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "colorTema": "#2C8E9E"
+    },
+    {
+      "id": 2,
+      "fecha": "2026-09-28",
+      "titulo": "Feria de Emprendedoras en la Plaza Central",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "colorTema": "#93A635"
+    },
+    {
+      "id": 3,
+      "fecha": "2026-10-08",
+      "titulo": "Convenio Interinstitucional por la Igualdad",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "colorTema": "#2C8E9E"
+    },
+    {
+      "id": 4,
+      "fecha": "2026-10-12",
+      "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "colorTema": "#93A635"
+    }
+  ]
+}
+

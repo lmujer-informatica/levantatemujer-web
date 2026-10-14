@@ -4,46 +4,18 @@
     "Levántate Mujer, Alza tu Voz",
     "Levántate Mujer, Cree en Ti"
   ],
-  "ayudaHorario": "Horario: Lunes a Viernes, 08:00 - 20:00",
-  "lineaAyuda": {
-    "mensaje": "Tu valentía abre caminos, nosotros acompañamos",
-    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787755500906-ChatGPT_Image_13_may_2026__03_39_06_p.m..png"
-  },
-  "estadisticas": [
-    {
-      "valor": "6840",
-      "etiqueta": "Personas Capacitadas"
-    },
-    {
-      "valor": "120",
-      "etiqueta": "Personas Atendidas"
-    },
-    {
-      "valor": "20110",
-      "etiqueta": "Personas Sensibilizadas"
-    },
-    {
-      "valor": "+200",
-      "etiqueta": "Personas y Organizaciones Voluntarias"
-    }
-  ],
-  "ayudaTelefono": "800 123 456",
-  "ayudaTitulo": "¿Necesitas ayuda o contención emocional inmediata?",
+  "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
   "programas": [
     {
       "nombre": "Mujeres libres de Violencia",
-      "descripcion": "Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
     },
     {
       "nombre": "Respuesta a la trata de personas y migración",
-      "descripcion": "Promovemos la protección y el acompañamiento integral de personas en situación de trata y migración, brindando orientación, asistencia y herramientas para fortalecer sus derechos, seguridad y oportunidades de integración.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
     }
   ],
-  "heroImagenes": [
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
-  ],
-  "heroSubtitulo": "Somos una fundación comprometida con el desarrollo integral, promoviendo la igualdad y brindando apoyo incondicional para que cada mujer alcance su máximo potencial en la sociedad."
+  "lineaAyuda": {
+    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+  }
 }

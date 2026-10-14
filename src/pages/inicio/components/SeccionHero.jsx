@@ -59,10 +59,9 @@ export default function SeccionHero() {
                     
                     {/* Contenedor de la Imagen */}
                     <div className="w-full h-full md:w-[85%] lg:w-[80%] md:h-[55%] lg:h-[58%] bg-gray-400 md:rounded-xl relative flex flex-col items-center justify-center overflow-hidden md:mb-16 lg:mb-14">
-                        {inicioData.heroImagenes &&
-                        inicioData.heroImagenes.length > 0 ? (
+                        {inicioData.heroImagen || (inicioData.heroImagenes && inicioData.heroImagenes.length > 0) ? (
                             <img
-                                src={inicioData.heroImagenes[0]}
+                                src={inicioData.heroImagen || inicioData.heroImagenes[0]}
                                 alt="Hero"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />

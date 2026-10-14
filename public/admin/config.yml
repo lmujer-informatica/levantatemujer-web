@@ -17,6 +17,9 @@ media_library:
     name: r2-media
 
 collections:
+    # =========================
+    # PÁGINA DE INICIO
+    # =========================
     - name: "inicio"
       label: "Página de Inicio"
       files:
@@ -24,10 +27,7 @@ collections:
             name: "inicio"
             file: "src/data/inicio.json"
             fields:
-                # =========================
                 # HERO
-                # =========================
-
                 - label: "Hero - Frases"
                   name: "heroFrases"
                   widget: "list"
@@ -36,90 +36,258 @@ collections:
                       name: "frase"
                       widget: "string"
 
-                - label: "Hero - Subtítulo"
-                  name: "heroSubtitulo"
-                  widget: "text"
+                - label: "Hero - Imagen"
+                  name: "heroImagen"
+                  widget: "image"
 
-                - label: "Hero - Imágenes"
-                  name: "heroImagenes"
-                  widget: "list"
-                  field:
-                      label: "Imagen"
-                      name: "imagen"
-                      widget: "image"
-
-                # =========================
-                # ESTADÍSTICAS
-                # =========================
-
-                - label: "Nuestros Alcances"
-                  name: "estadisticas"
-                  widget: "list"
-                  fields:
-                      - label: "Valor"
-                        name: "valor"
-                        widget: "string"
-
-                      - label: "Etiqueta"
-                        name: "etiqueta"
-                        widget: "string"
-
-                # =========================
-                # PROGRAMAS PRIORITARIOS
-                # =========================
-
-                - label: "Programas Prioritarios"
+                # PROGRAMAS PRIORITARIOS (Imágenes de los cards)
+                - label: "Programas Prioritarios - Imágenes de Cards"
                   name: "programas"
                   widget: "list"
                   fields:
-                      - label: "Nombre"
+                      - label: "Programa"
                         name: "nombre"
                         widget: "string"
-
-                      - label: "Descripción"
-                        name: "descripcion"
-                        widget: "text"
-
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
 
-                # =========================
-                # LÍNEA DE AYUDA
-                # =========================
-
-                - label: "Línea de Ayuda"
+                # LÍNEA DE AYUDA (Imagen al lado derecho)
+                - label: "Línea de Ayuda - Imagen"
                   name: "lineaAyuda"
                   widget: "object"
                   fields:
-                      - label: "Mensaje"
-                        name: "mensaje"
-                        widget: "string"
-
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
 
-                # =========================
-                # INFORMACIÓN DE AYUDA
-                # =========================
+    # =========================
+    # PROGRAMA I
+    # =========================
+    - name: "programaI"
+      label: "Página de Programa I"
+      files:
+          - label: "Contenido de Programa I"
+            name: "contenidoProgramaI"
+            file: "src/data/programaI.json"
+            fields:
+                - label: "Hero - Imagen"
+                  name: "heroImagen"
+                  widget: "image"
 
-                - label: "Ayuda - Título"
-                  name: "ayudaTitulo"
-                  widget: "string"
+                - label: "Testimonios - Carrusel Superior (Celeste)"
+                  name: "testimoniosSuperior"
+                  widget: "list"
+                  fields:
+                      - { label: "Título del Testimonio", name: "titulo", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - {
+                            label: "Nombre del Testigo",
+                            name: "autor",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Cargo del Testigo",
+                            name: "rol",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Texto del Testimonio",
+                            name: "texto",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Foto del Testigo",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
 
-                - label: "Ayuda - Teléfono"
-                  name: "ayudaTelefono"
-                  widget: "string"
+                - label: "Testimonios - Carrusel Inferior (Verde)"
+                  name: "testimoniosInferior"
+                  widget: "list"
+                  fields:
+                      - { label: "Título del Testimonio", name: "titulo", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - {
+                            label: "Nombre del Testigo",
+                            name: "autor",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Cargo del Testigo",
+                            name: "rol",
+                            widget: "string",
+                        }
+                      - {
+                            label: "Texto del Testimonio",
+                            name: "texto",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Foto del Testigo",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
 
-                - label: "Ayuda - Horario"
-                  name: "ayudaHorario"
-                  widget: "string"
+    # =========================
+    # NOTICIAS
+    # =========================
+    - name: "noticias"
+      label: "Página de Noticias"
+      files:
+          - label: "Contenido de Noticias"
+            name: "contenidoNoticias"
+            file: "src/data/noticias.json"
+            fields:
+                - label: "Hero - Frases"
+                  name: "heroFrases"
+                  widget: "list"
+                  field: { label: "Frase", name: "frase", widget: "string" }
+                - label: "Nuestras Últimas Noticias"
+                  name: "noticias"
+                  widget: "list"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - {
+                            label: "Descripción",
+                            name: "descripcion",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Imagen",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
+                      - {
+                            label: "Color del Tema",
+                            name: "colorTema",
+                            widget: "string",
+                            default: "#2C8E9E",
+                            required: false,
+                        }
+
+    # =========================
+    # EVENTOS
+    # =========================
+    - name: "eventos"
+      label: "Página de Eventos"
+      files:
+          - label: "Contenido de Eventos"
+            name: "contenidoEventos"
+            file: "src/data/eventos.json"
+            fields:
+                - label: "Hero - Frases"
+                  name: "heroFrases"
+                  widget: "list"
+                  field: { label: "Frase", name: "frase", widget: "string" }
+                - label: "Evento Destacado"
+                  name: "eventoDestacado"
+                  widget: "object"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - { label: "Ciudad", name: "ciudad", widget: "string", required: false }
+                      - {
+                            label: "Descripción",
+                            name: "descripcion",
+                            widget: "text",
+                        }
+                      - { label: "Lugar", name: "lugar", widget: "string" }
+                      - { label: "Hora", name: "hora", widget: "string" }
+                      - {
+                            label: "Imagen",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
+                      - label: "¿A quiénes va dirigido?"
+                        name: "dirigidoA"
+                        widget: "list"
+                        field:
+                            {
+                                label: "Público",
+                                name: "publico",
+                                widget: "string",
+                            }
+                - label: "Tarjetas de Eventos / Actividades"
+                  name: "tarjetasEventos"
+                  widget: "list"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - label: "Ciudad"
+                        name: "ciudad"
+                        widget: "select"
+                        options: ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre"]
+                        default: "La Paz"
+                      - {
+                            label: "Descripción",
+                            name: "descripcion",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Imagen",
+                            name: "imagen",
+                            widget: "image",
+                            required: false,
+                        }
+                      - {
+                            label: "Color del Tema",
+                            name: "colorTema",
+                            widget: "string",
+                            default: "#2C8E9E",
+                            required: false,
+                        }
+                - label: "Eventos Calendario"
+                  name: "eventosCalendario"
+                  widget: "list"
+                  fields:
+                      - { label: "Nombre", name: "nombre", widget: "string" }
+                      - {
+                            label: "Fecha",
+                            name: "fecha",
+                            widget: "date",
+                            format: "YYYY-MM-DD",
+                        }
+                      - {
+                            label: "Color",
+                            name: "color",
+                            widget: "string",
+                            default: "#2C8E9E",
+                        }
 
     # =========================
     # LÍNEA DE AYUDA
     # =========================
-
     - name: "lineaAyuda"
       label: "Página de Línea de Ayuda"
       files:
@@ -127,9 +295,6 @@ collections:
             name: "contenidoLineaAyuda"
             file: "src/data/lineaAyuda.json"
             fields:
-                # =========================
-                # CARRUSEL
-                # =========================
                 - label: "Carrusel"
                   name: "carrusel"
                   widget: "list"
@@ -140,10 +305,6 @@ collections:
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
-
-                # =========================
-                # CONTACTOS
-                # =========================
                 - label: "Contactos"
                   name: "contactos"
                   widget: "list"
@@ -154,10 +315,6 @@ collections:
                       - label: "Número"
                         name: "numero"
                         widget: "string"
-
-                # =========================
-                # DENUNCIAS
-                # =========================
                 - label: "Denuncias"
                   name: "denuncias"
                   widget: "list"

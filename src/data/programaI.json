@@ -1,0 +1,99 @@
+{
+  "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+  "testimoniosSuperior": [
+    {
+      "id": 1,
+      "titulo": "Una nueva oportunidad de vida",
+      "fecha": "2026-09-15",
+      "autor": "María González",
+      "rol": "Egresada del Programa",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 2,
+      "titulo": "Recuperando mi autonomía",
+      "fecha": "2026-10-02",
+      "autor": "Lucía Fernández",
+      "rol": "Participante de Talleres",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 3,
+      "titulo": "Fortaleciendo mi voz",
+      "fecha": "2026-10-10",
+      "autor": "Carmen Rojas",
+      "rol": "Líder Comunitaria",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 4,
+      "titulo": "Construyendo un futuro seguro",
+      "fecha": "2026-10-14",
+      "autor": "Elena Morales",
+      "rol": "Emprendedora",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    }
+  ],
+  "testimoniosInferior": [
+    {
+      "id": 5,
+      "titulo": "El poder de la sororidad",
+      "fecha": "2026-09-20",
+      "autor": "Patricia Paredes",
+      "rol": "Voluntaria Comunitaria",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 6,
+      "titulo": "Acompañamiento sin juzgar",
+      "fecha": "2026-10-05",
+      "autor": "Gabriela Vaca",
+      "rol": "Beneficiaria de Apoyo Legal",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 7,
+      "titulo": "Sanando juntas",
+      "fecha": "2026-10-12",
+      "autor": "Rosa Mamani",
+      "rol": "Participante de Terapia Grupal",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 8,
+      "titulo": "Mi camino hacia la libertad",
+      "fecha": "2026-10-15",
+      "autor": "Teresa Choque",
+      "rol": "Promotora de Derechos",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    }
+  ],
+  "testimonios": [
+    {
+      "id": 1,
+      "titulo": "Una nueva oportunidad de vida",
+      "fecha": "2026-09-15",
+      "autor": "María González",
+      "rol": "Egresada del Programa",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    },
+    {
+      "id": 8,
+      "titulo": "Mi camino hacia la libertad",
+      "fecha": "2026-10-15",
+      "autor": "Teresa Choque",
+      "rol": "Promotora de Derechos",
+      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    }
+  ]
+}

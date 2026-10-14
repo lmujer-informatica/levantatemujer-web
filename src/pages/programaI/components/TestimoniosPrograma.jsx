@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import programaIData from "../../../data/programaI.json";
 
 /** Image placeholder */
-function ImagePlaceholder({ className = "", rounded = "" }) {
+function ImagePlaceholder({ className = "" }) {
     return (
         <div
-            className={`bg-gray-300 flex items-center justify-center ${className} ${rounded}`}
+            className={`bg-gray-300 flex items-center justify-center ${className}`}
         >
             <svg
                 className="w-10 h-10 text-white opacity-60"
@@ -22,131 +23,143 @@ function ImagePlaceholder({ className = "", rounded = "" }) {
     );
 }
 
-/** Card for anonymous testimonials (no photo) */
-function TestimonialCardAnonymous({ title, text, accentColor, bgColor }) {
-    return (
-        <div
-            className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col w-full h-full shadow-md"
-            style={{ backgroundColor: accentColor }}
-        >
-            <div className="flex-1 flex flex-col items-center justify-center p-6">
-                <h3
-                    className="font-medium text-xl italic mb-4 text-center"
-                    style={{ color: bgColor }}
-                >
-                    {title}
-                </h3>
-                <p
-                    className="text-xs leading-relaxed text-center"
-                    style={{ color: bgColor }}
-                >
-                    {text}
-                </p>
-            </div>
-        </div>
-    );
-}
+/** Card de testimonio con animación de volteo 3D (Flip Card) */
+function TestimonialFlipCard({ testimonio, colorVolteado }) {
+    const [isFlipped, setIsFlipped] = useState(false);
 
-/** Card for identified testimonials (with photo) */
-function TestimonialCardNamed({ name, role, bgColor, borderColor }) {
     return (
         <div
-            className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col items-center shadow-md"
-            style={{
-                backgroundColor: bgColor,
-                border: `2px solid ${borderColor}`,
+            className="h-[270px] w-full cursor-pointer select-none"
+            style={{ perspective: "1000px" }}
+            onClick={() => setIsFlipped((prev) => !prev)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setIsFlipped((prev) => !prev);
+                }
             }}
+            title="Haz clic para voltear"
         >
-            {/* Profile photo */}
-            <ImagePlaceholder className="w-full h-40 rounded-t-[50%]" />
+            <div
+                className="relative w-full h-full transition-transform duration-700 shadow-md rounded-t-[50%] rounded-b-xl"
+                style={{
+                    transformStyle: "preserve-3d",
+                    transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                }}
+            >
+                {/* ================= CARA FRONTAL ================= */}
+                {/* Diseño: Imagen + Nombre del testigo + Cargo del testigo */}
+                <div
+                    className={`absolute inset-0 w-full h-full rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col items-center bg-[#E3FFF8] border-2 border-[#b0e8dc] transition-opacity duration-300 ${
+                        isFlipped
+                            ? "opacity-0 pointer-events-none"
+                            : "opacity-100"
+                    }`}
+                    style={{
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                    }}
+                >
+                    {/* Foto del testigo */}
+                    <div className="w-full h-40 rounded-t-[50%] overflow-hidden bg-gray-300 flex items-center justify-center shrink-0">
+                        {testimonio.imagen ? (
+                            <img
+                                src={testimonio.imagen}
+                                alt={testimonio.autor || "Testigo"}
+                                className="w-full h-full object-cover"
+                            />
+                        ) : (
+                            <ImagePlaceholder className="w-full h-40 rounded-t-[50%]" />
+                        )}
+                    </div>
 
-            {/* Name and role */}
-            <div className="px-4 py-4 text-center">
-                <p className="text-xs font-normal" style={{ color: "#407178" }}>
-                    {name}
-                </p>
-                <p className="text-xs font-normal" style={{ color: "#407178" }}>
-                    {role}
-                </p>
+                    {/* Nombre y cargo */}
+                    <div className="px-4 py-3 text-center flex flex-col justify-center grow">
+                        <p
+                            className="text-xs font-semibold leading-tight mb-1"
+                            style={{ color: "#407178" }}
+                        >
+                            {testimonio.autor || "(Nombre)"}
+                        </p>
+                        <p
+                            className="text-xs font-normal"
+                            style={{ color: "#407178" }}
+                        >
+                            {testimonio.rol || "(Cargo)"}
+                        </p>
+                    </div>
+                </div>
+
+                {/* ================= CARA TRASERA ================= */}
+                {/* Diseño: Título del testimonio + Texto del testimonio */}
+                <div
+                    className="absolute inset-0 w-full h-full rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col items-center justify-center p-6 shadow-md"
+                    style={{
+                        backgroundColor: colorVolteado,
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                    }}
+                >
+                    <h3 className="font-medium text-lg italic mb-3 text-center text-[#E3FFF8] leading-tight">
+                        {testimonio.titulo || "Título"}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-center text-[#E3FFF8] overflow-y-auto max-h-[140px] px-2">
+                        {testimonio.texto ||
+                            "Lorem ipsum dolor sit amet consectetur adipiscing elit congue..."}
+                    </p>
+                </div>
             </div>
         </div>
     );
 }
 
-const ANONYMOUS_TESTIMONIALS = [
-    {
-        id: 1,
-        title: "Título",
-        text: "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        accentColor: "#0DADD4",
-        bgColor: "#E3FFF8",
-    },
-    {
-        id: 2,
-        title: "Título",
-        text: "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        accentColor: "#859430",
-        bgColor: "#E3FFF8",
-    },
-];
-
-const NAMED_TESTIMONIALS = [
-    {
-        id: 1,
-        name: "(Nombre)",
-        role: "(Título)",
-        bgColor: "#E3FFF8",
-        borderColor: "#b0e8dc",
-    },
-    {
-        id: 2,
-        name: "(Nombre)",
-        role: "(Título)",
-        bgColor: "#E3FFF8",
-        borderColor: "#b0e8dc",
-    },
-    {
-        id: 3,
-        name: "(Nombre)",
-        role: "(Título)",
-        bgColor: "#E3FFF8",
-        borderColor: "#b0e8dc",
-    },
-    {
-        id: 4,
-        name: "(Nombre)",
-        role: "(Título)",
-        bgColor: "#E3FFF8",
-        borderColor: "#b0e8dc",
-    },
-];
+function obtenerVisibles(items, indexInicio) {
+    if (!Array.isArray(items) || items.length === 0) return [];
+    if (items.length <= 3) return items;
+    return [
+        items[indexInicio % items.length],
+        items[(indexInicio + 1) % items.length],
+        items[(indexInicio + 2) % items.length],
+    ];
+}
 
 export default function TestimoniosPrograma() {
-    const [anonIndex, setAnonIndex] = useState(0);
-    const [namedIndex, setNamedIndex] = useState(0);
+    const testimoniosSuperior =
+        programaIData?.testimoniosSuperior?.length > 0
+            ? programaIData.testimoniosSuperior
+            : programaIData?.testimonios || [];
 
-    const prevAnon = () =>
-        setAnonIndex(
+    const testimoniosInferior =
+        programaIData?.testimoniosInferior?.length > 0
+            ? programaIData.testimoniosInferior
+            : programaIData?.testimonios || [];
+
+    const [indexSuperior, setIndexSuperior] = useState(0);
+    const [indexInferior, setIndexInferior] = useState(0);
+
+    const prevSuperior = () =>
+        setIndexSuperior(
             (i) =>
-                (i - 1 + ANONYMOUS_TESTIMONIALS.length) %
-                ANONYMOUS_TESTIMONIALS.length,
+                (i - 1 + testimoniosSuperior.length) %
+                testimoniosSuperior.length
         );
-    const nextAnon = () =>
-        setAnonIndex((i) => (i + 1) % ANONYMOUS_TESTIMONIALS.length);
+    const nextSuperior = () =>
+        setIndexSuperior((i) => (i + 1) % testimoniosSuperior.length);
 
-    const prevNamed = () =>
-        setNamedIndex(
+    const prevInferior = () =>
+        setIndexInferior(
             (i) =>
-                (i - 1 + NAMED_TESTIMONIALS.length) % NAMED_TESTIMONIALS.length,
+                (i - 1 + testimoniosInferior.length) %
+                testimoniosInferior.length
         );
-    const nextNamed = () =>
-        setNamedIndex((i) => (i + 1) % NAMED_TESTIMONIALS.length);
+    const nextInferior = () =>
+        setIndexInferior((i) => (i + 1) % testimoniosInferior.length);
 
-    // Show 2 named at a time
-    const visibleNamed = [
-        NAMED_TESTIMONIALS[namedIndex % NAMED_TESTIMONIALS.length],
-        NAMED_TESTIMONIALS[(namedIndex + 1) % NAMED_TESTIMONIALS.length],
-    ];
+    const visiblesSuperior = obtenerVisibles(testimoniosSuperior, indexSuperior);
+    const visiblesInferior = obtenerVisibles(testimoniosInferior, indexInferior);
 
     return (
         <section
@@ -168,150 +181,64 @@ export default function TestimoniosPrograma() {
                     </div>
                 </div>
 
-                {/* Row 1: Anonymous testimonials */}
+                {/* Fila 1: Carrusel superior (volteo con fondo celeste) */}
                 <div className="relative flex items-center gap-4 mb-8">
-                    {/* Prev arrow */}
+                    {/* Botón Anterior */}
                     <button
-                        onClick={prevAnon}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
+                        onClick={prevSuperior}
+                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
                         aria-label="Anterior"
                     >
                         <ChevronLeft className="w-5 h-5" />
                     </button>
 
-                    {/* Cards */}
+                    {/* Grid de 3 tarjetas */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-                        {/* Left named card */}
-                        <TestimonialCardNamed
-                            name={
-                                NAMED_TESTIMONIALS[
-                                    namedIndex % NAMED_TESTIMONIALS.length
-                                ].name
-                            }
-                            role={
-                                NAMED_TESTIMONIALS[
-                                    namedIndex % NAMED_TESTIMONIALS.length
-                                ].role
-                            }
-                            bgColor="#E3FFF8"
-                            borderColor="#b0e8dc"
-                        />
-
-                        {/* Center anonymous card (highlighted) */}
-                        <TestimonialCardAnonymous
-                            title={ANONYMOUS_TESTIMONIALS[anonIndex].title}
-                            text={ANONYMOUS_TESTIMONIALS[anonIndex].text}
-                            accentColor={
-                                ANONYMOUS_TESTIMONIALS[anonIndex].accentColor
-                            }
-                            bgColor={ANONYMOUS_TESTIMONIALS[anonIndex].bgColor}
-                        />
-
-                        {/* Right named card */}
-                        <TestimonialCardNamed
-                            name={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 1) % NAMED_TESTIMONIALS.length
-                                ].name
-                            }
-                            role={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 1) % NAMED_TESTIMONIALS.length
-                                ].role
-                            }
-                            bgColor="#E3FFF8"
-                            borderColor="#b0e8dc"
-                        />
+                        {visiblesSuperior.map((testimonio, idx) => (
+                            <TestimonialFlipCard
+                                key={testimonio.id || `sup-${idx}`}
+                                testimonio={testimonio}
+                                colorVolteado="#0DADD4"
+                            />
+                        ))}
                     </div>
 
-                    {/* Next arrow */}
+                    {/* Botón Siguiente */}
                     <button
-                        onClick={nextAnon}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
+                        onClick={nextSuperior}
+                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
                         aria-label="Siguiente"
                     >
                         <ChevronRight className="w-5 h-5" />
                     </button>
                 </div>
 
-                {/* Row 2: Non-anonymous testimonials */}
+                {/* Fila 2: Carrusel inferior (volteo con fondo verde) */}
                 <div className="relative flex items-center gap-4">
-                    {/* Prev arrow */}
+                    {/* Botón Anterior */}
                     <button
-                        onClick={prevNamed}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors"
+                        onClick={prevInferior}
+                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors cursor-pointer"
                         aria-label="Anterior"
                     >
                         <ChevronLeft className="w-5 h-5" />
                     </button>
 
-                    {/* Cards */}
+                    {/* Grid de 3 tarjetas */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-                        {/* Left named card */}
-                        <TestimonialCardNamed
-                            name={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 2) % NAMED_TESTIMONIALS.length
-                                ].name
-                            }
-                            role={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 2) % NAMED_TESTIMONIALS.length
-                                ].role
-                            }
-                            bgColor="#E3FFF8"
-                            borderColor="#b0e8dc"
-                        />
-
-                        {/* Center anonymous (olive accent) */}
-                        <TestimonialCardAnonymous
-                            title={
-                                ANONYMOUS_TESTIMONIALS[
-                                    (anonIndex + 1) %
-                                        ANONYMOUS_TESTIMONIALS.length
-                                ].title
-                            }
-                            text={
-                                ANONYMOUS_TESTIMONIALS[
-                                    (anonIndex + 1) %
-                                        ANONYMOUS_TESTIMONIALS.length
-                                ].text
-                            }
-                            accentColor={
-                                ANONYMOUS_TESTIMONIALS[
-                                    (anonIndex + 1) %
-                                        ANONYMOUS_TESTIMONIALS.length
-                                ].accentColor
-                            }
-                            bgColor={
-                                ANONYMOUS_TESTIMONIALS[
-                                    (anonIndex + 1) %
-                                        ANONYMOUS_TESTIMONIALS.length
-                                ].bgColor
-                            }
-                        />
-
-                        {/* Right named card */}
-                        <TestimonialCardNamed
-                            name={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 3) % NAMED_TESTIMONIALS.length
-                                ].name
-                            }
-                            role={
-                                NAMED_TESTIMONIALS[
-                                    (namedIndex + 3) % NAMED_TESTIMONIALS.length
-                                ].role
-                            }
-                            bgColor="#E3FFF8"
-                            borderColor="#b0e8dc"
-                        />
+                        {visiblesInferior.map((testimonio, idx) => (
+                            <TestimonialFlipCard
+                                key={testimonio.id || `inf-${idx}`}
+                                testimonio={testimonio}
+                                colorVolteado="#859430"
+                            />
+                        ))}
                     </div>
 
-                    {/* Next arrow */}
+                    {/* Botón Siguiente */}
                     <button
-                        onClick={nextNamed}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors"
+                        onClick={nextInferior}
+                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors cursor-pointer"
                         aria-label="Siguiente"
                     >
                         <ChevronRight className="w-5 h-5" />

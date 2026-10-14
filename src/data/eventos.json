@@ -6,11 +6,12 @@
     ],
     "eventoDestacado": {
         "fecha": "2026-09-25",
+        "ciudad": "La Paz",
         "titulo": "Taller de Empoderamiento Económico",
         "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
         "lugar": "La Paz - Centro Comunitario",
         "hora": "09:00 - 12:00",
-        "imagen": "",
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
         "dirigidoA": [
             "Mujeres emprendedoras",
             "Jóvenes universitarias",
@@ -34,22 +35,133 @@
             "fecha": "2026-09-29",
             "nombre": "Charla Salud",
             "color": "#2C8E9E"
+        },
+        {
+            "fecha": "2026-10-14",
+            "nombre": "Foro de Liderazgo",
+            "color": "#93A635"
         }
     ],
     "tarjetasEventos": [
         {
-            "fecha": "2026-09-25",
-            "titulo": "Taller de Empoderamiento Económico",
-            "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
-            "imagen": "",
-            "colorTema": "#2C8E9E"
+            "ciudad": "La Paz",
+            "fecha": "2026-10-15",
+            "titulo": "Taller de Prevención y Apoyo Integral",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
         },
         {
-            "fecha": "2026-10-05",
-            "titulo": "Foro de Liderazgo Femenino",
-            "descripcion": "Encuentro de mujeres líderes para compartir experiencias, desafíos y estrategias de liderazgo en distintos ámbitos de la sociedad.",
-            "imagen": "",
-            "colorTema": "#93A635"
+            "ciudad": "La Paz",
+            "fecha": "2026-10-22",
+            "titulo": "Foro de Autonomía Económica",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "La Paz",
+            "fecha": "2026-11-05",
+            "titulo": "Jornada de Contención Psicológica",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "El Alto",
+            "fecha": "2026-10-16",
+            "titulo": "Feria de Emprendedoras Alteñas",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "El Alto",
+            "fecha": "2026-10-25",
+            "titulo": "Taller de Salud Integral para Mujeres",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "El Alto",
+            "fecha": "2026-11-08",
+            "titulo": "Charla Legal sobre Derechos Laborales",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Oruro",
+            "fecha": "2026-10-18",
+            "titulo": "Capacitación en Habilidades Digitales",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Oruro",
+            "fecha": "2026-10-28",
+            "titulo": "Espacio de Escucha y Acompañamiento",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Oruro",
+            "fecha": "2026-11-12",
+            "titulo": "Taller de Liderazgo Femenino",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Santa Cruz",
+            "fecha": "2026-10-19",
+            "titulo": "Seminario de Prevención de Violencias",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Santa Cruz",
+            "fecha": "2026-10-30",
+            "titulo": "Encuentro de Redes Comunitarias",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Santa Cruz",
+            "fecha": "2026-11-15",
+            "titulo": "Finanzas Personales para Mujeres",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Sucre",
+            "fecha": "2026-10-20",
+            "titulo": "Mesa de Diálogo sobre Derechos",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Sucre",
+            "fecha": "2026-11-02",
+            "titulo": "Taller de Sanación Emocional",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Sucre",
+            "fecha": "2026-11-18",
+            "titulo": "Jornada Vocacional para Mujeres",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "colorTema": "#15A4C9"
         }
     ]
 }
