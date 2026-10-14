@@ -1,52 +1,160 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileDown } from 'lucide-react';
+import programaIData from '../../../data/programaI.json';
 
-const METODOLOGIAS = [
-  {
-    id: 1,
-    title: 'Título',
-    summary:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te',
-    variant: 'light', // light card
-    accentColor: '#859430',
-    textColor: '#294409',
-  },
-  {
-    id: 2,
-    title: 'Título',
-    summary: null, // featured/downloadable card
-    variant: 'featured',
-    accentColor: '#BAcb5E',
-    textColor: '#F1FFFF',
-  },
-  {
-    id: 3,
-    title: 'Título',
-    summary:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te',
-    variant: 'light',
-    accentColor: '#859430',
-    textColor: '#294409',
-  },
-];
+/** Flip Card para Metodologías */
+function MetodologiaFlipCard({ item }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleDescargar = (e) => {
+    e.stopPropagation();
+    if (item.archivo) {
+      window.open(item.archivo, '_blank');
+    } else {
+      alert('El archivo no está disponible temporalmente.');
+    }
+  };
+
+  return (
+    <div
+      className="h-[230px] w-full cursor-pointer select-none"
+      style={{ perspective: '1000px' }}
+      onClick={() => setIsFlipped((prev) => !prev)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setIsFlipped((prev) => !prev);
+        }
+      }}
+      title="Haz clic para voltear"
+    >
+      <div
+        className="relative w-full h-full transition-transform duration-700 shadow-md rounded-2xl"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+        }}
+      >
+        {/* ================= CARA FRONTAL ================= */}
+        {/* Diseño inicial: Fondo claro (#E3FFF8) + Título + Texto de descripción */}
+        <div
+          className={`absolute inset-0 w-full h-full rounded-2xl overflow-hidden flex flex-col p-5 border-2 border-[#859430]/30 bg-[#E3FFF8] transition-opacity duration-300 ${
+            isFlipped ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          }`}
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+          }}
+        >
+          <h3 className="text-base sm:text-lg font-medium italic mb-2 text-[#859430] leading-snug line-clamp-2">
+            {item.titulo}
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed font-light text-[#294409] line-clamp-5 overflow-y-auto">
+            {item.descripcion}
+          </p>
+        </div>
+
+        {/* ================= CARA TRASERA ================= */}
+        {/* Diseño volteado: Fondo verde (#BAcb5E) + Cuadro vacío + Título + Botón "Descargar" */}
+        <div
+          className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden flex flex-col items-center justify-center p-4 gap-2 shadow-md bg-[#BAcb5E]"
+          style={{
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+          }}
+        >
+          {/* Cuadro interior con icono sutil de documento */}
+          <div className="w-4/5 h-14 border-2 border-white/60 rounded-lg flex items-center justify-center bg-white/10">
+            <FileDown className="w-6 h-6 text-white/80" />
+          </div>
+
+          <h3 className="text-sm sm:text-base font-medium italic text-white text-center line-clamp-2 px-2">
+            {item.titulo}
+          </h3>
+
+          <button
+            onClick={handleDescargar}
+            className="px-6 py-1.5 rounded-lg font-medium text-xs sm:text-sm text-white bg-[#859430] hover:bg-[#728026] active:scale-95 transition-all shadow-sm cursor-pointer mt-1"
+          >
+            Descargar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function obtenerVisibles(items, indexInicio) {
+  if (!Array.isArray(items) || items.length === 0) return [];
+  if (items.length <= 3) return items;
+  return [
+    items[indexInicio % items.length],
+    items[(indexInicio + 1) % items.length],
+    items[(indexInicio + 2) % items.length],
+  ];
+}
 
 export default function MetodologiasPrograma() {
+  const metodologias =
+    programaIData?.metodologias?.length > 0
+      ? programaIData.metodologias
+      : [
+          {
+            id: 1,
+            titulo: 'Metodología de Círculos de Apoyo',
+            descripcion:
+              'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.',
+            archivo: '',
+          },
+          {
+            id: 2,
+            titulo: 'Guía Práctica de Prevención',
+            descripcion:
+              'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.',
+            archivo: '',
+          },
+          {
+            id: 3,
+            titulo: 'Manual de Rutas de Atención',
+            descripcion:
+              'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.',
+            archivo: '',
+          },
+        ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prev = () => setCurrentIndex((i) => (i - 1 + METODOLOGIAS.length) % METODOLOGIAS.length);
-  const next = () => setCurrentIndex((i) => (i + 1) % METODOLOGIAS.length);
+  const prev = () =>
+    setCurrentIndex(
+      (i) => (i - 1 + metodologias.length) % metodologias.length
+    );
+  const next = () =>
+    setCurrentIndex((i) => (i + 1) % metodologias.length);
 
-  // Show 3 cards, rotating from currentIndex
-  const visibleCards = [
-    METODOLOGIAS[currentIndex % METODOLOGIAS.length],
-    METODOLOGIAS[(currentIndex + 1) % METODOLOGIAS.length],
-    METODOLOGIAS[(currentIndex + 2) % METODOLOGIAS.length],
-  ];
+  // Touch swipe handling
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const diff = touchStart - touchEnd;
+    if (diff > 40) next();
+    else if (diff < -40) prev();
+  };
+
+  const visibleCards = obtenerVisibles(metodologias, currentIndex);
 
   return (
     <section className="w-full bg-[#EFFFFA] py-8 md:py-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Section title */}
         <div className="bg-lm-olive py-2 px-4 mb-8 flex items-center justify-center">
           <h2 className="italic font-medium text-[#E3FFF8] text-xl md:text-3xl tracking-wide">
@@ -54,79 +162,43 @@ export default function MetodologiasPrograma() {
           </h2>
         </div>
 
-        {/* Cards carousel */}
-        <div className="flex items-center gap-3">
-
+        {/* Cards carousel con soporte touch */}
+        <div
+          className="flex items-center gap-3 sm:gap-4"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {/* Prev arrow */}
           <button
             onClick={prev}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
             aria-label="Anterior metodología"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Cards */}
+          {/* Cards: 1 en móviles (1 sola fila), 3 en pantallas medianas y grandes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-            {visibleCards.map((card, idx) => {
-              if (card.variant === 'featured') {
-                return (
-                  /* Featured downloadable card */
-                  <div
-                    key={`${card.id}-${idx}`}
-                    className="rounded-2xl overflow-hidden flex flex-col items-center justify-center p-6 gap-4 min-h-[220px]"
-                    style={{ backgroundColor: card.accentColor }}
-                  >
-                    {/* Inner bordered box */}
-                    <div className="w-4/5 h-16 border-2 border-white/60 rounded-lg" />
-
-                    <h3 className="text-xl font-medium italic" style={{ color: card.textColor }}>
-                      {card.title}
-                    </h3>
-
-                    <button
-                      className="px-6 py-2 rounded-lg font-medium text-sm text-white hover:opacity-90 transition-opacity"
-                      style={{ backgroundColor: '#3561940' }}
-                    >
-                      <span
-                        className="px-6 py-2 rounded-lg font-medium text-sm text-white"
-                        style={{ backgroundColor: '#859430' }}
-                      >
-                        Descargar
-                      </span>
-                    </button>
-                  </div>
-                );
-              }
-
-              return (
-                /* Light info card */
-                <div
-                  key={`${card.id}-${idx}`}
-                  className="rounded-2xl overflow-hidden flex flex-col p-5 min-h-[220px] border-2"
-                  style={{ backgroundColor: '#E3FFF8', borderColor: card.accentColor + '60' }}
-                >
-                  <h3 className="text-base font-medium italic mb-3" style={{ color: card.accentColor }}>
-                    {card.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed font-light" style={{ color: card.textColor }}>
-                    {card.summary}
-                  </p>
-                </div>
-              );
-            })}
+            {visibleCards.map((card, idx) => (
+              <div
+                key={card.id || idx}
+                className={idx === 0 ? 'block col-span-1' : 'hidden sm:block col-span-1'}
+              >
+                <MetodologiaFlipCard item={card} />
+              </div>
+            ))}
           </div>
 
           {/* Next arrow */}
           <button
             onClick={next}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
+            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
             aria-label="Siguiente metodología"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
-
       </div>
     </section>
   );

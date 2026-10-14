@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import logo from "../../imagenes/logo.png";
 
 export default function Navbar() {
@@ -9,6 +9,11 @@ export default function Navbar() {
     const [actividadOpen, setActividadOpen] = useState(false);
     const programasRef = useRef(null);
     const actividadRef = useRef(null);
+    const location = useLocation();
+
+    const isProgramasActive = location.pathname.startsWith("/programa");
+    const isActividadActive =
+        location.pathname === "/noticias" || location.pathname === "/eventos";
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -38,11 +43,8 @@ export default function Navbar() {
     };
 
     return (
-        // Se cambia bg-white por un color celeste muy claro que asemeja el de la imagen.
-        // Puedes ajustar el hex color según la paleta exacta de tu proyecto.
         <header className="bg-[#EAF7FA] sticky top-0 z-50 border-b border-gray-100">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-[90px]">
-                {/* h-full añadido aquí para que ocupe los 90px enteros */}
                 <div className="flex justify-between items-center h-full">
                     {/* Logo */}
                     <div className="shrink-0 flex items-center">
@@ -59,7 +61,7 @@ export default function Navbar() {
                         </NavLink>
                     </div>
 
-                    {/* Desktop Menu - Usamos items-stretch para que los enlaces tomen el 100% del alto */}
+                    {/* Desktop Menu */}
                     <nav className="hidden md:flex items-stretch h-full space-x-6 lg:space-x-8">
                         <NavLink
                             to="/"
@@ -67,7 +69,7 @@ export default function Navbar() {
                             className={({ isActive }) =>
                                 `flex items-center justify-center px-8 text-sm font-medium transition-all duration-300 ${
                                     isActive
-                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md" // Gradiente y redondeo inferior
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`
                             }
@@ -96,22 +98,28 @@ export default function Navbar() {
                         >
                             <button
                                 onClick={() => setProgramasOpen(!programasOpen)}
-                                className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors h-full"
+                                className={`flex items-center justify-center gap-1 text-sm font-medium transition-colors h-full cursor-pointer ${
+                                    isProgramasActive
+                                        ? "text-lm-navy font-semibold"
+                                        : "text-lm-cyan hover:text-lm-navy"
+                                }`}
                             >
                                 Programas
                                 <ChevronDown
-                                    className={`w-4 h-4 fill-current transition-transform ${programasOpen ? "rotate-180" : ""}`}
+                                    className={`w-4 h-4 fill-current transition-transform ${
+                                        programasOpen ? "rotate-180" : ""
+                                    }`}
                                 />
                             </button>
                             {programasOpen && (
-                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
+                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-56 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
                                     <NavLink
                                         to="/programaI"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `px-4 py-2 text-sm transition-colors ${
+                                            `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
+                                                    ? "bg-lm-cyan text-white font-medium"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -122,9 +130,9 @@ export default function Navbar() {
                                         to="/programaII"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `px-4 py-2 text-sm transition-colors ${
+                                            `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
+                                                    ? "bg-lm-cyan text-white font-medium"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -141,11 +149,17 @@ export default function Navbar() {
                         >
                             <button
                                 onClick={() => setActividadOpen(!actividadOpen)}
-                                className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors h-full"
+                                className={`flex items-center justify-center gap-1 text-sm font-medium transition-colors h-full cursor-pointer ${
+                                    isActividadActive
+                                        ? "text-lm-navy font-semibold"
+                                        : "text-lm-cyan hover:text-lm-navy"
+                                }`}
                             >
                                 Actividad
                                 <ChevronDown
-                                    className={`w-4 h-4 fill-current transition-transform ${actividadOpen ? "rotate-180" : ""}`}
+                                    className={`w-4 h-4 fill-current transition-transform ${
+                                        actividadOpen ? "rotate-180" : ""
+                                    }`}
                                 />
                             </button>
                             {actividadOpen && (
@@ -154,9 +168,9 @@ export default function Navbar() {
                                         to="/noticias"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `px-4 py-2 text-sm transition-colors ${
+                                            `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
+                                                    ? "bg-lm-cyan text-white font-medium"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -167,9 +181,9 @@ export default function Navbar() {
                                         to="/eventos"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `px-4 py-2 text-sm transition-colors ${
+                                            `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
+                                                    ? "bg-lm-cyan text-white font-medium"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -213,7 +227,8 @@ export default function Navbar() {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-lm-cyan hover:text-lm-navy focus:outline-hidden"
+                            className="text-lm-cyan hover:text-lm-navy focus:outline-hidden p-2 cursor-pointer"
+                            aria-label="Abrir menú"
                         >
                             {isOpen ? (
                                 <X className="h-6 w-6" />
@@ -225,9 +240,9 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu (Queda prácticamente igual, adaptado a tu lógica) */}
+            {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-[#f0fbfb] border-t border-gray-200">
+                <div className="md:hidden bg-[#f0fbfb] border-t border-gray-200 shadow-md">
                     <div className="px-4 pt-2 pb-4 space-y-2">
                         <NavLink
                             to="/"
@@ -237,7 +252,7 @@ export default function Navbar() {
                                 `block px-3 py-2 rounded-md text-base font-medium ${
                                     isActive
                                         ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan"
+                                        : "text-lm-cyan hover:bg-gray-50"
                                 }`
                             }
                         >
@@ -251,7 +266,7 @@ export default function Navbar() {
                                 `block px-3 py-2 rounded-md text-base font-medium ${
                                     isActive
                                         ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan"
+                                        : "text-lm-cyan hover:bg-gray-50"
                                 }`
                             }
                         >
@@ -261,11 +276,17 @@ export default function Navbar() {
                         <div className="space-y-1">
                             <button
                                 onClick={() => setProgramasOpen(!programasOpen)}
-                                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-lm-cyan"
+                                className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
+                                    isProgramasActive
+                                        ? "text-lm-navy font-semibold"
+                                        : "text-lm-cyan"
+                                }`}
                             >
                                 Programas
                                 <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${programasOpen ? "rotate-180" : ""}`}
+                                    className={`w-4 h-4 transition-transform ${
+                                        programasOpen ? "rotate-180" : ""
+                                    }`}
                                 />
                             </button>
                             {programasOpen && (
@@ -274,27 +295,27 @@ export default function Navbar() {
                                         to="/programaI"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                            `block px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive
                                                     ? "bg-lm-cyan text-white"
                                                     : "text-lm-cyan hover:bg-gray-50"
                                             }`
                                         }
                                     >
-                                        Programa I
+                                        Mujeres Libres de Violencia
                                     </NavLink>
                                     <NavLink
                                         to="/programaII"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                            `block px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive
                                                     ? "bg-lm-cyan text-white"
                                                     : "text-lm-cyan hover:bg-gray-50"
                                             }`
                                         }
                                     >
-                                        Programa II
+                                        Respuesta a la Trata e Inmigración
                                     </NavLink>
                                 </div>
                             )}
@@ -303,11 +324,17 @@ export default function Navbar() {
                         <div className="space-y-1">
                             <button
                                 onClick={() => setActividadOpen(!actividadOpen)}
-                                className="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-lm-cyan"
+                                className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
+                                    isActividadActive
+                                        ? "text-lm-navy font-semibold"
+                                        : "text-lm-cyan"
+                                }`}
                             >
                                 Actividad
                                 <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${actividadOpen ? "rotate-180" : ""}`}
+                                    className={`w-4 h-4 transition-transform ${
+                                        actividadOpen ? "rotate-180" : ""
+                                    }`}
                                 />
                             </button>
                             {actividadOpen && (
@@ -316,7 +343,7 @@ export default function Navbar() {
                                         to="/noticias"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                            `block px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive
                                                     ? "bg-lm-cyan text-white"
                                                     : "text-lm-cyan hover:bg-gray-50"
@@ -329,7 +356,7 @@ export default function Navbar() {
                                         to="/eventos"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                            `block px-3 py-2 rounded-md text-sm font-medium ${
                                                 isActive
                                                     ? "bg-lm-cyan text-white"
                                                     : "text-lm-cyan hover:bg-gray-50"
@@ -349,7 +376,7 @@ export default function Navbar() {
                                 `block px-3 py-2 rounded-md text-base font-medium ${
                                     isActive
                                         ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan"
+                                        : "text-lm-cyan hover:bg-gray-50"
                                 }`
                             }
                         >
@@ -363,7 +390,7 @@ export default function Navbar() {
                                 `block px-3 py-2 rounded-md text-base font-medium ${
                                     isActive
                                         ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan"
+                                        : "text-lm-cyan hover:bg-gray-50"
                                 }`
                             }
                         >

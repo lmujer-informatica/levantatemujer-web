@@ -141,6 +141,40 @@ collections:
                             required: false,
                         }
 
+                - label: "Metodologías de Prevención"
+                  name: "metodologias"
+                  widget: "list"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Descripción",
+                            name: "descripcion",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Archivo Descargable (PDF / Documento)",
+                            name: "archivo",
+                            widget: "file",
+                            required: false,
+                        }
+
+                - label: "Investigaciones"
+                  name: "investigaciones"
+                  widget: "list"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - {
+                            label: "Descripción",
+                            name: "descripcion",
+                            widget: "text",
+                        }
+                      - {
+                            label: "Archivo Descargable (PDF / Documento)",
+                            name: "archivo",
+                            widget: "file",
+                            required: false,
+                        }
+
     # =========================
     # NOTICIAS
     # =========================
@@ -155,6 +189,10 @@ collections:
                   name: "heroFrases"
                   widget: "list"
                   field: { label: "Frase", name: "frase", widget: "string" }
+                - label: "Hero - Imagen de Fondo"
+                  name: "heroImagen"
+                  widget: "image"
+                  required: false
                 - label: "Nuestras Últimas Noticias"
                   name: "noticias"
                   widget: "list"
@@ -175,6 +213,12 @@ collections:
                             label: "Imagen",
                             name: "imagen",
                             widget: "image",
+                            required: false,
+                        }
+                      - {
+                            label: "URL Enlace (Leer más)",
+                            name: "url",
+                            widget: "string",
                             required: false,
                         }
                       - {

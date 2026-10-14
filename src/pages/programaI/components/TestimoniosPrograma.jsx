@@ -158,6 +158,38 @@ export default function TestimoniosPrograma() {
     const nextInferior = () =>
         setIndexInferior((i) => (i + 1) % testimoniosInferior.length);
 
+    // Touch swipe handling para Carrusel Superior
+    const [touchStartSup, setTouchStartSup] = useState(null);
+    const [touchEndSup, setTouchEndSup] = useState(null);
+
+    const onTouchStartSup = (e) => {
+        setTouchEndSup(null);
+        setTouchStartSup(e.targetTouches[0].clientX);
+    };
+    const onTouchMoveSup = (e) => setTouchEndSup(e.targetTouches[0].clientX);
+    const onTouchEndSup = () => {
+        if (!touchStartSup || !touchEndSup) return;
+        const diff = touchStartSup - touchEndSup;
+        if (diff > 40) nextSuperior();
+        else if (diff < -40) prevSuperior();
+    };
+
+    // Touch swipe handling para Carrusel Inferior
+    const [touchStartInf, setTouchStartInf] = useState(null);
+    const [touchEndInf, setTouchEndInf] = useState(null);
+
+    const onTouchStartInf = (e) => {
+        setTouchEndInf(null);
+        setTouchStartInf(e.targetTouches[0].clientX);
+    };
+    const onTouchMoveInf = (e) => setTouchEndInf(e.targetTouches[0].clientX);
+    const onTouchEndInf = () => {
+        if (!touchStartInf || !touchEndInf) return;
+        const diff = touchStartInf - touchEndInf;
+        if (diff > 40) nextInferior();
+        else if (diff < -40) prevInferior();
+    };
+
     const visiblesSuperior = obtenerVisibles(testimoniosSuperior, indexSuperior);
     const visiblesInferior = obtenerVisibles(testimoniosInferior, indexInferior);
 
@@ -182,7 +214,12 @@ export default function TestimoniosPrograma() {
                 </div>
 
                 {/* Fila 1: Carrusel superior (volteo con fondo celeste) */}
-                <div className="relative flex items-center gap-4 mb-8">
+                <div
+                    className="relative flex items-center gap-3 sm:gap-4 mb-8"
+                    onTouchStart={onTouchStartSup}
+                    onTouchMove={onTouchMoveSup}
+                    onTouchEnd={onTouchEndSup}
+                >
                     {/* Botón Anterior */}
                     <button
                         onClick={prevSuperior}
@@ -192,14 +229,18 @@ export default function TestimoniosPrograma() {
                         <ChevronLeft className="w-5 h-5" />
                     </button>
 
-                    {/* Grid de 3 tarjetas */}
+                    {/* Grid: 1 tarjeta en móvil (1 fila), 3 tarjetas en pantallas medianas y grandes */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
                         {visiblesSuperior.map((testimonio, idx) => (
-                            <TestimonialFlipCard
+                            <div
                                 key={testimonio.id || `sup-${idx}`}
-                                testimonio={testimonio}
-                                colorVolteado="#0DADD4"
-                            />
+                                className={idx === 0 ? "block col-span-1" : "hidden sm:block col-span-1"}
+                            >
+                                <TestimonialFlipCard
+                                    testimonio={testimonio}
+                                    colorVolteado="#0DADD4"
+                                />
+                            </div>
                         ))}
                     </div>
 
@@ -214,7 +255,12 @@ export default function TestimoniosPrograma() {
                 </div>
 
                 {/* Fila 2: Carrusel inferior (volteo con fondo verde) */}
-                <div className="relative flex items-center gap-4">
+                <div
+                    className="relative flex items-center gap-3 sm:gap-4"
+                    onTouchStart={onTouchStartInf}
+                    onTouchMove={onTouchMoveInf}
+                    onTouchEnd={onTouchEndInf}
+                >
                     {/* Botón Anterior */}
                     <button
                         onClick={prevInferior}
@@ -224,14 +270,18 @@ export default function TestimoniosPrograma() {
                         <ChevronLeft className="w-5 h-5" />
                     </button>
 
-                    {/* Grid de 3 tarjetas */}
+                    {/* Grid: 1 tarjeta en móvil (1 fila), 3 tarjetas en pantallas medianas y grandes */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
                         {visiblesInferior.map((testimonio, idx) => (
-                            <TestimonialFlipCard
+                            <div
                                 key={testimonio.id || `inf-${idx}`}
-                                testimonio={testimonio}
-                                colorVolteado="#859430"
-                            />
+                                className={idx === 0 ? "block col-span-1" : "hidden sm:block col-span-1"}
+                            >
+                                <TestimonialFlipCard
+                                    testimonio={testimonio}
+                                    colorVolteado="#859430"
+                                />
+                            </div>
                         ))}
                     </div>
 

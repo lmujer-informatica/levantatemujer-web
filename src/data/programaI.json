@@ -95,5 +95,57 @@
       "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
     }
+  ],
+  "metodologias": [
+    {
+      "id": 1,
+      "titulo": "Metodología de Círculos de Apoyo y Contención",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Guía Práctica de Prevención Comunitaria",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 3,
+      "titulo": "Manual de Rutas de Atención y Derivación",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 4,
+      "titulo": "Herramientas de Empoderamiento y Resiliencia",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    }
+  ],
+  "investigaciones": [
+    {
+      "id": 1,
+      "titulo": "Diagnóstico de Violencias Basadas en Género",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 2,
+      "titulo": "Estudio de Impacto de Programas Psicosociales",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 3,
+      "titulo": "Análisis de Barreras en el Acceso a la Justicia",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    },
+    {
+      "id": 4,
+      "titulo": "Investigación sobre Redes de Soporte Comunitario",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "archivo": ""
+    }
   ]
 }

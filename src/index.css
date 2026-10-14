@@ -75,3 +75,21 @@ layer(base);
 .hero-text-in {
   animation: heroTextIn 0.8s ease-out;
 }
+
+@keyframes heroTextRotateVertical {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) rotateX(-75deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+.hero-text-rotate-vertical {
+  animation: heroTextRotateVertical 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  display: inline-block;
+}

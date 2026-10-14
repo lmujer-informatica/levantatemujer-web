@@ -4,6 +4,7 @@
     "Historias que Inspiran",
     "Voces en Acción"
   ],
+  "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
   "noticias": [
     {
       "id": 1,
@@ -11,6 +12,7 @@
       "titulo": "Inicio de Talleres de Capacitación Técnica",
       "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/capacitacion",
       "colorTema": "#2C8E9E"
     },
     {
@@ -19,6 +21,7 @@
       "titulo": "Feria de Emprendedoras en la Plaza Central",
       "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/feria-emprendedoras",
       "colorTema": "#93A635"
     },
     {
@@ -27,16 +30,17 @@
       "titulo": "Convenio Interinstitucional por la Igualdad",
       "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/convenio-igualdad",
       "colorTema": "#2C8E9E"
     },
     {
       "id": 4,
-      "fecha": "2026-10-12",
+      "fecha": "2026-10-14",
       "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
       "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
       "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/campana-2026",
       "colorTema": "#93A635"
     }
   ]
 }
-
