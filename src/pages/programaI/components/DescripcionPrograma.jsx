@@ -33,21 +33,21 @@ export default function DescripcionPrograma() {
                     {/* Texto del programa */}
                     <div className="flex flex-col gap-4 text-gray-700 text-sm sm:text-base leading-relaxed text-justify sm:text-left">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit congue, dictum per commodo nostra aliquet
-                            quisque etiam luctus, velit cum mauris mi fusce
-                            bibendum euismod. Nibh libero fermentum donec duis
-                            risus maecenas, scelerisque cubilia hac hendrerit
-                            quisque torquent, vel netus ultricies fames egestas.
-                            Himenaeos rutrum placerat morbi conubia potenti mus
-                            nulla habitant turpis, est netus gravida natoque
-                            metus dignissim congue laoreet.
-                        </p>
-                        <p>
-                            Scelerisque parturient hendrerit per habitasse
-                            integer litora nisi, luctus pulvinar himenaeos
-                            euismod purus condimentum nullam arcu, vehicula
-                            imperdiet quis tristique.
+                            El programa busca promover el ejercicio pleno de los
+                            derechos de las mujeres en los ejes económico,
+                            social y espiritual, impulsando su transformación
+                            como actoras protagónicas en sus vidas, familias y
+                            comunidades. Su estrategia contempla la atención
+                            psicosocial en centros terapéuticos para superar la
+                            violencia de género y fortalecer la comunicación
+                            familiar, la prevención y sensibilización mediante
+                            brigadas juveniles, promotoras comunitarias y el
+                            trabajo en nuevas masculinidades, la incidencia
+                            articulada con la sociedad civil e instituciones
+                            públicas para garantizar el cumplimiento normativo,
+                            y la capacitación integral en autoestima, liderazgo
+                            y creación de emprendimientos económicos
+                            sostenibles.
                         </p>
                     </div>
                 </div>
