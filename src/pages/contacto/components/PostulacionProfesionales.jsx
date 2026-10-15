@@ -22,7 +22,7 @@ function ImagePlaceholder({ className = "" }) {
 }
 
 export default function PostulacionProfesionales() {
-    const info = contactoData.postulacion || {};
+    const info = contactoData?.postulacion || {};
     const [formData, setFormData] = useState({
         nombre: "",
         celular: "",
@@ -32,10 +32,13 @@ export default function PostulacionProfesionales() {
     const [fileName, setFileName] = useState("");
 
     const handleChange = (e) => {
-        setFormData((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value,
-        }));
+        const { name, value } = e.target;
+        if (name === "celular") {
+            const sanitized = value.replace(/[^0-9+\s-]/g, "");
+            setFormData((prev) => ({ ...prev, [name]: sanitized }));
+            return;
+        }
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleFileChange = (e) => {
@@ -45,24 +48,47 @@ export default function PostulacionProfesionales() {
         }
     };
 
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        formData.correo.trim()
+    );
+    const isFormValid =
+        formData.nombre.trim().length > 0 &&
+        formData.celular.trim().length >= 6 &&
+        isEmailValid &&
+        formData.cv !== null;
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Postulación recibida. Revisaremos tu perfil a la brevedad.");
+        if (!isFormValid) return;
+        alert(
+            "Postulación enviada correctamente. Revisaremos tu perfil a la brevedad."
+        );
         setFormData({ nombre: "", celular: "", correo: "", cv: null });
         setFileName("");
+    };
+
+    // Descarga del archivo PDF (independiente de si el formulario está lleno o no)
+    const handleDescargaPdf = () => {
+        if (info.archivoPdf) {
+            window.open(info.archivoPdf, "_blank");
+        } else {
+            alert(
+                "El modelo de CV en PDF no está disponible temporalmente. Pronto estará habilitado."
+            );
+        }
     };
 
     return (
         <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Tarjeta Visual Izquierda */}
+                {/* Tarjeta Visual Izquierda (Gestionable mediante Decap CMS) */}
                 <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
                     <div className="w-full max-w-[380px] bg-white rounded-t-[50px] rounded-b-[40px] overflow-hidden shadow-sm border border-gray-100 flex flex-col">
                         <div className="p-4 flex items-center justify-center bg-gray-50">
                             {info.imagen ? (
                                 <img
                                     src={info.imagen}
-                                    alt="Postulación"
+                                    alt="Postulación de profesionales"
                                     className="w-full h-[240px] object-cover rounded-t-[40px]"
                                 />
                             ) : (
@@ -74,14 +100,11 @@ export default function PostulacionProfesionales() {
                                 {info.textoDescarga ||
                                     "Descarga nuestro modelo de CV"}
                             </p>
+                            {/* Botón de descarga de PDF: no requiere validación del formulario */}
                             <button
                                 type="button"
-                                onClick={() =>
-                                    alert(
-                                        "Descarga de modelo de CV en formato PDF.",
-                                    )
-                                }
-                                className="bg-[#2C5E8A] hover:bg-[#204566] text-white text-sm font-medium px-6 py-1.5 rounded-full transition-colors shadow-sm"
+                                onClick={handleDescargaPdf}
+                                className="bg-[#2C5E8A] hover:bg-[#204566] active:scale-95 text-white text-sm font-medium px-8 py-2 rounded-full transition-all shadow-md cursor-pointer"
                             >
                                 Click Aquí
                             </button>
@@ -103,54 +126,82 @@ export default function PostulacionProfesionales() {
                         onSubmit={handleSubmit}
                         className="flex flex-col gap-4 max-w-[550px] mx-auto w-full"
                     >
-                        <div>
-                            <label className="block text-center text-[#8FA832] text-sm font-medium mb-1">
-                                Nombre y Apellido
+                        {/* Nombre y Apellido */}
+                        <div className="flex flex-col gap-1">
+                            <label
+                                htmlFor="postulacion-nombre"
+                                className="block text-center text-[#8FA832] text-sm font-medium"
+                            >
+                                Nombre y Apellido *
                             </label>
                             <input
                                 type="text"
+                                id="postulacion-nombre"
                                 name="nombre"
                                 value={formData.nombre}
                                 onChange={handleChange}
+                                placeholder="Ej. María Pérez"
+                                inputMode="text"
+                                autoComplete="name"
                                 required
-                                className="w-full px-4 py-2 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm"
+                                className="w-full px-4 py-2.5 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm placeholder:text-gray-400 transition-all"
                             />
                         </div>
 
+                        {/* Celular + Correo */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-center text-[#8FA832] text-sm font-medium mb-1">
-                                    Celular
+                            <div className="flex flex-col gap-1">
+                                <label
+                                    htmlFor="postulacion-celular"
+                                    className="block text-center text-[#8FA832] text-sm font-medium"
+                                >
+                                    Celular *
                                 </label>
                                 <input
                                     type="tel"
+                                    id="postulacion-celular"
                                     name="celular"
                                     value={formData.celular}
                                     onChange={handleChange}
+                                    placeholder="Ej. 71234567"
+                                    inputMode="numeric"
+                                    pattern="[0-9+ \-]*"
+                                    autoComplete="tel"
                                     required
-                                    className="w-full px-4 py-2 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm"
+                                    className="w-full px-4 py-2.5 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm placeholder:text-gray-400 transition-all"
                                 />
                             </div>
-                            <div>
-                                <label className="block text-center text-[#8FA832] text-sm font-medium mb-1">
-                                    Correo
+                            <div className="flex flex-col gap-1">
+                                <label
+                                    htmlFor="postulacion-correo"
+                                    className="block text-center text-[#8FA832] text-sm font-medium"
+                                >
+                                    Correo *
                                 </label>
                                 <input
                                     type="email"
+                                    id="postulacion-correo"
                                     name="correo"
                                     value={formData.correo}
                                     onChange={handleChange}
+                                    placeholder="tu.email@email.com"
+                                    inputMode="email"
+                                    autoComplete="email"
                                     required
-                                    className="w-full px-4 py-2 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm"
+                                    className="w-full px-4 py-2.5 bg-white border border-[#8FA832] rounded-full focus:outline-none focus:ring-2 focus:ring-[#8FA832]/40 text-gray-800 text-sm placeholder:text-gray-400 transition-all"
                                 />
                             </div>
                         </div>
 
-                        <div>
-                            <label className="block text-center text-[#8FA832] text-sm font-medium mb-1">
-                                Carga tu CV
+                        {/* Carga tu CV */}
+                        <div className="flex flex-col gap-1">
+                            <label
+                                htmlFor="cv-upload"
+                                className="block text-center text-[#8FA832] text-sm font-medium"
+                            >
+                                Carga tu CV *
                             </label>
-                            <div className="relative flex items-center border border-[#8FA832] rounded-full px-3 py-1.5 bg-white overflow-hidden">
+                            <div className="relative flex items-center border border-[#8FA832] rounded-full px-3 py-2 bg-white overflow-hidden shadow-2xs">
                                 <input
                                     type="file"
                                     id="cv-upload"
@@ -163,16 +214,22 @@ export default function PostulacionProfesionales() {
                                     {fileName ||
                                         "Seleccionar archivo (PDF o Word)..."}
                                 </span>
-                                <span className="bg-gray-200 text-gray-700 text-xs px-4 py-1 rounded-full font-medium shrink-0">
+                                <span className="bg-gray-100 border border-gray-200 text-gray-700 text-xs px-4 py-1.5 rounded-full font-medium shrink-0 pointer-events-none">
                                     Examinar
                                 </span>
                             </div>
                         </div>
 
+                        {/* Botón CTA Bloqueado hasta completar */}
                         <div className="flex justify-center mt-2">
                             <button
                                 type="submit"
-                                className="bg-[#A2BA37] hover:bg-[#8e9f2d] text-white px-12 py-2.5 rounded-full font-medium shadow-md transition-colors text-base"
+                                disabled={!isFormValid}
+                                className={`px-12 py-2.5 rounded-full font-medium text-white text-base shadow-md transition-all duration-200 ${
+                                    isFormValid
+                                        ? "bg-[#A2BA37] hover:bg-[#8e9f2d] active:scale-95 cursor-pointer"
+                                        : "bg-[#A2BA37] opacity-40 cursor-not-allowed pointer-events-none"
+                                }`}
                             >
                                 Enviar
                             </button>

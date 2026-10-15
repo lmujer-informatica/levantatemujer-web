@@ -1,16 +1,18 @@
 {
     "heroFrases": ["Contáctanos", "Estamos para Ti", "Juntas Avanzamos"],
+    "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
     "lineaAyudaTexto": "Línea de Ayuda",
     "contactoGeneral": {
         "titulo": "Contacto General",
         "mensajeImagen": "Escríbenos, juntos construimos soluciones.",
-        "imagen": ""
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
     },
     "postulacion": {
         "titulo": "Postulación de profesionales",
         "subtitulo": "Tu interés nos inspira, revisaremos tu perfil.",
         "textoDescarga": "Descarga nuestro modelo de CV",
-        "imagen": ""
+        "archivoPdf": "",
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
     },
     "sedes": [
         {

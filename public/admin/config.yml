@@ -243,41 +243,11 @@ collections:
                   name: "heroFrases"
                   widget: "list"
                   field: { label: "Frase", name: "frase", widget: "string" }
-                - label: "Evento Destacado"
-                  name: "eventoDestacado"
-                  widget: "object"
-                  fields:
-                      - { label: "Título", name: "titulo", widget: "string" }
-                      - {
-                            label: "Fecha",
-                            name: "fecha",
-                            widget: "date",
-                            format: "YYYY-MM-DD",
-                        }
-                      - { label: "Ciudad", name: "ciudad", widget: "string", required: false }
-                      - {
-                            label: "Descripción",
-                            name: "descripcion",
-                            widget: "text",
-                        }
-                      - { label: "Lugar", name: "lugar", widget: "string" }
-                      - { label: "Hora", name: "hora", widget: "string" }
-                      - {
-                            label: "Imagen",
-                            name: "imagen",
-                            widget: "image",
-                            required: false,
-                        }
-                      - label: "¿A quiénes va dirigido?"
-                        name: "dirigidoA"
-                        widget: "list"
-                        field:
-                            {
-                                label: "Público",
-                                name: "publico",
-                                widget: "string",
-                            }
-                - label: "Tarjetas de Eventos / Actividades"
+                - label: "Hero - Imagen de Fondo"
+                  name: "heroImagen"
+                  widget: "image"
+                  required: false
+                - label: "Lista de Eventos"
                   name: "tarjetasEventos"
                   widget: "list"
                   fields:
@@ -288,11 +258,13 @@ collections:
                             widget: "date",
                             format: "YYYY-MM-DD",
                         }
-                      - label: "Ciudad"
+                      - { label: "Hora", name: "hora", widget: "string", default: "09:00 - 12:00" }
+                      - label: "Sede / Departamento"
                         name: "ciudad"
                         widget: "select"
-                        options: ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre"]
+                        options: ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre", "Cochabamba", "Tarija", "Potosí", "Beni", "Pando"]
                         default: "La Paz"
+                      - { label: "Lugar", name: "lugar", widget: "string", default: "Centro Comunitario" }
                       - {
                             label: "Descripción",
                             name: "descripcion",
@@ -304,29 +276,22 @@ collections:
                             widget: "image",
                             required: false,
                         }
+                      - label: "Clasificación / Dirigido A (Chips)"
+                        name: "dirigidoA"
+                        widget: "list"
+                        required: false
+                        field:
+                            {
+                                label: "Etiqueta",
+                                name: "etiqueta",
+                                widget: "string",
+                            }
                       - {
                             label: "Color del Tema",
                             name: "colorTema",
                             widget: "string",
                             default: "#2C8E9E",
                             required: false,
-                        }
-                - label: "Eventos Calendario"
-                  name: "eventosCalendario"
-                  widget: "list"
-                  fields:
-                      - { label: "Nombre", name: "nombre", widget: "string" }
-                      - {
-                            label: "Fecha",
-                            name: "fecha",
-                            widget: "date",
-                            format: "YYYY-MM-DD",
-                        }
-                      - {
-                            label: "Color",
-                            name: "color",
-                            widget: "string",
-                            default: "#2C8E9E",
                         }
 
     # =========================
@@ -397,6 +362,10 @@ collections:
                   name: "heroFrases"
                   widget: "list"
                   field: { label: "Frase", name: "frase", widget: "string" }
+                - label: "Hero - Imagen de Fondo"
+                  name: "heroImagen"
+                  widget: "image"
+                  required: false
                 - label: "Texto Barra Línea de Ayuda"
                   name: "lineaAyudaTexto"
                   widget: "string"
@@ -430,6 +399,12 @@ collections:
                             label: "Texto Descarga CV",
                             name: "textoDescarga",
                             widget: "string",
+                        }
+                      - {
+                            label: "Archivo PDF Modelo de CV",
+                            name: "archivoPdf",
+                            widget: "file",
+                            required: false,
                         }
                       - {
                             label: "Imagen",

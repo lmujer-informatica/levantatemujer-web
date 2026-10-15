@@ -3,7 +3,8 @@ import contactoData from "../../../data/contacto.json";
 
 export default function BannerContacto() {
     const [fraseActual, setFraseActual] = useState(0);
-    const frases = contactoData.heroFrases || [];
+    const frases = contactoData?.heroFrases || ["Contáctanos"];
+    const heroImagen = contactoData?.heroImagen || "";
 
     useEffect(() => {
         if (frases.length <= 1) return;
@@ -15,34 +16,54 @@ export default function BannerContacto() {
 
     return (
         <section className="relative w-full h-[300px] md:h-[400px] overflow-hidden bg-white flex items-center justify-center">
-            {/* Background image placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gray-400 rounded-lg flex items-center justify-center">
-                    <svg
-                        className="w-32 h-32 text-white opacity-40"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                    >
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <polyline points="21 15 16 10 5 21" />
-                    </svg>
-                </div>
+            {/* Background image covering full hero container */}
+            <div className="absolute inset-0 w-full h-full">
+                {heroImagen ? (
+                    <img
+                        src={heroImagen}
+                        alt="Hero Contacto"
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gray-400 flex items-center justify-center">
+                        <svg
+                            className="w-32 h-32 text-white opacity-40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1"
+                        >
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                    </div>
+                )}
+                {/* Subtle dark overlay for text contrast */}
+                <div className="absolute inset-0 bg-black/35" />
             </div>
 
-            {/* Glow effect and title */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative flex flex-col items-center justify-center">
-                    <div className="absolute inset-0 bg-[#d8eb96]/80 blur-2xl rounded-full scale-150" />
-                    <h1
-                        key={fraseActual}
-                        className="hero-text-in relative italic font-medium text-white text-4xl md:text-6xl lg:text-7xl z-10 px-4 drop-shadow-sm"
+            {/* Glow effect and title with vertical rotation */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative flex flex-col items-center justify-center max-w-[90%] md:max-w-[80%]">
+                    {/* Olive glow background */}
+                    <div className="absolute inset-0 bg-[#d8eb96]/70 blur-2xl rounded-full scale-150" />
+
+                    {/* Perspective container for smooth vertical rotation */}
+                    <div
+                        style={{ perspective: "800px" }}
+                        className="overflow-hidden py-2 text-center"
                     >
-                        {frases.length > 0 ? frases[fraseActual] : "Contacto"}
-                    </h1>
-                    <div className="relative h-[2px] md:h-[3px] bg-white mt-2 w-[80%] md:w-[120%] z-10" />
+                        <h1
+                            key={fraseActual}
+                            className="hero-text-rotate-vertical relative italic font-medium text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl z-10 px-4 drop-shadow-md text-center"
+                        >
+                            {frases.length > 0 ? frases[fraseActual] : "Contáctanos"}
+                        </h1>
+                    </div>
+
+                    {/* Underline accent */}
+                    <div className="relative h-[2px] md:h-[3px] bg-white mt-2 w-[80%] md:w-[120%] z-10 shadow-xs" />
                 </div>
             </div>
         </section>

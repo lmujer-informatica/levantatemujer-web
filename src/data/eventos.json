@@ -4,164 +4,295 @@
         "Eventos que Inspiran",
         "Conectando Mujeres"
     ],
-    "eventoDestacado": {
-        "fecha": "2026-09-25",
-        "ciudad": "La Paz",
-        "titulo": "Taller de Empoderamiento Económico",
-        "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
-        "lugar": "La Paz - Centro Comunitario",
-        "hora": "09:00 - 12:00",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-        "dirigidoA": [
-            "Mujeres emprendedoras",
-            "Jóvenes universitarias",
-            "Líderes comunitarias",
-            "Madres cabeza de hogar",
-            "Voluntarias"
-        ]
-    },
-    "eventosCalendario": [
-        {
-            "fecha": "2026-09-07",
-            "nombre": "Taller Legal",
-            "color": "#2C8E9E"
-        },
-        {
-            "fecha": "2026-09-25",
-            "nombre": "Empoderamiento",
-            "color": "#93A635"
-        },
-        {
-            "fecha": "2026-09-29",
-            "nombre": "Charla Salud",
-            "color": "#2C8E9E"
-        },
-        {
-            "fecha": "2026-10-14",
-            "nombre": "Foro de Liderazgo",
-            "color": "#93A635"
-        }
-    ],
+    "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
     "tarjetasEventos": [
         {
             "ciudad": "La Paz",
-            "fecha": "2026-10-15",
-            "titulo": "Taller de Prevención y Apoyo Integral",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "fecha": "2026-08-10",
+            "hora": "09:30 - 12:30",
+            "lugar": "Centro Comunitario San Pedro",
+            "titulo": "Taller de Liderazgo y Participación Femenina",
+            "descripcion": "Espacio formativo para fortalecer capacidades de toma de decisiones, vocería comunitaria y empoderamiento social de mujeres.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Líderes comunitarias",
+                "Mujeres emprendedoras",
+                "Jóvenes universitarias"
+            ],
             "colorTema": "#15A4C9"
         },
         {
-            "ciudad": "La Paz",
-            "fecha": "2026-10-22",
-            "titulo": "Foro de Autonomía Económica",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "ciudad": "El Alto",
+            "fecha": "2026-09-07",
+            "hora": "14:00 - 17:00",
+            "lugar": "Casa de Acogida El Alto",
+            "titulo": "Taller de Asesoría Legal Comunitaria",
+            "descripcion": "Jornada de orientación jurídica sobre derechos fundamentales, rutas de atención y protección frente a la violencia.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#BAcb5E"
+            "dirigidoA": [
+                "Mujeres en situación de vulnerabilidad",
+                "Promotoras comunitarias",
+                "Familias"
+            ],
+            "colorTema": "#2C8E9E"
         },
         {
             "ciudad": "La Paz",
-            "fecha": "2026-11-05",
-            "titulo": "Jornada de Contención Psicológica",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "fecha": "2026-09-25",
+            "hora": "09:00 - 12:00",
+            "lugar": "La Paz - Centro Comunitario",
+            "titulo": "Taller de Empoderamiento Económico",
+            "descripcion": "Un espacio para aprender herramientas financieras, emprendimiento y autonomía económica dirigido a mujeres en situación de vulnerabilidad.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres emprendedoras",
+                "Jóvenes universitarias",
+                "Líderes comunitarias",
+                "Madres cabeza de hogar",
+                "Voluntarias"
+            ],
+            "colorTema": "#93A635"
+        },
+        {
+            "ciudad": "La Paz",
+            "fecha": "2026-10-15",
+            "hora": "09:00 - 12:30",
+            "lugar": "Centro de Salud y Apoyo La Paz",
+            "titulo": "Taller de Prevención y Apoyo Integral",
+            "descripcion": "Encuentro vivencial enfocado en salud mental, contención emocional y desarrollo de redes de apoyo entre mujeres.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres de todas las edades",
+                "Líderes barriales",
+                "Voluntarias"
+            ],
             "colorTema": "#15A4C9"
         },
         {
             "ciudad": "El Alto",
             "fecha": "2026-10-16",
+            "hora": "10:00 - 16:00",
+            "lugar": "Plaza Central de El Alto",
             "titulo": "Feria de Emprendedoras Alteñas",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Espacio de exposición y venta de productos artesanales, textiles y gastronómicos elaborados por mujeres emprendedoras.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#BAcb5E"
-        },
-        {
-            "ciudad": "El Alto",
-            "fecha": "2026-10-25",
-            "titulo": "Taller de Salud Integral para Mujeres",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#15A4C9"
-        },
-        {
-            "ciudad": "El Alto",
-            "fecha": "2026-11-08",
-            "titulo": "Charla Legal sobre Derechos Laborales",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres emprendedoras",
+                "Público en general",
+                "Organizaciones aliadas"
+            ],
             "colorTema": "#BAcb5E"
         },
         {
             "ciudad": "Oruro",
             "fecha": "2026-10-18",
+            "hora": "14:30 - 18:00",
+            "lugar": "Auditorio Municipal de Oruro",
             "titulo": "Capacitación en Habilidades Digitales",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Taller intensivo sobre marketing digital, redes sociales y comercio electrónico para potenciar pequeños negocios.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#15A4C9"
-        },
-        {
-            "ciudad": "Oruro",
-            "fecha": "2026-10-28",
-            "titulo": "Espacio de Escucha y Acompañamiento",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#BAcb5E"
-        },
-        {
-            "ciudad": "Oruro",
-            "fecha": "2026-11-12",
-            "titulo": "Taller de Liderazgo Femenino",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Jóvenes emprendedoras",
+                "Comerciantes",
+                "Estudiantes"
+            ],
             "colorTema": "#15A4C9"
         },
         {
             "ciudad": "Santa Cruz",
             "fecha": "2026-10-19",
+            "hora": "15:00 - 19:00",
+            "lugar": "Centro Cultural Santa Cruz",
             "titulo": "Seminario de Prevención de Violencias",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Panel de especialistas sobre protocolos institucionales, atención comunitaria y prevención de violencia de género.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#BAcb5E"
-        },
-        {
-            "ciudad": "Santa Cruz",
-            "fecha": "2026-10-30",
-            "titulo": "Encuentro de Redes Comunitarias",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-            "colorTema": "#15A4C9"
-        },
-        {
-            "ciudad": "Santa Cruz",
-            "fecha": "2026-11-15",
-            "titulo": "Finanzas Personales para Mujeres",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Profesionales del área social",
+                "Estudiantes universitarias",
+                "Activistas"
+            ],
             "colorTema": "#BAcb5E"
         },
         {
             "ciudad": "Sucre",
             "fecha": "2026-10-20",
+            "hora": "09:30 - 12:30",
+            "lugar": "Casa de la Mujer Sucre",
             "titulo": "Mesa de Diálogo sobre Derechos",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Diálogo abierto entre autoridades locales y organizaciones de mujeres sobre el acceso a la justicia y servicios públicos.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Representantes de colectivos",
+                "Madres de familia",
+                "Comunidad universitaria"
+            ],
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "La Paz",
+            "fecha": "2026-10-22",
+            "hora": "14:00 - 17:30",
+            "lugar": "Cámara de Comercio La Paz",
+            "titulo": "Foro de Autonomía Económica",
+            "descripcion": "Conferencias sobre microcréditos, ahorro colectivo e independencia económica como herramienta de transformación.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres emprendedoras",
+                "Asociaciones de productoras",
+                "Microempresarias"
+            ],
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "El Alto",
+            "fecha": "2026-10-25",
+            "hora": "08:30 - 13:00",
+            "lugar": "Centro Integral de Salud El Alto",
+            "titulo": "Taller de Salud Integral para Mujeres",
+            "descripcion": "Jornada de atención médica preventiva, charlas informativas sobre salud reproductiva y autocuidado.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Madres de familia",
+                "Adolescentes",
+                "Adultas mayores"
+            ],
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Oruro",
+            "fecha": "2026-10-28",
+            "hora": "15:00 - 18:00",
+            "lugar": "Salón Parroquial Oruro",
+            "titulo": "Espacio de Escucha y Acompañamiento",
+            "descripcion": "Círculo de apoyo mutuo y acompañamiento psicosocial guiado por terapeutas especializadas.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres supervivientes de violencia",
+                "Voluntarias de contención",
+                "Familias"
+            ],
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Santa Cruz",
+            "fecha": "2026-10-30",
+            "hora": "10:00 - 14:00",
+            "lugar": "Parque Urbano Santa Cruz",
+            "titulo": "Encuentro de Redes Comunitarias",
+            "descripcion": "Actividad integradora para tejer alianzas entre liderazgos barriales e intercambiar buenas prácticas.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Líderes comunitarias",
+                "Promotoras juveniles",
+                "Organizaciones de base"
+            ],
             "colorTema": "#15A4C9"
         },
         {
             "ciudad": "Sucre",
             "fecha": "2026-11-02",
+            "hora": "14:00 - 17:00",
+            "lugar": "Casa de la Cultura Sucre",
             "titulo": "Taller de Sanación Emocional",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Herramientas de arteterapia, meditación y desahogo emocional para la resiliencia personal y grupal.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres jóvenes y adultas",
+                "Cuidadoras",
+                "Terapeutas voluntarias"
+            ],
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "La Paz",
+            "fecha": "2026-11-05",
+            "hora": "09:00 - 12:00",
+            "lugar": "Auditorio Levántate Mujer La Paz",
+            "titulo": "Jornada de Contención Psicológica",
+            "descripcion": "Charlas y sesiones de orientación sobre manejo de crisis, ansiedad y fortalecimiento de la autoestima.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Público femenino general",
+                "Estudiantes de psicología",
+                "Madres solteras"
+            ],
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "El Alto",
+            "fecha": "2026-11-08",
+            "hora": "15:00 - 18:00",
+            "lugar": "Central Obrera Regional El Alto",
+            "titulo": "Charla Legal sobre Derechos Laborales",
+            "descripcion": "Capacitación sobre estabilidad laboral, licencias de maternidad y prevención del acoso en el trabajo.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Trabajadoras asalariadas",
+                "Trabajadoras del hogar",
+                "Comerciantes"
+            ],
+            "colorTema": "#BAcb5E"
+        },
+        {
+            "ciudad": "Oruro",
+            "fecha": "2026-11-12",
+            "hora": "09:30 - 13:00",
+            "lugar": "Salón Rojo de la Alcaldía de Oruro",
+            "titulo": "Taller de Liderazgo Femenino",
+            "descripcion": "Técnicas de comunicación asertiva, resolución de conflictos y gestión comunitaria para mujeres líderes.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Lideresas barriales",
+                "Dirigentas universitarias",
+                "Mujeres campesinas"
+            ],
+            "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "Santa Cruz",
+            "fecha": "2026-11-15",
+            "hora": "14:00 - 17:30",
+            "lugar": "Cámara Departamental de Santa Cruz",
+            "titulo": "Finanzas Personales para Mujeres",
+            "descripcion": "Planificación financiera familiar, elaboración de presupuestos y gestión de deudas con enfoque de género.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Madres cabeza de hogar",
+                "Emprendedoras iniciales",
+                "Jóvenes profesionales"
+            ],
             "colorTema": "#BAcb5E"
         },
         {
             "ciudad": "Sucre",
             "fecha": "2026-11-18",
+            "hora": "09:00 - 13:00",
+            "lugar": "Universidad San Francisco Xavier",
             "titulo": "Jornada Vocacional para Mujeres",
-            "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+            "descripcion": "Orientación para el acceso a carreras técnicas y universitarias no tradicionales para romper estereotipos de género.",
             "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Bachilleres",
+                "Jóvenes universitarias",
+                "Educadoras"
+            ],
             "colorTema": "#15A4C9"
+        },
+        {
+            "ciudad": "La Paz",
+            "fecha": "2026-11-20",
+            "hora": "14:00 - 17:30",
+            "lugar": "Auditorio Central La Paz",
+            "titulo": "Taller de Prevención y Redes de Apoyo",
+            "descripcion": "Encuentro multidisciplinario para consolidar redes de soporte mutuo, prevención de violencias y planes de acción comunitaria.",
+            "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+            "dirigidoA": [
+                "Mujeres emprendedoras",
+                "Familias",
+                "Voluntarias",
+                "Líderes comunitarias"
+            ],
+            "colorTema": "#BAcb5E"
         }
     ]
 }

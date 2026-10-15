@@ -48,8 +48,8 @@ function obtenerDiasDelMes(anio, mes) {
         dias.push({ dia: i, esMesActual: true });
     }
 
-    // Next month filler days
-    const fillerDias = 42 - dias.length; // Always show 6 rows
+    // Next month filler days (always keep 6 rows = 42 cells)
+    const fillerDias = 42 - dias.length;
     for (let i = 1; i <= fillerDias; i++) {
         dias.push({ dia: i, esMesActual: false });
     }
@@ -59,11 +59,18 @@ function obtenerDiasDelMes(anio, mes) {
 
 function formatearFecha(fechaStr) {
     if (!fechaStr) return "dd - mm - aaaa";
-    const fecha = new Date(fechaStr + "T00:00:00");
-    const dd = String(fecha.getDate()).padStart(2, "0");
-    const mm = String(fecha.getMonth() + 1).padStart(2, "0");
-    const aaaa = fecha.getFullYear();
-    return `${dd} - ${mm} - ${aaaa}`;
+    try {
+        const fecha = new Date(
+            fechaStr.includes("T") ? fechaStr : fechaStr + "T00:00:00"
+        );
+        if (isNaN(fecha.getTime())) return fechaStr;
+        const dd = String(fecha.getDate()).padStart(2, "0");
+        const mm = String(fecha.getMonth() + 1).padStart(2, "0");
+        const aaaa = fecha.getFullYear();
+        return `${dd} - ${mm} - ${aaaa}`;
+    } catch {
+        return fechaStr;
+    }
 }
 
 /** Image placeholder SVG */
@@ -91,26 +98,77 @@ export default function CalendarioEventos() {
     const hoy = new Date();
     const [mesActual, setMesActual] = useState(hoy.getMonth());
     const [anioActual, setAnioActual] = useState(hoy.getFullYear());
+    const [eventoSeleccionado, setEventoSeleccionado] = useState(null);
 
-    const eventosCalendario = eventosData.eventosCalendario || [];
-    const eventoDestacado = eventosData.eventoDestacado || null;
+    // Unified list of events from Decap CMS / JSON
+    const todosLosEventos = useMemo(() => {
+        return eventosData?.tarjetasEventos || eventosData?.eventos || [];
+    }, []);
 
-    // Build a map of day => events for the current month
+    // Closest future event to today (automatic fallback if no future event)
+    const eventoProximo = useMemo(() => {
+        if (!todosLosEventos || todosLosEventos.length === 0) return null;
+
+        const hoyDate = new Date();
+        const hoyStr = `${hoyDate.getFullYear()}-${String(
+            hoyDate.getMonth() + 1
+        ).padStart(2, "0")}-${String(hoyDate.getDate()).padStart(2, "0")}`;
+
+        // Future or today events
+        const futuros = todosLosEventos.filter(
+            (ev) => ev && ev.fecha && ev.fecha >= hoyStr
+        );
+
+        if (futuros.length > 0) {
+            // Sort ascending by date (closest to today first)
+            const ordenados = [...futuros].sort((a, b) =>
+                a.fecha.localeCompare(b.fecha)
+            );
+            return ordenados[0];
+        }
+
+        // If no future event exists, return the most recent past event (descending)
+        const pasados = [...todosLosEventos].filter((ev) => ev && ev.fecha);
+        pasados.sort((a, b) => b.fecha.localeCompare(a.fecha));
+        return pasados[0] || todosLosEventos[0];
+    }, [todosLosEventos]);
+
+    // Active event displayed on the right panel
+    const eventoMostrado = eventoSeleccionado || eventoProximo;
+
+    // Parse chips safely
+    const chips = useMemo(() => {
+        if (!eventoMostrado?.dirigidoA) return [];
+        if (Array.isArray(eventoMostrado.dirigidoA)) {
+            return eventoMostrado.dirigidoA
+                .map((item) =>
+                    typeof item === "string"
+                        ? item
+                        : item?.etiqueta || item?.publico || ""
+                )
+                .filter(Boolean);
+        }
+        return [];
+    }, [eventoMostrado]);
+
+    // Build a map of day => events for the current month and year
     const mapaEventos = useMemo(() => {
         const mapa = {};
-        eventosCalendario.forEach((ev) => {
-            const fecha = new Date(ev.fecha + "T00:00:00");
-            if (
-                fecha.getMonth() === mesActual &&
-                fecha.getFullYear() === anioActual
-            ) {
-                const dia = fecha.getDate();
-                if (!mapa[dia]) mapa[dia] = [];
-                mapa[dia].push(ev);
+        todosLosEventos.forEach((ev) => {
+            if (!ev || !ev.fecha) return;
+            const partes = ev.fecha.split("-");
+            if (partes.length < 3) return;
+            const evAno = parseInt(partes[0], 10);
+            const evMes = parseInt(partes[1], 10) - 1; // 0-based month
+            const evDia = parseInt(partes[2], 10);
+
+            if (evMes === mesActual && evAno === anioActual) {
+                if (!mapa[evDia]) mapa[evDia] = [];
+                mapa[evDia].push(ev);
             }
         });
         return mapa;
-    }, [eventosCalendario, mesActual, anioActual]);
+    }, [todosLosEventos, mesActual, anioActual]);
 
     const dias = obtenerDiasDelMes(anioActual, mesActual);
 
@@ -135,24 +193,24 @@ export default function CalendarioEventos() {
     return (
         <section className="w-full bg-[#F1FFFF] py-10 md:py-16">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-                    {/* ====== LEFT: Calendar ====== */}
-                    <div className="w-full lg:w-1/2">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+                    {/* ====== LEFT: Interactive Calendar ====== */}
+                    <div className="w-full lg:w-1/2 bg-white rounded-2xl shadow-sm border border-gray-200/80 p-4 sm:p-6">
                         {/* Month/Year nav */}
                         <div className="flex items-center justify-between mb-4">
                             <button
                                 onClick={mesAnterior}
-                                className="p-2 rounded-full hover:bg-white/60 transition-colors text-lm-navy"
+                                className="p-2 rounded-full hover:bg-gray-100 transition-colors text-lm-navy cursor-pointer"
                                 aria-label="Mes anterior"
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
-                            <h2 className="text-xl md:text-2xl font-semibold text-lm-cyan italic">
+                            <h2 className="text-xl md:text-2xl font-bold text-lm-cyan italic select-none">
                                 {MESES[mesActual]} - {anioActual}
                             </h2>
                             <button
                                 onClick={mesSiguiente}
-                                className="p-2 rounded-full hover:bg-white/60 transition-colors text-lm-navy"
+                                className="p-2 rounded-full hover:bg-gray-100 transition-colors text-lm-navy cursor-pointer"
                                 aria-label="Mes siguiente"
                             >
                                 <ChevronRight className="w-6 h-6" />
@@ -160,19 +218,26 @@ export default function CalendarioEventos() {
                         </div>
 
                         {/* Day headers */}
-                        <div className="grid grid-cols-7 border border-gray-300 bg-white">
+                        <div className="grid grid-cols-7 border-t border-l border-gray-200 bg-gray-50 rounded-t-lg overflow-hidden">
                             {DIAS_SEMANA.map((nombre) => (
                                 <div
                                     key={nombre}
-                                    className="py-2 text-center text-[10px] sm:text-xs font-semibold text-lm-navy border-b border-gray-300 truncate"
+                                    className="py-2.5 text-center text-[10px] sm:text-xs font-bold text-lm-navy border-r border-b border-gray-200 truncate select-none"
                                 >
-                                    {nombre}
+                                    <span className="hidden sm:inline">
+                                        {nombre}
+                                    </span>
+                                    <span className="sm:hidden">
+                                        {nombre.slice(0, 3)}
+                                    </span>
                                 </div>
                             ))}
+                        </div>
 
-                            {/* Day cells */}
+                        {/* Day cells grid */}
+                        <div className="grid grid-cols-7 border-l border-gray-200 bg-white rounded-b-lg overflow-hidden">
                             {dias.map((celda, idx) => {
-                                const eventos = celda.esMesActual
+                                const eventosEnDia = celda.esMesActual
                                     ? mapaEventos[celda.dia] || []
                                     : [];
                                 const esHoy =
@@ -181,125 +246,214 @@ export default function CalendarioEventos() {
                                     mesActual === hoy.getMonth() &&
                                     anioActual === hoy.getFullYear();
 
+                                const tieneSeleccionado =
+                                    celda.esMesActual &&
+                                    eventoMostrado &&
+                                    eventosEnDia.some(
+                                        (e) =>
+                                            e.titulo ===
+                                                eventoMostrado.titulo &&
+                                            e.fecha === eventoMostrado.fecha
+                                    );
+
                                 return (
                                     <div
                                         key={idx}
-                                        className={`relative min-h-[48px] sm:min-h-[60px] md:min-h-[70px] p-1 border border-gray-200 flex flex-col ${
+                                        onClick={() => {
+                                            if (eventosEnDia.length > 0) {
+                                                setEventoSeleccionado(
+                                                    eventosEnDia[0]
+                                                );
+                                            }
+                                        }}
+                                        className={`relative min-h-[56px] sm:min-h-[68px] md:min-h-[76px] p-1 border-r border-b border-gray-200 flex flex-col justify-start transition-colors ${
                                             celda.esMesActual
                                                 ? "bg-white"
-                                                : "bg-gray-50"
+                                                : "bg-gray-50/60"
+                                        } ${
+                                            tieneSeleccionado
+                                                ? "bg-cyan-50/80 ring-2 ring-inset ring-lm-cyan"
+                                                : ""
+                                        } ${
+                                            eventosEnDia.length > 0
+                                                ? "cursor-pointer hover:bg-cyan-50/40"
+                                                : ""
                                         }`}
                                     >
+                                        {/* Day number */}
                                         <span
-                                            className={`text-[11px] sm:text-xs leading-none ${
+                                            className={`text-[11px] sm:text-xs leading-none font-medium mb-1 ${
                                                 celda.esMesActual
                                                     ? "text-gray-700"
-                                                    : "text-gray-400"
-                                            } ${esHoy ? "font-bold text-lm-cyan" : ""}`}
+                                                    : "text-gray-300"
+                                            } ${
+                                                esHoy
+                                                    ? "font-bold text-white bg-lm-cyan w-5 h-5 rounded-full flex items-center justify-center -ml-0.5 -mt-0.5 shadow-xs"
+                                                    : ""
+                                            }`}
                                         >
                                             {celda.dia}
                                         </span>
 
-                                        {/* Event chips */}
-                                        {eventos.map((ev, evIdx) => (
-                                            <div
-                                                key={evIdx}
-                                                className="mt-auto rounded text-[8px] sm:text-[10px] text-white text-center px-1 py-0.5 leading-tight truncate"
-                                                style={{
-                                                    backgroundColor:
-                                                        ev.color || "#2C8E9E",
-                                                }}
-                                                title={ev.nombre}
-                                            >
-                                                <span className="hidden sm:inline">
-                                                    {ev.nombre}
-                                                </span>
-                                                <span className="sm:hidden">
-                                                    ●
-                                                </span>
-                                            </div>
-                                        ))}
+                                        {/* Event badges with visible titles on date cell */}
+                                        <div className="flex flex-col gap-0.5 sm:gap-1 mt-auto w-full">
+                                            {eventosEnDia.map((ev, evIdx) => {
+                                                const isCurrent =
+                                                    eventoMostrado &&
+                                                    eventoMostrado.titulo ===
+                                                        ev.titulo &&
+                                                    eventoMostrado.fecha ===
+                                                        ev.fecha;
+                                                const color =
+                                                    ev.colorTema || "#2C8E9E";
+
+                                                return (
+                                                    <button
+                                                        key={evIdx}
+                                                        type="button"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setEventoSeleccionado(
+                                                                ev
+                                                            );
+                                                        }}
+                                                        title={`${ev.titulo} (${
+                                                            ev.ciudad || ""
+                                                        }) - ${ev.hora || ""}`}
+                                                        className={`w-full text-left rounded px-1 sm:px-1.5 py-0.5 transition-all cursor-pointer shadow-2xs block ${
+                                                            isCurrent
+                                                                ? "ring-2 ring-lm-navy scale-[1.02] brightness-105"
+                                                                : "hover:brightness-95 hover:scale-[1.01]"
+                                                        }`}
+                                                        style={{
+                                                            backgroundColor:
+                                                                color,
+                                                        }}
+                                                    >
+                                                        <p className="text-[8px] sm:text-[9px] md:text-[10px] font-medium text-white truncate leading-tight">
+                                                            {ev.titulo}
+                                                        </p>
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
                                 );
                             })}
                         </div>
                     </div>
 
-                    {/* ====== RIGHT: Event detail ====== */}
-                    <div className="w-full lg:w-1/2 flex flex-col">
-                        {eventoDestacado ? (
+                    {/* ====== RIGHT: Event Detail Breakdown ====== */}
+                    <div className="w-full lg:w-1/2 flex flex-col bg-white rounded-2xl shadow-sm border border-gray-200/80 p-5 sm:p-7">
+                        {eventoMostrado ? (
                             <>
-                                {/* Date badge */}
-                                <div className="flex justify-end mb-3">
-                                    <span className="bg-lm-navy text-white text-sm px-6 py-1.5 rounded-l-full">
-                                        {formatearFecha(eventoDestacado.fecha)}
+                                {/* Top status & date header */}
+                                <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+                                    {eventoSeleccionado &&
+                                    eventoProximo &&
+                                    eventoSeleccionado.titulo !==
+                                        eventoProximo.titulo ? (
+                                        <button
+                                            onClick={() =>
+                                                setEventoSeleccionado(null)
+                                            }
+                                            className="text-xs text-lm-cyan hover:text-lm-navy transition-colors font-medium cursor-pointer underline flex items-center gap-1"
+                                        >
+                                            ← Ver evento más próximo
+                                        </button>
+                                    ) : (
+                                        <span className="text-xs font-semibold uppercase tracking-wider text-lm-olive">
+                                            Próxima Actividad Destacada
+                                        </span>
+                                    )}
+
+                                    {/* Date badge */}
+                                    <span
+                                        className={`text-white text-xs sm:text-sm px-4 sm:px-6 py-1.5 rounded-l-full font-medium shadow-xs ${
+                                            !eventoSeleccionado ||
+                                            eventoSeleccionado.titulo ===
+                                                eventoProximo?.titulo
+                                                ? "bg-lm-navy"
+                                                : "bg-lm-olive"
+                                        }`}
+                                    >
+                                        {formatearFecha(eventoMostrado.fecha)}
                                     </span>
                                 </div>
 
-                                {/* Event image */}
-                                <div className="relative w-full h-[180px] md:h-[220px] rounded-2xl overflow-hidden mb-4">
-                                    {eventoDestacado.imagen ? (
+                                {/* Event image with arched title overlay */}
+                                <div className="relative w-full h-[190px] sm:h-[220px] md:h-[250px] rounded-2xl overflow-hidden mb-4 shadow-sm bg-gray-200">
+                                    {eventoMostrado.imagen ? (
                                         <img
-                                            src={eventoDestacado.imagen}
-                                            alt={eventoDestacado.titulo}
+                                            src={eventoMostrado.imagen}
+                                            alt={eventoMostrado.titulo}
                                             className="absolute inset-0 w-full h-full object-cover"
                                         />
                                     ) : (
                                         <ImagePlaceholder className="w-full h-full rounded-2xl" />
                                     )}
                                     {/* Title overlay */}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-lm-cyan/90 py-3 px-6">
-                                        <h3 className="text-white text-lg md:text-xl italic font-medium text-center">
-                                            {eventoDestacado.titulo}
+                                    <div className="absolute bottom-0 left-0 right-0 bg-lm-cyan/95 py-3 px-4 sm:px-6">
+                                        <h3 className="text-white text-base sm:text-lg md:text-xl italic font-semibold text-center leading-snug">
+                                            {eventoMostrado.titulo}
                                         </h3>
                                     </div>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                                    {eventoDestacado.descripcion}
+                                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-5">
+                                    {eventoMostrado.descripcion}
                                 </p>
 
-                                {/* Location & Time */}
-                                <div className="flex flex-wrap items-center gap-x-8 gap-y-2 mb-5">
-                                    {eventoDestacado.lugar && (
-                                        <div className="flex items-center gap-2 text-sm text-gray-700">
-                                            <MapPin className="w-5 h-5 text-lm-olive shrink-0" />
-                                            <span>{eventoDestacado.lugar}</span>
-                                        </div>
-                                    )}
-                                    {eventoDestacado.hora && (
-                                        <div className="flex items-center gap-2 text-sm text-gray-700">
-                                            <Clock className="w-5 h-5 text-lm-navy shrink-0" />
-                                            <span>{eventoDestacado.hora}</span>
-                                        </div>
-                                    )}
+                                {/* Location, Sede & Time */}
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-[#F1FFFF] rounded-xl border border-[#0DADD4]/20 mb-5">
+                                    {/* Location / Sede */}
+                                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-800">
+                                        <MapPin className="w-5 h-5 text-lm-olive shrink-0" />
+                                        <span>
+                                            {eventoMostrado.ciudad ? (
+                                                <strong className="font-semibold text-lm-navy">
+                                                    {eventoMostrado.ciudad}:{" "}
+                                                </strong>
+                                            ) : null}
+                                            {eventoMostrado.lugar ||
+                                                "Sede Institucional"}
+                                        </span>
+                                    </div>
+
+                                    {/* Time */}
+                                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-800 shrink-0">
+                                        <Clock className="w-5 h-5 text-lm-navy shrink-0" />
+                                        <span className="font-medium">
+                                            {eventoMostrado.hora ||
+                                                "09:00 - 12:00"}
+                                        </span>
+                                    </div>
                                 </div>
 
-                                {/* Audience tags */}
-                                {eventoDestacado.dirigidoA?.length > 0 && (
-                                    <div>
-                                        <h4 className="text-lm-navy font-semibold text-sm italic mb-3 text-center">
-                                            ¿A quiénes va dirigido?
+                                {/* Audience / Classification Tags */}
+                                {chips.length > 0 && (
+                                    <div className="mt-auto pt-2 border-t border-gray-100">
+                                        <h4 className="text-lm-navy font-semibold text-xs sm:text-sm italic mb-3 text-center">
+                                            ¿A quiénes va dirigido? /
+                                            Clasificación
                                         </h4>
                                         <div className="flex flex-wrap justify-center gap-2">
-                                            {eventoDestacado.dirigidoA.map(
-                                                (persona, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="border border-lm-navy text-lm-navy rounded-full px-4 py-1 text-xs font-medium"
-                                                    >
-                                                        {persona}
-                                                    </span>
-                                                ),
-                                            )}
+                                            {chips.map((chip, idx) => (
+                                                <span
+                                                    key={idx}
+                                                    className="border border-[#859430] bg-[#859430]/10 text-[#407178] rounded-full px-3.5 py-1 text-xs font-medium shadow-2xs"
+                                                >
+                                                    {chip}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
                                 )}
                             </>
                         ) : (
-                            <div className="flex-1 flex items-center justify-center text-gray-400 italic">
-                                No hay evento destacado
+                            <div className="flex-1 flex items-center justify-center text-gray-400 italic py-16">
+                                No hay eventos registrados actualmente.
                             </div>
                         )}
                     </div>
