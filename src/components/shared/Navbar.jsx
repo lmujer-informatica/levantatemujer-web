@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import logo from '../../imagenes/logo.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const actividadActiva = location.pathname === '/material';
+  const programasActivo = location.pathname === '/programaII';
 
   const handleNavigation = () => {
     setIsOpen(false);
@@ -59,15 +62,51 @@ export default function Navbar() {
               Quienes<br />Somos
             </NavLink>
 
-            <button className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors">
-              Programas
-              <ChevronDown className="w-4 h-4 fill-current" />
-            </button>
+            <div className={`relative group flex items-stretch ${programasActivo ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] rounded-b-4xl shadow-md' : ''}`}>
+              <button className={`flex items-center justify-center gap-1 px-4 text-sm font-medium transition-colors ${programasActivo ? 'text-white' : 'text-lm-cyan hover:text-lm-navy'}`}>
+                Programas
+                <ChevronDown className="w-4 h-4 fill-current" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 hidden group-hover:block pt-1 z-50">
+                <div className="bg-white rounded-b-2xl shadow-lg border border-gray-100 overflow-hidden min-w-[170px]">
+                  <NavLink
+                    to="/programaII"
+                    className={({ isActive }) =>
+                      `block px-5 py-2.5 text-sm font-medium text-center transition-colors ${
+                        isActive
+                          ? 'bg-lm-cyan text-white'
+                          : 'text-lm-cyan hover:bg-[#EAF7FA]'
+                      }`
+                    }
+                  >
+                    Programa II
+                  </NavLink>
+                </div>
+              </div>
+            </div>
 
-            <button className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors">
-              Actividad
-              <ChevronDown className="w-4 h-4 fill-current" />
-            </button>
+            <div className={`relative group flex items-stretch ${actividadActiva ? 'bg-linear-to-b from-[#00b4d8] to-[#0077b6] rounded-b-4xl shadow-md' : ''}`}>
+              <button className={`flex items-center justify-center gap-1 px-4 text-sm font-medium transition-colors ${actividadActiva ? 'text-white' : 'text-lm-cyan hover:text-lm-navy'}`}>
+                Actividad
+                <ChevronDown className="w-4 h-4 fill-current" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 hidden group-hover:block pt-1 z-50">
+                <div className="bg-white rounded-b-2xl shadow-lg border border-gray-100 overflow-hidden min-w-[170px]">
+                  <NavLink
+                    to="/material"
+                    className={({ isActive }) =>
+                      `block px-5 py-2.5 text-sm font-medium text-center transition-colors ${
+                        isActive
+                          ? 'bg-lm-cyan text-white'
+                          : 'text-lm-cyan hover:bg-[#EAF7FA]'
+                      }`
+                    }
+                  >
+                    Material
+                  </NavLink>
+                </div>
+              </div>
+            </div>
 
             <NavLink
               to="/contacto"
@@ -148,18 +187,22 @@ export default function Navbar() {
               Quienes Somos
             </NavLink>
 
+            <p className="block px-3 pt-2 text-base font-semibold text-lm-navy">
+              Programas
+            </p>
+
             <NavLink
-              to="/programas"
+              to="/programaII"
               onClick={handleNavigation}
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-base font-medium ${
+                `block pl-8 pr-3 py-2 rounded-md text-base font-medium ${
                   isActive
                     ? 'bg-lm-cyan text-white'
                     : 'text-lm-cyan'
                 }`
               }
             >
-              Programas
+              Programa II
             </NavLink>
 
             <NavLink
@@ -174,6 +217,20 @@ export default function Navbar() {
               }
             >
               Actividad
+            </NavLink>
+
+            <NavLink
+              to="/material"
+              onClick={handleNavigation}
+              className={({ isActive }) =>
+                `block pl-8 pr-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-lm-cyan text-white'
+                    : 'text-lm-cyan'
+                }`
+              }
+            >
+              Material
             </NavLink>
 
             <NavLink

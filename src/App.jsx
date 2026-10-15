@@ -8,6 +8,10 @@ import SalidaSegura from './components/shared/SalidaSegura';
 import Inicio from './pages/inicio/Inicio';
 import QuienesSomos from './pages/quienesSomos/quienesSomos';
 import LineaAyuda from './pages/lineaAyuda/lineaAyuda';
+import ProgramaII from './pages/programa/ProgramaII';
+import Material from './pages/material/Material';
+import NoticiasII from './pages/noticias/NoticiasII';
+import DesgloseNoticia from './pages/noticia/DesgloseNoticia';
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route path="/quienesSomos" element={<QuienesSomos/>} />
           <Route path="/lineaAyuda" element={<LineaAyuda />} />
+          <Route path="/programaII" element={<ProgramaII />} />
+          <Route path="/material" element={<Material />} />
+          <Route path="/noticiasII" element={<NoticiasII />} />
+          <Route path="/noticia/:id" element={<DesgloseNoticia />} />
         </Routes>
 
         <Footer />
