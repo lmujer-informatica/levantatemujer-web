@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import programaIData from "../../../data/programaI.json";
 
@@ -116,14 +116,211 @@ function TestimonialFlipCard({ testimonio, colorVolteado }) {
     );
 }
 
-function obtenerVisibles(items, indexInicio) {
-    if (!Array.isArray(items) || items.length === 0) return [];
-    if (items.length <= 3) return items;
-    return [
-        items[indexInicio % items.length],
-        items[(indexInicio + 1) % items.length],
-        items[(indexInicio + 2) % items.length],
-    ];
+/**
+ * Hook de carrusel deslizante con animación, soporte touch y botones.
+ * Muestra 1 card en móvil, 3 en sm+.
+ */
+function useSlideCarousel(items) {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [slideDirection, setSlideDirection] = useState(null); // 'left' | 'right'
+
+    // Touch
+    const touchStartX = useRef(null);
+    const touchCurrentX = useRef(null);
+    const [dragOffset, setDragOffset] = useState(0);
+    const isDragging = useRef(false);
+
+    const count = items.length;
+
+    const goNext = useCallback(() => {
+        if (isAnimating || count === 0) return;
+        setSlideDirection("left");
+        setIsAnimating(true);
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % count);
+            setIsAnimating(false);
+            setSlideDirection(null);
+        }, 350);
+    }, [isAnimating, count]);
+
+    const goPrev = useCallback(() => {
+        if (isAnimating || count === 0) return;
+        setSlideDirection("right");
+        setIsAnimating(true);
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev - 1 + count) % count);
+            setIsAnimating(false);
+            setSlideDirection(null);
+        }, 350);
+    }, [isAnimating, count]);
+
+    const onTouchStart = useCallback((e) => {
+        touchStartX.current = e.targetTouches[0].clientX;
+        touchCurrentX.current = e.targetTouches[0].clientX;
+        isDragging.current = true;
+        setDragOffset(0);
+    }, []);
+
+    const onTouchMove = useCallback((e) => {
+        if (!isDragging.current) return;
+        touchCurrentX.current = e.targetTouches[0].clientX;
+        const delta = touchCurrentX.current - touchStartX.current;
+        setDragOffset(delta);
+    }, []);
+
+    const onTouchEnd = useCallback(() => {
+        if (!isDragging.current) return;
+        isDragging.current = false;
+        const diff = touchStartX.current - touchCurrentX.current;
+        setDragOffset(0);
+        if (diff > 50) {
+            goNext();
+        } else if (diff < -50) {
+            goPrev();
+        }
+    }, [goNext, goPrev]);
+
+    return {
+        currentIndex,
+        isAnimating,
+        slideDirection,
+        dragOffset,
+        goNext,
+        goPrev,
+        onTouchStart,
+        onTouchMove,
+        onTouchEnd,
+    };
+}
+
+/** Carrusel genérico con deslizamiento animado */
+function SlideCarousel({
+    items,
+    renderCard,
+    carousel,
+    prevBtnClass,
+    nextBtnClass,
+}) {
+    const {
+        currentIndex,
+        isAnimating,
+        slideDirection,
+        dragOffset,
+        goNext,
+        goPrev,
+        onTouchStart,
+        onTouchMove,
+        onTouchEnd,
+    } = carousel;
+
+    if (!items || items.length === 0) return null;
+
+    // Construir los ítems visibles: prev group | current group | next group
+    const count = items.length;
+    const getItem = (offset) => items[((currentIndex + offset) % count + count) % count];
+
+    // Para desktop (3 cards) y mobile (1 card), mostramos 3 grupos de 3 cards
+    const prevItems = [getItem(-3), getItem(-2), getItem(-1)];
+    const currItems = [getItem(0), getItem(1), getItem(2)];
+    const nextItems = [getItem(3), getItem(4), getItem(5)];
+
+    // Animación de deslizamiento
+    let translatePercent = 0;
+    if (slideDirection === "left") translatePercent = -100;
+    if (slideDirection === "right") translatePercent = 100;
+
+    // Drag offset en porcentaje del contenedor
+    const dragPercent = dragOffset !== 0 ? (dragOffset / window.innerWidth) * 100 : 0;
+
+    return (
+        <div
+            className="relative flex items-center gap-3 sm:gap-4"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+        >
+            {/* Botón Anterior */}
+            <button
+                onClick={goPrev}
+                className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-white transition-colors cursor-pointer z-10 ${prevBtnClass}`}
+                aria-label="Anterior"
+            >
+                <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Track del carrusel */}
+            <div className="flex-1 overflow-hidden">
+                <div
+                    className="flex w-[300%]"
+                    style={{
+                        transform: `translateX(calc(-33.333% + ${translatePercent / 3}% + ${dragPercent / 3}%))`,
+                        transition:
+                            isAnimating
+                                ? "transform 350ms cubic-bezier(0.4, 0, 0.2, 1)"
+                                : "none",
+                    }}
+                >
+                    {/* Grupo anterior */}
+                    <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 px-0 shrink-0">
+                        {prevItems.map((item, idx) => (
+                            <div
+                                key={`prev-${item?.id || idx}`}
+                                className={
+                                    idx === 0
+                                        ? "block col-span-1"
+                                        : "hidden sm:block col-span-1"
+                                }
+                            >
+                                {renderCard(item, idx)}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Grupo actual */}
+                    <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 px-0 shrink-0">
+                        {currItems.map((item, idx) => (
+                            <div
+                                key={`curr-${item?.id || idx}`}
+                                className={
+                                    idx === 0
+                                        ? "block col-span-1"
+                                        : "hidden sm:block col-span-1"
+                                }
+                            >
+                                {renderCard(item, idx)}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Grupo siguiente */}
+                    <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 px-0 shrink-0">
+                        {nextItems.map((item, idx) => (
+                            <div
+                                key={`next-${item?.id || idx}`}
+                                className={
+                                    idx === 0
+                                        ? "block col-span-1"
+                                        : "hidden sm:block col-span-1"
+                                }
+                            >
+                                {renderCard(item, idx)}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Botón Siguiente */}
+            <button
+                onClick={goNext}
+                className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-white transition-colors cursor-pointer z-10 ${nextBtnClass}`}
+                aria-label="Siguiente"
+            >
+                <ChevronRight className="w-5 h-5" />
+            </button>
+        </div>
+    );
 }
 
 export default function TestimoniosPrograma() {
@@ -137,61 +334,8 @@ export default function TestimoniosPrograma() {
             ? programaIData.testimoniosInferior
             : programaIData?.testimonios || [];
 
-    const [indexSuperior, setIndexSuperior] = useState(0);
-    const [indexInferior, setIndexInferior] = useState(0);
-
-    const prevSuperior = () =>
-        setIndexSuperior(
-            (i) =>
-                (i - 1 + testimoniosSuperior.length) %
-                testimoniosSuperior.length
-        );
-    const nextSuperior = () =>
-        setIndexSuperior((i) => (i + 1) % testimoniosSuperior.length);
-
-    const prevInferior = () =>
-        setIndexInferior(
-            (i) =>
-                (i - 1 + testimoniosInferior.length) %
-                testimoniosInferior.length
-        );
-    const nextInferior = () =>
-        setIndexInferior((i) => (i + 1) % testimoniosInferior.length);
-
-    // Touch swipe handling para Carrusel Superior
-    const [touchStartSup, setTouchStartSup] = useState(null);
-    const [touchEndSup, setTouchEndSup] = useState(null);
-
-    const onTouchStartSup = (e) => {
-        setTouchEndSup(null);
-        setTouchStartSup(e.targetTouches[0].clientX);
-    };
-    const onTouchMoveSup = (e) => setTouchEndSup(e.targetTouches[0].clientX);
-    const onTouchEndSup = () => {
-        if (!touchStartSup || !touchEndSup) return;
-        const diff = touchStartSup - touchEndSup;
-        if (diff > 40) nextSuperior();
-        else if (diff < -40) prevSuperior();
-    };
-
-    // Touch swipe handling para Carrusel Inferior
-    const [touchStartInf, setTouchStartInf] = useState(null);
-    const [touchEndInf, setTouchEndInf] = useState(null);
-
-    const onTouchStartInf = (e) => {
-        setTouchEndInf(null);
-        setTouchStartInf(e.targetTouches[0].clientX);
-    };
-    const onTouchMoveInf = (e) => setTouchEndInf(e.targetTouches[0].clientX);
-    const onTouchEndInf = () => {
-        if (!touchStartInf || !touchEndInf) return;
-        const diff = touchStartInf - touchEndInf;
-        if (diff > 40) nextInferior();
-        else if (diff < -40) prevInferior();
-    };
-
-    const visiblesSuperior = obtenerVisibles(testimoniosSuperior, indexSuperior);
-    const visiblesInferior = obtenerVisibles(testimoniosInferior, indexInferior);
+    const carouselSup = useSlideCarousel(testimoniosSuperior);
+    const carouselInf = useSlideCarousel(testimoniosInferior);
 
     return (
         <section
@@ -214,86 +358,34 @@ export default function TestimoniosPrograma() {
                 </div>
 
                 {/* Fila 1: Carrusel superior (volteo con fondo celeste) */}
-                <div
-                    className="relative flex items-center gap-3 sm:gap-4 mb-8"
-                    onTouchStart={onTouchStartSup}
-                    onTouchMove={onTouchMoveSup}
-                    onTouchEnd={onTouchEndSup}
-                >
-                    {/* Botón Anterior */}
-                    <button
-                        onClick={prevSuperior}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
-                        aria-label="Anterior"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-
-                    {/* Grid: 1 tarjeta en móvil (1 fila), 3 tarjetas en pantallas medianas y grandes */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-                        {visiblesSuperior.map((testimonio, idx) => (
-                            <div
-                                key={testimonio.id || `sup-${idx}`}
-                                className={idx === 0 ? "block col-span-1" : "hidden sm:block col-span-1"}
-                            >
-                                <TestimonialFlipCard
-                                    testimonio={testimonio}
-                                    colorVolteado="#0DADD4"
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Botón Siguiente */}
-                    <button
-                        onClick={nextSuperior}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
-                        aria-label="Siguiente"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
+                <div className="mb-8">
+                    <SlideCarousel
+                        items={testimoniosSuperior}
+                        carousel={carouselSup}
+                        prevBtnClass="bg-lm-navy hover:bg-lm-navy/80"
+                        nextBtnClass="bg-lm-navy hover:bg-lm-navy/80"
+                        renderCard={(testimonio) => (
+                            <TestimonialFlipCard
+                                testimonio={testimonio}
+                                colorVolteado="#0DADD4"
+                            />
+                        )}
+                    />
                 </div>
 
                 {/* Fila 2: Carrusel inferior (volteo con fondo verde) */}
-                <div
-                    className="relative flex items-center gap-3 sm:gap-4"
-                    onTouchStart={onTouchStartInf}
-                    onTouchMove={onTouchMoveInf}
-                    onTouchEnd={onTouchEndInf}
-                >
-                    {/* Botón Anterior */}
-                    <button
-                        onClick={prevInferior}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors cursor-pointer"
-                        aria-label="Anterior"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-
-                    {/* Grid: 1 tarjeta en móvil (1 fila), 3 tarjetas en pantallas medianas y grandes */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-                        {visiblesInferior.map((testimonio, idx) => (
-                            <div
-                                key={testimonio.id || `inf-${idx}`}
-                                className={idx === 0 ? "block col-span-1" : "hidden sm:block col-span-1"}
-                            >
-                                <TestimonialFlipCard
-                                    testimonio={testimonio}
-                                    colorVolteado="#859430"
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Botón Siguiente */}
-                    <button
-                        onClick={nextInferior}
-                        className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors cursor-pointer"
-                        aria-label="Siguiente"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
-                </div>
+                <SlideCarousel
+                    items={testimoniosInferior}
+                    carousel={carouselInf}
+                    prevBtnClass="bg-lm-olive hover:bg-lm-olive/80"
+                    nextBtnClass="bg-lm-olive hover:bg-lm-olive/80"
+                    renderCard={(testimonio) => (
+                        <TestimonialFlipCard
+                            testimonio={testimonio}
+                            colorVolteado="#859430"
+                        />
+                    )}
+                />
             </div>
         </section>
     );

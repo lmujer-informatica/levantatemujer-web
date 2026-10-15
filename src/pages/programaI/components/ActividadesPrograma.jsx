@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import eventosData from "../../../data/eventos.json";
 
 const CITIES = ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre"];
@@ -90,9 +90,50 @@ function ImagePlaceholder({ className = "" }) {
 
 export default function ActividadesPrograma() {
     const [activeCity, setActiveCity] = useState("La Paz");
+    const [indicator, setIndicator] = useState({
+        left: 0,
+        top: 0,
+        width: 0,
+        ready: false,
+    });
+    const [isAnimated, setIsAnimated] = useState(false);
+    const tabsRef = useRef({});
+    const containerRef = useRef(null);
 
     const poolEventos = eventosData?.tarjetasEventos || [];
     const actividades = obtenerActividadesProximas(poolEventos, activeCity);
+
+    const updateIndicator = useCallback(() => {
+        const activeEl = tabsRef.current[activeCity];
+        if (activeEl) {
+            setIndicator({
+                left: activeEl.offsetLeft,
+                top: activeEl.offsetTop + activeEl.offsetHeight - 2,
+                width: activeEl.offsetWidth,
+                ready: true,
+            });
+        }
+    }, [activeCity]);
+
+    useEffect(() => {
+        updateIndicator();
+        if (!isAnimated) {
+            const timer = setTimeout(() => setIsAnimated(true), 50);
+            return () => clearTimeout(timer);
+        }
+    }, [updateIndicator, isAnimated]);
+
+    useEffect(() => {
+        const handleResize = () => updateIndicator();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [updateIndicator]);
+
+    useEffect(() => {
+        if (document.fonts?.ready) {
+            document.fonts.ready.then(updateIndicator);
+        }
+    }, [updateIndicator]);
 
     return (
         <section
@@ -108,20 +149,41 @@ export default function ActividadesPrograma() {
                 </div>
 
                 {/* City tabs */}
-                <div className="flex flex-wrap gap-4 md:gap-8 mb-8 border-b border-gray-200 pb-2">
+                <div
+                    ref={containerRef}
+                    className="relative flex flex-wrap gap-4 md:gap-8 mb-8 border-b border-gray-200"
+                >
                     {CITIES.map((city) => (
                         <button
                             key={city}
+                            ref={(el) => {
+                                if (el) tabsRef.current[city] = el;
+                            }}
                             onClick={() => setActiveCity(city)}
-                            className={`text-sm md:text-base font-medium transition-colors pb-1 cursor-pointer ${
+                            className={`text-sm md:text-base font-medium transition-colors pb-2.5 cursor-pointer select-none touch-manipulation ${
                                 activeCity === city
-                                    ? "text-lm-navy border-b-2 border-lm-navy"
+                                    ? "text-lm-navy"
                                     : "text-lm-navy/60 hover:text-lm-navy"
                             }`}
                         >
                             {city}
                         </button>
                     ))}
+
+                    {/* Línea horizontal indicadora con animación deslizante */}
+                    <span
+                        className={`absolute h-[2.5px] bg-lm-navy rounded-full z-10 pointer-events-none ${
+                            isAnimated
+                                ? "transition-all duration-300 ease-out"
+                                : "transition-none"
+                        }`}
+                        style={{
+                            left: `${indicator.left}px`,
+                            top: `${indicator.top}px`,
+                            width: `${indicator.width}px`,
+                            opacity: indicator.ready ? 1 : 0,
+                        }}
+                    />
                 </div>
 
                 {/* Activity cards grid */}

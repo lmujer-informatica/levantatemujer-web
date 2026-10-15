@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, FileDown } from 'lucide-react';
 import programaIData from '../../../data/programaI.json';
 
@@ -87,14 +87,179 @@ function InvestigacionFlipCard({ item }) {
   );
 }
 
-function obtenerVisibles(items, indexInicio) {
-  if (!Array.isArray(items) || items.length === 0) return [];
-  if (items.length <= 3) return items;
-  return [
-    items[indexInicio % items.length],
-    items[(indexInicio + 1) % items.length],
-    items[(indexInicio + 2) % items.length],
-  ];
+/**
+ * Hook de carrusel deslizante con animación, soporte touch y botones.
+ */
+function useSlideCarousel(items) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [slideDirection, setSlideDirection] = useState(null);
+
+  const touchStartX = useRef(null);
+  const touchCurrentX = useRef(null);
+  const [dragOffset, setDragOffset] = useState(0);
+  const isDragging = useRef(false);
+
+  const count = items.length;
+
+  const goNext = useCallback(() => {
+    if (isAnimating || count === 0) return;
+    setSlideDirection('left');
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % count);
+      setIsAnimating(false);
+      setSlideDirection(null);
+    }, 350);
+  }, [isAnimating, count]);
+
+  const goPrev = useCallback(() => {
+    if (isAnimating || count === 0) return;
+    setSlideDirection('right');
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + count) % count);
+      setIsAnimating(false);
+      setSlideDirection(null);
+    }, 350);
+  }, [isAnimating, count]);
+
+  const onTouchStart = useCallback((e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchCurrentX.current = e.targetTouches[0].clientX;
+    isDragging.current = true;
+    setDragOffset(0);
+  }, []);
+
+  const onTouchMove = useCallback((e) => {
+    if (!isDragging.current) return;
+    touchCurrentX.current = e.targetTouches[0].clientX;
+    const delta = touchCurrentX.current - touchStartX.current;
+    setDragOffset(delta);
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const diff = touchStartX.current - touchCurrentX.current;
+    setDragOffset(0);
+    if (diff > 50) {
+      goNext();
+    } else if (diff < -50) {
+      goPrev();
+    }
+  }, [goNext, goPrev]);
+
+  return {
+    currentIndex,
+    isAnimating,
+    slideDirection,
+    dragOffset,
+    goNext,
+    goPrev,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  };
+}
+
+/** Carrusel genérico con deslizamiento animado */
+function SlideCarousel({ items, renderCard, carousel, prevBtnClass, nextBtnClass }) {
+  const {
+    currentIndex,
+    isAnimating,
+    slideDirection,
+    dragOffset,
+    goNext,
+    goPrev,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+  } = carousel;
+
+  if (!items || items.length === 0) return null;
+
+  const count = items.length;
+  const getItem = (offset) => items[((currentIndex + offset) % count + count) % count];
+
+  const prevItems = [getItem(-3), getItem(-2), getItem(-1)];
+  const currItems = [getItem(0), getItem(1), getItem(2)];
+  const nextItems = [getItem(3), getItem(4), getItem(5)];
+
+  let translatePercent = 0;
+  if (slideDirection === 'left') translatePercent = -100;
+  if (slideDirection === 'right') translatePercent = 100;
+
+  const dragPercent = dragOffset !== 0 ? (dragOffset / window.innerWidth) * 100 : 0;
+
+  return (
+    <div
+      className="relative flex items-center gap-3 sm:gap-4"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
+      <button
+        onClick={goPrev}
+        className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-white transition-colors cursor-pointer z-10 ${prevBtnClass}`}
+        aria-label="Anterior investigación"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+
+      <div className="flex-1 overflow-hidden">
+        <div
+          className="flex w-[300%]"
+          style={{
+            transform: `translateX(calc(-33.333% + ${translatePercent / 3}% + ${dragPercent / 3}%))`,
+            transition:
+              isAnimating
+                ? 'transform 350ms cubic-bezier(0.4, 0, 0.2, 1)'
+                : 'none',
+          }}
+        >
+          <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 shrink-0">
+            {prevItems.map((item, idx) => (
+              <div
+                key={`prev-${item?.id || idx}`}
+                className={idx === 0 ? 'block col-span-1' : 'hidden sm:block col-span-1'}
+              >
+                {renderCard(item, idx)}
+              </div>
+            ))}
+          </div>
+          <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 shrink-0">
+            {currItems.map((item, idx) => (
+              <div
+                key={`curr-${item?.id || idx}`}
+                className={idx === 0 ? 'block col-span-1' : 'hidden sm:block col-span-1'}
+              >
+                {renderCard(item, idx)}
+              </div>
+            ))}
+          </div>
+          <div className="w-1/3 grid grid-cols-1 sm:grid-cols-3 gap-4 shrink-0">
+            {nextItems.map((item, idx) => (
+              <div
+                key={`next-${item?.id || idx}`}
+                className={idx === 0 ? 'block col-span-1' : 'hidden sm:block col-span-1'}
+              >
+                {renderCard(item, idx)}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <button
+        onClick={goNext}
+        className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-white transition-colors cursor-pointer z-10 ${nextBtnClass}`}
+        aria-label="Siguiente investigación"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+    </div>
+  );
 }
 
 export default function InvestigacionesPrograma() {
@@ -125,32 +290,7 @@ export default function InvestigacionesPrograma() {
           },
         ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prev = () =>
-    setCurrentIndex(
-      (i) => (i - 1 + investigaciones.length) % investigaciones.length
-    );
-  const next = () =>
-    setCurrentIndex((i) => (i + 1) % investigaciones.length);
-
-  // Touch swipe handling
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
-
-  const onTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const diff = touchStart - touchEnd;
-    if (diff > 40) next();
-    else if (diff < -40) prev();
-  };
-
-  const visibleCards = obtenerVisibles(investigaciones, currentIndex);
+  const carousel = useSlideCarousel(investigaciones);
 
   return (
     <section className="w-full bg-[#EFFFFA] py-8 md:py-12">
@@ -162,43 +302,14 @@ export default function InvestigacionesPrograma() {
           </h2>
         </div>
 
-        {/* Cards carousel con soporte touch */}
-        <div
-          className="flex items-center gap-3 sm:gap-4"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          {/* Prev arrow */}
-          <button
-            onClick={prev}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
-            aria-label="Anterior investigación"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Cards: 1 en móviles (1 sola fila), 3 en pantallas medianas y grandes */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-            {visibleCards.map((card, idx) => (
-              <div
-                key={card.id || idx}
-                className={idx === 0 ? 'block col-span-1' : 'hidden sm:block col-span-1'}
-              >
-                <InvestigacionFlipCard item={card} />
-              </div>
-            ))}
-          </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={next}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors cursor-pointer"
-            aria-label="Siguiente investigación"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        {/* Cards carousel con soporte touch y animación deslizante */}
+        <SlideCarousel
+          items={investigaciones}
+          carousel={carousel}
+          prevBtnClass="bg-lm-navy hover:bg-lm-navy/80"
+          nextBtnClass="bg-lm-navy hover:bg-lm-navy/80"
+          renderCard={(item) => <InvestigacionFlipCard item={item} />}
+        />
       </div>
     </section>
   );
