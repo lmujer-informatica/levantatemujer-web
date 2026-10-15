@@ -205,6 +205,8 @@ export default function ActividadesPrograma() {
                                             <img
                                                 src={activity.imagen}
                                                 alt={activity.titulo || "Actividad"}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="w-full h-full object-cover"
                                             />
                                         ) : (

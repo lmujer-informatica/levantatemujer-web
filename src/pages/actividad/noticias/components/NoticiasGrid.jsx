@@ -53,6 +53,8 @@ function NewsCard({ item }) {
           <img
             src={item.imagen}
             alt={item.titulo || 'Noticia'}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         ) : (

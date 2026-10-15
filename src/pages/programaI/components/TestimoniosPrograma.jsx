@@ -68,6 +68,8 @@ function TestimonialFlipCard({ testimonio, colorVolteado }) {
                             <img
                                 src={testimonio.imagen}
                                 alt={testimonio.autor || "Testigo"}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover"
                             />
                         ) : (

@@ -184,6 +184,8 @@ export default function ContactoGeneral() {
                                 <img
                                     src={info.imagen}
                                     alt="Contacto General"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-[260px] object-cover rounded-t-[40px]"
                                 />
                             ) : (

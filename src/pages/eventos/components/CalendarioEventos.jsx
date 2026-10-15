@@ -387,6 +387,8 @@ export default function CalendarioEventos() {
                                         <img
                                             src={eventoMostrado.imagen}
                                             alt={eventoMostrado.titulo}
+                                            loading="lazy"
+                                            decoding="async"
                                             className="absolute inset-0 w-full h-full object-cover"
                                         />
                                     ) : (

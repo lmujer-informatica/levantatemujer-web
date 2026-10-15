@@ -129,6 +129,8 @@ function TrabajoCard({ columna }) {
             <img
               src={columna.imagen}
               alt={columna.tituloTexto}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           ) : (

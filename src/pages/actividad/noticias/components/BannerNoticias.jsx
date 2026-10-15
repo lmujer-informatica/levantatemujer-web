@@ -22,6 +22,8 @@ export default function BannerNoticias() {
           <img
             src={heroImagen}
             alt="Hero Noticias"
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         ) : (

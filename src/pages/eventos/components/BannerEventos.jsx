@@ -22,6 +22,8 @@ export default function BannerEventos() {
                     <img
                         src={heroImagen}
                         alt="Hero Eventos"
+                        loading="eager"
+                        decoding="async"
                         className="w-full h-full object-cover"
                     />
                 ) : (

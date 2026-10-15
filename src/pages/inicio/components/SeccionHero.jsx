@@ -63,6 +63,8 @@ export default function SeccionHero() {
                             <img
                                 src={inicioData.heroImagen || inicioData.heroImagenes[0]}
                                 alt="Hero"
+                                loading="eager"
+                                decoding="async"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                         ) : (

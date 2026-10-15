@@ -12,6 +12,8 @@ export default function BannerPrograma() {
                 <img
                     src={imagenHero}
                     alt="Mujeres Libres de Violencia"
+                    loading="eager"
+                    decoding="async"
                     className="w-full h-full object-cover"
                 />
                 {/* Overlay for contrast */}

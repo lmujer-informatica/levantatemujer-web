@@ -42,7 +42,13 @@ export default function TarjetaPrograma({ tituloFrente, tituloAtras, descripcion
           {/* Contenedor de la Imagen o Placeholder */}
           <div className="absolute inset-4 bg-[#8b9289] rounded-[35px] flex items-center justify-center overflow-hidden border-2 border-[#a4aba4]/50 z-0">
             {imagenUrl ? (
-              <img src={imagenUrl} alt={tituloFrente} className="w-full h-full object-cover" />
+              <img
+                src={imagenUrl}
+                alt={tituloFrente}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
             ) : (
               <svg className="w-32 h-32 text-gray-300 opacity-50" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19ZM8.5 13.5L11 16.51L14.5 12L19 18H5L8.5 13.5Z" />
@@ -72,7 +78,13 @@ export default function TarjetaPrograma({ tituloFrente, tituloAtras, descripcion
           {/* Fondo de la cara trasera: La misma imagen con opacidad o watermark */}
           <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
             {imagenUrl ? (
-              <img src={imagenUrl} alt="" className="w-full h-full object-cover opacity-20 mix-blend-multiply" />
+              <img
+                src={imagenUrl}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover opacity-20 mix-blend-multiply"
+              />
             ) : (
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-[80%] h-[80%] text-white opacity-15">
                 <path d="M21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19ZM8.5 13.5L11 16.51L14.5 12L19 18H5L8.5 13.5Z" />

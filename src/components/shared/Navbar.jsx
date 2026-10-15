@@ -7,6 +7,9 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [programasOpen, setProgramasOpen] = useState(false);
     const [actividadOpen, setActividadOpen] = useState(false);
+    const [mobileProgramasOpen, setMobileProgramasOpen] = useState(false);
+    const [mobileActividadOpen, setMobileActividadOpen] = useState(false);
+
     const programasRef = useRef(null);
     const actividadRef = useRef(null);
     const location = useLocation();
@@ -15,7 +18,13 @@ export default function Navbar() {
     const isActividadActive =
         location.pathname === "/noticias" || location.pathname === "/eventos";
 
-    // Close dropdown when clicking outside
+    // Auto expand mobile accordion when navigating to a child page
+    useEffect(() => {
+        if (isProgramasActive) setMobileProgramasOpen(true);
+        if (isActividadActive) setMobileActividadOpen(true);
+    }, [location.pathname, isProgramasActive, isActividadActive]);
+
+    // Close desktop dropdowns when clicking outside
     useEffect(() => {
         function handleClickOutside(event) {
             if (
@@ -62,12 +71,13 @@ export default function Navbar() {
                     </div>
 
                     {/* Desktop Menu */}
-                    <nav className="hidden md:flex items-stretch h-full space-x-6 lg:space-x-8">
+                    <nav className="hidden md:flex items-stretch h-full space-x-4 lg:space-x-6 xl:space-x-8">
+                        {/* Inicio */}
                         <NavLink
                             to="/"
                             end
                             className={({ isActive }) =>
-                                `flex items-center justify-center px-8 text-sm font-medium transition-all duration-300 ${
+                                `flex items-center justify-center px-6 lg:px-8 text-sm font-medium transition-all duration-300 ${
                                     isActive
                                         ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
@@ -77,12 +87,13 @@ export default function Navbar() {
                             Inicio
                         </NavLink>
 
+                        {/* Quienes Somos */}
                         <NavLink
                             to="/quienesSomos"
                             className={({ isActive }) =>
-                                `flex items-center justify-center text-center leading-tight text-sm font-medium transition-all ${
+                                `flex items-center justify-center text-center leading-tight text-sm font-medium px-5 lg:px-6 transition-all duration-300 ${
                                     isActive
-                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md"
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`
                             }
@@ -92,34 +103,36 @@ export default function Navbar() {
                             Somos
                         </NavLink>
 
+                        {/* Programas (Dropdown en Desktop) */}
                         <div
-                            className="relative flex items-center"
+                            className="relative flex items-stretch h-full"
                             ref={programasRef}
                         >
                             <button
+                                type="button"
                                 onClick={() => setProgramasOpen(!programasOpen)}
-                                className={`flex items-center justify-center gap-1 text-sm font-medium transition-colors h-full cursor-pointer ${
+                                className={`flex items-center justify-center gap-1.5 px-5 lg:px-6 text-sm font-medium transition-all duration-300 h-full cursor-pointer ${
                                     isProgramasActive
-                                        ? "text-lm-navy font-semibold"
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`}
                             >
-                                Programas
+                                <span>Programas</span>
                                 <ChevronDown
-                                    className={`w-4 h-4 fill-current transition-transform ${
+                                    className={`w-4 h-4 transition-transform duration-200 ${
                                         programasOpen ? "rotate-180" : ""
                                     }`}
                                 />
                             </button>
                             {programasOpen && (
-                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-56 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
+                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-64 bg-white border border-gray-100 rounded-b-xl shadow-xl py-2 z-50 flex flex-col">
                                     <NavLink
                                         to="/programaI"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
                                             `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white font-medium"
+                                                    ? "bg-lm-cyan text-white font-semibold"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -132,7 +145,7 @@ export default function Navbar() {
                                         className={({ isActive }) =>
                                             `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white font-medium"
+                                                    ? "bg-lm-cyan text-white font-semibold"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -143,34 +156,36 @@ export default function Navbar() {
                             )}
                         </div>
 
+                        {/* Actividad (Dropdown en Desktop) */}
                         <div
-                            className="relative flex items-center"
+                            className="relative flex items-stretch h-full"
                             ref={actividadRef}
                         >
                             <button
+                                type="button"
                                 onClick={() => setActividadOpen(!actividadOpen)}
-                                className={`flex items-center justify-center gap-1 text-sm font-medium transition-colors h-full cursor-pointer ${
+                                className={`flex items-center justify-center gap-1.5 px-5 lg:px-6 text-sm font-medium transition-all duration-300 h-full cursor-pointer ${
                                     isActividadActive
-                                        ? "text-lm-navy font-semibold"
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`}
                             >
-                                Actividad
+                                <span>Actividad</span>
                                 <ChevronDown
-                                    className={`w-4 h-4 fill-current transition-transform ${
+                                    className={`w-4 h-4 transition-transform duration-200 ${
                                         actividadOpen ? "rotate-180" : ""
                                     }`}
                                 />
                             </button>
                             {actividadOpen && (
-                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
+                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-xl py-2 z-50 flex flex-col">
                                     <NavLink
                                         to="/noticias"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
                                             `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white font-medium"
+                                                    ? "bg-lm-cyan text-white font-semibold"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -183,7 +198,7 @@ export default function Navbar() {
                                         className={({ isActive }) =>
                                             `px-4 py-2.5 text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white font-medium"
+                                                    ? "bg-lm-cyan text-white font-semibold"
                                                     : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
                                             }`
                                         }
@@ -194,12 +209,13 @@ export default function Navbar() {
                             )}
                         </div>
 
+                        {/* Contacto */}
                         <NavLink
                             to="/contacto"
                             className={({ isActive }) =>
-                                `flex items-center justify-center text-sm font-medium transition-all ${
+                                `flex items-center justify-center px-5 lg:px-6 text-sm font-medium transition-all duration-300 ${
                                     isActive
-                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md"
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`
                             }
@@ -207,12 +223,13 @@ export default function Navbar() {
                             Contacto
                         </NavLink>
 
+                        {/* Línea de Ayuda */}
                         <NavLink
                             to="/lineaAyuda"
                             className={({ isActive }) =>
-                                `flex items-center justify-center text-center leading-tight text-sm font-medium transition-all ${
+                                `flex items-center justify-center text-center leading-tight text-sm font-medium px-5 lg:px-6 transition-all duration-300 ${
                                     isActive
-                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl px-6 shadow-md"
+                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
                                         : "text-lm-cyan hover:text-lm-navy"
                                 }`
                             }
@@ -226,14 +243,15 @@ export default function Navbar() {
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center">
                         <button
+                            type="button"
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-lm-cyan hover:text-lm-navy focus:outline-hidden p-2 cursor-pointer"
+                            className="text-lm-cyan hover:text-lm-navy focus:outline-hidden p-2 rounded-lg cursor-pointer"
                             aria-label="Abrir menú"
                         >
                             {isOpen ? (
-                                <X className="h-6 w-6" />
+                                <X className="h-7 w-7" />
                             ) : (
-                                <Menu className="h-6 w-6" />
+                                <Menu className="h-7 w-7" />
                             )}
                         </button>
                     </div>
@@ -242,63 +260,69 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-[#f0fbfb] border-t border-gray-200 shadow-md">
-                    <div className="px-4 pt-2 pb-4 space-y-2">
+                <div className="md:hidden bg-[#f0fbfb] border-t border-gray-200 shadow-lg">
+                    <div className="px-4 pt-3 pb-5 space-y-2">
+                        {/* Inicio */}
                         <NavLink
                             to="/"
                             end
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
                                     isActive
-                                        ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan hover:bg-gray-50"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`
                             }
                         >
                             Inicio
                         </NavLink>
 
+                        {/* Quienes Somos */}
                         <NavLink
                             to="/quienesSomos"
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
                                     isActive
-                                        ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan hover:bg-gray-50"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`
                             }
                         >
                             Quienes Somos
                         </NavLink>
 
+                        {/* Programas (Dropdown en móvil) */}
                         <div className="space-y-1">
                             <button
-                                onClick={() => setProgramasOpen(!programasOpen)}
-                                className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
+                                type="button"
+                                onClick={() =>
+                                    setMobileProgramasOpen((prev) => !prev)
+                                }
+                                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-base font-medium transition-colors cursor-pointer ${
                                     isProgramasActive
-                                        ? "text-lm-navy font-semibold"
-                                        : "text-lm-cyan"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`}
                             >
-                                Programas
+                                <span>Programas</span>
                                 <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${
-                                        programasOpen ? "rotate-180" : ""
+                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                        mobileProgramasOpen ? "rotate-180" : ""
                                     }`}
                                 />
                             </button>
-                            {programasOpen && (
-                                <div className="pl-6 space-y-1">
+                            {mobileProgramasOpen && (
+                                <div className="pl-3 pr-1 py-1.5 space-y-1 bg-white/70 rounded-lg border border-cyan-100 my-1">
                                     <NavLink
                                         to="/programaI"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-sm font-medium ${
+                                            `block px-4 py-2.5 rounded-md text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
-                                                    : "text-lm-cyan hover:bg-gray-50"
+                                                    ? "bg-lm-navy text-white font-semibold shadow-xs"
+                                                    : "text-gray-700 hover:bg-cyan-50 hover:text-lm-cyan"
                                             }`
                                         }
                                     >
@@ -308,10 +332,10 @@ export default function Navbar() {
                                         to="/programaII"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-sm font-medium ${
+                                            `block px-4 py-2.5 rounded-md text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
-                                                    : "text-lm-cyan hover:bg-gray-50"
+                                                    ? "bg-lm-navy text-white font-semibold shadow-xs"
+                                                    : "text-gray-700 hover:bg-cyan-50 hover:text-lm-cyan"
                                             }`
                                         }
                                     >
@@ -321,32 +345,36 @@ export default function Navbar() {
                             )}
                         </div>
 
+                        {/* Actividad (Dropdown en móvil) */}
                         <div className="space-y-1">
                             <button
-                                onClick={() => setActividadOpen(!actividadOpen)}
-                                className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${
+                                type="button"
+                                onClick={() =>
+                                    setMobileActividadOpen((prev) => !prev)
+                                }
+                                className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-base font-medium transition-colors cursor-pointer ${
                                     isActividadActive
-                                        ? "text-lm-navy font-semibold"
-                                        : "text-lm-cyan"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`}
                             >
-                                Actividad
+                                <span>Actividad</span>
                                 <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${
-                                        actividadOpen ? "rotate-180" : ""
+                                    className={`w-4 h-4 transition-transform duration-200 ${
+                                        mobileActividadOpen ? "rotate-180" : ""
                                     }`}
                                 />
                             </button>
-                            {actividadOpen && (
-                                <div className="pl-6 space-y-1">
+                            {mobileActividadOpen && (
+                                <div className="pl-3 pr-1 py-1.5 space-y-1 bg-white/70 rounded-lg border border-cyan-100 my-1">
                                     <NavLink
                                         to="/noticias"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-sm font-medium ${
+                                            `block px-4 py-2.5 rounded-md text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
-                                                    : "text-lm-cyan hover:bg-gray-50"
+                                                    ? "bg-lm-navy text-white font-semibold shadow-xs"
+                                                    : "text-gray-700 hover:bg-cyan-50 hover:text-lm-cyan"
                                             }`
                                         }
                                     >
@@ -356,10 +384,10 @@ export default function Navbar() {
                                         to="/eventos"
                                         onClick={handleNavigation}
                                         className={({ isActive }) =>
-                                            `block px-3 py-2 rounded-md text-sm font-medium ${
+                                            `block px-4 py-2.5 rounded-md text-sm transition-colors ${
                                                 isActive
-                                                    ? "bg-lm-cyan text-white"
-                                                    : "text-lm-cyan hover:bg-gray-50"
+                                                    ? "bg-lm-navy text-white font-semibold shadow-xs"
+                                                    : "text-gray-700 hover:bg-cyan-50 hover:text-lm-cyan"
                                             }`
                                         }
                                     >
@@ -369,28 +397,30 @@ export default function Navbar() {
                             )}
                         </div>
 
+                        {/* Contacto */}
                         <NavLink
                             to="/contacto"
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
                                     isActive
-                                        ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan hover:bg-gray-50"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`
                             }
                         >
                             Contacto
                         </NavLink>
 
+                        {/* Línea de Ayuda */}
                         <NavLink
                             to="/lineaAyuda"
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
                                     isActive
-                                        ? "bg-lm-cyan text-white"
-                                        : "text-lm-cyan hover:bg-gray-50"
+                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
+                                        : "text-lm-cyan hover:bg-white"
                                 }`
                             }
                         >

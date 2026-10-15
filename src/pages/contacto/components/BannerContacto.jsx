@@ -22,6 +22,8 @@ export default function BannerContacto() {
                     <img
                         src={heroImagen}
                         alt="Hero Contacto"
+                        loading="eager"
+                        decoding="async"
                         className="w-full h-full object-cover"
                     />
                 ) : (

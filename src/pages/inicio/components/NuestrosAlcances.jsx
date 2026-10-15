@@ -69,6 +69,8 @@ export default function NuestrosAlcances() {
                                     <img
                                         src={Personas_capacitadas}
                                         alt="Personas Capacitadas"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-12 h-12 object-contain"
                                     />
                                 )}
@@ -76,6 +78,8 @@ export default function NuestrosAlcances() {
                                     <img
                                         src={Personas_atendidas}
                                         alt="Personas Atendidas"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-12 h-12 object-contain"
                                     />
                                 )}
@@ -83,6 +87,8 @@ export default function NuestrosAlcances() {
                                     <img
                                         src={Personas_sensibilizadas}
                                         alt="Personas Sensibilizadas"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-12 h-12 object-contain"
                                     />
                                 )}
@@ -115,12 +121,16 @@ export default function NuestrosAlcances() {
                                             Persona_y_organizaciones_voluntarias
                                         }
                                         alt="Voluntarias"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-12 h-12 object-contain"
                                     />
                                 ) : (
                                     <img
                                         src={Centros}
                                         alt="Centros"
+                                        loading="lazy"
+                                        decoding="async"
                                         className="w-12 h-12 object-contain"
                                     />
                                 )}

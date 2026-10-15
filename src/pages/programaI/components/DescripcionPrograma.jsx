@@ -69,6 +69,8 @@ export default function DescripcionPrograma() {
                                 <img
                                     src={serviciosIcon}
                                     alt="Servicios"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-contain"
                                 />
                             </div>
@@ -91,6 +93,8 @@ export default function DescripcionPrograma() {
                                 <img
                                     src={testimoniosIcon}
                                     alt="Testimonios"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-full object-contain"
                                 />
                             </div>

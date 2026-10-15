@@ -89,6 +89,8 @@ export default function PostulacionProfesionales() {
                                 <img
                                     src={info.imagen}
                                     alt="Postulación de profesionales"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-[240px] object-cover rounded-t-[40px]"
                                 />
                             ) : (

@@ -40,6 +40,8 @@ export default function LineaAyuda() {
             src={imagenUrl}
             alt="Línea de Ayuda"
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
           />
         )}

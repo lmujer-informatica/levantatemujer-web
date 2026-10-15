@@ -54,6 +54,8 @@ function TarjetaEvento({ evento }) {
                         <img
                             src={evento.imagen}
                             alt={evento.titulo}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         />
                     ) : (
