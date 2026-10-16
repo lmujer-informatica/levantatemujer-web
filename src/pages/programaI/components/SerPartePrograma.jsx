@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import { NavLink } from "react-router";
 import { ChevronDown } from "lucide-react";
 
+const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_PROGRAMA_I_ENDPOINT;
+
+const INITIAL_FORM = {
+    nombre: "",
+    celular: "",
+    correo: "",
+    departamento: "La Paz",
+    programa: "Mujeres Libres de Violencia",
+    motivo: "",
+};
+
 export default function SerPartePrograma() {
-    const [form, setForm] = useState({
-        nombre: "",
-        celular: "",
-        correo: "",
-        departamento: "La Paz",
-        programa: "Mujeres Libres de Violencia",
-        motivo: "",
-    });
+    const [form, setForm] = useState(INITIAL_FORM);
+    // "idle" | "enviando" | "ok" | "error"
+    const [status, setStatus] = useState("idle");
+    const [honeypot, setHoneypot] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (status === "ok" || status === "error") setStatus("idle");
         if (name === "celular") {
             const sanitized = value.replace(/[^0-9+\s-]/g, "");
             setForm((prev) => ({ ...prev, [name]: sanitized }));
@@ -31,20 +39,43 @@ export default function SerPartePrograma() {
         form.programa.trim().length > 0 &&
         form.motivo.trim().length > 0;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!isFormValid) return;
-        alert(
-            "Solicitud enviada correctamente. Nos comunicaremos contigo pronto.",
-        );
-        setForm({
-            nombre: "",
-            celular: "",
-            correo: "",
-            departamento: "La Paz",
-            programa: "Mujeres Libres de Violencia",
-            motivo: "",
-        });
+        if (!isFormValid || status === "enviando") return;
+
+        // Honeypot: un bot rellena este campo oculto; fingimos éxito sin enviar.
+        if (honeypot) {
+            setStatus("ok");
+            return;
+        }
+
+        if (!FORMSPREE_ENDPOINT) {
+            console.error("Falta la variable FORMSPREE_PROGRAMA_I_ENDPOINT");
+            setStatus("error");
+            return;
+        }
+
+        setStatus("enviando");
+        try {
+            const res = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    ...form,
+                    _subject: `Nueva solicitud: ${form.programa} (${form.departamento})`,
+                }),
+            });
+            if (!res.ok) throw new Error(`Formspree respondió ${res.status}`);
+
+            setStatus("ok");
+            setForm(INITIAL_FORM);
+        } catch (err) {
+            console.error(err);
+            setStatus("error");
+        }
     };
 
     return (
@@ -218,20 +249,49 @@ export default function SerPartePrograma() {
                             />
                         </div>
 
+                        {/* Honeypot anti-spam (oculto para personas) */}
+                        <input
+                            type="text"
+                            name="_gotcha"
+                            value={honeypot}
+                            onChange={(e) => setHoneypot(e.target.value)}
+                            tabIndex={-1}
+                            autoComplete="off"
+                            aria-hidden="true"
+                            className="hidden"
+                        />
+
                         {/* Botón de envío */}
-                        <div className="flex justify-center mt-2">
+                        <div className="flex flex-col items-center gap-3 mt-2">
                             <button
                                 type="submit"
-                                disabled={!isFormValid}
+                                disabled={!isFormValid || status === "enviando"}
                                 className={`px-12 py-2.5 rounded-full font-medium text-white text-base shadow-md transition-all ${
-                                    isFormValid
+                                    isFormValid && status !== "enviando"
                                         ? "hover:opacity-90 active:scale-95 cursor-pointer shadow-md"
                                         : "opacity-40 cursor-not-allowed pointer-events-none"
                                 }`}
                                 style={{ backgroundColor: "#859430" }}
                             >
-                                Agendar cita
+                                {status === "enviando"
+                                    ? "Enviando..."
+                                    : "Agendar cita"}
                             </button>
+
+                            <div role="status" aria-live="polite">
+                                {status === "ok" && (
+                                    <p className="text-sm text-center font-medium text-[#859430]">
+                                        Solicitud enviada correctamente. Nos
+                                        comunicaremos contigo pronto.
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="text-sm text-center font-medium text-red-600">
+                                        No pudimos enviar tu solicitud. Intenta
+                                        de nuevo en unos minutos.
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     </form>
                 </div>
