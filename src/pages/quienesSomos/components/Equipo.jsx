@@ -15,7 +15,7 @@ const secciones = [
   { key: 'organizacionesAliadas', titulo: 'Organizaciones Aliadas', color: COLOR_VERDE },
 ];
 
-export default function Equipo({ data }) {
+export default function Equipo({ data = {} }) {
   return (
     <section className="w-full bg-[#EFFFFB] overflow-hidden">
       {/* Header */}

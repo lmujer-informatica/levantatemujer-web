@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Reveal from './Reveal';
+
+const ANON_ACCENTS = ['#0DADD4', '#859430'];
+const ANON_BG = '#E3FFF8';
+const NAMED_BG = '#E3FFF8';
+const NAMED_BORDER = '#b0e8dc';
 
 /** Image placeholder */
 function ImagePlaceholder({ className = '', rounded = '' }) {
@@ -18,17 +24,17 @@ function ImagePlaceholder({ className = '', rounded = '' }) {
 function TestimonialCardAnonymous({ title, text, accentColor, bgColor }) {
   return (
     <div
-      className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col w-full h-full shadow-md"
+      className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col w-full h-full shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
       style={{ backgroundColor: accentColor }}
     >
-      <div className="flex-1 flex flex-col items-center justify-center p-6">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 lg:p-10">
         <h3
-          className="font-medium text-xl italic mb-4 text-center"
+          className="font-medium text-xl lg:text-3xl italic mb-4 lg:mb-6 text-center"
           style={{ color: bgColor }}
         >
           {title}
         </h3>
-        <p className="text-xs leading-relaxed text-center" style={{ color: bgColor }}>
+        <p className="text-xs md:text-sm lg:text-lg leading-relaxed text-center" style={{ color: bgColor }}>
           {text}
         </p>
       </div>
@@ -37,21 +43,30 @@ function TestimonialCardAnonymous({ title, text, accentColor, bgColor }) {
 }
 
 /** Card for identified testimonials (with photo) */
-function TestimonialCardNamed({ name, role, bgColor, borderColor }) {
+function TestimonialCardNamed({ name, role, foto, bgColor, borderColor }) {
   return (
     <div
-      className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col items-center shadow-md"
+      className="rounded-t-[50%] rounded-b-xl overflow-hidden flex flex-col items-center shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
       style={{ backgroundColor: bgColor, border: `2px solid ${borderColor}` }}
     >
       {/* Profile photo */}
-      <ImagePlaceholder className="w-full h-40 rounded-t-[50%]" />
+      {foto ? (
+        <img
+          src={foto}
+          alt={name}
+          loading="lazy"
+          className="w-full h-40 lg:h-64 object-cover rounded-t-[50%]"
+        />
+      ) : (
+        <ImagePlaceholder className="w-full h-40 lg:h-64 rounded-t-[50%]" />
+      )}
 
       {/* Name and role */}
-      <div className="px-4 py-4 text-center">
-        <p className="text-xs font-normal" style={{ color: '#407178' }}>
+      <div className="px-4 py-4 lg:py-7 text-center">
+        <p className="text-xs lg:text-lg font-normal" style={{ color: '#407178' }}>
           {name}
         </p>
-        <p className="text-xs font-normal" style={{ color: '#407178' }}>
+        <p className="text-xs lg:text-base font-normal" style={{ color: '#407178' }}>
           {role}
         </p>
       </div>
@@ -59,159 +74,119 @@ function TestimonialCardNamed({ name, role, bgColor, borderColor }) {
   );
 }
 
-const ANONYMOUS_TESTIMONIALS = [
-  {
-    id: 1,
-    title: 'Título',
-    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.',
-    accentColor: '#0DADD4',
-    bgColor: '#E3FFF8',
-  },
-  {
-    id: 2,
-    title: 'Título',
-    text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.',
-    accentColor: '#859430',
-    bgColor: '#E3FFF8',
-  },
-];
-
-const NAMED_TESTIMONIALS = [
-  { id: 1, name: '(Nombre)', role: '(Título)', bgColor: '#E3FFF8', borderColor: '#b0e8dc' },
-  { id: 2, name: '(Nombre)', role: '(Título)', bgColor: '#E3FFF8', borderColor: '#b0e8dc' },
-  { id: 3, name: '(Nombre)', role: '(Título)', bgColor: '#E3FFF8', borderColor: '#b0e8dc' },
-  { id: 4, name: '(Nombre)', role: '(Título)', bgColor: '#E3FFF8', borderColor: '#b0e8dc' },
-];
-
-export default function TestimoniosPrograma() {
+export default function TestimoniosPrograma({ data = {} }) {
+  const anonimos = data.anonimos ?? [];
+  const nombrados = data.nombrados ?? [];
   const [anonIndex, setAnonIndex] = useState(0);
   const [namedIndex, setNamedIndex] = useState(0);
 
-  const prevAnon = () => setAnonIndex((i) => (i - 1 + ANONYMOUS_TESTIMONIALS.length) % ANONYMOUS_TESTIMONIALS.length);
-  const nextAnon = () => setAnonIndex((i) => (i + 1) % ANONYMOUS_TESTIMONIALS.length);
+  if (anonimos.length === 0 || nombrados.length === 0) return null;
 
-  const prevNamed = () => setNamedIndex((i) => (i - 1 + NAMED_TESTIMONIALS.length) % NAMED_TESTIMONIALS.length);
-  const nextNamed = () => setNamedIndex((i) => (i + 1) % NAMED_TESTIMONIALS.length);
+  const prevAnon = () => setAnonIndex((i) => (i - 1 + anonimos.length) % anonimos.length);
+  const nextAnon = () => setAnonIndex((i) => (i + 1) % anonimos.length);
 
-  // Show 2 named at a time
-  const visibleNamed = [
-    NAMED_TESTIMONIALS[namedIndex % NAMED_TESTIMONIALS.length],
-    NAMED_TESTIMONIALS[(namedIndex + 1) % NAMED_TESTIMONIALS.length],
-  ];
+  const prevNamed = () => setNamedIndex((i) => (i - 1 + nombrados.length) % nombrados.length);
+  const nextNamed = () => setNamedIndex((i) => (i + 1) % nombrados.length);
+
+  const anon = (offset) => {
+    const item = anonimos[(anonIndex + offset) % anonimos.length];
+    return { ...item, accent: ANON_ACCENTS[(anonIndex + offset) % ANON_ACCENTS.length] };
+  };
+  const named = (offset) => nombrados[(namedIndex + offset) % nombrados.length];
+
+  const namedCard = (item) => (
+    <TestimonialCardNamed
+      name={item.nombre}
+      role={item.cargo}
+      foto={item.foto}
+      bgColor={NAMED_BG}
+      borderColor={NAMED_BORDER}
+    />
+  );
+  const anonCard = (item) => (
+    <TestimonialCardAnonymous
+      title={item.titulo}
+      text={item.texto}
+      accentColor={item.accent}
+      bgColor={ANON_BG}
+    />
+  );
+
+  const arrowCls = 'shrink-0 w-8 h-8 lg:w-14 lg:h-14 flex items-center justify-center rounded-full text-white transition-all duration-200 hover:scale-110 active:scale-95';
 
   return (
-    <section className="w-full bg-[#0DADD4] py-8 md:py-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-[#0DADD4] py-8 md:py-12 lg:py-24">
+      <div className="max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section title */}
-        <div className="flex items-center justify-center mb-8">
-          <div className="relative flex items-center">
-            <div className="absolute -left-6 w-4 h-6 bg-[#0DADD4]" />
-            <div className="bg-[#0DADD4] px-4 py-1 flex items-center gap-3">
-              <div className="w-3 h-8 bg-[#0DADD4]" />
-              <h2 className="italic font-medium text-[#E3FFF8] text-2xl md:text-3xl tracking-wide">
-                TESTIMONIOS
-              </h2>
-              <div className="w-3 h-8 bg-[#0DADD4]" />
+        <Reveal>
+          <div className="flex items-center justify-center mb-8 lg:mb-14">
+            <div className="relative flex items-center">
+              <div className="absolute -left-6 w-4 h-6 bg-[#0DADD4]" />
+              <div className="bg-[#0DADD4] px-4 py-1 lg:py-3 flex items-center gap-3">
+                <div className="w-3 h-8 lg:h-12 bg-[#0DADD4]" />
+                <h2 className="italic font-medium text-[#E3FFF8] text-2xl md:text-3xl lg:text-5xl tracking-wide">
+                  TESTIMONIOS
+                </h2>
+                <div className="w-3 h-8 lg:h-12 bg-[#0DADD4]" />
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Row 1: Anonymous testimonials */}
-        <div className="relative flex items-center gap-4 mb-8">
-          {/* Prev arrow */}
-          <button
-            onClick={prevAnon}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
-            aria-label="Anterior"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+        <Reveal retraso={100}>
+          <div className="relative flex items-center gap-4 lg:gap-8 mb-8 lg:mb-12">
+            <button
+              onClick={prevAnon}
+              className={`${arrowCls} bg-lm-navy hover:bg-lm-navy/80`}
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-            {/* Left named card */}
-            <TestimonialCardNamed
-              name={NAMED_TESTIMONIALS[namedIndex % NAMED_TESTIMONIALS.length].name}
-              role={NAMED_TESTIMONIALS[namedIndex % NAMED_TESTIMONIALS.length].role}
-              bgColor="#E3FFF8"
-              borderColor="#b0e8dc"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-10 flex-1">
+              {namedCard(named(0))}
+              {anonCard(anon(0))}
+              {namedCard(named(1))}
+            </div>
 
-            {/* Center anonymous card (highlighted) */}
-            <TestimonialCardAnonymous
-              title={ANONYMOUS_TESTIMONIALS[anonIndex].title}
-              text={ANONYMOUS_TESTIMONIALS[anonIndex].text}
-              accentColor={ANONYMOUS_TESTIMONIALS[anonIndex].accentColor}
-              bgColor={ANONYMOUS_TESTIMONIALS[anonIndex].bgColor}
-            />
-
-            {/* Right named card */}
-            <TestimonialCardNamed
-              name={NAMED_TESTIMONIALS[(namedIndex + 1) % NAMED_TESTIMONIALS.length].name}
-              role={NAMED_TESTIMONIALS[(namedIndex + 1) % NAMED_TESTIMONIALS.length].role}
-              bgColor="#E3FFF8"
-              borderColor="#b0e8dc"
-            />
+            <button
+              onClick={nextAnon}
+              className={`${arrowCls} bg-lm-navy hover:bg-lm-navy/80`}
+              aria-label="Siguiente"
+            >
+              <ChevronRight className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
           </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={nextAnon}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
-            aria-label="Siguiente"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        </Reveal>
 
         {/* Row 2: Non-anonymous testimonials */}
-        <div className="relative flex items-center gap-4">
-          {/* Prev arrow */}
-          <button
-            onClick={prevNamed}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors"
-            aria-label="Anterior"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+        <Reveal retraso={150}>
+          <div className="relative flex items-center gap-4 lg:gap-8">
+            <button
+              onClick={prevNamed}
+              className={`${arrowCls} bg-lm-olive hover:bg-lm-olive/80`}
+              aria-label="Anterior"
+            >
+              <ChevronLeft className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-            {/* Left named card */}
-            <TestimonialCardNamed
-              name={NAMED_TESTIMONIALS[(namedIndex + 2) % NAMED_TESTIMONIALS.length].name}
-              role={NAMED_TESTIMONIALS[(namedIndex + 2) % NAMED_TESTIMONIALS.length].role}
-              bgColor="#E3FFF8"
-              borderColor="#b0e8dc"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-10 flex-1">
+              {namedCard(named(2))}
+              {anonCard(anon(1))}
+              {namedCard(named(3))}
+            </div>
 
-            {/* Center anonymous (olive accent) */}
-            <TestimonialCardAnonymous
-              title={ANONYMOUS_TESTIMONIALS[(anonIndex + 1) % ANONYMOUS_TESTIMONIALS.length].title}
-              text={ANONYMOUS_TESTIMONIALS[(anonIndex + 1) % ANONYMOUS_TESTIMONIALS.length].text}
-              accentColor={ANONYMOUS_TESTIMONIALS[(anonIndex + 1) % ANONYMOUS_TESTIMONIALS.length].accentColor}
-              bgColor={ANONYMOUS_TESTIMONIALS[(anonIndex + 1) % ANONYMOUS_TESTIMONIALS.length].bgColor}
-            />
-
-            {/* Right named card */}
-            <TestimonialCardNamed
-              name={NAMED_TESTIMONIALS[(namedIndex + 3) % NAMED_TESTIMONIALS.length].name}
-              role={NAMED_TESTIMONIALS[(namedIndex + 3) % NAMED_TESTIMONIALS.length].role}
-              bgColor="#E3FFF8"
-              borderColor="#b0e8dc"
-            />
+            <button
+              onClick={nextNamed}
+              className={`${arrowCls} bg-lm-olive hover:bg-lm-olive/80`}
+              aria-label="Siguiente"
+            >
+              <ChevronRight className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
           </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={nextNamed}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-olive text-white hover:bg-lm-olive/80 transition-colors"
-            aria-label="Siguiente"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        </Reveal>
 
       </div>
     </section>

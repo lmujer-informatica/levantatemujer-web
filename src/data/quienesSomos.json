@@ -27,7 +27,7 @@
   "identidad": {
     "historia": {
       "titulo": "Nuestra Historia",
-      "texto": "La Fundación Levántate Mujer nació con el propósito de transformar la vida de las mujeres bolivianas a través de programas integrales de capacitación, atención y acompañamiento. Desde nuestros inicios, hemos trabajado incansablemente para construir espacios seguros donde cada mujer pueda desarrollar su máximo potencial, enfrentar las adversidades y construir un futuro digno y lleno de oportunidades para ella y sus comunidades."
+      "texto": "La Fundación Levántate Mujer nació con el propósito de transformar la vida de las mujeres bolivianas a través de programas integrales de capacitación, atención y acompañamiento. Desde nuestros inicios, hemos trabajado incansablemente para construir espacios seguros donde cada mujer pueda desarrollar su máximo potencial, enfrentar las adversidades y construir un futuro digno y lleno de oportunidades para ella y sus comunidades a lo largo de Bolivia."
     },
     "mision": {
       "titulo": "Misión",
@@ -57,44 +57,140 @@
   ],
   "equipo": {
     "directorio": [
-      { "nombre": "Edward Kenway", "cargo": "Presidenta", "foto": "" },
-      { "nombre": "Robert Brockmann", "cargo": "Vicepresidenta", "foto": "" },
-      { "nombre": "Osamu Dazai", "cargo": "Secretaria General", "foto": "" }
+      {
+        "nombre": "Edward Kenway",
+        "cargo": "Presidenta",
+        "foto": ""
+      },
+      {
+        "nombre": "RWQFSFASXC",
+        "cargo": "Vicepresidenta",
+        "foto": ""
+      },
+      {
+        "nombre": "Osamu Dazai",
+        "cargo": "Secretaria General",
+        "foto": ""
+      }
     ],
     "direccionEjecutiva": [
-      { "nombre": "William Afton", "cargo": "Directora Ejecutiva", "foto": "" },
-      { "nombre": "Meruem", "cargo": "Subdirectora", "foto": "" },
-      { "nombre": "Daniel Sempere", "cargo": "Coordinadora General", "foto": "" }
+      {
+        "nombre": "William Afton",
+        "cargo": "Directora Ejecutiva",
+        "foto": ""
+      },
+      {
+        "nombre": "Meruem",
+        "cargo": "Subdirectora",
+        "foto": ""
+      },
+      {
+        "nombre": "Daniel Sempere",
+        "cargo": "Coordinadora General",
+        "foto": ""
+      }
     ],
     "laPaz": [
-      { "nombre": "Ricardo Somocurcio", "cargo": "Psicóloga", "foto": "" },
-      { "nombre": "Edward Elric", "cargo": "Asesora Legal", "foto": "" },
-      { "nombre": "Casar Octaviano Augusto", "cargo": "Trabajadora Social", "foto": "" }
+      {
+        "nombre": "Ricardo Somocurcio",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Edward Elric",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      },
+      {
+        "nombre": "Casar Octaviano Augusto",
+        "cargo": "Trabajadora Social",
+        "foto": ""
+      }
     ],
     "elAlto": [
-      { "nombre": "Ekko", "cargo": "Coordinadora", "foto": "" },
-      { "nombre": "Arthur Morgan", "cargo": "Psicóloga", "foto": "" },
-      { "nombre": "Björn Ulvaeus", "cargo": "Asesora Legal", "foto": "" }
+      {
+        "nombre": "Ekko",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Arthur Morgan",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Björn Ulvaeus",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
     ],
     "oruro": [
-      { "nombre": "Sam Beam", "cargo": "Coordinadora", "foto": "" },
-      { "nombre": "Isabelle Geo Pommet", "cargo": "Psicóloga", "foto": "" },
-      { "nombre": "Michael Jackson", "cargo": "Asesora Legal", "foto": "" }
+      {
+        "nombre": "Sam Beam",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Isabelle Geo Pommet",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Michael Jackson",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
     ],
     "santaCruz": [
-      { "nombre": "Guts", "cargo": "Coordinadora", "foto": "" },
-      { "nombre": "Daniel Rabinovich", "cargo": "Psicóloga", "foto": "" },
-      { "nombre": "Aldo Bartra", "cargo": "Asesora Legal", "foto": "" }
+      {
+        "nombre": "Guts",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Daniel Rabinovich",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Aldo Bartra",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
     ],
     "sucre": [
-      { "nombre": "Cristiano Ronaldo", "cargo": "Coordinadora", "foto": "" },
-      { "nombre": "Eva Tobalina", "cargo": "Psicóloga", "foto": "" },
-      { "nombre": "Carlos Caballero Jurado", "cargo": "Asesora Legal", "foto": "" }
+      {
+        "nombre": "Cristiano Ronaldo",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Eva Tobalina",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Carlos Caballero Jurado",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
     ],
     "organizacionesAliadas": [
-      { "nombre": "Fundación Mujeres en Marcha", "rubro": "Derechos Humanos", "foto": "" },
-      { "nombre": "Red de Mujeres Bolivianas", "rubro": "Incidencia Política", "foto": "" },
-      { "nombre": "Colectiva Igualdad Ya", "rubro": "Género y Justicia", "foto": "" }
+      {
+        "nombre": "Fundación Mujeres en Marcha",
+        "rubro": "Derechos Humanos",
+        "foto": ""
+      },
+      {
+        "nombre": "Red de Mujeres Bolivianas",
+        "rubro": "Incidencia Política",
+        "foto": ""
+      },
+      {
+        "nombre": "Colectiva Igualdad Ya",
+        "rubro": "Género y Justicia",
+        "foto": ""
+      }
     ]
   }
 }

@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
 export default function BannerFrases({ data }) {
+  const frases = data?.frases ?? [];
   const [indiceActual, setIndiceActual] = useState(0);
 
   useEffect(() => {
+    if (frases.length <= 1) return;
     const intervalo = setInterval(() => {
-      setIndiceActual((prev) => (prev + 1) % data.frases.length);
+      setIndiceActual((prev) => (prev + 1) % frases.length);
     }, 4000);
     return () => clearInterval(intervalo);
-  }, [data.frases.length]);
+  }, [frases.length]);
 
   return (
     <section className="relative w-full h-[240px] md:h-[340px] overflow-hidden bg-white">
       <img
-        src={data.imagenFondo}
+        src={data?.imagenFondo}
         alt="Banner"
         className="absolute inset-0 w-full h-full object-cover opacity-60"
       />
@@ -25,7 +27,7 @@ export default function BannerFrases({ data }) {
             key={indiceActual}
             className="text-[#E3FFF8] font-montserrat italic font-medium text-2xl md:text-4xl lg:text-5xl text-center leading-tight hero-text-in"
           >
-            {data.frases[indiceActual]}
+            {frases.length > 0 ? frases[indiceActual % frases.length] : 'Levántate Mujer'}
           </h2>
         </div>
         <div className="w-[80%] md:w-[65%] h-[2px] bg-[#E3FFF8] mt-4 opacity-80" />

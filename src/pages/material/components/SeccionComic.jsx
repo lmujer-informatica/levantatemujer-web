@@ -3,7 +3,8 @@ import SectionHeader from './SectionHeader';
 import TarjetaMaterial from './TarjetaMaterial';
 import Reveal from './Reveal';
 
-export default function SeccionComic({ data }) {
+export default function SeccionComic({ data = {} }) {
+  const paletaComic = { fondo: '#BACB5E', boton: '#0DADD4' };
   return (
     <section className="w-full bg-[#EFFFFB] pt-8 md:pt-14 overflow-hidden">
       <div className="max-w-6xl md:max-w-7xl mx-auto px-4 md:px-8">
@@ -17,10 +18,11 @@ export default function SeccionComic({ data }) {
               alineacion="left"
             />
             <div className="mt-4 md:mt-6 flex gap-3 md:gap-6 relative z-10 -mb-8 md:-mb-14 max-w-md md:max-w-lg">
-              {data.items.map((item, i) => (
+              {(data.items ?? []).map((item, i) => (
                 <TarjetaMaterial
                   key={item.titulo + i}
                   item={item}
+                  paleta={paletaComic}
                   variante="comic"
                   retraso={i * 120}
                 />

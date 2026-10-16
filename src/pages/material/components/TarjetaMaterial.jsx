@@ -1,8 +1,9 @@
 import React from 'react';
 import Reveal from './Reveal';
 
-export default function TarjetaMaterial({ item, variante = 'plana', retraso = 0 }) {
+export default function TarjetaMaterial({ item = {}, paleta = {}, variante = 'plana', retraso = 0 }) {
   const esComic = variante === 'comic';
+  const { fondo, boton } = paleta;
   const radioTarjeta = esComic
     ? 'rounded-t-[20px] rounded-b-[10px]'
     : 'rounded-[15px]';
@@ -12,7 +13,7 @@ export default function TarjetaMaterial({ item, variante = 'plana', retraso = 0 
     <Reveal retraso={retraso} className="min-w-[140px] flex-1 snap-center md:min-w-0">
       <article
         className={`${radioTarjeta} shadow-[0px_4px_4px_rgba(0,0,0,0.25)] p-2 md:p-4 flex flex-col items-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0px_8px_14px_rgba(0,0,0,0.30)]`}
-        style={{ backgroundColor: item.colorFondo }}
+        style={{ backgroundColor: fondo }}
       >
         <div className={`w-full ${radioPozo} bg-white p-1.5 md:p-2`}>
           <img
@@ -29,7 +30,7 @@ export default function TarjetaMaterial({ item, variante = 'plana', retraso = 0 
           href={item.archivo}
           download
           className="mt-1.5 md:mt-3 rounded-[10px] px-4 md:px-8 py-0.5 md:py-1.5 text-white font-poppins font-medium text-[10px] md:text-base transition-transform duration-200 hover:scale-105 active:scale-95"
-          style={{ backgroundColor: item.colorBoton }}
+          style={{ backgroundColor: boton }}
         >
           Descargar
         </a>

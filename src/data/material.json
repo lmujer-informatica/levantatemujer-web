@@ -32,16 +32,12 @@
       {
         "titulo": "Título del Cómic",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
-        "archivo": "#",
-        "colorFondo": "#BACB5E",
-        "colorBoton": "#0DADD4"
+        "archivo": "#"
       },
       {
         "titulo": "Título del Cómic",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
-        "archivo": "#",
-        "colorFondo": "#BACB5E",
-        "colorBoton": "#0DADD4"
+        "archivo": "#"
       }
     ]
   },
@@ -52,23 +48,17 @@
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
-        "archivo": "#",
-        "colorFondo": "#0DADD4",
-        "colorBoton": "#356194"
+        "archivo": "#"
       },
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-        "archivo": "#",
-        "colorFondo": "#BACB5E",
-        "colorBoton": "#859433"
+        "archivo": "#"
       },
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
-        "archivo": "#",
-        "colorFondo": "#0DADD4",
-        "colorBoton": "#356194"
+        "archivo": "#"
       }
     ]
   },
@@ -79,23 +69,17 @@
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
-        "archivo": "#",
-        "colorFondo": "#BACB5E",
-        "colorBoton": "#859433"
+        "archivo": "#"
       },
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
-        "archivo": "#",
-        "colorFondo": "#0DADD4",
-        "colorBoton": "#356194"
+        "archivo": "#"
       },
       {
         "titulo": "Título",
         "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
-        "archivo": "#",
-        "colorFondo": "#BACB5E",
-        "colorBoton": "#859433"
+        "archivo": "#"
       }
     ]
   },

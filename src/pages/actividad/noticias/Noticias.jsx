@@ -1,12 +1,14 @@
 import React from 'react';
-import BannerNoticias from './components/BannerNoticias';
+import BannerFrases from '../../../components/shared/BannerFrases';
 import NoticiasGrid from './components/NoticiasGrid';
+
+import actividadNoticiasData from '../../../data/actividadNoticias.json';
 
 export default function Noticias() {
   return (
     <main className="grow flex flex-col gap-0">
-      <BannerNoticias />
-      <NoticiasGrid />
+      <BannerFrases data={actividadNoticiasData.banner} />
+      <NoticiasGrid data={actividadNoticiasData} />
     </main>
   );
 }

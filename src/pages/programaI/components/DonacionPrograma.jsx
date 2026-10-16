@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Reveal from './Reveal';
 
-export default function DonacionPrograma() {
+export default function DonacionPrograma({ data = {} }) {
   const [form, setForm] = useState({
     nombre: '',
     celular: '',
@@ -18,117 +19,132 @@ export default function DonacionPrograma() {
     alert('Donación registrada');
   };
 
+  const inputCls = 'w-full rounded-lg lg:rounded-xl border border-[#0DADD4]/50 bg-[#F1FFFF] px-3 lg:px-5 py-2 lg:py-4 text-sm lg:text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 transition-shadow duration-200';
+  const labelCls = 'text-xs lg:text-base font-medium';
+
   return (
-    <section className="w-full bg-[#EFFFFA] py-8 md:py-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-8 items-start">
+    <section className="w-full bg-[#EFFFFA] py-8 md:py-12 lg:py-24">
+      <div className="max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-start">
 
           {/* ── Left: Donation form ── */}
-          <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4">
+          <Reveal className="flex-1 w-full">
+            <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4 lg:gap-7">
 
-            {/* Title */}
-            <h2 className="text-lg md:text-2xl font-medium italic" style={{ color: '#0DADD4' }}>
-              Haz Una Donación al Programa
-            </h2>
+              {/* Title */}
+              <h2 className="text-lg md:text-2xl lg:text-4xl xl:text-5xl font-medium italic" style={{ color: '#0DADD4' }}>
+                {data.titulo}
+              </h2>
 
-            {/* Full name / org */}
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium" style={{ color: '#0DADD4' }}>
-                Nombre Completo u Organización
-              </label>
-              <input
-                type="text"
-                name="nombre"
-                value={form.nombre}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40"
-              />
-            </div>
-
-            {/* Celular + Correo row */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-1">
-                <label className="text-xs font-medium" style={{ color: '#0DADD4' }}>
-                  Celular
+              {/* Full name / org */}
+              <div className="flex flex-col gap-1 lg:gap-2">
+                <label className={labelCls} style={{ color: '#0DADD4' }}>
+                  {(data.etiquetas ?? {}).nombre}
                 </label>
                 <input
-                  type="tel"
-                  name="celular"
-                  value={form.celular}
+                  type="text"
+                  name="nombre"
+                  value={form.nombre}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40"
+                  className={inputCls}
                 />
               </div>
-              <div className="flex flex-col gap-1">
-                <label className="text-xs font-medium" style={{ color: '#0DADD4' }}>
-                  Correo
+
+              {/* Celular + Correo row */}
+              <div className="grid grid-cols-2 gap-4 lg:gap-8">
+                <div className="flex flex-col gap-1 lg:gap-2">
+                  <label className={labelCls} style={{ color: '#0DADD4' }}>
+                    {data.etiquetas.celular}
+                  </label>
+                  <input
+                    type="tel"
+                    name="celular"
+                    value={form.celular}
+                    onChange={handleChange}
+                    className={inputCls}
+                  />
+                </div>
+                <div className="flex flex-col gap-1 lg:gap-2">
+                  <label className={labelCls} style={{ color: '#0DADD4' }}>
+                    {data.etiquetas.correo}
+                  </label>
+                  <input
+                    type="email"
+                    name="correo"
+                    value={form.correo}
+                    onChange={handleChange}
+                    className={inputCls}
+                  />
+                </div>
+              </div>
+
+              {/* Motivo textarea */}
+              <div className="flex flex-col gap-1 lg:gap-2">
+                <label className={labelCls} style={{ color: '#0DADD4' }}>
+                  {(data.etiquetas ?? {}).motivo}
                 </label>
-                <input
-                  type="email"
-                  name="correo"
-                  value={form.correo}
+                <textarea
+                  name="motivo"
+                  value={form.motivo}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40"
+                  rows={4}
+                  className={`${inputCls} resize-none lg:min-h-[180px]`}
                 />
               </div>
-            </div>
 
-            {/* Motivo textarea */}
-            <div className="flex flex-col gap-1">
-              <label className="text-xs font-medium" style={{ color: '#0DADD4' }}>
-                ¿Qué te motivó a donar?
-              </label>
-              <textarea
-                name="motivo"
-                value={form.motivo}
-                onChange={handleChange}
-                rows={4}
-                className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 resize-none"
-              />
-            </div>
+              {/* Submit button */}
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="px-10 lg:px-16 py-2 lg:py-4 rounded-full font-medium text-white text-sm lg:text-xl hover:opacity-90 hover:scale-105 active:scale-95 transition-all duration-200 hover:shadow-lg"
+                  style={{ backgroundColor: '#0DADD4' }}
+                >
+                  {(data.etiquetas ?? {}).boton}
+                </button>
+              </div>
 
-            {/* Submit button */}
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="px-10 py-2 rounded-full font-medium text-white text-sm hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: '#0DADD4' }}
-              >
-                Registra tu donación
-              </button>
-            </div>
-
-          </form>
+            </form>
+          </Reveal>
 
           {/* ── Right: Image with quote overlay ── */}
-          <div className="flex-shrink-0 w-full md:w-[220px] flex flex-col">
+          <Reveal retraso={150} className="w-full md:w-auto">
+            <div className="group w-full md:w-[220px] lg:w-[340px] flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300 rounded-xl lg:rounded-2xl">
 
-            {/* Image area */}
-            <div
-              className="relative w-full rounded-xl overflow-hidden"
-              style={{ backgroundColor: '#C0D1C7', paddingBottom: '100%' }}
-            >
-              {/* Inner image placeholder */}
-              <div className="absolute inset-3 rounded-lg bg-gray-300 flex items-center justify-center">
-                <svg className="w-12 h-12 text-white opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
+              {/* Image area */}
+              <div
+                className="relative w-full rounded-xl lg:rounded-2xl rounded-b-none overflow-hidden"
+                style={{ backgroundColor: '#C0D1C7', paddingBottom: '100%' }}
+              >
+                {data.imagen ? (
+                  <img
+                    src={data.imagen}
+                    alt={data.titulo}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-3 rounded-lg bg-gray-300 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-white opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                  </div>
+                )}
               </div>
-            </div>
 
-            {/* Quote/frase overlay */}
-            <div
-              className="w-full py-3 px-4 rounded-b-xl -mt-1"
-              style={{ backgroundColor: '#BAcb5E' }}
-            >
-              <p className="text-xs font-medium leading-snug text-center" style={{ color: '#F1FFFF' }}>
-                Apóyanos en nuestra labor juntos construimos soluciones.
-              </p>
-            </div>
+              {/* Quote/frase overlay */}
+              <div
+                className="w-full py-3 lg:py-6 px-4 lg:px-8 rounded-b-xl lg:rounded-b-2xl -mt-1"
+                style={{ backgroundColor: '#BACB5E' }}
+              >
+                <p className="text-xs md:text-sm lg:text-xl font-medium leading-snug text-center" style={{ color: '#F1FFFF' }}>
+                  {data.frase}
+                </p>
+              </div>
 
-          </div>
+            </div>
+          </Reveal>
 
         </div>
       </div>

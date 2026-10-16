@@ -1,0 +1,125 @@
+{
+  "banner": {
+    "frases": [
+      "Mujeres Libres de Violencia",
+      "Levántate Mujer, Construye tu Futuro",
+      "Levántate Mujer, Alza tu Voz",
+      "Levántate Mujer, Cree en Ti",
+      "Tu fuerza transforma comunidades",
+      "Juntas somos más fuertes"
+    ],
+    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+  },
+  "descripcion": {
+    "titulo": "El Programa",
+    "parrafos": [
+      "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod. Nibh libero fermentum donec duis risus maecenas, scelerisque cubilia hac hendrerit quisque torquent, vel netus ultricies fames egestas. Himenaeos rutrum placerat morbi conubia potenti mus nulla habitant turpis, est netus gravida natoque metus dignissim congue laoreet.",
+      "Scelerisque parturient hendrerit per habitasse integer litora nisi, luctus pulvinar himenaeos euismod purus condimentum nullam arcu, vehicula imperdiet quis tristique."
+    ]
+  },
+  "actividades": {
+    "titulo": "ACTIVIDADES",
+    "ciudades": ["La Paz", "El Alto", "Oruro", "Santa Cruz", "Sucre"],
+    "items": [
+      {
+        "nombre": "Nombre",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+      },
+      {
+        "nombre": "Nombre",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+      },
+      {
+        "nombre": "Nombre",
+        "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus,",
+        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+      }
+    ]
+  },
+  "testimonios": {
+    "anonimos": [
+      {
+        "titulo": "Título",
+        "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod."
+      },
+      {
+        "titulo": "Título",
+        "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod."
+      }
+    ],
+    "nombrados": [
+      { "nombre": "(Nombre)", "cargo": "(Título)", "foto": "" },
+      { "nombre": "(Nombre)", "cargo": "(Título)", "foto": "" },
+      { "nombre": "(Nombre)", "cargo": "(Título)", "foto": "" },
+      { "nombre": "(Nombre)", "cargo": "(Título)", "foto": "" }
+    ]
+  },
+  "metodologias": {
+    "items": [
+      {
+        "titulo": "Título",
+        "resumen": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te",
+        "descargable": false
+      },
+      {
+        "titulo": "Título",
+        "resumen": "",
+        "descargable": true
+      },
+      {
+        "titulo": "Título",
+        "resumen": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te",
+        "descargable": false
+      }
+    ]
+  },
+  "investigaciones": {
+    "items": [
+      {
+        "titulo": "Título",
+        "resumen": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te",
+        "descargable": false
+      },
+      {
+        "titulo": "Título",
+        "resumen": "",
+        "descargable": true
+      },
+      {
+        "titulo": "Título",
+        "resumen": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te",
+        "descargable": false
+      }
+    ]
+  },
+  "donacion": {
+    "titulo": "Haz Una Donación al Programa",
+    "etiquetas": {
+      "nombre": "Nombre Completo u Organización",
+      "celular": "Celular",
+      "correo": "Correo",
+      "motivo": "¿Qué te motivó a donar?",
+      "boton": "Registra tu donación"
+    },
+    "frase": "Apóyanos en nuestra labor juntos construimos soluciones.",
+    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+  },
+  "serParte": {
+    "titulo": "SE PARTE DEL PROGRAMA",
+    "lineaAyuda": {
+      "titulo": "Línea de Ayuda Violencia",
+      "boton": "Click Aquí"
+    },
+    "etiquetas": {
+      "nombre": "Nombre y Apellido",
+      "celular": "Celular",
+      "correo": "Correo",
+      "departamento": "Departamento",
+      "programa": "Programa",
+      "motivo": "¿Por qué te interesa el programa?",
+      "boton": "Agendar cita"
+    }
+  }
+}

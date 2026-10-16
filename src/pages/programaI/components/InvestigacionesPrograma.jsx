@@ -1,125 +1,112 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Reveal from './Reveal';
 
-const INVESTIGACIONES = [
-  {
-    id: 1,
-    title: 'Título',
-    summary:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te',
-    variant: 'light',
-    accentColor: '#3561940',
-    textColor: '#3561940',
-    borderColor: '#3561940',
-  },
-  {
-    id: 2,
-    title: 'Título',
-    summary: null,
-    variant: 'featured',
-    accentColor: '#0DADD4',
-    textColor: '#F1FFFF',
-    downloadBg: '#3561940',
-  },
-  {
-    id: 3,
-    title: 'Título',
-    summary:
-      'Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te',
-    variant: 'light',
-    accentColor: '#3561940',
-    textColor: '#3561940',
-    borderColor: '#3561940',
-  },
-];
+const LIGHT_COLOR = '#356194';
+const FEATURED_BG = '#0DADD4';
+const FEATURED_TEXT = '#F1FFFF';
+const DOWNLOAD_BG = '#356194';
 
-export default function InvestigacionesPrograma() {
+export default function InvestigacionesPrograma({ data = {} }) {
+  const items = data.items ?? [];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prev = () => setCurrentIndex((i) => (i - 1 + INVESTIGACIONES.length) % INVESTIGACIONES.length);
-  const next = () => setCurrentIndex((i) => (i + 1) % INVESTIGACIONES.length);
+  if (items.length === 0) return null;
+
+  const prev = () => setCurrentIndex((i) => (i - 1 + items.length) % items.length);
+  const next = () => setCurrentIndex((i) => (i + 1) % items.length);
 
   const visibleCards = [
-    INVESTIGACIONES[currentIndex % INVESTIGACIONES.length],
-    INVESTIGACIONES[(currentIndex + 1) % INVESTIGACIONES.length],
-    INVESTIGACIONES[(currentIndex + 2) % INVESTIGACIONES.length],
+    items[currentIndex % items.length],
+    items[(currentIndex + 1) % items.length],
+    items[(currentIndex + 2) % items.length],
   ];
 
   return (
-    <section className="w-full bg-[#EFFFFA] py-8 md:py-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full bg-[#EFFFFA] py-8 md:py-12 lg:py-24 overflow-hidden">
+      {/* Decorativo pegado al borde izquierdo, solo desktop */}
+      <div aria-hidden="true" className="pointer-events-none absolute left-0 top-16 hidden lg:block">
+        <div className="h-48 w-2 rounded-r-full bg-[#0DADD4]/50" />
+      </div>
+
+      <div className="max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section title */}
-        <div className="bg-lm-navy py-2 px-4 mb-8 flex items-center justify-center">
-          <h2 className="italic font-medium text-[#E3FFF8] text-xl md:text-3xl tracking-wide">
-            INVESTIGACIONES
-          </h2>
-        </div>
+        <Reveal>
+          <div className="bg-lm-navy py-2 lg:py-5 px-4 lg:px-8 mb-8 lg:mb-14 flex items-center justify-center rounded-sm">
+            <h2 className="italic font-medium text-[#E3FFF8] text-xl md:text-3xl lg:text-5xl tracking-wide">
+              INVESTIGACIONES
+            </h2>
+          </div>
+        </Reveal>
 
         {/* Cards carousel */}
-        <div className="flex items-center gap-3">
+        <Reveal retraso={100}>
+          <div className="flex items-center gap-3 lg:gap-8">
 
-          {/* Prev arrow */}
-          <button
-            onClick={prev}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
-            aria-label="Anterior investigación"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
+            {/* Prev arrow */}
+            <button
+              onClick={prev}
+              className="shrink-0 w-8 h-8 lg:w-14 lg:h-14 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 hover:scale-110 active:scale-95 transition-all duration-200"
+              aria-label="Anterior investigación"
+            >
+              <ChevronLeft className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
-            {visibleCards.map((card, idx) => {
-              if (card.variant === 'featured') {
+            {/* Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-10 flex-1">
+              {visibleCards.map((card, idx) => {
+                if (card.descargable) {
+                  return (
+                    <div
+                      key={`${card.titulo}-${idx}`}
+                      className="rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col items-center justify-center p-6 lg:p-12 gap-4 lg:gap-6 min-h-[220px] lg:min-h-[380px] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+                      style={{ backgroundColor: FEATURED_BG }}
+                    >
+                      {/* Inner bordered box */}
+                      <div className="w-4/5 h-16 lg:h-28 border-2 border-white/60 rounded-lg" />
+
+                      <h3 className="text-xl lg:text-3xl font-medium italic text-center" style={{ color: FEATURED_TEXT }}>
+                        {card.titulo}
+                      </h3>
+
+                      <button
+                        className="px-6 lg:px-10 py-2 lg:py-3.5 rounded-lg font-medium text-sm lg:text-lg text-white hover:opacity-90 hover:scale-105 active:scale-95 transition-all duration-200"
+                        style={{ backgroundColor: DOWNLOAD_BG }}
+                      >
+                        Descargar
+                      </button>
+                    </div>
+                  );
+                }
+
                 return (
                   <div
-                    key={`${card.id}-${idx}`}
-                    className="rounded-2xl overflow-hidden flex flex-col items-center justify-center p-6 gap-4 min-h-[220px]"
-                    style={{ backgroundColor: card.accentColor }}
+                    key={`${card.titulo}-${idx}`}
+                    className="rounded-2xl lg:rounded-3xl overflow-hidden flex flex-col p-5 lg:p-10 min-h-[220px] lg:min-h-[380px] border-2 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300"
+                    style={{ backgroundColor: '#E3FFF8', borderColor: `${LIGHT_COLOR}4D` }}
                   >
-                    {/* Inner bordered box */}
-                    <div className="w-4/5 h-16 border-2 border-white/60 rounded-lg" />
-
-                    <h3 className="text-xl font-medium italic" style={{ color: card.textColor }}>
-                      {card.title}
+                    <h3 className="text-base lg:text-2xl font-medium italic mb-3 lg:mb-5" style={{ color: LIGHT_COLOR }}>
+                      {card.titulo}
                     </h3>
-
-                    <button
-                      className="px-6 py-2 rounded-lg font-medium text-sm text-white bg-lm-navy hover:bg-lm-navy/80 transition-opacity"
-                    >
-                      Descargar
-                    </button>
+                    <p className="text-xs md:text-sm lg:text-lg leading-relaxed font-light" style={{ color: LIGHT_COLOR }}>
+                      {card.resumen}
+                    </p>
                   </div>
                 );
-              }
+              })}
+            </div>
 
-              return (
-                <div
-                  key={`${card.id}-${idx}`}
-                  className="rounded-2xl overflow-hidden flex flex-col p-5 min-h-[220px] border-2 border-lm-navy/30"
-                  style={{ backgroundColor: '#E3FFF8' }}
-                >
-                  <h3 className="text-base font-medium italic mb-3 text-lm-navy">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed font-light text-lm-navy">
-                    {card.summary}
-                  </p>
-                </div>
-              );
-            })}
+            {/* Next arrow */}
+            <button
+              onClick={next}
+              className="shrink-0 w-8 h-8 lg:w-14 lg:h-14 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 hover:scale-110 active:scale-95 transition-all duration-200"
+              aria-label="Siguiente investigación"
+            >
+              <ChevronRight className="w-5 h-5 lg:w-7 lg:h-7" />
+            </button>
           </div>
-
-          {/* Next arrow */}
-          <button
-            onClick={next}
-            className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-lm-navy text-white hover:bg-lm-navy/80 transition-colors"
-            aria-label="Siguiente investigación"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
+        </Reveal>
 
       </div>
     </section>

@@ -31,7 +31,7 @@ export default function LineaAyuda() {
       <div className="w-full md:w-[45%] bg-[#a5b897] relative overflow-hidden flex items-center justify-center p-12 md:p-16 border-t md:border-t-0 md:border-l border-white/20">
 
         {/* Imagen de fondo */}
-        {inicioData.lineaAyuda.imagen && (
+        {(inicioData.lineaAyuda ?? {}).imagen && (
           <img
             src={inicioData.lineaAyuda.imagen}
             alt=""
@@ -45,7 +45,7 @@ export default function LineaAyuda() {
 
         {/* Texto */}
         <p className="text-[#396593] text-3xl md:text-[2.2rem] leading-snug font-medium text-center relative z-10 max-w-[420px]">
-          {inicioData.lineaAyuda.mensaje}
+          {(inicioData.lineaAyuda ?? {}).mensaje}
         </p>
 
       </div>

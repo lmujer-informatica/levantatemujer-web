@@ -2,19 +2,26 @@ import React, { useEffect, useState } from 'react';
 import inicioData from '../../../data/inicio.json';
 
 export default function SeccionHero() {
-  const [fraseActual, setFraseActual] = useState(0);
+  const [indiceActual, setIndiceActual] = useState(0);
 
   const frases = inicioData.heroFrases || [];
+  const imagenes = inicioData.heroImagenes || [];
+  const total = Math.max(frases.length, imagenes.length, 1);
 
   useEffect(() => {
-    if (frases.length <= 1) return;
+    if (total <= 1) return;
+
+    const prefiereMenosMovimiento = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (prefiereMenosMovimiento) return;
 
     const intervalo = setInterval(() => {
-      setFraseActual((actual) => (actual + 1) % frases.length);
+      setIndiceActual((actual) => (actual + 1) % total);
     }, 5000);
 
     return () => clearInterval(intervalo);
-  }, [frases.length]);
+  }, [total]);
+
+  const frase = frases.length > 0 ? frases[indiceActual % frases.length] : 'Fundación Levántate Mujer';
 
   return (
     <div className="relative w-full h-[500px] overflow-hidden bg-lm-bg flex">
@@ -23,13 +30,24 @@ export default function SeccionHero() {
       <div className="w-full md:w-[65%] h-full bg-lm-olive flex items-center relative z-10 pl-8 md:pl-[10%] pr-4">
 
         <h1
-          key={fraseActual}
+          key={indiceActual}
           className="hero-text-in text-white text-5xl md:text-7xl font-normal leading-tight z-20 relative max-w-[80%] md:max-w-[75%]"
         >
-          {frases.length > 0
-            ? frases[fraseActual]
-            : 'Fundación Levántate Mujer'}
+          {frase}
         </h1>
+
+        {total > 1 && (
+          <div className="absolute bottom-8 left-8 md:left-[10%] flex gap-2 z-20" aria-hidden="true">
+            {Array.from({ length: total }).map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  i === indiceActual ? 'w-8 bg-white' : 'w-4 bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
       </div>
 
@@ -40,13 +58,19 @@ export default function SeccionHero() {
 
           <div className="w-[80%] h-[70%] bg-gray-400 rounded-xl relative flex flex-col items-center justify-center overflow-hidden">
 
-            {inicioData.heroImagenes &&
-            inicioData.heroImagenes.length > 0 ? (
-              <img
-                src={inicioData.heroImagenes[0]}
-                alt="Hero"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            {imagenes.length > 0 ? (
+              imagenes.map((src, i) => (
+                <img
+                  key={src + i}
+                  src={src}
+                  alt={i === 0 ? 'Hero' : ''}
+                  aria-hidden={i !== indiceActual % imagenes.length}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${
+                    i === indiceActual % imagenes.length ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                />
+              ))
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center text-white">
                 <svg

@@ -18,7 +18,7 @@ const DEPARTAMENTOS = [
 
 const PROGRAMAS = ['Respuesta a la Trata e Inmigración'];
 
-export default function SerParte({ data }) {
+export default function SerParte({ data = {} }) {
   const [valores, setValores] = useState({
     nombre: '',
     celular: '',
@@ -51,7 +51,7 @@ export default function SerParte({ data }) {
               <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={2} />
             </span>
             <p className="font-montserrat italic font-medium text-sm md:text-lg text-[#294409]">
-              {data.lineaAyuda.titulo}
+              {(data.lineaAyuda ?? {}).titulo}
             </p>
           </div>
           <Link
@@ -59,7 +59,7 @@ export default function SerParte({ data }) {
             className="rounded-full px-6 py-2 font-montserrat italic font-semibold text-sm text-white transition-transform hover:scale-105"
             style={{ backgroundColor: '#859433' }}
           >
-            {data.lineaAyuda.boton}
+            {(data.lineaAyuda ?? {}).boton}
           </Link>
         </div>
 
@@ -67,7 +67,7 @@ export default function SerParte({ data }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label htmlFor="sp-nombre" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.nombre}
+                {(data.etiquetas ?? {}).nombre}
               </label>
               <input
                 id="sp-nombre"

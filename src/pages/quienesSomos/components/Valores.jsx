@@ -49,7 +49,7 @@ function TarjetaValor({ valor, invertido }) {
   );
 }
 
-export default function Valores({ data }) {
+export default function Valores({ data = [] }) {
   return (
     <section className="w-full bg-[#EFFFFB] overflow-hidden">
       {/* Header */}

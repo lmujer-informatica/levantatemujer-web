@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Identidad({ data }) {
+export default function Identidad({ data = {} }) {
+  const { historia = {}, mision = {}, vision = {} } = data;
   const [hoverMision, setHoverMision] = useState(false);
   const [hoverVision, setHoverVision] = useState(false);
 
@@ -10,14 +11,14 @@ export default function Identidad({ data }) {
         {/* Nuestra Historia */}
         <div className="w-full md:w-[46%] flex flex-col md:pr-10">
           <h3 className="font-montserrat italic font-medium text-[#15A4C9] text-xl md:text-3xl lg:text-4xl mb-3">
-            {data.historia.titulo}
+            {historia.titulo}
           </h3>
           <div className="w-40 md:w-56 h-[2px] md:h-[3px] bg-[#15A4C9] mb-6 md:mb-10" />
           <p
             className="font-poppins text-[#407178] text-xs md:text-lg lg:text-xl leading-relaxed text-justify"
             style={{ lineHeight: '1.8' }}
           >
-            {data.historia.texto}
+            {historia.texto}
           </p>
         </div>
 
@@ -47,10 +48,10 @@ export default function Identidad({ data }) {
             </div>
             <div className="bg-[#EFFFFB] rounded-tr-3xl rounded-br-3xl border border-[#407178] shadow-md p-4 md:p-8 flex-1">
               <h4 className="font-montserrat italic font-medium text-[#BACB5E] text-lg md:text-3xl mb-2 md:mb-4">
-                {data.mision.titulo}
+                {mision.titulo}
               </h4>
               <p className="font-poppins text-[#407178] text-[10px] md:text-base lg:text-lg leading-relaxed text-justify">
-                {data.mision.texto}
+                {mision.texto}
               </p>
             </div>
           </div>
@@ -75,10 +76,10 @@ export default function Identidad({ data }) {
             </div>
             <div className="bg-[#E3FFF8] rounded-tr-3xl rounded-br-3xl border border-[#407178] shadow-[-4px_4px_4px_rgba(0,0,0,0.25)] p-4 md:p-8 flex-1">
               <h4 className="font-montserrat italic font-medium text-[#15A4C9] text-lg md:text-3xl mb-2 md:mb-4">
-                {data.vision.titulo}
+                {vision.titulo}
               </h4>
               <p className="font-poppins text-[#407178] text-[10px] md:text-base lg:text-lg leading-relaxed text-justify">
-                {data.vision.texto}
+                {vision.texto}
               </p>
             </div>
           </div>

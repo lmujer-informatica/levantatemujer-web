@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function TarjetaItem({
-  item,
+  item = {},
   colorTitulo,
   colorTexto,
   colorBorde,

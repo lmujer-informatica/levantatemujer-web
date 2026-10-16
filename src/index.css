@@ -77,6 +77,14 @@ layer(base);
   animation: heroTextIn 0.8s ease-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hero-text-in,
+  .animate-flotar,
+  .page-fade-in {
+    animation: none;
+  }
+}
+
 @keyframes flotar {
   0%,
   100% {

@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
-import noticiasData from '../../data/noticias.json';
+
+const modulosNoticias = import.meta.glob('../../data/noticias/*.json', { eager: true });
+const noticias = Object.entries(modulosNoticias).map(([ruta, modulo]) => ({
+  id: ruta.split('/').pop().replace(/\.json$/, ''),
+  ...modulo.default,
+}));
 
 function MarcoImagen({ src, alt, tamano = 'md' }) {
   const medidas =
@@ -27,7 +32,7 @@ function MarcoImagen({ src, alt, tamano = 'md' }) {
 export default function DesgloseNoticia() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const noticia = noticiasData.noticias.find((n) => n.id === id);
+  const noticia = noticias.find((n) => n.id === id);
 
   if (!noticia) {
     return (
@@ -46,7 +51,8 @@ export default function DesgloseNoticia() {
     );
   }
 
-  const [imagenDer, imagenIzq] = noticia.imagenes;
+  const [imagenDer, imagenIzq] = noticia.imagenes ?? [];
+  const parrafos = noticia.parrafos ?? [];
 
   return (
     <main className="page-fade-in flex flex-col grow gap-0">
@@ -67,7 +73,7 @@ export default function DesgloseNoticia() {
 
           <div className="mt-2 md:mt-4 flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
             <p className="flex-1 min-w-0 text-justify font-poppins text-xs md:text-sm leading-relaxed" style={{ color: '#356194' }}>
-              {noticia.parrafos[0]}
+              {parrafos[0]}
             </p>
             {imagenDer && (
               <div className="mx-auto md:mx-0">
@@ -78,7 +84,7 @@ export default function DesgloseNoticia() {
 
           <div className="mt-5 md:mt-8 flex flex-col md:flex-row-reverse gap-5 md:gap-8 md:items-start">
             <p className="flex-1 min-w-0 text-justify font-poppins text-xs md:text-sm leading-relaxed" style={{ color: '#356194' }}>
-              {noticia.parrafos[1]}
+              {parrafos[1]}
             </p>
             {imagenIzq && (
               <div className="mx-auto md:mx-0">

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function CarruselBase({ items, itemsPorPagina, colorFlechas, vertical = false, renderItem }) {
+export default function CarruselBase({ items = [], itemsPorPagina, colorFlechas, vertical = false, renderItem }) {
   const [pagina, setPagina] = useState(0);
   const touchX = useRef(null);
   const totalPaginas = Math.max(1, Math.ceil(items.length / itemsPorPagina));

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Calendar, ArrowRight } from 'lucide-react';
 
-export default function TarjetaNoticia({ titulo, resumen, fecha, imagenUrl }) {
+export default function TarjetaNoticia({ id, titulo, resumen, fecha, imagenUrl }) {
   return (
     <article className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow border border-gray-100 flex flex-col group">
       <div className="h-48 overflow-hidden relative">
@@ -18,9 +19,9 @@ export default function TarjetaNoticia({ titulo, resumen, fecha, imagenUrl }) {
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">{titulo}</h3>
         <p className="text-gray-600 mb-6 grow line-clamp-3">{resumen}</p>
-        <a href="#" className="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors gap-2 mt-auto">
+        <Link to={id ? `/noticia/${id}` : '#'} className="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors gap-2 mt-auto">
           Leer noticia <ArrowRight className="w-4 h-4" />
-        </a>
+        </Link>
       </div>
     </article>
   );

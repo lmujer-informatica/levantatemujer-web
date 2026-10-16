@@ -14,7 +14,7 @@ export default function NumerosContacto({ data }) {
                 {contacto.ciudad}
               </h3>
               <a
-                href={`tel:${contacto.numero.replace(/\s/g, '')}`}
+                href={`tel:${(contacto.numero ?? '').replace(/\s/g, '')}`}
                 className="bg-white hover:bg-gray-100 rounded-full py-3 md:py-4 px-8 w-full shadow-md flex flex-col items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
               >
                 <span className="text-lm-cyan font-semibold text-2xl md:text-3xl mb-1">

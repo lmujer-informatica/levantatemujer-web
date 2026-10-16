@@ -36,9 +36,9 @@ function TarjetaActividad({ actividad, color, imagenFallback }) {
   );
 }
 
-export default function SeccionActividades({ ciudades, ciudadActiva, onChangeCiudad, imagenFallback }) {
+export default function SeccionActividades({ ciudades = [], ciudadActiva, onChangeCiudad, imagenFallback }) {
   const colores = ['#15A4C9', '#BACB5E', '#15A4C9'];
-  const ciudad = ciudades[ciudadActiva];
+  const ciudad = ciudades[ciudadActiva] ?? { actividades: [] };
 
   return (
     <section id="seccion-actividades" className="w-full scroll-mt-6">
@@ -84,7 +84,7 @@ export default function SeccionActividades({ ciudades, ciudadActiva, onChangeCiu
         {/* En móvil es 1 columna, en tablets 2, y en desktop 3, evitando que se amontonen */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-14">
-            {ciudad.actividades.map((a, i) => (
+            {(ciudad.actividades ?? []).map((a, i) => (
               <TarjetaActividad
                 key={a.nombre + i}
                 actividad={a}

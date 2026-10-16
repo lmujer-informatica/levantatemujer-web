@@ -6,7 +6,8 @@ import Reveal from './Reveal';
 const tieneVideo = (v) => Boolean(v.videoUrl) && v.videoUrl !== '#';
 const esMp4 = (url) => url.toLowerCase().split('?')[0].endsWith('.mp4');
 
-export default function SeccionVideos({ data }) {
+export default function SeccionVideos({ data = {} }) {
+  const items = data.items ?? [];
   const [activo, setActivo] = useState(null);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function SeccionVideos({ data }) {
         />
 
         <div className="mt-6 md:mt-10 flex flex-col gap-8 md:gap-12">
-          {data.items.map((video, i) => {
+          {items.map((video, i) => {
             const invertido = i % 2 === 1;
             const Contenedor = tieneVideo(video) ? 'button' : 'div';
             return (
@@ -81,13 +82,13 @@ export default function SeccionVideos({ data }) {
         </div>
       </div>
 
-      {activo !== null && tieneVideo(data.items[activo]) && (
+      {activo !== null && tieneVideo(items[activo] ?? {}) && (
         <div
           className="fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-4"
           onClick={() => setActivo(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={data.items[activo].titulo}
+          aria-label={items[activo].titulo}
         >
           <button
             type="button"
@@ -102,17 +103,17 @@ export default function SeccionVideos({ data }) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="aspect-video">
-              {esMp4(data.items[activo].videoUrl) ? (
+              {esMp4(items[activo].videoUrl) ? (
                 <video
-                  src={data.items[activo].videoUrl}
+                  src={items[activo].videoUrl}
                   controls
                   autoPlay
                   className="w-full h-full"
                 />
               ) : (
                 <iframe
-                  src={data.items[activo].videoUrl}
-                  title={data.items[activo].titulo}
+                  src={items[activo].videoUrl}
+                  title={items[activo].titulo}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="w-full h-full"

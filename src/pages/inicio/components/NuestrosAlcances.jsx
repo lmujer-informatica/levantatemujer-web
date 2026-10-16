@@ -1,10 +1,64 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import inicioData from '../../../data/inicio.json';
 import Personas_capacitadas from '../../../imagenes/Inicio/Personas_capacitadas.png';
 import Personas_atendidas from '../../../imagenes/Inicio/Personas_atendidas.png';
 import Personas_sensibilizadas from '../../../imagenes/Inicio/Personas_sensibilizadas.png';
 import Persona_y_organizaciones_voluntarias from '../../../imagenes/Inicio/Persona_ y_organizaciones_voluntarias.png';
 import centros from '../../../imagenes/Inicio/Centros.png';
+
+function extraerNumero(valor) {
+  const n = parseInt(String(valor ?? '').replace(/[^0-9]/g, ''), 10);
+  return Number.isNaN(n) ? 0 : n;
+}
+
+function NumeroAnimado({ valor, className }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [actual, setActual] = useState(0);
+  const objetivo = extraerNumero(valor);
+  const conMas = String(valor ?? '').includes('+');
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      setActual(objetivo);
+      return;
+    }
+    let raf;
+    const inicio = performance.now();
+    const duracion = 1400;
+    const tick = (t) => {
+      const p = Math.min((t - inicio) / duracion, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setActual(Math.round(eased * objetivo));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [visible, objetivo]);
+
+  return (
+    <h3 ref={ref} className={`${className ?? ''} tabular-nums`}>
+      {`${conMas ? '+' : ''}${actual.toLocaleString('es-BO')}`}
+    </h3>
+  );
+}
 
 export default function NuestrosAlcances() {
   const data = inicioData.estadisticas || [];
@@ -33,7 +87,7 @@ export default function NuestrosAlcances() {
                   <img src={Personas_sensibilizadas} alt="Personas Capacitadas"   className="w-12 h-12 object-contain" />
                 )}
               </div>
-              <h3 className="text-[2.5rem] font-light text-lm-cyan mb-1 tracking-tight leading-none">{est.valor.replace('+', '')}</h3>
+              <NumeroAnimado valor={est.valor} className="text-[2.5rem] font-light text-lm-cyan mb-1 tracking-tight leading-none" />
               <p className="text-lm-cyan font-medium text-lg leading-tight px-4">{est.etiqueta}</p>
             </div>
           ))}
@@ -50,9 +104,7 @@ export default function NuestrosAlcances() {
                   <img src={Centros} alt="Personas Capacitadas"   className="w-12 h-12 object-contain" />
                 )}
               </div>
-              <h3 className="text-[2.5rem] font-light text-lm-olive mb-1 tracking-tight leading-none">
-                {idx === 0 ? `+${est.valor.replace('+', '')}` : est.valor.replace('+', '')}
-              </h3>
+              <NumeroAnimado valor={est.valor} className="text-[2.5rem] font-light text-lm-olive mb-1 tracking-tight leading-none" />
               <p className="text-lm-olive font-medium text-lg leading-tight px-4">{est.etiqueta}</p>
             </div>
           ))}
@@ -62,7 +114,7 @@ export default function NuestrosAlcances() {
                <div className="w-24 h-24 bg-lm-olive text-white rounded-full flex items-center justify-center mb-4">
                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"/></svg>
                </div>
-               <h3 className="text-[2.5rem] font-light text-lm-olive mb-1 tracking-tight leading-none">6</h3>
+               <NumeroAnimado valor="6" className="text-[2.5rem] font-light text-lm-olive mb-1 tracking-tight leading-none" />
                <p className="text-lm-olive font-medium text-lg leading-tight px-4">Centros en Bolivia</p>
             </div>
           )}

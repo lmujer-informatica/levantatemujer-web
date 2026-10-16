@@ -60,7 +60,7 @@ export default function PasosDenuncia({ data }) {
 
                   {/* Columna de Pasos */}
                   <div className={`flex flex-col gap-6 md:gap-7 ${!isViolencia ? 'md:order-1' : 'md:order-2'}`}>
-                    {denuncia.pasos.map((paso, pIdx) => (
+                    {(denuncia.pasos ?? []).map((paso, pIdx) => (
                       <Reveal key={pIdx} retraso={pIdx * 100}>
                         <div
                           className={`flex items-center border-2 ${borderColorClass} rounded-full bg-white pr-6 md:pr-8 shadow-md overflow-hidden min-h-[100px] md:min-h-[120px] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}

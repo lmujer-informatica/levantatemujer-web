@@ -12,15 +12,19 @@ import programaIIData from '../../data/programaII.json';
 
 export default function ProgramaII() {
   const [ciudadIndex, setCiudadIndex] = useState(0);
-  const ciudadActiva = programaIIData.ciudades[ciudadIndex];
+  const ciudades = programaIIData.ciudades ?? [];
+  const indiceSeguro = Math.min(ciudadIndex, Math.max(ciudades.length - 1, 0));
+  const ciudadActiva = ciudades[indiceSeguro] ?? { actividades: [], metodologias: [], investigaciones: [] };
+  const donacion = programaIIData.donacion ?? {};
+  const banner = programaIIData.banner ?? {};
 
   return (
     <main className="flex flex-col grow gap-0">
-      <BannerFrases data={programaIIData.banner} />
-      
-      <Descripcion 
-        data={programaIIData.descripcion} 
-        imagen={programaIIData.donacion.imagen} 
+      <BannerFrases data={banner} />
+
+      <Descripcion
+        data={programaIIData.descripcion}
+        imagen={donacion.imagen}
       />
 
       {/* Identificador para Scroll de Líneas Estratégicas */}
@@ -31,18 +35,18 @@ export default function ProgramaII() {
       {/* Identificador para Scroll de Actividades */}
       <div id="seccion-actividades">
         <SeccionActividades
-          ciudades={programaIIData.ciudades}
-          ciudadActiva={ciudadIndex}
+          ciudades={ciudades}
+          ciudadActiva={indiceSeguro}
           onChangeCiudad={setCiudadIndex}
-          imagenFallback={programaIIData.banner.imagenFondo}
+          imagenFallback={banner.imagenFondo}
         />
       </div>
 
       <CarruselMetodologias items={ciudadActiva.metodologias} />
       <CarruselInvestigaciones items={ciudadActiva.investigaciones} />
       <FormularioDonacion
-        data={programaIIData.donacion}
-        imagen={programaIIData.donacion.imagen}
+        data={donacion}
+        imagen={donacion.imagen}
       />
       <SerParte data={programaIIData.serParte} />
     </main>

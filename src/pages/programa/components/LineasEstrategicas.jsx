@@ -68,7 +68,7 @@ function TarjetaLinea({ item, indice }) {
   );
 }
 
-export default function LineasEstrategicas({ items }) {
+export default function LineasEstrategicas({ items = [] }) {
   return (
     <section 
       id="lineas-estrategicas" 
