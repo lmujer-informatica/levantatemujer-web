@@ -34,8 +34,9 @@ export default function LineaAyuda() {
 
       {/* Mitad Derecha */}
       <div className="w-full md:w-[45%] bg-[#a5b897] relative overflow-hidden flex items-center justify-center p-12 md:p-16 border-t md:border-t-0 md:border-l border-white/20">
-        {/* Imagen de fondo gestionable */}
-        {imagenUrl && (
+
+        {/* Imagen de fondo */}
+        {(inicioData.lineaAyuda ?? {}).imagen && (
           <img
             src={imagenUrl}
             alt="Línea de Ayuda"
@@ -51,7 +52,7 @@ export default function LineaAyuda() {
 
         {/* Texto */}
         <p className="text-[#396593] text-3xl md:text-[2.2rem] leading-snug font-medium text-center relative z-10 max-w-[420px]">
-          {mensaje}
+          {(inicioData.lineaAyuda ?? {}).mensaje}
         </p>
       </div>
     </section>

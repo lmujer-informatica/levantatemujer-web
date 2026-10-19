@@ -98,24 +98,17 @@ export default function Navbar() {
                                 }`
                             }
                         >
-                            Quienes
-                            <br />
-                            Somos
+                            Quienes <br /> Somos
                         </NavLink>
 
-                        {/* Programas (Dropdown en Desktop) */}
-                        <div
-                            className="relative flex items-stretch h-full"
-                            ref={programasRef}
-                        >
+                        {/* Menú desplegable: Programas */}
+                        <div className="relative flex items-center" ref={programasRef}>
                             <button
-                                type="button"
-                                onClick={() => setProgramasOpen(!programasOpen)}
-                                className={`flex items-center justify-center gap-1.5 px-5 lg:px-6 text-sm font-medium transition-all duration-300 h-full cursor-pointer ${
-                                    isProgramasActive
-                                        ? "bg-linear-to-b from-[#00b4d8] to-[#0077b6] text-white rounded-b-4xl shadow-md"
-                                        : "text-lm-cyan hover:text-lm-navy"
-                                }`}
+                                onClick={() => {
+                                    setProgramasOpen(!programasOpen);
+                                    setActividadOpen(false);
+                                }}
+                                className="flex items-center justify-center gap-1 text-sm font-medium text-lm-cyan hover:text-lm-navy transition-colors h-full px-2"
                             >
                                 <span>Programas</span>
                                 <ChevronDown
@@ -156,11 +149,8 @@ export default function Navbar() {
                             )}
                         </div>
 
-                        {/* Actividad (Dropdown en Desktop) */}
-                        <div
-                            className="relative flex items-stretch h-full"
-                            ref={actividadRef}
-                        >
+                        {/* Menú desplegable: Actividad */}
+                        <div className="relative flex items-center" ref={actividadRef}>
                             <button
                                 type="button"
                                 onClick={() => setActividadOpen(!actividadOpen)}
@@ -178,7 +168,20 @@ export default function Navbar() {
                                 />
                             </button>
                             {actividadOpen && (
-                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-xl py-2 z-50 flex flex-col">
+                                <div className="absolute top-[90px] left-1/2 -translate-x-1/2 w-48 bg-white border border-gray-100 rounded-b-xl shadow-lg py-2 z-50 flex flex-col">
+                                    <NavLink
+                                        to="/material"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `px-4 py-2 text-sm transition-colors ${
+                                                isActive
+                                                    ? "bg-lm-cyan text-white"
+                                                    : "text-gray-700 hover:bg-gray-50 hover:text-lm-cyan"
+                                            }`
+                                        }
+                                    >
+                                        Material
+                                    </NavLink>
                                     <NavLink
                                         to="/noticias"
                                         onClick={handleNavigation}
@@ -234,9 +237,7 @@ export default function Navbar() {
                                 }`
                             }
                         >
-                            Línea de
-                            <br />
-                            Ayuda
+                            Línea de <br /> Ayuda
                         </NavLink>
                     </nav>
 
@@ -248,11 +249,7 @@ export default function Navbar() {
                             className="text-lm-cyan hover:text-lm-navy focus:outline-hidden p-2 rounded-lg cursor-pointer"
                             aria-label="Abrir menú"
                         >
-                            {isOpen ? (
-                                <X className="h-7 w-7" />
-                            ) : (
-                                <Menu className="h-7 w-7" />
-                            )}
+                            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                         </button>
                     </div>
                 </div>
@@ -268,10 +265,8 @@ export default function Navbar() {
                             end
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                                    isActive
-                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
-                                        : "text-lm-cyan hover:bg-white"
+                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                    isActive ? "bg-lm-cyan text-white" : "text-lm-cyan"
                                 }`
                             }
                         >
@@ -283,17 +278,15 @@ export default function Navbar() {
                             to="/quienesSomos"
                             onClick={handleNavigation}
                             className={({ isActive }) =>
-                                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                                    isActive
-                                        ? "bg-lm-cyan text-white shadow-xs font-semibold"
-                                        : "text-lm-cyan hover:bg-white"
+                                `block px-3 py-2 rounded-md text-base font-medium ${
+                                    isActive ? "bg-lm-cyan text-white" : "text-lm-cyan"
                                 }`
                             }
                         >
                             Quienes Somos
                         </NavLink>
 
-                        {/* Programas (Dropdown en móvil) */}
+                        {/* Mobile Dropdown: Programas */}
                         <div className="space-y-1">
                             <button
                                 type="button"
@@ -365,8 +358,19 @@ export default function Navbar() {
                                     }`}
                                 />
                             </button>
-                            {mobileActividadOpen && (
-                                <div className="pl-3 pr-1 py-1.5 space-y-1 bg-white/70 rounded-lg border border-cyan-100 my-1">
+                            {actividadOpen && (
+                                <div className="pl-6 space-y-1">
+                                    <NavLink
+                                        to="/material"
+                                        onClick={handleNavigation}
+                                        className={({ isActive }) =>
+                                            `block px-3 py-2 rounded-md text-base font-medium ${
+                                                isActive ? "bg-lm-cyan text-white" : "text-lm-cyan hover:bg-gray-50"
+                                            }`
+                                        }
+                                    >
+                                        Material
+                                    </NavLink>
                                     <NavLink
                                         to="/noticias"
                                         onClick={handleNavigation}

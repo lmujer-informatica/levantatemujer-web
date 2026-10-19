@@ -1,3 +1,5 @@
+local_backend: true
+
 backend:
     name: github
     repo: lmujer-informatica/levantatemujer-web
@@ -5,7 +7,8 @@ backend:
     base_url: https://levantatemujer-web.vercel.app
     auth_endpoint: /api/auth
     squash_merges: true
-    commit_messages:
+    publish_mode: editorial
+  commit_messages:
         create: 'Create {{collection}} "{{slug}}"'
         update: 'Update {{collection}} "{{slug}}"'
         delete: 'Delete {{collection}} "{{slug}}"'
@@ -463,3 +466,880 @@ collections:
                             widget: "string",
                             required: false,
                         }
+
+
+# =========================
+# QUIÉNES SOMOS
+# =========================
+
+- name: "quienesSomos"
+  label: "Página de Quiénes Somos"
+  files:
+    - label: "Contenido de Quiénes Somos"
+      name: "contenidoQuienesSomos"
+      file: "src/data/quienesSomos.json"
+      fields:
+
+        # =========================
+        # BANNER
+        # =========================
+        - label: "Banner"
+          name: "banner"
+          widget: "object"
+          fields:
+            - label: "Frases"
+              name: "frases"
+              widget: "list"
+              field:
+                label: "Frase"
+                name: "frase"
+                widget: "string"
+            - label: "Imagen de fondo"
+              name: "imagenFondo"
+              widget: "image"
+
+        # =========================
+        # IDENTIDAD
+        # =========================
+        - label: "Identidad"
+          name: "identidad"
+          widget: "object"
+          fields:
+            - label: "Historia"
+              name: "historia"
+              widget: "object"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Texto"
+                  name: "texto"
+                  widget: "text"
+            - label: "Misión"
+              name: "mision"
+              widget: "object"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Texto"
+                  name: "texto"
+                  widget: "text"
+            - label: "Visión"
+              name: "vision"
+              widget: "object"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Texto"
+                  name: "texto"
+                  widget: "text"
+
+        # =========================
+        # VALORES
+        # =========================
+        - label: "Valores"
+          name: "valores"
+          widget: "list"
+          fields:
+            - label: "Nombre"
+              name: "nombre"
+              widget: "string"
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
+
+        # =========================
+        # EQUIPO
+        # =========================
+        - label: "Equipo"
+          name: "equipo"
+          widget: "object"
+          fields:
+            - label: "Directorio"
+              name: "directorio"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "Dirección Ejecutiva"
+              name: "direccionEjecutiva"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "La Paz"
+              name: "laPaz"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "El Alto"
+              name: "elAlto"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "Oruro"
+              name: "oruro"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "Santa Cruz"
+              name: "santaCruz"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "Sucre"
+              name: "sucre"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+            - label: "Organizaciones Aliadas"
+              name: "organizacionesAliadas"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Rubro"
+                  name: "rubro"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+
+# =========================
+# NOTICIAS
+# =========================
+
+- name: "noticias"
+  label: "Noticias"
+  folder: "src/data/noticias"
+  create: true
+  slug: "{{slug}}"
+  extension: "json"
+  format: "json"
+  identifier_field: "titulo"
+  fields:
+    - label: "Título"
+      name: "titulo"
+      widget: "string"
+      required: true
+    - label: "Fecha"
+      name: "fecha"
+      widget: "string"
+      required: true
+      hint: "Formato: dd - mm - aaaa"
+    - label: "Resumen"
+      name: "resumen"
+      widget: "text"
+      required: true
+      hint: "Texto corto para las tarjetas del listado"
+    - label: "Imagen principal"
+      name: "imagen"
+      widget: "image"
+      required: true
+    - label: "Imágenes secundarias"
+      name: "imagenes"
+      widget: "list"
+      max: 2
+      field:
+        label: "Imagen"
+        name: "imagen"
+        widget: "image"
+    - label: "Párrafos"
+      name: "parrafos"
+      widget: "list"
+      min: 1
+      field:
+        label: "Párrafo"
+        name: "parrafo"
+        widget: "text"
+
+# =========================
+# PROGRAMA II
+# =========================
+
+- name: "programaII"
+  label: "Página de Programa II"
+  files:
+    - label: "Contenido de Programa II"
+      name: "contenidoProgramaII"
+      file: "src/data/programaII.json"
+      fields:
+
+        # =========================
+        # BANNER
+        # =========================
+        - label: "Banner"
+          name: "banner"
+          widget: "object"
+          fields:
+            - label: "Frases"
+              name: "frases"
+              widget: "list"
+              field:
+                label: "Frase"
+                name: "frase"
+                widget: "string"
+            - label: "Imagen de fondo"
+              name: "imagenFondo"
+              widget: "image"
+
+        # =========================
+        # DESCRIPCIÓN
+        # =========================
+        - label: "Descripción (El Programa)"
+          name: "descripcion"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Texto"
+              name: "texto"
+              widget: "text"
+            - label: "Etiqueta Actividades"
+              name: "etiquetaActividades"
+              widget: "string"
+            - label: "Etiqueta Líneas"
+              name: "etiquetaLineas"
+              widget: "string"
+
+        # =========================
+        # LÍNEAS ESTRATÉGICAS
+        # =========================
+        - label: "Líneas Estratégicas"
+          name: "lineasEstrategicas"
+          widget: "list"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+            - label: "Icono"
+              name: "icono"
+              widget: "select"
+              options:
+                - { label: "Escudo (protección)", value: "shield-check" }
+                - { label: "Manos (prevención)", value: "heart-handshake" }
+                - { label: "Edificio (incidencia)", value: "landmark" }
+
+        # =========================
+        # CIUDADES
+        # =========================
+        - label: "Ciudades"
+          name: "ciudades"
+          widget: "list"
+          fields:
+            - label: "Nombre"
+              name: "nombre"
+              widget: "string"
+            - label: "Actividades"
+              name: "actividades"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Descripción"
+                  name: "descripcion"
+                  widget: "text"
+                - label: "Imagen"
+                  name: "imagen"
+                  widget: "image"
+            - label: "Metodologías"
+              name: "metodologias"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Resumen"
+                  name: "resumen"
+                  widget: "text"
+                - label: "Descargable"
+                  name: "descargable"
+                  widget: "boolean"
+            - label: "Investigaciones"
+              name: "investigaciones"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Resumen"
+                  name: "resumen"
+                  widget: "text"
+                - label: "Descargable"
+                  name: "descargable"
+                  widget: "boolean"
+
+        # =========================
+        # DONACIÓN
+        # =========================
+        - label: "Donación"
+          name: "donacion"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Frase"
+              name: "frase"
+              widget: "string"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
+            - label: "Etiquetas"
+              name: "etiquetas"
+              widget: "object"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Celular"
+                  name: "celular"
+                  widget: "string"
+                - label: "Correo"
+                  name: "correo"
+                  widget: "string"
+                - label: "Motivo"
+                  name: "motivo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+
+        # =========================
+        # SER PARTE
+        # =========================
+        - label: "Ser Parte"
+          name: "serParte"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Línea de Ayuda"
+              name: "lineaAyuda"
+              widget: "object"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+            - label: "Etiquetas"
+              name: "etiquetas"
+              widget: "object"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Celular"
+                  name: "celular"
+                  widget: "string"
+                - label: "Correo"
+                  name: "correo"
+                  widget: "string"
+                - label: "Departamento"
+                  name: "departamento"
+                  widget: "string"
+                - label: "Programa"
+                  name: "programa"
+                  widget: "string"
+                - label: "Motivo"
+                  name: "motivo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+
+# =========================
+# MATERIAL
+# =========================
+
+- name: "material"
+  label: "Página de Material"
+  files:
+    - label: "Contenido de Material"
+      name: "contenidoMaterial"
+      file: "src/data/material.json"
+      fields:
+
+        # =========================
+        # BANNER
+        # =========================
+        - label: "Banner"
+          name: "banner"
+          widget: "object"
+          fields:
+            - label: "Frases"
+              name: "frases"
+              widget: "list"
+              field:
+                label: "Frase"
+                name: "frase"
+                widget: "string"
+            - label: "Imagen de fondo"
+              name: "imagenFondo"
+              widget: "image"
+
+        # =========================
+        # CÓMIC
+        # =========================
+        - label: "Cómic Anita"
+          name: "comic"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+            - label: "Ilustración"
+              name: "ilustracion"
+              widget: "image"
+            - label: "Cómics"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Imagen"
+                  name: "imagen"
+                  widget: "image"
+                - label: "Archivo (URL)"
+                  name: "archivo"
+                  widget: "string"
+                  hint: "URL del archivo descargable"
+
+        # =========================
+        # PREVENCIÓN
+        # =========================
+        - label: "Material de Prevención"
+          name: "prevencion"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+            - label: "Materiales"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Imagen"
+                  name: "imagen"
+                  widget: "image"
+                - label: "Archivo (URL)"
+                  name: "archivo"
+                  widget: "string"
+                  hint: "URL del archivo descargable"
+
+        # =========================
+        # INFOGRAFÍAS
+        # =========================
+        - label: "Infografías Educativas"
+          name: "infografias"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Descripción"
+              name: "descripcion"
+              widget: "text"
+            - label: "Infografías"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Imagen"
+                  name: "imagen"
+                  widget: "image"
+                - label: "Archivo (URL)"
+                  name: "archivo"
+                  widget: "string"
+                  hint: "URL del archivo descargable"
+
+        # =========================
+        # VIDEOS
+        # =========================
+        - label: "Videos Educativos"
+          name: "videos"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Videos"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Descripción"
+                  name: "descripcion"
+                  widget: "text"
+                - label: "Miniatura"
+                  name: "thumbnail"
+                  widget: "image"
+                - label: "URL del video"
+                  name: "videoUrl"
+                  widget: "string"
+                  hint: "URL del mp4 o embed (vacío o # = sin reproductor)"
+
+# =========================
+# PROGRAMA I
+# =========================
+
+- name: "programaI"
+  label: "Página de Programa I"
+  files:
+    - label: "Contenido de Programa I"
+      name: "contenidoProgramaI"
+      file: "src/data/programaI.json"
+      fields:
+
+        # =========================
+        # BANNER
+        # =========================
+        - label: "Banner"
+          name: "banner"
+          widget: "object"
+          fields:
+            - label: "Frases"
+              name: "frases"
+              widget: "list"
+              field:
+                label: "Frase"
+                name: "frase"
+                widget: "string"
+            - label: "Imagen de fondo"
+              name: "imagenFondo"
+              widget: "image"
+
+        # =========================
+        # DESCRIPCIÓN
+        # =========================
+        - label: "Descripción"
+          name: "descripcion"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Párrafos"
+              name: "parrafos"
+              widget: "list"
+              field:
+                label: "Párrafo"
+                name: "parrafo"
+                widget: "text"
+
+        # =========================
+        # ACTIVIDADES
+        # =========================
+        - label: "Actividades"
+          name: "actividades"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Ciudades"
+              name: "ciudades"
+              widget: "list"
+              field:
+                label: "Ciudad"
+                name: "ciudad"
+                widget: "string"
+            - label: "Tarjetas"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Descripción"
+                  name: "descripcion"
+                  widget: "text"
+                - label: "Imagen"
+                  name: "imagen"
+                  widget: "image"
+
+        # =========================
+        # TESTIMONIOS
+        # =========================
+        - label: "Testimonios"
+          name: "testimonios"
+          widget: "object"
+          fields:
+            - label: "Anónimos"
+              name: "anonimos"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Texto"
+                  name: "texto"
+                  widget: "text"
+            - label: "Con nombre"
+              name: "nombrados"
+              widget: "list"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Cargo"
+                  name: "cargo"
+                  widget: "string"
+                - label: "Foto"
+                  name: "foto"
+                  widget: "image"
+                  required: false
+
+        # =========================
+        # METODOLOGÍAS
+        # =========================
+        - label: "Metodologías"
+          name: "metodologias"
+          widget: "object"
+          fields:
+            - label: "Tarjetas"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Resumen"
+                  name: "resumen"
+                  widget: "text"
+                - label: "Descargable"
+                  name: "descargable"
+                  widget: "boolean"
+
+        # =========================
+        # INVESTIGACIONES
+        # =========================
+        - label: "Investigaciones"
+          name: "investigaciones"
+          widget: "object"
+          fields:
+            - label: "Tarjetas"
+              name: "items"
+              widget: "list"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Resumen"
+                  name: "resumen"
+                  widget: "text"
+                - label: "Descargable"
+                  name: "descargable"
+                  widget: "boolean"
+
+        # =========================
+        # DONACIÓN
+        # =========================
+        - label: "Donación"
+          name: "donacion"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Frase"
+              name: "frase"
+              widget: "string"
+            - label: "Imagen"
+              name: "imagen"
+              widget: "image"
+            - label: "Etiquetas"
+              name: "etiquetas"
+              widget: "object"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Celular"
+                  name: "celular"
+                  widget: "string"
+                - label: "Correo"
+                  name: "correo"
+                  widget: "string"
+                - label: "Motivo"
+                  name: "motivo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+
+        # =========================
+        # SER PARTE
+        # =========================
+        - label: "Ser Parte"
+          name: "serParte"
+          widget: "object"
+          fields:
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+            - label: "Línea de Ayuda"
+              name: "lineaAyuda"
+              widget: "object"
+              fields:
+                - label: "Título"
+                  name: "titulo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+            - label: "Etiquetas"
+              name: "etiquetas"
+              widget: "object"
+              fields:
+                - label: "Nombre"
+                  name: "nombre"
+                  widget: "string"
+                - label: "Celular"
+                  name: "celular"
+                  widget: "string"
+                - label: "Correo"
+                  name: "correo"
+                  widget: "string"
+                - label: "Departamento"
+                  name: "departamento"
+                  widget: "string"
+                - label: "Programa"
+                  name: "programa"
+                  widget: "string"
+                - label: "Motivo"
+                  name: "motivo"
+                  widget: "string"
+                - label: "Botón"
+                  name: "boton"
+                  widget: "string"
+
+# =========================
+# ACTIVIDAD > NOTICIAS
+# =========================
+
+- name: "actividadNoticias"
+  label: "Página de Actividad > Noticias"
+  files:
+    - label: "Contenido de Actividad > Noticias"
+      name: "contenidoActividadNoticias"
+      file: "src/data/actividadNoticias.json"
+      fields:
+
+        # =========================
+        # BANNER
+        # =========================
+        - label: "Banner"
+          name: "banner"
+          widget: "object"
+          fields:
+            - label: "Frases"
+              name: "frases"
+              widget: "list"
+              field:
+                label: "Frase"
+                name: "frase"
+                widget: "string"
+            - label: "Imagen de fondo"
+              name: "imagenFondo"
+              widget: "image"
+
+        - label: "Título de sección"
+          name: "tituloSeccion"
+          widget: "string"
+        - label: "Etiqueta botón tarjeta"
+          name: "etiquetaBoton"
+          widget: "string"
+        - label: "Etiqueta ver más"
+          name: "etiquetaVerMas"
+          widget: "string"

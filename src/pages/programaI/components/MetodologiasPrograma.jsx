@@ -296,11 +296,13 @@ export default function MetodologiasPrograma() {
     <section className="w-full bg-[#EFFFFA] py-8 md:py-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section title */}
-        <div className="bg-lm-olive py-2 px-4 mb-8 flex items-center justify-center">
-          <h2 className="italic font-medium text-[#E3FFF8] text-xl md:text-3xl tracking-wide">
-            METODOLOGÍAS DE PREVENCIÓN
-          </h2>
-        </div>
+        <Reveal>
+          <div className="bg-lm-olive py-2 lg:py-5 px-4 lg:px-8 mb-8 lg:mb-14 flex items-center justify-center rounded-sm">
+            <h2 className="italic font-medium text-[#E3FFF8] text-xl md:text-3xl lg:text-5xl tracking-wide text-center">
+              METODOLOGÍAS DE PREVENCIÓN
+            </h2>
+          </div>
+        </Reveal>
 
         {/* Cards carousel con soporte touch y animación deslizante */}
         <SlideCarousel
