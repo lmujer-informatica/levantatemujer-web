@@ -29,7 +29,6 @@ export default function ProgramasPrioritarios() {
             imagenUrl={programas[0]?.imagen} 
             linkUrl="/programaI"
           />
-          </Reveal>
 
           {/* Tarjeta 2 (Respuesta a la Trata e Inmigración) */}
           <TarjetaPrograma 
@@ -39,7 +38,6 @@ export default function ProgramasPrioritarios() {
             imagenUrl={programas[1]?.imagen} 
             linkUrl="/programaII"
           />
-          </Reveal>
           
         </div>
       </div>

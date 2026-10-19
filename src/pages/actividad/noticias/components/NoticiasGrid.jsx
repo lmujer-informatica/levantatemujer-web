@@ -1,74 +1,136 @@
 import React from 'react';
-import { Link } from 'react-router';
+import noticiasData from '../../../../data/noticias.json';
 
-const THEME_COLORS = ['#2C8E9E', '#93A635'];
+/** Formateador de fecha a DD - MM - AAAA */
+function formatearFecha(fechaStr) {
+  if (!fechaStr) return '';
+  try {
+    const fecha = new Date(
+      fechaStr.includes('T') ? fechaStr : fechaStr + 'T00:00:00'
+    );
+    if (isNaN(fecha.getTime())) return fechaStr;
+    const dd = String(fecha.getDate()).padStart(2, '0');
+    const mm = String(fecha.getMonth() + 1).padStart(2, '0');
+    const aaaa = fecha.getFullYear();
+    return `${dd} - ${mm} - ${aaaa}`;
+  } catch {
+    return fechaStr;
+  }
+}
 
-const modulosNoticias = import.meta.glob('../../../../data/noticias/*.json', { eager: true });
-const noticias = Object.entries(modulosNoticias).map(([ruta, modulo]) => ({
-  id: ruta.split('/').pop().replace(/\.json$/, ''),
-  ...modulo.default,
-}));
-
-function NewsCard({ item, themeColor, etiquetaBoton }) {
+/** Image placeholder SVG */
+function ImagePlaceholder({ className = '' }) {
   return (
     <div
-      className="relative flex flex-col w-full bg-white rounded-t-[40px] rounded-b-sm overflow-hidden h-[400px]"
-      style={{ border: `1px solid ${themeColor}` }}
+      className={`bg-gray-400 flex items-center justify-center ${className}`}
     >
-      {/* Top Image area */}
-      <div className="relative w-full h-[220px]">
-        {/* The image doesn't fill the whole top due to margins in the design */}
-        <div className="absolute inset-x-8 top-8 bottom-0 bg-gray-400 rounded-t-lg overflow-hidden flex items-center justify-center">
-          {item.imagen ? (
-            <img
-              src={item.imagen}
-              alt={item.titulo}
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <svg className="w-16 h-16 text-white opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-          )}
-        </div>
+      <svg
+        className="w-16 h-16 text-white opacity-60"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+    </div>
+  );
+}
+
+function NewsCard({ item }) {
+  const color = item.colorTema || item.themeColor || '#2C8E9E';
+
+  return (
+    <article
+      className="relative flex flex-col w-full bg-white rounded-t-[40px] rounded-b-xl overflow-hidden h-[450px] shadow-sm hover:shadow-lg transition-all duration-300"
+      style={{ border: `2px solid ${color}` }}
+    >
+      {/* ── Primera mitad vertical (arriba): Imagen completa ── */}
+      <div className="relative w-full h-1/2 overflow-hidden bg-gray-300">
+        {item.imagen ? (
+          <img
+            src={item.imagen}
+            alt={item.titulo || 'Noticia'}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <ImagePlaceholder className="w-full h-full" />
+        )}
 
         {/* Date Badge */}
-        <div
-          className="absolute top-4 right-0 px-6 py-1.5 rounded-l-full text-white text-sm font-medium"
-          style={{ backgroundColor: themeColor }}
-        >
-          {item.fecha}
-        </div>
+        {item.fecha && (
+          <div
+            className="absolute top-4 right-0 px-4 py-1.5 rounded-l-full text-white text-xs sm:text-sm font-semibold shadow-xs z-10"
+            style={{ backgroundColor: color }}
+          >
+            {formatearFecha(item.fecha)}
+          </div>
+        )}
       </div>
 
-      {/* Bottom arched content area */}
+      {/* ── Segunda mitad vertical (abajo): Contenedor de contenido ── */}
       <div
-        className="flex-1 flex flex-col items-center justify-center px-6 py-6 mt-[-40px] rounded-t-[50%] z-10"
-        style={{ backgroundColor: themeColor }}
+        className="relative w-full h-1/2 flex flex-col justify-between items-center text-center p-5 sm:p-6 z-10"
+        style={{ backgroundColor: color }}
       >
-        <h3 className="italic text-white text-xl md:text-2xl font-medium mb-3">
-          {item.titulo}
-        </h3>
-        <p className="text-white text-xs text-center mb-6 leading-relaxed opacity-90">
-          {item.resumen}
-        </p>
-        <Link
-          to={`/noticia/${item.id}`}
-          className="bg-white px-10 py-1.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity w-full max-w-[200px] text-center"
-          style={{ color: themeColor }}
-        >
-          {etiquetaBoton}
-        </Link>
+        <div className="w-full flex flex-col items-center overflow-hidden">
+          {/* Título sin desbordamiento */}
+          <h3 className="italic text-white text-lg sm:text-xl font-bold mb-2 line-clamp-2 px-2 leading-tight">
+            {item.titulo || 'Título de la noticia'}
+          </h3>
+          {/* Descripción con padding para que no choque con bordes */}
+          <p className="text-white text-xs sm:text-sm leading-relaxed px-3 line-clamp-3 opacity-95">
+            {item.descripcion || 'Descripción no disponible.'}
+          </p>
+        </div>
+
+        {/* Botón Leer más con redirección a URL */}
+        <div className="mt-2 w-full flex justify-center">
+          {item.url ? (
+            <a
+              href={item.url}
+              target={item.url.startsWith('http') ? '_blank' : '_self'}
+              rel="noopener noreferrer"
+              className="bg-white px-8 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all shadow-md inline-block max-w-[200px] truncate cursor-pointer"
+              style={{ color }}
+            >
+              Leer más
+            </a>
+          ) : (
+            <button
+              disabled
+              className="bg-white/80 px-8 py-2 rounded-full text-sm font-semibold shadow-xs inline-block max-w-[200px] opacity-75 cursor-default"
+              style={{ color }}
+            >
+              Leer más
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );
 }
 
-export default function NoticiasGrid({ data }) {
-  if (noticias.length === 0) return null;
+export default function NoticiasGrid() {
+  const rawNoticias = noticiasData?.noticias || [];
+
+  // Ordenar por fecha descendente (las noticias más actuales subidas primero)
+  const noticiasOrdenadas = [...rawNoticias].sort((a, b) => {
+    const fechaA = new Date(
+      a.fecha?.includes('T') ? a.fecha : a.fecha + 'T00:00:00'
+    ).getTime();
+    const fechaB = new Date(
+      b.fecha?.includes('T') ? b.fecha : b.fecha + 'T00:00:00'
+    ).getTime();
+    if (!isNaN(fechaA) && !isNaN(fechaB)) {
+      return fechaB - fechaA;
+    }
+    return 0;
+  });
 
   return (
     <section className="w-full bg-[#F1FFFF] flex flex-col">
@@ -78,23 +140,35 @@ export default function NoticiasGrid({ data }) {
         style={{ backgroundColor: '#B8CA5A' }}
       >
         <h2 className="italic font-medium text-white text-2xl md:text-4xl tracking-wide uppercase">
-          {data.tituloSeccion}
+          NUESTRAS ÚLTIMAS NOTICIAS
         </h2>
       </div>
 
       {/* Grid container */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-          {noticias.map((item, i) => (
-            <NewsCard key={item.id} item={item} themeColor={THEME_COLORS[i % THEME_COLORS.length]} etiquetaBoton={data.etiquetaBoton} />
-          ))}
-        </div>
+        {noticiasOrdenadas.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+            {noticiasOrdenadas.map((item, idx) => (
+              <NewsCard key={item.id || idx} item={item} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12 text-lm-navy/60 text-sm italic">
+            No hay noticias disponibles actualmente.
+          </div>
+        )}
       </div>
 
       {/* View more button section */}
-      <div className="w-full py-8 flex items-center justify-center" style={{ backgroundColor: '#0DADD4' }}>
-        <button className="bg-white px-12 py-3 rounded-full text-xl md:text-2xl font-medium shadow-md hover:shadow-lg transition-shadow" style={{ color: '#0DADD4' }}>
-          {data.etiquetaVerMas}
+      <div
+        className="w-full py-8 flex items-center justify-center"
+        style={{ backgroundColor: '#0DADD4' }}
+      >
+        <button
+          className="bg-white px-12 py-3 rounded-full text-xl md:text-2xl font-medium shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+          style={{ color: '#0DADD4' }}
+        >
+          Ver más Noticias
         </button>
       </div>
     </section>

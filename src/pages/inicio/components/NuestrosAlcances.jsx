@@ -4,7 +4,15 @@ import Personas_capacitadas from '../../../imagenes/Inicio/Personas_capacitadas.
 import Personas_atendidas from '../../../imagenes/Inicio/Personas_atendidas.png';
 import Personas_sensibilizadas from '../../../imagenes/Inicio/Personas_sensibilizadas.png';
 import Persona_y_organizaciones_voluntarias from '../../../imagenes/Inicio/Persona_ y_organizaciones_voluntarias.png';
-import centros from '../../../imagenes/Inicio/Centros.png';
+import Centros from '../../../imagenes/Inicio/Centros.png';
+
+const ESTADISTICAS_DEFAULT = [
+  { valor: '6840', etiqueta: 'Personas Capacitadas' },
+  { valor: '120', etiqueta: 'Personas Atendidas' },
+  { valor: '20110', etiqueta: 'Personas Sensibilizadas' },
+  { valor: '+200', etiqueta: 'Personas y Organizaciones Voluntarias' },
+  { valor: '6', etiqueta: 'Centros en Bolivia' },
+];
 
 function extraerNumero(valor) {
   const n = parseInt(String(valor ?? '').replace(/[^0-9]/g, ''), 10);

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, FileDown } from 'lucide-react';
 import programaIData from '../../../data/programaI.json';
+import Reveal from './Reveal';
 
 /** Flip Card para Investigaciones */
 function InvestigacionFlipCard({ item }) {

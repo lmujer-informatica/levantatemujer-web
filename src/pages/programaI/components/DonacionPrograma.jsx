@@ -144,8 +144,6 @@ export default function DonacionPrograma({ data = {} }) {
             </div>
 
             </form>
-          </Reveal>
-
           {/* ── Right: Image with quote overlay ── */}
           <Reveal retraso={150} className="w-full md:w-auto">
             <div className="group w-full md:w-[220px] lg:w-[340px] flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300 rounded-xl lg:rounded-2xl">

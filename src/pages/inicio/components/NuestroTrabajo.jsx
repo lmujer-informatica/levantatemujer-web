@@ -19,57 +19,6 @@ const noticias = Object.entries(modulosNoticias)
   .slice(0, 3);
 
 export default function NuestroTrabajo() {
-  // Último testimonio de la página Programa I (considera carrusel superior e inferior)
-  const poolTestimonios = [
-    ...(programaIData?.testimoniosSuperior || []),
-    ...(programaIData?.testimoniosInferior || []),
-    ...(programaIData?.testimonios || []),
-  ];
-  const ultimoTestimonio = obtenerUltimoElemento(poolTestimonios);
-  // Última noticia de la sección "Nuestras últimas noticias" de Noticias
-  const ultimaNoticia = obtenerUltimoElemento(noticiasData?.noticias);
-  // Último evento de la página de Eventos
-  const ultimoEvento = obtenerUltimoElemento(
-    eventosData?.tarjetasEventos || eventosData?.eventosCalendario
-  );
-
-  const columnas = [
-    {
-      id: 'testimonios',
-      titulo: 'Testimonios',
-      fechaTexto: ultimoTestimonio?.fecha
-        ? formatearFecha(ultimoTestimonio.fecha)
-        : 'dd - mm - aaaa',
-      tituloTexto:
-        ultimoTestimonio?.titulo || ultimoTestimonio?.autor || 'Testimonio',
-      imagen: ultimoTestimonio?.imagen || '',
-      linkTo: '/programaI#testimonios',
-      genero: 'este',
-    },
-    {
-      id: 'noticias',
-      titulo: 'Noticias',
-      fechaTexto: ultimaNoticia?.fecha
-        ? formatearFecha(ultimaNoticia.fecha)
-        : 'dd - mm - aaaa',
-      tituloTexto: ultimaNoticia?.titulo || 'Noticia',
-      imagen: ultimaNoticia?.imagen || '',
-      linkTo: '/noticias',
-      genero: 'esta',
-    },
-    {
-      id: 'eventos',
-      titulo: 'Eventos',
-      fechaTexto: ultimoEvento?.fecha
-        ? formatearFecha(ultimoEvento.fecha)
-        : 'dd - mm - aaaa',
-      tituloTexto: ultimoEvento?.titulo || ultimoEvento?.nombre || 'Evento',
-      imagen: ultimoEvento?.imagen || '',
-      linkTo: '/eventos',
-      genero: 'este',
-    },
-  ];
-
   return (
     <section className="py-20 bg-[#EAF7FA]">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
