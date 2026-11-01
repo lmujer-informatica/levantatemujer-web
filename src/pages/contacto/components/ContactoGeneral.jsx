@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import contactoData from "../../../data/contacto.json";
+import { enviarFormulario } from "../../../lib/enviarFormulario";
 
 function ImagePlaceholder({ className = "" }) {
     return (
@@ -20,8 +21,6 @@ function ImagePlaceholder({ className = "" }) {
         </div>
     );
 }
-
-const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_CONTACTO_GENERAL_ENDPOINT;
 
 const INITIAL_FORM = { nombre: "", celular: "", correo: "", motivo: "" };
 
@@ -58,32 +57,12 @@ export default function ContactoGeneral() {
         e.preventDefault();
         if (!isFormValid || isSending) return;
 
-        // Honeypot: un bot rellena este campo oculto; fingimos éxito sin enviar.
-        if (honeypot) {
-            setStatus("ok");
-            return;
-        }
-
-        if (!FORMSPREE_ENDPOINT) {
-            console.error("Falta la variable FORMSPREE_CONTACTO_GENERAL_ENDPOINT");
-            setStatus("error");
-            return;
-        }
-
         setStatus("enviando");
         try {
-            const res = await fetch(FORMSPREE_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify({
-                    ...formData,
-                    _subject: `Nuevo contacto general: ${formData.nombre.trim()}`,
-                }),
+            // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+            await enviarFormulario("contacto_general", formData, {
+                _gotcha: honeypot,
             });
-            if (!res.ok) throw new Error(`Formspree respondió ${res.status}`);
 
             setStatus("ok");
             setFormData(INITIAL_FORM);
