@@ -1,22 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { MapPin, Clock } from "lucide-react";
 import eventosData from "../../../data/eventos.json";
-
-function formatearFecha(fechaStr) {
-    if (!fechaStr) return "dd - mm - aaaa";
-    try {
-        const fecha = new Date(
-            fechaStr.includes("T") ? fechaStr : fechaStr + "T00:00:00"
-        );
-        if (isNaN(fecha.getTime())) return fechaStr;
-        const dd = String(fecha.getDate()).padStart(2, "0");
-        const mm = String(fecha.getMonth() + 1).padStart(2, "0");
-        const aaaa = fecha.getFullYear();
-        return `${dd} - ${mm} - ${aaaa}`;
-    } catch {
-        return fechaStr;
-    }
-}
+import { formatearFecha } from "../../../lib/eventos";
 
 /** Image placeholder SVG */
 function ImagePlaceholder({ className = "" }) {

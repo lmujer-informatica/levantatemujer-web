@@ -2,6 +2,23 @@
 // Los eventos no tienen id: el slug se calcula a partir de fecha y título.
 import eventosData from "../data/eventos.json";
 
+/** Fecha "YYYY-MM-DD" (o ISO) a "dd - mm - aaaa". */
+export function formatearFecha(fechaStr) {
+    if (!fechaStr) return "dd - mm - aaaa";
+    try {
+        const fecha = new Date(
+            fechaStr.includes("T") ? fechaStr : fechaStr + "T00:00:00"
+        );
+        if (isNaN(fecha.getTime())) return fechaStr;
+        const dd = String(fecha.getDate()).padStart(2, "0");
+        const mm = String(fecha.getMonth() + 1).padStart(2, "0");
+        const aaaa = fecha.getFullYear();
+        return `${dd} - ${mm} - ${aaaa}`;
+    } catch {
+        return fechaStr;
+    }
+}
+
 /**
  * Slug base de un evento: "<fecha>-<titulo>" en minúsculas, sin tildes ni símbolos.
  * Ej.: "2026-08-10-taller-de-liderazgo-y-participacion-femenina".

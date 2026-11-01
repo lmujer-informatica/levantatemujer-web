@@ -14,6 +14,7 @@ import DesgloseNoticia from './pages/noticia/DesgloseNoticia';
 import ProgramaI from "./pages/programaI/ProgramaI";
 import Noticias from "./pages/actividad/noticias/Noticias";
 import Eventos from "./pages/eventos/Eventos";
+import DesgloseEvento from "./pages/eventos/DesgloseEvento";
 import Contacto from "./pages/contacto/Contacto";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/noticias" element={<Noticias />} />
                     <Route path="/noticia/:id" element={<DesgloseNoticia />} />
                     <Route path="/eventos" element={<Eventos />} />
+                    <Route path="/evento/:slug" element={<DesgloseEvento />} />
                     <Route path="/contacto" element={<Contacto />} />
                     </Routes>
                 <Footer />
