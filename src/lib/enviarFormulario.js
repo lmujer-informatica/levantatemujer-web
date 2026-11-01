@@ -10,6 +10,18 @@ function archivoABase64(file) {
     });
 }
 
+// El navegador puede dejar file.type vacío (sobre todo en .doc/.docx): se deduce de la extensión.
+const TIPOS_POR_EXTENSION = {
+    ".pdf": "application/pdf",
+    ".doc": "application/msword",
+    ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+};
+
+function tipoDeArchivo(file) {
+    const ext = file.name.toLowerCase().match(/\.[a-z0-9]+$/)?.[0];
+    return TIPOS_POR_EXTENSION[ext] || file.type;
+}
+
 /**
  * Envía un formulario al servidor.
  * @param {string} id      Id del formulario (ej. "contacto_general").
@@ -25,7 +37,7 @@ export async function enviarFormulario(id, datos, { _gotcha, archivo } = {}) {
     if (archivo) {
         cuerpo.archivo = {
             nombre: archivo.name,
-            tipo: archivo.type,
+            tipo: tipoDeArchivo(archivo),
             base64: await archivoABase64(archivo),
         };
     }

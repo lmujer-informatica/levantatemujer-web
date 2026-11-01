@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import contactoData from "../../../data/contacto.json";
+import { enviarFormulario } from "../../../lib/enviarFormulario";
+
+const MAX_CV_BYTES = 3 * 1024 * 1024; // 3 MB
+const EXTENSIONES_CV = [".pdf", ".doc", ".docx"];
+const INITIAL_FORM = { nombre: "", celular: "", correo: "", cv: null };
 
 function ImagePlaceholder({ className = "" }) {
     return (
@@ -23,16 +28,18 @@ function ImagePlaceholder({ className = "" }) {
 
 export default function PostulacionProfesionales() {
     const info = contactoData?.postulacion || {};
-    const [formData, setFormData] = useState({
-        nombre: "",
-        celular: "",
-        correo: "",
-        cv: null,
-    });
+    const [formData, setFormData] = useState(INITIAL_FORM);
     const [fileName, setFileName] = useState("");
+    const [fileError, setFileError] = useState("");
+    // Cambiar la key vacía el <input type="file"> (no se puede resetear desde React).
+    const [fileKey, setFileKey] = useState(0);
+    // "idle" | "enviando" | "ok" | "error"
+    const [status, setStatus] = useState("idle");
+    const [honeypot, setHoneypot] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (status === "ok" || status === "error") setStatus("idle");
         if (name === "celular") {
             const sanitized = value.replace(/[^0-9+\s-]/g, "");
             setFormData((prev) => ({ ...prev, [name]: sanitized }));
@@ -42,10 +49,33 @@ export default function PostulacionProfesionales() {
     };
 
     const handleFileChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            setFormData((prev) => ({ ...prev, cv: e.target.files[0] }));
-            setFileName(e.target.files[0].name);
+        if (status === "ok" || status === "error") setStatus("idle");
+        const file = e.target.files && e.target.files[0];
+        if (!file) {
+            setFormData((prev) => ({ ...prev, cv: null }));
+            setFileName("");
+            return;
         }
+
+        const nombre = file.name.toLowerCase();
+        const extensionValida = EXTENSIONES_CV.some((ext) =>
+            nombre.endsWith(ext)
+        );
+        if (!extensionValida || file.size > MAX_CV_BYTES) {
+            setFileError(
+                !extensionValida
+                    ? "El CV debe ser un archivo PDF o Word (.pdf, .doc, .docx)."
+                    : "El CV supera el máximo de 3 MB."
+            );
+            setFormData((prev) => ({ ...prev, cv: null }));
+            setFileName("");
+            setFileKey((k) => k + 1);
+            return;
+        }
+
+        setFileError("");
+        setFormData((prev) => ({ ...prev, cv: file }));
+        setFileName(file.name);
     };
 
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
@@ -57,14 +87,29 @@ export default function PostulacionProfesionales() {
         isEmailValid &&
         formData.cv !== null;
 
-    const handleSubmit = (e) => {
+    const isSending = status === "enviando";
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!isFormValid) return;
-        alert(
-            "Postulación enviada correctamente. Revisaremos tu perfil a la brevedad."
-        );
-        setFormData({ nombre: "", celular: "", correo: "", cv: null });
-        setFileName("");
+        if (!isFormValid || isSending) return;
+
+        setStatus("enviando");
+        try {
+            const { cv, ...datos } = formData;
+            // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+            await enviarFormulario("postulacion_profesionales", datos, {
+                _gotcha: honeypot,
+                archivo: cv,
+            });
+
+            setStatus("ok");
+            setFormData(INITIAL_FORM);
+            setFileName("");
+            setFileKey((k) => k + 1);
+        } catch (err) {
+            console.error(err);
+            setStatus("error");
+        }
     };
 
     // Descarga del archivo PDF (independiente de si el formulario está lleno o no)
@@ -205,6 +250,7 @@ export default function PostulacionProfesionales() {
                             </label>
                             <div className="relative flex items-center border border-[#8FA832] rounded-full px-3 py-2 bg-white overflow-hidden shadow-2xs">
                                 <input
+                                    key={fileKey}
                                     type="file"
                                     id="cv-upload"
                                     accept=".pdf,.doc,.docx"
@@ -213,28 +259,62 @@ export default function PostulacionProfesionales() {
                                     required
                                 />
                                 <span className="text-gray-500 text-xs sm:text-sm truncate pl-2 flex-1">
-                                    {fileName ||
-                                        "Seleccionar archivo (PDF o Word)..."}
+                                    {fileName || "PDF o Word, máx. 3 MB"}
                                 </span>
                                 <span className="bg-gray-100 border border-gray-200 text-gray-700 text-xs px-4 py-1.5 rounded-full font-medium shrink-0 pointer-events-none">
                                     Examinar
                                 </span>
                             </div>
+                            {fileError && (
+                                <p
+                                    role="alert"
+                                    className="text-xs text-center font-medium text-red-600"
+                                >
+                                    {fileError}
+                                </p>
+                            )}
                         </div>
 
+                        {/* Honeypot anti-spam (oculto para personas) */}
+                        <input
+                            type="text"
+                            name="_gotcha"
+                            value={honeypot}
+                            onChange={(e) => setHoneypot(e.target.value)}
+                            tabIndex={-1}
+                            autoComplete="off"
+                            aria-hidden="true"
+                            className="hidden"
+                        />
+
                         {/* Botón CTA Bloqueado hasta completar */}
-                        <div className="flex justify-center mt-2">
+                        <div className="flex flex-col items-center gap-3 mt-2">
                             <button
                                 type="submit"
-                                disabled={!isFormValid}
+                                disabled={!isFormValid || isSending}
                                 className={`px-12 py-2.5 rounded-full font-medium text-white text-base shadow-md transition-all duration-200 ${
-                                    isFormValid
+                                    isFormValid && !isSending
                                         ? "bg-[#A2BA37] hover:bg-[#8e9f2d] active:scale-95 cursor-pointer"
                                         : "bg-[#A2BA37] opacity-40 cursor-not-allowed pointer-events-none"
                                 }`}
                             >
-                                Enviar
+                                {isSending ? "Enviando..." : "Enviar"}
                             </button>
+
+                            <div role="status" aria-live="polite">
+                                {status === "ok" && (
+                                    <p className="text-sm text-center font-medium text-[#8FA832]">
+                                        Postulación enviada correctamente.
+                                        Revisaremos tu perfil a la brevedad.
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="text-sm text-center font-medium text-red-600">
+                                        No pudimos enviar tu postulación.
+                                        Intenta de nuevo en unos minutos.
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     </form>
                 </div>
