@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router";
 import { ChevronDown } from "lucide-react";
-
-const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_PROGRAMA_I_ENDPOINT;
+import { enviarFormulario } from "../../../lib/enviarFormulario";
 
 const INITIAL_FORM = {
     nombre: "",
@@ -43,32 +42,12 @@ export default function SerPartePrograma() {
         e.preventDefault();
         if (!isFormValid || status === "enviando") return;
 
-        // Honeypot: un bot rellena este campo oculto; fingimos éxito sin enviar.
-        if (honeypot) {
-            setStatus("ok");
-            return;
-        }
-
-        if (!FORMSPREE_ENDPOINT) {
-            console.error("Falta la variable FORMSPREE_PROGRAMA_I_ENDPOINT");
-            setStatus("error");
-            return;
-        }
-
         setStatus("enviando");
         try {
-            const res = await fetch(FORMSPREE_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify({
-                    ...form,
-                    _subject: `Nueva solicitud: ${form.programa} (${form.departamento})`,
-                }),
+            // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+            await enviarFormulario("programa_i_ser_parte", form, {
+                _gotcha: honeypot,
             });
-            if (!res.ok) throw new Error(`Formspree respondió ${res.status}`);
 
             setStatus("ok");
             setForm(INITIAL_FORM);
