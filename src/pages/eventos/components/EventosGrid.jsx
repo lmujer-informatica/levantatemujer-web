@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router";
 import { MapPin, Clock } from "lucide-react";
 import eventosData from "../../../data/eventos.json";
-import { formatearFecha } from "../../../lib/eventos";
+import { formatearFecha, slugDe } from "../../../lib/eventos";
 
 /** Image placeholder SVG */
 function ImagePlaceholder({ className = "" }) {
@@ -102,12 +103,13 @@ function TarjetaEvento({ evento }) {
 
                 {/* Action Button */}
                 <div className="mt-4 w-full flex justify-center">
-                    <button
-                        className="bg-white px-8 py-2 rounded-full text-xs sm:text-sm font-bold shadow-md hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all max-w-[200px] w-full cursor-pointer"
+                    <Link
+                        to={`/evento/${slugDe(evento)}`}
+                        className="bg-white px-8 py-2 rounded-full text-xs sm:text-sm font-bold text-center shadow-md hover:bg-gray-100 hover:scale-105 active:scale-95 transition-all max-w-[200px] w-full cursor-pointer"
                         style={{ color }}
                     >
                         Leer más
-                    </button>
+                    </Link>
                 </div>
             </div>
         </article>

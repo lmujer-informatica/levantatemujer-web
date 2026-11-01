@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router";
 import { ChevronLeft, ChevronRight, MapPin, Clock } from "lucide-react";
 import eventosData from "../../../data/eventos.json";
+import { slugDe } from "../../../lib/eventos";
 
 const DIAS_SEMANA = [
     "Lunes",
@@ -452,6 +454,16 @@ export default function CalendarioEventos() {
                                         </div>
                                     </div>
                                 )}
+
+                                {/* Enlace a la página de detalle del evento */}
+                                <div className="mt-5 flex justify-center">
+                                    <Link
+                                        to={`/evento/${slugDe(eventoMostrado)}`}
+                                        className="bg-lm-navy text-white text-xs sm:text-sm font-medium px-8 py-2 rounded-full shadow-sm hover:opacity-90 active:scale-95 transition-all"
+                                    >
+                                        Ver detalle
+                                    </Link>
+                                </div>
                             </>
                         ) : (
                             <div className="flex-1 flex items-center justify-center text-gray-400 italic py-16">
