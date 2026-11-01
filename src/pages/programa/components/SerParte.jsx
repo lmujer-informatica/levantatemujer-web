@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { Phone } from 'lucide-react';
+import { enviarFormulario } from '../../../lib/enviarFormulario';
 
 const ESTILO_INPUT =
   'w-full rounded-[10px] border bg-white px-3 py-2 font-poppins font-light text-sm outline-none transition-colors focus:border-[#0DADD4]';
@@ -18,23 +19,42 @@ const DEPARTAMENTOS = [
 
 const PROGRAMAS = ['Respuesta a la Trata e Inmigración'];
 
+const VALORES_INICIALES = {
+  nombre: '',
+  celular: '',
+  correo: '',
+  departamento: '',
+  programa: PROGRAMAS[0],
+  motivo: '',
+};
+
 export default function SerParte({ data = {} }) {
-  const [valores, setValores] = useState({
-    nombre: '',
-    celular: '',
-    correo: '',
-    departamento: '',
-    programa: PROGRAMAS[0],
-    motivo: '',
-  });
-  const [enviado, setEnviado] = useState(false);
+  const [valores, setValores] = useState(VALORES_INICIALES);
+  // 'idle' | 'enviando' | 'ok' | 'error'
+  const [estado, setEstado] = useState('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const enviando = estado === 'enviando';
 
-  const cambiar = (campo) => (e) =>
+  const cambiar = (campo) => (e) => {
+    if (estado === 'ok' || estado === 'error') setEstado('idle');
     setValores((v) => ({ ...v, [campo]: e.target.value }));
+  };
 
-  const enviar = (e) => {
+  const enviar = async (e) => {
     e.preventDefault();
-    setEnviado(true);
+    if (enviando) return;
+
+    setEstado('enviando');
+    try {
+      // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+      await enviarFormulario('programa_ii_ser_parte', valores, { _gotcha: honeypot });
+
+      setEstado('ok');
+      setValores(VALORES_INICIALES);
+    } catch (err) {
+      console.error(err);
+      setEstado('error');
+    }
   };
 
   return (
@@ -81,7 +101,7 @@ export default function SerParte({ data = {} }) {
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="sp-celular" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.celular}
+                {data.etiquetas?.celular}
               </label>
               <input
                 id="sp-celular"
@@ -95,7 +115,7 @@ export default function SerParte({ data = {} }) {
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="sp-correo" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.correo}
+                {data.etiquetas?.correo}
               </label>
               <input
                 id="sp-correo"
@@ -109,7 +129,7 @@ export default function SerParte({ data = {} }) {
             </div>
             <div className="flex flex-col gap-1">
               <label htmlFor="sp-departamento" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.departamento}
+                {data.etiquetas?.departamento}
               </label>
               <select
                 id="sp-departamento"
@@ -129,7 +149,7 @@ export default function SerParte({ data = {} }) {
             </div>
             <div className="flex flex-col gap-1 md:col-span-2">
               <label htmlFor="sp-programa" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.programa}
+                {data.etiquetas?.programa}
               </label>
               <select
                 id="sp-programa"
@@ -147,7 +167,7 @@ export default function SerParte({ data = {} }) {
             </div>
             <div className="flex flex-col gap-1 md:col-span-2">
               <label htmlFor="sp-motivo" className="font-poppins font-light text-xs text-[#407178]">
-                {data.etiquetas.motivo}
+                {data.etiquetas?.motivo}
               </label>
               <textarea
                 id="sp-motivo"
@@ -160,19 +180,39 @@ export default function SerParte({ data = {} }) {
             </div>
           </div>
 
+          {/* Honeypot anti-spam (oculto para personas) */}
+          <input
+            type="text"
+            name="_gotcha"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+
           <div className="mt-5 flex flex-col md:flex-row items-center gap-3">
             <button
               type="submit"
-              className="w-full md:w-auto rounded-full px-8 py-2.5 font-montserrat italic font-semibold text-sm md:text-base text-white transition-transform hover:scale-105"
+              disabled={enviando}
+              className="w-full md:w-auto rounded-full px-8 py-2.5 font-montserrat italic font-semibold text-sm md:text-base text-white transition-transform hover:scale-105 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
               style={{ backgroundColor: '#0DADD4' }}
             >
-              {data.etiquetas.boton}
+              {enviando ? 'Enviando...' : data.etiquetas?.boton}
             </button>
-            {enviado && (
-              <p className="font-poppins font-light text-xs text-[#356194]">
-                Cita solicitada, te contactaremos para confirmarla.
-              </p>
-            )}
+            <div role="status" aria-live="polite">
+              {estado === 'ok' && (
+                <p className="font-poppins font-light text-xs text-[#356194]">
+                  Cita solicitada, te contactaremos para confirmarla.
+                </p>
+              )}
+              {estado === 'error' && (
+                <p className="font-poppins font-light text-xs text-red-600">
+                  No pudimos enviar tu solicitud. Intenta de nuevo en unos minutos.
+                </p>
+              )}
+            </div>
           </div>
         </form>
       </div>
