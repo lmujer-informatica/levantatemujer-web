@@ -37,9 +37,13 @@ collections:
                       name: "frase"
                       widget: "string"
 
-                - label: "Hero - Imagen"
-                  name: "heroImagen"
-                  widget: "image"
+                - label: "Hero - Imágenes (carrusel)"
+                  name: "heroImagenes"
+                  widget: "list"
+                  field:
+                      label: "Imagen"
+                      name: "imagen"
+                      widget: "image"
 
                 # PROGRAMAS PRIORITARIOS (Imágenes de los cards)
                 - label: "Programas Prioritarios - Imágenes de Cards"
