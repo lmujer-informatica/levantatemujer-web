@@ -6,7 +6,13 @@ export default function SeccionHero() {
   const [indiceActual, setIndiceActual] = useState(0);
 
   const frases = inicioData.heroFrases || [];
-  const imagenes = inicioData.heroImagenes || [];
+  // Carrusel: heroImagenes (lista) más heroImagen (la única que edita hoy el CMS), sin repetir.
+  // Si solo existe heroImagen, el carrusel tiene una imagen.
+  const imagenes = [
+    ...new Set(
+      [...(inicioData.heroImagenes || []), inicioData.heroImagen].filter(Boolean)
+    ),
+  ];
   const total = Math.max(frases.length, imagenes.length, 1);
 
   useEffect(() => {
