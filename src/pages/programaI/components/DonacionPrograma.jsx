@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import Reveal from './Reveal';
+import { enviarFormulario } from '../../../lib/enviarFormulario';
+
+const INITIAL_FORM = {
+  nombre: '',
+  celular: '',
+  correo: '',
+  motivo: '',
+};
 
 export default function DonacionPrograma({ data = {} }) {
-  const [form, setForm] = useState({
-    nombre: '',
-    celular: '',
-    correo: '',
-    motivo: '',
-  });
+  const [form, setForm] = useState(INITIAL_FORM);
+  // 'idle' | 'enviando' | 'ok' | 'error'
+  const [status, setStatus] = useState('idle');
+  const [honeypot, setHoneypot] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (status === 'ok' || status === 'error') setStatus('idle');
     if (name === 'celular') {
       const sanitized = value.replace(/[^0-9+\s-]/g, '');
       setForm((prev) => ({ ...prev, [name]: sanitized }));
@@ -26,16 +33,23 @@ export default function DonacionPrograma({ data = {} }) {
     isEmailValid &&
     form.motivo.trim().length > 0;
 
-  const handleSubmit = (e) => {
+  const isSending = status === 'enviando';
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isFormValid) return;
-    alert('Donación registrada con éxito. ¡Muchas gracias por tu apoyo!');
-    setForm({
-      nombre: '',
-      celular: '',
-      correo: '',
-      motivo: '',
-    });
+    if (!isFormValid || isSending) return;
+
+    setStatus('enviando');
+    try {
+      // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+      await enviarFormulario('programa_i_donacion', form, { _gotcha: honeypot });
+
+      setStatus('ok');
+      setForm(INITIAL_FORM);
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -127,20 +141,45 @@ export default function DonacionPrograma({ data = {} }) {
               />
             </div>
 
+            {/* Honeypot anti-spam (oculto para personas) */}
+            <input
+              type="text"
+              name="_gotcha"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             {/* Submit button */}
-            <div className="flex justify-center pt-1">
+            <div className="flex flex-col items-center gap-3 pt-1">
               <button
                 type="submit"
-                disabled={!isFormValid}
+                disabled={!isFormValid || isSending}
                 className={`px-10 py-2.5 rounded-full font-medium text-white text-sm transition-all duration-200 shadow-sm ${
-                  isFormValid
+                  isFormValid && !isSending
                     ? 'hover:opacity-90 active:scale-95 cursor-pointer shadow-md'
                     : 'opacity-40 cursor-not-allowed pointer-events-none'
                 }`}
                 style={{ backgroundColor: '#0DADD4' }}
               >
-                Registra tu donación
+                {isSending ? 'Enviando...' : 'Registra tu donación'}
               </button>
+
+              <div role="status" aria-live="polite">
+                {status === 'ok' && (
+                  <p className="text-sm text-center font-medium" style={{ color: '#0DADD4' }}>
+                    Donación registrada con éxito. ¡Muchas gracias por tu apoyo!
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-sm text-center font-medium text-red-600">
+                    No pudimos registrar tu donación. Intenta de nuevo en unos minutos.
+                  </p>
+                )}
+              </div>
             </div>
 
             </form>
