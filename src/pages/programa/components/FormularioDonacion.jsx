@@ -1,15 +1,35 @@
 import React, { useState } from 'react';
+import { enviarFormulario } from '../../../lib/enviarFormulario';
+
+const VALORES_INICIALES = { nombre: '', celular: '', correo: '', motivo: '' };
 
 export default function FormularioDonacion({ data, imagen }) {
-  const [valores, setValores] = useState({ nombre: '', celular: '', correo: '', motivo: '' });
-  const [enviado, setEnviado] = useState(false);
+  const [valores, setValores] = useState(VALORES_INICIALES);
+  // 'idle' | 'enviando' | 'ok' | 'error'
+  const [estado, setEstado] = useState('idle');
+  const [honeypot, setHoneypot] = useState('');
+  const enviando = estado === 'enviando';
 
-  const cambiar = (campo) => (e) =>
+  const cambiar = (campo) => (e) => {
+    if (estado === 'ok' || estado === 'error') setEstado('idle');
     setValores((v) => ({ ...v, [campo]: e.target.value }));
+  };
 
-  const enviar = (e) => {
+  const enviar = async (e) => {
     e.preventDefault();
-    setEnviado(true);
+    if (enviando) return;
+
+    setEstado('enviando');
+    try {
+      // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+      await enviarFormulario('programa_ii_donacion', valores, { _gotcha: honeypot });
+
+      setEstado('ok');
+      setValores(VALORES_INICIALES);
+    } catch (err) {
+      console.error(err);
+      setEstado('error');
+    }
   };
 
   const estiloInput =
@@ -116,21 +136,41 @@ export default function FormularioDonacion({ data, imagen }) {
 
             </div>
 
+            {/* Honeypot anti-spam (oculto para personas) */}
+            <input
+              type="text"
+              name="_gotcha"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             {/* Botón y Mensaje de Confirmación */}
             <div className="mt-6 md:mt-8 flex flex-col md:flex-row items-center gap-4">
               <button
                 type="submit"
-                className="w-full md:w-auto rounded-full px-8 md:px-10 py-3 font-montserrat italic font-semibold text-xs md:text-sm text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#356194]/40"
+                disabled={enviando}
+                className="w-full md:w-auto rounded-full px-8 md:px-10 py-3 font-montserrat italic font-semibold text-xs md:text-sm text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#356194]/40 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{ backgroundColor: '#356194' }}
               >
-                {data?.etiquetas?.boton || 'Enviar Donación'}
+                {enviando ? 'Enviando...' : data?.etiquetas?.boton || 'Enviar Donación'}
               </button>
 
-              {enviado && (
-                <div className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#BACB5E]/20 border border-[#859433]/40 text-[#859433] font-poppins font-medium text-xs md:text-sm transition-all duration-300">
-                  <span>✓ Gracias por tu donación, nos contactaremos contigo.</span>
-                </div>
-              )}
+              <div role="status" aria-live="polite" className="w-full md:w-auto">
+                {estado === 'ok' && (
+                  <div className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-[#BACB5E]/20 border border-[#859433]/40 text-[#859433] font-poppins font-medium text-xs md:text-sm transition-all duration-300">
+                    <span>✓ Gracias por tu donación, nos contactaremos contigo.</span>
+                  </div>
+                )}
+                {estado === 'error' && (
+                  <div className="w-full md:w-auto flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-red-50 border border-red-300 text-red-600 font-poppins font-medium text-xs md:text-sm transition-all duration-300">
+                    <span>No pudimos enviar tu donación. Intenta de nuevo en unos minutos.</span>
+                  </div>
+                )}
+              </div>
             </div>
           </form>
 
