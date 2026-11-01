@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../imagenes/logo.png';
 
 export default function Footer() {
   // Función crítica de seguridad
@@ -16,13 +17,13 @@ export default function Footer() {
       {/* Columna Izquierda: Logo y Redes (Fondo Claro) */}
       <div className="bg-[#f0fbfb] w-full md:w-[350px] flex flex-col items-center justify-center py-8 px-6 relative z-10">
         
-        {/* Logo (Puedes reemplazar este div por tu etiqueta <img src={logo} /> si lo prefieres) */}
+        {/* Logo */}
         <a href="/" className="flex items-center gap-1 mb-6">
-          <div className="flex flex-col items-center justify-center">
-            <span className="text-[10px] text-lm-cyan uppercase tracking-widest leading-none mb-0.5 font-semibold">Fundación</span>
-            <span className="font-bold text-2xl text-lm-cyan leading-none">Levántate</span>
-            <span className="font-bold text-2xl text-lm-olive leading-none">Mujer</span>
-          </div>
+          <img
+            src={logo}
+            alt="Fundación Levántate Mujer"
+            className="h-20 w-auto object-contain"
+          />
         </a>
 
         {/* Separador y Texto de Redes */}
