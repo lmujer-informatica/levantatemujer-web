@@ -7,6 +7,7 @@ import MetodologiasPrograma from "./components/MetodologiasPrograma";
 import InvestigacionesPrograma from "./components/InvestigacionesPrograma";
 import SerPartePrograma from "./components/SerPartePrograma";
 import DonacionPrograma from "./components/DonacionPrograma";
+import programaIData from "../../data/programaI.json";
 
 export default function ProgramaI() {
     return (
@@ -17,7 +18,7 @@ export default function ProgramaI() {
             <TestimoniosPrograma />
             <MetodologiasPrograma />
             <InvestigacionesPrograma />
-            <DonacionPrograma />
+            <DonacionPrograma data={programaIData.donacion} />
             <SerPartePrograma />
         </main>
     );
