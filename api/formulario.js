@@ -3,13 +3,8 @@
 
 // Lista blanca de formularios aceptados: id -> nombre legible para el asunto.
 const FORMULARIOS = {
-  contacto_general: 'Contacto general',
-  programa_i_ser_parte: 'Programa I - Ser parte',
   programa_i_donacion: 'Programa I - Donación',
-  programa_ii_ser_parte: 'Programa II - Ser parte',
   programa_ii_donacion: 'Programa II - Donación',
-  linea_ayuda: 'Línea de ayuda',
-  postulacion_profesionales: 'Postulación de profesionales',
 };
 
 // Solo este formulario puede traer adjunto (CV).

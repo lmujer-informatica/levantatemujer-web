@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router';
-
-const modulosNoticias = import.meta.glob('../../data/noticias/*.json', { eager: true });
-const noticias = Object.entries(modulosNoticias).map(([ruta, modulo]) => ({
-  id: ruta.split('/').pop().replace(/\.json$/, ''),
-  ...modulo.default,
-}));
+import { buscarNoticiaPorSlug } from '../../lib/noticias';
+import { formatearFechaLarga } from '../../lib/ultimos';
 
 function MarcoImagen({ src, alt, tamano = 'md' }) {
   const medidas =
@@ -29,10 +25,12 @@ function MarcoImagen({ src, alt, tamano = 'md' }) {
   );
 }
 
+const CLASE_PARRAFO = 'text-justify font-poppins text-xs md:text-sm leading-relaxed whitespace-pre-line';
+
 export default function DesgloseNoticia() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
-  const noticia = noticias.find((n) => n.id === id);
+  const noticia = buscarNoticiaPorSlug(slug);
 
   if (!noticia) {
     return (
@@ -51,8 +49,12 @@ export default function DesgloseNoticia() {
     );
   }
 
-  const [imagenDer, imagenIzq] = noticia.imagenes ?? [];
-  const parrafos = noticia.parrafos ?? [];
+  // Cuerpo: `parrafos` si existen; si no, `descripcion` como único párrafo.
+  // `imagenes` (hasta 2) acompañan a los dos primeros párrafos; sin ellas no hay imágenes laterales.
+  const parrafos = (noticia.parrafos?.length ? noticia.parrafos : [noticia.descripcion]).filter(Boolean);
+  const [imagenDer, imagenIzq] = (noticia.imagenes ?? []).filter(Boolean);
+  const [primero, segundo, ...resto] = parrafos;
+  const fecha = formatearFechaLarga(noticia.fecha);
 
   return (
     <main className="page-fade-in flex flex-col grow gap-0">
@@ -63,35 +65,49 @@ export default function DesgloseNoticia() {
       </div>
 
       <div className="w-full bg-[#EFFFFB] px-4 py-6 md:py-10">
-        <div className="relative mx-auto max-w-4xl">
-          <span className="absolute left-0 top-4 md:top-6 z-10 rounded-r-[10px] px-3 md:px-4 py-1 font-poppins text-[10px] md:text-sm text-[#F1FFFF]" style={{ backgroundColor: '#BACB5E' }}>
-            {noticia.fecha}
-          </span>
-          <div className="flex justify-center pb-5 md:pb-7">
-            <MarcoImagen src={noticia.imagen} alt={noticia.titulo} tamano="hero" />
-          </div>
+        <div className={`relative mx-auto max-w-4xl ${noticia.imagen ? '' : 'pt-8 md:pt-10'}`}>
+          {fecha && (
+            <span className="absolute left-0 top-4 md:top-6 z-10 whitespace-nowrap rounded-r-[10px] px-3 md:px-4 py-1 font-poppins text-[10px] md:text-sm text-[#F1FFFF]" style={{ backgroundColor: '#BACB5E' }}>
+              {fecha}
+            </span>
+          )}
+          {noticia.imagen && (
+            <div className="flex justify-center pb-5 md:pb-7">
+              <MarcoImagen src={noticia.imagen} alt={noticia.titulo} tamano="hero" />
+            </div>
+          )}
 
-          <div className="mt-2 md:mt-4 flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
-            <p className="flex-1 min-w-0 text-justify font-poppins text-xs md:text-sm leading-relaxed" style={{ color: '#356194' }}>
-              {parrafos[0]}
-            </p>
-            {imagenDer && (
-              <div className="mx-auto md:mx-0">
-                <MarcoImagen src={imagenDer} alt={`${noticia.titulo} 1`} />
-              </div>
-            )}
-          </div>
+          {primero && (
+            <div className="mt-2 md:mt-4 flex flex-col md:flex-row gap-5 md:gap-8 md:items-start">
+              <p className={`flex-1 min-w-0 ${CLASE_PARRAFO}`} style={{ color: '#356194' }}>
+                {primero}
+              </p>
+              {imagenDer && (
+                <div className="mx-auto md:mx-0">
+                  <MarcoImagen src={imagenDer} alt={`${noticia.titulo} 1`} />
+                </div>
+              )}
+            </div>
+          )}
 
-          <div className="mt-5 md:mt-8 flex flex-col md:flex-row-reverse gap-5 md:gap-8 md:items-start">
-            <p className="flex-1 min-w-0 text-justify font-poppins text-xs md:text-sm leading-relaxed" style={{ color: '#356194' }}>
-              {parrafos[1]}
+          {segundo && (
+            <div className="mt-5 md:mt-8 flex flex-col md:flex-row-reverse gap-5 md:gap-8 md:items-start">
+              <p className={`flex-1 min-w-0 ${CLASE_PARRAFO}`} style={{ color: '#356194' }}>
+                {segundo}
+              </p>
+              {imagenIzq && (
+                <div className="mx-auto md:mx-0">
+                  <MarcoImagen src={imagenIzq} alt={`${noticia.titulo} 2`} />
+                </div>
+              )}
+            </div>
+          )}
+
+          {resto.map((parrafo, i) => (
+            <p key={i} className={`mt-5 md:mt-8 ${CLASE_PARRAFO}`} style={{ color: '#356194' }}>
+              {parrafo}
             </p>
-            {imagenIzq && (
-              <div className="mx-auto md:mx-0">
-                <MarcoImagen src={imagenIzq} alt={`${noticia.titulo} 2`} />
-              </div>
-            )}
-          </div>
+          ))}
         </div>
       </div>
 

@@ -6,7 +6,6 @@ import SeccionActividades from './components/SeccionActividades';
 import CarruselMetodologias from './components/CarruselMetodologias';
 import CarruselInvestigaciones from './components/CarruselInvestigaciones';
 import FormularioDonacion from './components/FormularioDonacion';
-import SerParte from './components/SerParte';
 
 import programaIIData from '../../data/programaII.json';
 
@@ -48,7 +47,6 @@ export default function ProgramaII() {
         data={donacion}
         imagen={donacion.imagen}
       />
-      <SerParte data={programaIIData.serParte} />
     </main>
   );
 }

@@ -221,10 +221,31 @@ collections:
                             required: false,
                         }
                       - {
-                            label: "URL Enlace (Leer más)",
-                            name: "url",
-                            widget: "string",
+                            label: "Párrafos del detalle",
+                            name: "parrafos",
+                            widget: "list",
+                            field:
+                                {
+                                    label: "Párrafo",
+                                    name: "parrafo",
+                                    widget: "text",
+                                },
                             required: false,
+                            hint: "Opcional. Texto de la página de detalle (puedes usar saltos de línea). Si lo dejas vacío se muestra la descripción.",
+                        }
+                      - {
+                            label: "Imágenes del detalle",
+                            name: "imagenes",
+                            widget: "list",
+                            field:
+                                {
+                                    label: "Imagen",
+                                    name: "imagen",
+                                    widget: "image",
+                                },
+                            max: 2,
+                            required: false,
+                            hint: "Opcional. Hasta 2 imágenes laterales para el detalle.",
                         }
                       - {
                             label: "Color del Tema",
@@ -685,6 +706,7 @@ collections:
 
     - name: "noticias_articulos"
       label: "Noticias (artículos)"
+      hide: true
       folder: "src/data/noticias"
       create: true
       slug: "{{slug}}"

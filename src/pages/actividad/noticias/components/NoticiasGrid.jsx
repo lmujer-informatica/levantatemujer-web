@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { obtenerNoticias } from '../../../../lib/noticias';
+import { formatearFechaLarga } from '../../../../lib/ultimos';
 
 const THEME_COLORS = ['#2C8E9E', '#93A635'];
+const COLOR_VALIDO = /^#[0-9a-f]{3,8}$/i;
 
-const modulosNoticias = import.meta.glob('../../../../data/noticias/*.json', { eager: true });
-const noticias = Object.entries(modulosNoticias).map(([ruta, modulo]) => ({
-  id: ruta.split('/').pop().replace(/\.json$/, ''),
-  ...modulo.default,
-}));
+const noticias = obtenerNoticias();
 
 function NewsCard({ item, themeColor, etiquetaBoton }) {
+  const fecha = formatearFechaLarga(item.fecha);
+
   return (
     <div
       className="relative flex flex-col w-full bg-white rounded-t-[40px] rounded-b-sm overflow-hidden h-[400px]"
@@ -36,12 +37,14 @@ function NewsCard({ item, themeColor, etiquetaBoton }) {
         </div>
 
         {/* Date Badge */}
-        <div
-          className="absolute top-4 right-0 px-6 py-1.5 rounded-l-full text-white text-sm font-medium"
-          style={{ backgroundColor: themeColor }}
-        >
-          {item.fecha}
-        </div>
+        {fecha && (
+          <div
+            className="absolute top-4 right-0 px-6 py-1.5 rounded-l-full text-white text-sm font-medium whitespace-nowrap"
+            style={{ backgroundColor: themeColor }}
+          >
+            {fecha}
+          </div>
+        )}
       </div>
 
       {/* Bottom arched content area */}
@@ -49,14 +52,14 @@ function NewsCard({ item, themeColor, etiquetaBoton }) {
         className="flex-1 flex flex-col items-center justify-center px-6 py-6 mt-[-40px] rounded-t-[50%] z-10"
         style={{ backgroundColor: themeColor }}
       >
-        <h3 className="italic text-white text-xl md:text-2xl font-medium mb-3">
+        <h3 className="italic text-white text-xl md:text-2xl font-medium text-center px-8 mb-3">
           {item.titulo}
         </h3>
-        <p className="text-white text-xs text-center mb-6 leading-relaxed opacity-90">
-          {item.resumen}
+        <p className="text-white text-xs text-center mb-6 leading-relaxed opacity-90 line-clamp-3">
+          {item.descripcion}
         </p>
         <Link
-          to={`/noticia/${item.id}`}
+          to={`/noticia/${item.slug}`}
           className="bg-white px-10 py-1.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity w-full max-w-[200px] text-center"
           style={{ color: themeColor }}
         >
@@ -83,7 +86,12 @@ export default function NoticiasGrid({ data }) {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {noticias.map((item, i) => (
-            <NewsCard key={item.id} item={item} themeColor={THEME_COLORS[i % THEME_COLORS.length]} etiquetaBoton={data.etiquetaBoton} />
+            <NewsCard
+              key={item.slug}
+              item={item}
+              themeColor={COLOR_VALIDO.test(item.colorTema ?? '') ? item.colorTema : THEME_COLORS[i % THEME_COLORS.length]}
+              etiquetaBoton={data.etiquetaBoton}
+            />
           ))}
         </div>
       </div>
