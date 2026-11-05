@@ -338,6 +338,24 @@ export default function Navbar() {
                             )}
                         </div>
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+            <NavLink
+              to="/programas"
+              onClick={handleNavigation}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-base font-medium ${
+                  isActive
+                    ? 'bg-lm-cyan text-white'
+                    : 'text-lm-cyan'
+                }`
+              }
+            >
+              Programas
+            </NavLink>
+=======
+>>>>>>> Stashed changes
                         {/* Actividad (Dropdown en móvil) */}
                         <div className="space-y-1">
                             <button
@@ -358,7 +376,11 @@ export default function Navbar() {
                                     }`}
                                 />
                             </button>
+<<<<<<< Updated upstream
                             {actividadOpen && (
+=======
+                            {mobileActividadOpen && (
+>>>>>>> Stashed changes
                                 <div className="pl-6 space-y-1">
                                     <NavLink
                                         to="/material"
@@ -400,6 +422,10 @@ export default function Navbar() {
                                 </div>
                             )}
                         </div>
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
                         {/* Contacto */}
                         <NavLink
