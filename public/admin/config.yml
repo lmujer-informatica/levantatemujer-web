@@ -1137,3 +1137,40 @@ collections:
             - label: "Etiqueta ver más"
               name: "etiquetaVerMas"
               widget: "string"
+
+    # =========================
+    # QR DE PAGO (donaciones)
+    # =========================
+
+    - name: "qrPago"
+      label: "QR de pago (donaciones)"
+      files:
+        - label: "QR de pago"
+          name: "contenidoQrPago"
+          file: "src/data/qrPago.json"
+          fields:
+            - label: "Imagen del QR"
+              name: "imagen"
+              widget: "image"
+              required: false
+              hint: "Se muestra tras enviar una donación. Al vencer, el QR deja de mostrarse solo."
+            - label: "Fecha de creación"
+              name: "fechaCreacion"
+              widget: "date"
+              format: "YYYY-MM-DD"
+              required: false
+              hint: "Obligatoria si hay imagen. El QR se muestra desde este día (inclusive)."
+            - label: "Fecha de vencimiento"
+              name: "fechaVencimiento"
+              widget: "date"
+              format: "YYYY-MM-DD"
+              required: false
+              hint: "Obligatoria si hay imagen. Al vencer, el QR deja de mostrarse solo (el último día sigue visible)."
+            - label: "Título"
+              name: "titulo"
+              widget: "string"
+              required: false
+            - label: "Instrucciones"
+              name: "instrucciones"
+              widget: "text"
+              required: false

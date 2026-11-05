@@ -43,6 +43,18 @@ export function formatearFechaLarga(texto) {
 }
 
 /**
+ * ¿`hoy` está entre `desde` y `hasta`, ambos inclusive? Compara por día calendario local,
+ * así el día de vencimiento sigue válido hasta las 23:59. Falso si alguna fecha no es válida.
+ */
+export function estaVigente(desde, hasta, hoy = new Date()) {
+    const inicio = parsearFecha(desde);
+    const fin = parsearFecha(hasta);
+    if (!inicio || !fin) return false;
+    const dia = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()).getTime();
+    return inicio.getTime() <= dia && dia <= fin.getTime();
+}
+
+/**
  * Copia de la lista ordenada de la fecha más reciente a la más antigua (campo `campo`).
  * Las entradas sin fecha válida van al final; con igual fecha se respeta el orden original.
  */

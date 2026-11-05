@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Reveal from './Reveal';
 import { enviarFormulario } from '../../../lib/enviarFormulario';
+import QrPago from '../../../components/QrPago';
 
 const INITIAL_FORM = {
   nombre: '',
@@ -14,6 +15,8 @@ export default function DonacionPrograma({ data = {} }) {
   // 'idle' | 'enviando' | 'ok' | 'error'
   const [status, setStatus] = useState('idle');
   const [honeypot, setHoneypot] = useState('');
+  // El QR sigue visible aunque se editen campos; solo se oculta con "Cerrar" o al enviar de nuevo.
+  const [mostrarQr, setMostrarQr] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,11 +43,13 @@ export default function DonacionPrograma({ data = {} }) {
     if (!isFormValid || isSending) return;
 
     setStatus('enviando');
+    setMostrarQr(false);
     try {
       // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
       await enviarFormulario('programa_i_donacion', form, { _gotcha: honeypot });
 
       setStatus('ok');
+      setMostrarQr(true);
       setForm(INITIAL_FORM);
     } catch (err) {
       console.error(err);
@@ -181,6 +186,8 @@ export default function DonacionPrograma({ data = {} }) {
                 )}
               </div>
             </div>
+
+            {mostrarQr && <QrPago onCerrar={() => setMostrarQr(false)} />}
 
             </form>
           {/* ── Right: Image with quote overlay ── */}
