@@ -1,0 +1,196 @@
+{
+  "banner": {
+    "frases": [
+      "Levántate Mujer, Construye tu Futuro",
+      "Levántate Mujer, Alza tu Voz",
+      "Levántate Mujer, Cree en Ti",
+      "Tu fuerza transforma comunidades",
+      "Juntas somos más fuertes",
+      "Cada mujer es un cambio positivo",
+      "Empoderamiento para una vida digna",
+      "Tu voz importa, tu vida también",
+      "Rompiendo barreras juntas",
+      "El futuro es igualitario",
+      "Derechos que inspiran libertad",
+      "Acompañamiento integral para ti",
+      "Somos puente a tu bienestar",
+      "Tu historia merece ser escuchada",
+      "Construyendo igualdad de oportunidades",
+      "Mujeres liderando el cambio",
+      "Prevención y atención con amor",
+      "Red de apoyo que nunca se apaga",
+      "Caminamos juntas hacia la justicia",
+      "Levántate, el mundo necesita tu luz"
+    ],
+    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+  },
+  "identidad": {
+    "historia": {
+      "titulo": "Nuestra Historia",
+      "texto": "La Fundación Levántate Mujer nació con el propósito de transformar la vida de las mujeres bolivianas a través de programas integrales de capacitación, atención y acompañamiento. Desde nuestros inicios, hemos trabajado incansablemente para construir espacios seguros donde cada mujer pueda desarrollar su máximo potencial, enfrentar las adversidades y construir un futuro digno y lleno de oportunidades para ella y sus comunidades a lo largo de Bolivia."
+    },
+    "mision": {
+      "titulo": "Misión",
+      "texto": "Brindar atención integral a mujeres víctimas de violencia, trata y tráfico de personas, a través de programas de prevención, acompañamiento psicológico, asesoría legal y capacitación que fortalezcan su autonomía y bienestar."
+    },
+    "vision": {
+      "titulo": "Visión",
+      "texto": "Ser una fundación líder en la promoción de los derechos de las mujeres en Bolivia, reconocida por su impacto transformador en la construcción de una sociedad más justa, igualitaria y libre de violencia."
+    }
+  },
+  "valores": [
+    {
+      "nombre": "Acogida",
+      "descripcion": "Creamos espacios seguros donde cada mujer se siente escuchada, respetada y acompañada en todo momento.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+    },
+    {
+      "nombre": "Misericordia",
+      "descripcion": "Actuamos con compasión y empatía, entendiendo el dolor ajeno y ofreciendo apoyo sin condiciones.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+    },
+    {
+      "nombre": "Justicia",
+      "descripcion": "Defendemos los derechos de las mujeres y trabajamos para que la justicia llegue a cada rincón del país.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    }
+  ],
+  "equipo": {
+    "directorio": [
+      {
+        "nombre": "Edward Kenway",
+        "cargo": "Presidenta",
+        "foto": ""
+      },
+      {
+        "nombre": "RWQFSFASXC",
+        "cargo": "Vicepresidenta",
+        "foto": ""
+      },
+      {
+        "nombre": "Osamu Dazai",
+        "cargo": "Secretaria General",
+        "foto": ""
+      }
+    ],
+    "direccionEjecutiva": [
+      {
+        "nombre": "William Afton",
+        "cargo": "Directora Ejecutiva",
+        "foto": ""
+      },
+      {
+        "nombre": "Meruem",
+        "cargo": "Subdirectora",
+        "foto": ""
+      },
+      {
+        "nombre": "Daniel Sempere",
+        "cargo": "Coordinadora General",
+        "foto": ""
+      }
+    ],
+    "laPaz": [
+      {
+        "nombre": "Ricardo Somocurcio",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Edward Elric",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      },
+      {
+        "nombre": "Casar Octaviano Augusto",
+        "cargo": "Trabajadora Social",
+        "foto": ""
+      }
+    ],
+    "elAlto": [
+      {
+        "nombre": "Ekko",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Arthur Morgan",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Björn Ulvaeus",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
+    ],
+    "oruro": [
+      {
+        "nombre": "Sam Beam",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Isabelle Geo Pommet",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Michael Jackson",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
+    ],
+    "santaCruz": [
+      {
+        "nombre": "Guts",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Daniel Rabinovich",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Aldo Bartra",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
+    ],
+    "sucre": [
+      {
+        "nombre": "Cristiano Ronaldo",
+        "cargo": "Coordinadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Eva Tobalina",
+        "cargo": "Psicóloga",
+        "foto": ""
+      },
+      {
+        "nombre": "Carlos Caballero Jurado",
+        "cargo": "Asesora Legal",
+        "foto": ""
+      }
+    ],
+    "organizacionesAliadas": [
+      {
+        "nombre": "Fundación Mujeres en Marcha",
+        "rubro": "Derechos Humanos",
+        "foto": ""
+      },
+      {
+        "nombre": "Red de Mujeres Bolivianas",
+        "rubro": "Incidencia Política",
+        "foto": ""
+      },
+      {
+        "nombre": "Colectiva Igualdad Ya",
+        "rubro": "Género y Justicia",
+        "foto": ""
+      }
+    ]
+  }
+}

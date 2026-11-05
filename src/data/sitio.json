@@ -1,0 +1,20 @@
+{
+  "centros": [
+    "La Paz",
+    "El Alto",
+    "Oruro",
+    "Santa Cruz",
+    "Sucre"
+  ],
+  "telefonos": [
+    "2 2410025",
+    "+591 60025000"
+  ],
+  "correo": "info@levantatemujer.com",
+  "redes": {
+    "facebook": "",
+    "instagram": "",
+    "tiktok": "",
+    "linkedin": ""
+  }
+}

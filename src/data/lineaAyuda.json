@@ -1,14 +1,11 @@
 {
-  "carrusel": [
-    {
-      "frase": "No estás sola, estamos contigo",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788154977645-WhatsApp_Image_2026-07-13_at_3.48.57_PM.jpeg"
-    },
-    {
-      "frase": "Tu denuncia salva vidas",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788155016154-Fiscal_a_General_del_Estado_socializ__el_Proyecto_de_Ley_para_la_Protecci_n_de_la_Integridad_Sexual_de_Ni_as__Ni_os_y_Adolescentes_en_Entornos_Digitales_3.png"
-    }
-  ],
+  "banner": {
+    "frases": [
+      "No estás sola, estamos contigo",
+      "Tu denuncia salva vidas"
+    ],
+    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788154977645-WhatsApp_Image_2026-07-13_at_3.48.57_PM.jpeg"
+  },
   "contactos": [
     {
       "ciudad": "La Paz - El Alto",

@@ -1,0 +1,56 @@
+{
+  "heroFrases": [
+    "Noticias y Novedades",
+    "Historias que Inspiran",
+    "Voces en Acción"
+  ],
+  "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+  "noticias": [
+    {
+      "id": 1,
+      "fecha": "2026-09-20",
+      "titulo": "Inicio de Talleres de Capacitación Técnica",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/capacitacion",
+      "colorTema": "#2C8E9E"
+    },
+    {
+      "id": 2,
+      "fecha": "2026-09-28",
+      "titulo": "Feria de Emprendedoras en la Plaza Central",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/feria-emprendedoras",
+      "colorTema": "#93A635"
+    },
+    {
+      "id": 3,
+      "fecha": "2026-10-08",
+      "titulo": "Convenio Interinstitucional por la Igualdad",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "url": "https://levantatemujer.org/convenio-igualdad",
+      "colorTema": "#2C8E9E"
+    },
+    {
+      "id": 4,
+      "fecha": "2026-10-14",
+      "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+      "parrafos": [
+        "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod. Nibh libero fermentum donec duis risus maecenas, scelerisque cubilia hac hendrerit quisque torquent.",
+        "Vel netus ultricies fames egestas. Himenaeos rutrum placerat morbi conubia potenti mus nulla habitant turpis, est netus gravida natoque metus dignissim congue laoreet. Scelerisque parturient hendrerit per habitasse integer litora nisi, luctus pulvinar himenaeos euismod purus condimentum nullam arcu.",
+        "Vehicula imperdiet quis tristique, accumsan cursus justo mattis tincidunt ante, nisl dui fringilla elementum.\nSegunda línea del mismo párrafo, para comprobar que los saltos de línea se respetan en el detalle.",
+        "Cierre del texto: lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      ],
+      "imagenes": [
+        "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
+        "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+      ],
+      "url": "https://levantatemujer.org/campana-2026",
+      "colorTema": "#93A635"
+    }
+  ]
+}

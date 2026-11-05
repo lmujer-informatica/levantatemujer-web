@@ -1,17 +1,22 @@
+.vscode/
 node_modules/
 dist/
 .env
 .env.local
 .env.*.local
 .env.*
+!.env.example
 *.log
 .DS_Store
 
+.vscode/mcp.json
 .atl/
 graphify-out/
 PRODUCT.md
 .opencode/
 AGENTS.md
+CLAUDE.md
+CONTEXT.md
 jr/
 # impeccable-ignore-start
 # Ephemeral output, runtime state, and per-dev overrides.

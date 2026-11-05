@@ -1,6 +1,7 @@
 import React from 'react';
 import inicioData from '../../../data/inicio.json';
 import TarjetaPrograma from './TarjetaPrograma'; // Asegúrate de que la ruta sea correcta
+import Reveal from './Reveal';
 
 export default function ProgramasPrioritarios() {
   const programas = inicioData.programas || [];
@@ -10,30 +11,32 @@ export default function ProgramasPrioritarios() {
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* Título de la sección calcado al diseño */}
-        <div className="flex flex-col items-center mb-16 text-center">
+        <Reveal className="flex flex-col items-center mb-16 text-center">
           <h2 className="text-[#88994a] text-3xl md:text-5xl italic font-medium uppercase tracking-wide leading-tight mb-4">
             Programas Prioritarios<br />De Trabajo
           </h2>
           <div className="w-[80%] h-[2px] bg-[#88994a]"></div>
-        </div>
+        </Reveal>
         
         {/* Grid para las tarjetas flip */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 w-full max-w-[900px]">
           
-          {/* Tarjeta 1 (Puedes mapear esto si tienes más de 2) */}
+          {/* Tarjeta 1 (Mujeres Libres de Violencia) */}
           <TarjetaPrograma 
-            tituloFrente={programas[0].nombre}
-            tituloAtras="Descripción"
-            descripcion={programas[0].descripcion}
+            tituloFrente={programas[0]?.nombre}
+            tituloAtras={programas[0]?.nombre}
+            descripcion={programas[0]?.descripcion}
             imagenUrl={programas[0]?.imagen} 
+            linkUrl="/programaI"
           />
 
-          {/* Tarjeta 2 */}
+          {/* Tarjeta 2 (Respuesta a la Trata e Inmigración) */}
           <TarjetaPrograma 
-            tituloFrente={programas[1].nombre}
-            tituloAtras="Descripción"
-            descripcion={programas[1].descripcion}
+            tituloFrente={programas[1]?.nombre}
+            tituloAtras={programas[1]?.nombre}
+            descripcion={programas[1]?.descripcion}
             imagenUrl={programas[1]?.imagen} 
+            linkUrl="/programaII"
           />
           
         </div>

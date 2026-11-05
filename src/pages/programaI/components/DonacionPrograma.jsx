@@ -1,0 +1,237 @@
+import React, { useState } from 'react';
+import Reveal from './Reveal';
+import { enviarFormulario } from '../../../lib/enviarFormulario';
+import QrPago from '../../../components/QrPago';
+
+const INITIAL_FORM = {
+  nombre: '',
+  celular: '',
+  correo: '',
+  motivo: '',
+};
+
+export default function DonacionPrograma({ data = {} }) {
+  const [form, setForm] = useState(INITIAL_FORM);
+  // 'idle' | 'enviando' | 'ok' | 'error'
+  const [status, setStatus] = useState('idle');
+  const [honeypot, setHoneypot] = useState('');
+  // El QR sigue visible aunque se editen campos; solo se oculta con "Cerrar" o al enviar de nuevo.
+  const [mostrarQr, setMostrarQr] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (status === 'ok' || status === 'error') setStatus('idle');
+    if (name === 'celular') {
+      const sanitized = value.replace(/[^0-9+\s-]/g, '');
+      setForm((prev) => ({ ...prev, [name]: sanitized }));
+      return;
+    }
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo.trim());
+  const isFormValid =
+    form.nombre.trim().length > 0 &&
+    form.celular.trim().length >= 6 &&
+    isEmailValid &&
+    form.motivo.trim().length > 0;
+
+  const isSending = status === 'enviando';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!isFormValid || isSending) return;
+
+    setStatus('enviando');
+    setMostrarQr(false);
+    try {
+      // El servidor descarta el envío si el honeypot (_gotcha) viene relleno.
+      await enviarFormulario('programa_i_donacion', form, { _gotcha: honeypot });
+
+      setStatus('ok');
+      setMostrarQr(true);
+      setForm(INITIAL_FORM);
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
+  };
+
+  return (
+    <section className="w-full bg-[#EFFFFA] py-8 md:py-12 lg:py-24">
+      <div className="max-w-[1200px] lg:max-w-[1280px] xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-16 items-start">
+
+          {/* ── Left: Donation form ── */}
+          <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4 w-full">
+
+              {/* Title */}
+              <h2 className="text-lg md:text-2xl lg:text-4xl xl:text-5xl font-medium italic" style={{ color: '#0DADD4' }}>
+                {data.titulo}
+              </h2>
+
+            {/* Full name / org */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="donacion-nombre" className="text-xs font-medium" style={{ color: '#0DADD4' }}>
+                Nombre Completo u Organización *
+              </label>
+              <input
+                type="text"
+                id="donacion-nombre"
+                name="nombre"
+                value={form.nombre}
+                onChange={handleChange}
+                placeholder="Ej. María Pérez o Fundación Esperanza"
+                inputMode="text"
+                autoComplete="name"
+                required
+                className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3.5 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 transition-all"
+              />
+            </div>
+
+            {/* Celular + Correo row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1">
+                <label htmlFor="donacion-celular" className="text-xs font-medium" style={{ color: '#0DADD4' }}>
+                  Celular *
+                </label>
+                <input
+                  type="tel"
+                  id="donacion-celular"
+                  name="celular"
+                  value={form.celular}
+                  onChange={handleChange}
+                  placeholder="Ej. 71234567"
+                  inputMode="numeric"
+                  pattern="[0-9+ \-]*"
+                  autoComplete="tel"
+                  required
+                  className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3.5 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 transition-all"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label htmlFor="donacion-correo" className="text-xs font-medium" style={{ color: '#0DADD4' }}>
+                  Correo *
+                </label>
+                <input
+                  type="email"
+                  id="donacion-correo"
+                  name="correo"
+                  value={form.correo}
+                  onChange={handleChange}
+                  placeholder="tu.email@email.com"
+                  inputMode="email"
+                  autoComplete="email"
+                  required
+                  className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] px-3.5 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Motivo textarea */}
+            <div className="flex flex-col gap-1">
+              <label htmlFor="donacion-motivo" className="text-xs font-medium" style={{ color: '#0DADD4' }}>
+                ¿Qué te motivó a donar? *
+              </label>
+              <textarea
+                id="donacion-motivo"
+                name="motivo"
+                value={form.motivo}
+                onChange={handleChange}
+                rows={4}
+                placeholder="Cuéntanos brevemente qué te motivó a apoyar este programa..."
+                inputMode="text"
+                required
+                className="w-full rounded-lg border border-[#0DADD4]/50 bg-[#F1FFFF] p-3 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0DADD4]/40 resize-none transition-all"
+              />
+            </div>
+
+            {/* Honeypot anti-spam (oculto para personas) */}
+            <input
+              type="text"
+              name="_gotcha"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
+            {/* Submit button */}
+            <div className="flex flex-col items-center gap-3 pt-1">
+              <button
+                type="submit"
+                disabled={!isFormValid || isSending}
+                className={`px-10 py-2.5 rounded-full font-medium text-white text-sm transition-all duration-200 shadow-sm ${
+                  isFormValid && !isSending
+                    ? 'hover:opacity-90 active:scale-95 cursor-pointer shadow-md'
+                    : 'opacity-40 cursor-not-allowed pointer-events-none'
+                }`}
+                style={{ backgroundColor: '#0DADD4' }}
+              >
+                {isSending ? 'Enviando...' : 'Registra tu donación'}
+              </button>
+
+              <div role="status" aria-live="polite">
+                {status === 'ok' && (
+                  <p className="text-sm text-center font-medium" style={{ color: '#0DADD4' }}>
+                    Donación registrada con éxito. ¡Muchas gracias por tu apoyo!
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-sm text-center font-medium text-red-600">
+                    No pudimos registrar tu donación. Intenta de nuevo en unos minutos.
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {mostrarQr && <QrPago onCerrar={() => setMostrarQr(false)} />}
+
+            </form>
+          {/* ── Right: Image with quote overlay ── */}
+          <Reveal retraso={150} className="w-full md:w-auto">
+            <div className="group w-full md:w-[220px] lg:w-[340px] flex flex-col hover:-translate-y-1 hover:shadow-xl transition-all duration-300 rounded-xl lg:rounded-2xl">
+
+              {/* Image area */}
+              <div
+                className="relative w-full rounded-xl lg:rounded-2xl rounded-b-none overflow-hidden"
+                style={{ backgroundColor: '#C0D1C7', paddingBottom: '100%' }}
+              >
+                {data.imagen ? (
+                  <img
+                    src={data.imagen}
+                    alt={data.titulo}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="absolute inset-3 rounded-lg bg-gray-300 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-white opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              {/* Quote/frase overlay */}
+              <div
+                className="w-full py-3 lg:py-6 px-4 lg:px-8 rounded-b-xl lg:rounded-b-2xl -mt-1"
+                style={{ backgroundColor: '#BACB5E' }}
+              >
+                <p className="text-xs md:text-sm lg:text-xl font-medium leading-snug text-center" style={{ color: '#F1FFFF' }}>
+                  {data.frase}
+                </p>
+              </div>
+
+            </div>
+          </Reveal>
+
+        </div>
+      </div>
+    </section>
+  );
+}

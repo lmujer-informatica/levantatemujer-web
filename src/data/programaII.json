@@ -1,0 +1,330 @@
+{
+  "banner": {
+    "frases": [
+      "Levántate Mujer, Construye tu Futuro",
+      "Levántate Mujer, Alza tu Voz",
+      "Levántate Mujer, Cree en Ti",
+      "Tu fuerza transforma comunidades",
+      "Juntas somos más fuertes",
+      "Cada mujer es un cambio positivo",
+      "Empoderamiento para una vida digna",
+      "Tu voz importa, tu vida también",
+      "Rompiendo barreras juntas",
+      "El futuro es igualitario",
+      "Derechos que inspiran libertad",
+      "Acompañamiento integral para ti",
+      "Somos puente a tu bienestar",
+      "Tu historia merece ser escuchada",
+      "Construyendo igualdad de oportunidades",
+      "Mujeres liderando el cambio",
+      "Prevención y atención con amor",
+      "Red de apoyo que nunca se apaga",
+      "Caminamos juntas hacia la justicia",
+      "Levántate, el mundo necesita tu luz"
+    ],
+    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+  },
+  "descripcion": {
+    "titulo": "El Programa",
+    "texto": "Respuesta a la Trata e Inmigración es un programa integral que acompaña a personas en situación de trata, tráfico y migración, promoviendo su protección, orientación y reintegración. Trabajamos en coordinación con instituciones públicas, organizaciones aliadas y redes de apoyo para fortalecer los derechos, la seguridad y las oportunidades de integración de cada persona que atendemos.",
+    "etiquetaActividades": "Actividades",
+    "etiquetaLineas": "Líneas Estratégicas"
+  },
+  "lineasEstrategicas": [
+    {
+      "titulo": "Protección Integral",
+      "descripcion": "Brindamos atención integral y acompañamiento continuo a personas víctimas de trata y migración, asegurando su seguridad, bienestar y acceso a servicios especializados.",
+      "icono": "shield-check"
+    },
+    {
+      "titulo": "Prevención",
+      "descripcion": "Desarrollamos campañas y talleres de sensibilización para prevenir la trata de personas, fortaleciendo herramientas comunitarias y redes de alerta temprana.",
+      "icono": "heart-handshake"
+    },
+    {
+      "titulo": "Incidencia Política",
+      "descripcion": "Impulsamos cambios normativos y políticas públicas que protejan los derechos de las personas migrantes y víctimas de trata, con voz activa ante las autoridades.",
+      "icono": "landmark"
+    }
+  ],
+  "ciudades": [
+    {
+      "nombre": "La Paz",
+      "actividades": [
+        {
+          "nombre": "Talleres de prevención",
+          "descripcion": "Espacios formativos para detectar y prevenir situaciones de trata e inmigración irregular.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+        },
+        {
+          "nombre": "Acompañamiento legal",
+          "descripcion": "Asesoría y representación legal gratuita para personas en situación vulnerable.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+        },
+        {
+          "nombre": "Ferias informativas",
+          "descripcion": "Jornadas abiertas de información sobre derechos y rutas de atención.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+        }
+      ],
+      "metodologias": [
+        {
+          "titulo": "Metodología A",
+          "resumen": "Enfoque participativo con comunidades para la prevención del delito de trata de personas.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología B",
+          "resumen": "Acompañamiento psicosocial individual y familiar con seguimiento integral.",
+          "descargable": true
+        },
+        {
+          "titulo": "Metodología C",
+          "resumen": "Formación de líderes y lideresas comunitarias como agentes de cambio.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología D",
+          "resumen": "Vinculación con redes de apoyo interinstitucionales para atención conjunta.",
+          "descargable": true
+        }
+      ],
+      "investigaciones": [
+        {
+          "titulo": "Estudio 2026",
+          "resumen": "Diagnóstico sobre las rutas de trata e inmigración irregular en la ciudad de La Paz.",
+          "descargable": true
+        },
+        {
+          "titulo": "Informe Quincenal",
+          "resumen": "Sistematización de atenciones y resultados de la red de apoyo local.",
+          "descargable": false
+        },
+        {
+          "titulo": "Mapa de Riesgo",
+          "resumen": "Identificación de zonas vulnerables y puntos de captación en el territorio.",
+          "descargable": true
+        }
+      ]
+    },
+    {
+      "nombre": "El Alto",
+      "actividades": [
+        {
+          "nombre": "Ferias informativas",
+          "descripcion": "Jornadas abiertas de información sobre derechos y rutas de atención en El Alto.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+        },
+        {
+          "nombre": "Capacitación docente",
+          "descripcion": "Preparación de maestros para identificar señales de riesgo en estudiantes.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+        },
+        {
+          "nombre": "Atención psicosocial",
+          "descripcion": "Contención emocional y derivación a servicios especializados.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+        }
+      ],
+      "metodologias": [
+        {
+          "titulo": "Metodología A",
+          "resumen": "Sensibilización en unidades educativas y espacios públicos de alto tránsito.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología B",
+          "resumen": "Casas de acogida temporal y protocolo de reintegración social.",
+          "descargable": true
+        },
+        {
+          "titulo": "Metodología C",
+          "resumen": "Red de voluntariado joven para prevención y difusión de derechos.",
+          "descargable": false
+        }
+      ],
+      "investigaciones": [
+        {
+          "titulo": "Estudio 2026",
+          "resumen": "Análisis de flujos migratorios y dinámicas de trata en El Alto.",
+          "descargable": true
+        },
+        {
+          "titulo": "Informe Semestral",
+          "resumen": "Resultados del programa de acompañamiento y derivación de casos.",
+          "descargable": true
+        }
+      ]
+    },
+    {
+      "nombre": "Oruro",
+      "actividades": [
+        {
+          "nombre": "Talleres comunitarios",
+          "descripcion": "Charlas en comunidades mineras y zonas periurbanas de Oruro.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+        },
+        {
+          "nombre": "Asesoría legal",
+          "descripcion": "Acompañamiento en denuncias y trámites migratorios.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+        },
+        {
+          "nombre": "Campañas de difusión",
+          "descripcion": "Material informativo sobre líneas de ayuda y derechos.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+        }
+      ],
+      "metodologias": [
+        {
+          "titulo": "Metodología A",
+          "resumen": "Trabajo preventivo con juntas vecinales y organizaciones de base.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología B",
+          "resumen": "Rutas de derivación coordinadas con la felcv y defensorías locales.",
+          "descargable": true
+        }
+      ],
+      "investigaciones": [
+        {
+          "titulo": "Mapeo 2026",
+          "resumen": "Caracterización de zonas de captación en la región de Oruro.",
+          "descargable": true
+        },
+        {
+          "titulo": "Boletín Mensual",
+          "resumen": "Sistematización de avisos y denuncias ciudadanas registradas.",
+          "descargable": false
+        }
+      ]
+    },
+    {
+      "nombre": "Santa Cruz",
+      "actividades": [
+        {
+          "nombre": "Red de apoyo",
+          "descripcion": "Vinculación con instituciones y organizaciones de la región oriental.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+        },
+        {
+          "nombre": "Ferias informativas",
+          "descripcion": "Jornadas públicas de orientación migratoria y prevención.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+        },
+        {
+          "nombre": "Acompañamiento integral",
+          "descripcion": "Atención psicológica, legal y social para víctimas de trata.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+        }
+      ],
+      "metodologias": [
+        {
+          "titulo": "Metodología A",
+          "resumen": "Estrategias de prevención en aeropuertos y terminales de buses.",
+          "descargable": true
+        },
+        {
+          "titulo": "Metodología B",
+          "resumen": "Reinserción laboral y formación técnica para sobrevivientes.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología C",
+          "resumen": "Alertas tempranas con transporte interprovincial e interdepartamental.",
+          "descargable": true
+        }
+      ],
+      "investigaciones": [
+        {
+          "titulo": "Estudio 2026",
+          "resumen": "Rutas comerciales y de traslado de personas en la región oriental.",
+          "descargable": true
+        },
+        {
+          "titulo": "Informe Anual",
+          "resumen": "Impacto del programa y métricas de atención en Santa Cruz.",
+          "descargable": true
+        },
+        {
+          "titulo": "Análisis Sectorial",
+          "resumen": "Informe sobre explotación laboral y captación en rubros informales.",
+          "descargable": true
+        }
+      ]
+    },
+    {
+      "nombre": "Sucre",
+      "actividades": [
+        {
+          "nombre": "Talleres de prevención",
+          "descripcion": "Formación en instituciones educativas y espacios comunitarios de Sucre.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+        },
+        {
+          "nombre": "Campañas de difusión",
+          "descripcion": "Difusión de derechos y líneas de ayuda en zonas urbanas y rurales.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+        },
+        {
+          "nombre": "Acompañamiento legal",
+          "descripcion": "Asesoría jurídica y acompañamiento en procesos de regularización.",
+          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+        }
+      ],
+      "metodologias": [
+        {
+          "titulo": "Metodología A",
+          "resumen": "Prevención con estudiantes y padres de familia en colegios de la capital.",
+          "descargable": false
+        },
+        {
+          "titulo": "Metodología B",
+          "resumen": "Atención integral con enfoque intercultural y de derechos humanos.",
+          "descargable": true
+        }
+      ],
+      "investigaciones": [
+        {
+          "titulo": "Mapeo 2026",
+          "resumen": "Diagnóstico sobre migración interna y trata en Chuquisaca.",
+          "descargable": true
+        },
+        {
+          "titulo": "Boletín Mensual",
+          "resumen": "Registro de actividades de prevención y atención realizadas.",
+          "descargable": false
+        }
+      ]
+    }
+  ],
+  "donacion": {
+    "titulo": "Haz Una Donación al Programa",
+    "etiquetas": {
+      "nombre": "Nombre Completo u Organización",
+      "celular": "Celular",
+      "correo": "Correo",
+      "motivo": "¿Qué te motivo a donar?",
+      "boton": "Registra tu Donación"
+    },
+    "frase": "Apóyanos en nuestra labor, juntos construimos soluciones.",
+    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+  },
+  "serParte": {
+    "titulo": "SE PARTE DEL PROGRAMA",
+    "lineaAyuda": {
+      "titulo": "Línea de Ayuda Trata e Inmigración",
+      "boton": "Click Aquí"
+    },
+    "etiquetas": {
+      "nombre": "Nombre y Apellido",
+      "celular": "Celular",
+      "correo": "Correo",
+      "departamento": "Departamento",
+      "programa": "Programa",
+      "motivo": "¿Por qué te interesa el programa?",
+      "boton": "Agendar cita"
+    }
+  }
+}
