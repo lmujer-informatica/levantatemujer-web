@@ -45,26 +45,48 @@ collections:
                       name: "imagen"
                       widget: "image"
 
-                # PROGRAMAS PRIORITARIOS (Imágenes de los cards)
-                - label: "Programas Prioritarios - Imágenes de Cards"
+                # NUESTROS ALCANCES (5 cifras: las 3 primeras arriba, las 2 últimas abajo)
+                - label: "Nuestros Alcances - Cifras"
+                  name: "estadisticas"
+                  widget: "list"
+                  max: 5
+                  hint: "Se muestran en orden: 3 arriba y 2 abajo. Puedes escribir el valor con '+' (ej. +200)."
+                  fields:
+                      - label: "Valor"
+                        name: "valor"
+                        widget: "string"
+                      - label: "Etiqueta"
+                        name: "etiqueta"
+                        widget: "string"
+
+                # PROGRAMAS PRIORITARIOS (Tarjetas)
+                - label: "Programas Prioritarios - Tarjetas"
                   name: "programas"
                   widget: "list"
                   fields:
                       - label: "Programa"
                         name: "nombre"
                         widget: "string"
+                      - label: "Descripción"
+                        name: "descripcion"
+                        widget: "text"
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
 
                 # LÍNEA DE AYUDA (Imagen al lado derecho)
-                - label: "Línea de Ayuda - Imagen"
+                - label: "Línea de Ayuda - Imagen y mensaje"
                   name: "lineaAyuda"
                   widget: "object"
                   fields:
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
+                      - label: "Mensaje"
+                        name: "mensaje"
+                        widget: "string"
+                        required: false
+                        hint: "Frase que se muestra junto a la imagen. Si lo dejas vacío se usa el texto por defecto."
 
     # =========================
     # PROGRAMA I
@@ -79,6 +101,13 @@ collections:
                 - label: "Hero - Imagen"
                   name: "heroImagen"
                   widget: "image"
+
+                - label: "Descripción del programa"
+                  name: "descripcion"
+                  widget: "object"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - { label: "Texto", name: "texto", widget: "text" }
 
                 - label: "Testimonios - Carrusel Superior (Celeste)"
                   name: "testimoniosSuperior"
@@ -179,6 +208,14 @@ collections:
                             widget: "file",
                             required: false,
                         }
+
+                - label: "Formulario de Donación"
+                  name: "donacion"
+                  widget: "object"
+                  fields:
+                      - { label: "Título", name: "titulo", widget: "string" }
+                      - { label: "Frase", name: "frase", widget: "string" }
+                      - { label: "Imagen", name: "imagen", widget: "image" }
 
     # =========================
     # NOTICIAS
@@ -856,6 +893,11 @@ collections:
                     - label: "Descargable"
                       name: "descargable"
                       widget: "boolean"
+                    - label: "Archivo descargable"
+                      name: "archivo"
+                      widget: "file"
+                      required: false
+                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada."
                 - label: "Investigaciones"
                   name: "investigaciones"
                   widget: "list"
@@ -869,6 +911,11 @@ collections:
                     - label: "Descargable"
                       name: "descargable"
                       widget: "boolean"
+                    - label: "Archivo descargable"
+                      name: "archivo"
+                      widget: "file"
+                      required: false
+                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada."
 
             # =========================
             # DONACIÓN
@@ -1008,10 +1055,10 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
-                    - label: "Archivo (URL)"
+                    - label: "Archivo descargable"
                       name: "archivo"
-                      widget: "string"
-                      hint: "URL del archivo descargable"
+                      widget: "file"
+                      hint: "Sube el archivo o pega su URL"
 
             # =========================
             # PREVENCIÓN
@@ -1036,10 +1083,10 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
-                    - label: "Archivo (URL)"
+                    - label: "Archivo descargable"
                       name: "archivo"
-                      widget: "string"
-                      hint: "URL del archivo descargable"
+                      widget: "file"
+                      hint: "Sube el archivo o pega su URL"
 
             # =========================
             # INFOGRAFÍAS
@@ -1064,10 +1111,10 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
-                    - label: "Archivo (URL)"
+                    - label: "Archivo descargable"
                       name: "archivo"
-                      widget: "string"
-                      hint: "URL del archivo descargable"
+                      widget: "file"
+                      hint: "Sube el archivo o pega su URL"
 
             # =========================
             # VIDEOS
@@ -1174,3 +1221,42 @@ collections:
               name: "instrucciones"
               widget: "text"
               required: false
+
+    # =========================
+    # DATOS DEL SITIO (FOOTER)
+    # =========================
+
+    - name: "sitio"
+      label: "Datos del sitio (Footer)"
+      files:
+        - label: "Footer: centros, contacto y redes"
+          name: "contenidoSitio"
+          file: "src/data/sitio.json"
+          fields:
+            - label: "Centros"
+              name: "centros"
+              widget: "list"
+              field:
+                label: "Centro"
+                name: "centro"
+                widget: "string"
+            - label: "Teléfonos"
+              name: "telefonos"
+              widget: "list"
+              field:
+                label: "Teléfono"
+                name: "telefono"
+                widget: "string"
+            - label: "Correo"
+              name: "correo"
+              widget: "string"
+              required: false
+            - label: "Redes sociales"
+              name: "redes"
+              widget: "object"
+              hint: "Si un campo queda vacío, ese ícono se muestra sin enlace. Los enlaces abren en pestaña nueva."
+              fields:
+                - { label: "Facebook (URL)", name: "facebook", widget: "string", required: false }
+                - { label: "Instagram (URL)", name: "instagram", widget: "string", required: false }
+                - { label: "TikTok (URL)", name: "tiktok", widget: "string", required: false }
+                - { label: "LinkedIn (URL)", name: "linkedin", widget: "string", required: false }

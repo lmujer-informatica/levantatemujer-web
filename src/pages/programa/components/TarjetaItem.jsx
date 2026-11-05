@@ -18,13 +18,25 @@ export default function TarjetaItem({
           <h3 className="text-white font-montserrat italic font-semibold text-xs md:text-lg">
             {item.titulo}
           </h3>
-          <button
-            type="button"
-            className="rounded-[10px] px-4 md:px-6 py-1 md:py-1.5 text-white font-montserrat italic font-medium text-[10px] md:text-sm"
-            style={{ backgroundColor: colorBoton }}
-          >
-            Descargar
-          </button>
+          {item.archivo ? (
+            <a
+              href={item.archivo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-[10px] px-4 md:px-6 py-1 md:py-1.5 text-white font-montserrat italic font-medium text-[10px] md:text-sm"
+              style={{ backgroundColor: colorBoton }}
+            >
+              Descargar
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="rounded-[10px] px-4 md:px-6 py-1 md:py-1.5 text-white font-montserrat italic font-medium text-[10px] md:text-sm"
+              style={{ backgroundColor: colorBoton }}
+            >
+              Descargar
+            </button>
+          )}
         </div>
       </article>
     );

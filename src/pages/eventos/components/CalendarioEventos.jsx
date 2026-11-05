@@ -104,7 +104,7 @@ export default function CalendarioEventos() {
 
     // Unified list of events from Decap CMS / JSON
     const todosLosEventos = useMemo(() => {
-        return eventosData?.tarjetasEventos || eventosData?.eventos || [];
+        return eventosData?.tarjetasEventos || [];
     }, []);
 
     // Closest future event to today (automatic fallback if no future event)

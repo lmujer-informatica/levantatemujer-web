@@ -49,8 +49,7 @@ export function asignarSlugs(lista) {
     });
 }
 
-const listaOriginal =
-    eventosData?.tarjetasEventos || eventosData?.eventos || [];
+const listaOriginal = eventosData?.tarjetasEventos || [];
 const eventos = asignarSlugs(listaOriginal);
 
 // Permite obtener el slug único de un evento original (el objeto del JSON),

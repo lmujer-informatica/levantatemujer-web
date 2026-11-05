@@ -1,5 +1,9 @@
 {
   "heroImagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+  "descripcion": {
+    "titulo": "El Programa",
+    "texto": "El programa busca promover el ejercicio pleno de los derechos de las mujeres en los ejes económico, social y espiritual, impulsando su transformación como actoras protagónicas en sus vidas, familias y comunidades. Su estrategia contempla la atención psicosocial en centros terapéuticos para superar la violencia de género y fortalecer la comunicación familiar, la prevención y sensibilización mediante brigadas juveniles, promotoras comunitarias y el trabajo en nuevas masculinidades, la incidencia articulada con la sociedad civil e instituciones públicas para garantizar el cumplimiento normativo, y la capacitación integral en autoestima, liderazgo y creación de emprendimientos económicos sostenibles."
+  },
   "testimoniosSuperior": [
     {
       "id": 1,

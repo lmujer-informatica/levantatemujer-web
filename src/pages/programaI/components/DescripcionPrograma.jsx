@@ -1,8 +1,11 @@
 import React from "react";
+import programaIData from "../../../data/programaI.json";
 import serviciosIcon from "../../../imagenes/programaI/servicios.png";
 import testimoniosIcon from "../../../imagenes/programaI/testimonios.png";
 
 export default function DescripcionPrograma() {
+    const descripcion = programaIData?.descripcion ?? {};
+
     const handleTestimoniosClick = () => {
         const el = document.getElementById("testimonios");
         if (el) {
@@ -25,30 +28,16 @@ export default function DescripcionPrograma() {
                     {/* Título con línea inferior */}
                     <div className="flex flex-col items-center sm:items-start mb-6">
                         <h2 className="text-[#00A8CC] font-semibold text-2xl sm:text-3xl italic tracking-wide">
-                            El Programa
+                            {descripcion.titulo || "El Programa"}
                         </h2>
                         <div className="w-44 h-0.5 bg-[#00A8CC] mt-1.5" />
                     </div>
 
                     {/* Texto del programa */}
                     <div className="flex flex-col gap-4 text-gray-700 text-sm sm:text-base leading-relaxed text-justify sm:text-left">
-                        <p>
-                            El programa busca promover el ejercicio pleno de los
-                            derechos de las mujeres en los ejes económico,
-                            social y espiritual, impulsando su transformación
-                            como actoras protagónicas en sus vidas, familias y
-                            comunidades. Su estrategia contempla la atención
-                            psicosocial en centros terapéuticos para superar la
-                            violencia de género y fortalecer la comunicación
-                            familiar, la prevención y sensibilización mediante
-                            brigadas juveniles, promotoras comunitarias y el
-                            trabajo en nuevas masculinidades, la incidencia
-                            articulada con la sociedad civil e instituciones
-                            públicas para garantizar el cumplimiento normativo,
-                            y la capacitación integral en autoestima, liderazgo
-                            y creación de emprendimientos económicos
-                            sostenibles.
-                        </p>
+                        {descripcion.texto && (
+                            <p className="whitespace-pre-line">{descripcion.texto}</p>
+                        )}
                     </div>
                 </div>
 

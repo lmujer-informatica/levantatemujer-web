@@ -13,7 +13,7 @@ export default function SeccionDescargables({ data = {}, paleta, colorTitulo, co
           colorDescripcion={colorDescripcion}
         />
         <div className="mt-6 md:mt-10 flex md:grid md:grid-cols-3 gap-3 md:gap-8 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none pb-2 md:pb-0 touch-pan-x">
-          {data.items.map((item, i) => (
+          {(data.items ?? []).map((item, i) => (
             <TarjetaMaterial key={item.titulo + i} item={item} paleta={paleta[i % paleta.length] ?? {}} retraso={i * 120} />
           ))}
         </div>

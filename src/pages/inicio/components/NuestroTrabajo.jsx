@@ -21,7 +21,7 @@ const testimonios =
 
 const ultimoTestimonio = ultimoPorFecha(testimonios);
 const ultimaNoticia = ultimoPorFecha(noticiasData?.noticias);
-const proximoEvento = proximoOUltimo(eventosData?.tarjetasEventos ?? eventosData?.eventos);
+const proximoEvento = proximoOUltimo(eventosData?.tarjetasEventos);
 
 // Enlace interno (Link) o externo (a, en pestaña nueva) según el destino.
 function Destino({ to, children, ...props }) {

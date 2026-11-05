@@ -23,18 +23,18 @@ export default function ProgramasPrioritarios() {
           
           {/* Tarjeta 1 (Mujeres Libres de Violencia) */}
           <TarjetaPrograma 
-            tituloFrente="Mujeres Libres de Violencia"
-            tituloAtras="Mujeres Libres de Violencia"
-            descripcion="Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención."
+            tituloFrente={programas[0]?.nombre}
+            tituloAtras={programas[0]?.nombre}
+            descripcion={programas[0]?.descripcion}
             imagenUrl={programas[0]?.imagen} 
             linkUrl="/programaI"
           />
 
           {/* Tarjeta 2 (Respuesta a la Trata e Inmigración) */}
           <TarjetaPrograma 
-            tituloFrente="Respuesta a la Trata e Inmigración"
-            tituloAtras="Respuesta a la Trata e Inmigración"
-            descripcion="Promovemos la protección y el acompañamiento integral de personas en situación de trata y migración, brindando orientación, asistencia y herramientas para fortalecer sus derechos, seguridad y oportunidades de integración."
+            tituloFrente={programas[1]?.nombre}
+            tituloAtras={programas[1]?.nombre}
+            descripcion={programas[1]?.descripcion}
             imagenUrl={programas[1]?.imagen} 
             linkUrl="/programaII"
           />

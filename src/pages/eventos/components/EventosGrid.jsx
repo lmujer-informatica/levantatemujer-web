@@ -121,8 +121,7 @@ export default function EventosGrid() {
 
     // Eventos ordenados en pila (LIFO / fecha descendente: los más recientes subidos primero)
     const eventosOrdenados = useMemo(() => {
-        const raw =
-            eventosData?.tarjetasEventos || eventosData?.eventos || [];
+        const raw = eventosData?.tarjetasEventos || [];
         return [...raw].sort((a, b) => {
             const tA = new Date(
                 a.fecha?.includes("T") ? a.fecha : a.fecha + "T00:00:00"

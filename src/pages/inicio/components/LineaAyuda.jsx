@@ -52,7 +52,7 @@ export default function LineaAyuda() {
 
         {/* Texto */}
         <p className="text-[#396593] text-3xl md:text-[2.2rem] leading-snug font-medium text-center relative z-10 max-w-[420px]">
-          {(inicioData.lineaAyuda ?? {}).mensaje}
+          {mensaje}
         </p>
       </div>
     </section>
