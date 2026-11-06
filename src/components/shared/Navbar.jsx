@@ -358,7 +358,7 @@ export default function Navbar() {
                                     }`}
                                 />
                             </button>
-                            {actividadOpen && (
+                            {mobileActividadOpen && (
                                 <div className="pl-6 space-y-1">
                                     <NavLink
                                         to="/material"
