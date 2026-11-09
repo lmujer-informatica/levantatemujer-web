@@ -22,7 +22,7 @@
       "Caminamos juntas hacia la justicia",
       "Levántate, el mundo necesita tu luz"
     ],
-    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+    "imagenFondo": "/uploads/imagenes/DSC_0082.JPG"
   },
   "descripcion": {
     "titulo": "El Programa",
@@ -54,17 +54,17 @@
         {
           "nombre": "Talleres de prevención",
           "descripcion": "Espacios formativos para detectar y prevenir situaciones de trata e inmigración irregular.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+          "imagen": "/uploads/imagenes/DSC_0075.JPG"
         },
         {
           "nombre": "Acompañamiento legal",
           "descripcion": "Asesoría y representación legal gratuita para personas en situación vulnerable.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+          "imagen": "/uploads/imagenes/tortas__2.jpg"
         },
         {
           "nombre": "Ferias informativas",
           "descripcion": "Jornadas abiertas de información sobre derechos y rutas de atención.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+          "imagen": "/uploads/imagenes/DSC_0090.JPG"
         }
       ],
       "metodologias": [
@@ -113,17 +113,17 @@
         {
           "nombre": "Ferias informativas",
           "descripcion": "Jornadas abiertas de información sobre derechos y rutas de atención en El Alto.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+          "imagen": "/uploads/imagenes/DSC_0082.JPG"
         },
         {
           "nombre": "Capacitación docente",
           "descripcion": "Preparación de maestros para identificar señales de riesgo en estudiantes.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+          "imagen": "/uploads/imagenes/DSC_0090.JPG"
         },
         {
           "nombre": "Atención psicosocial",
           "descripcion": "Contención emocional y derivación a servicios especializados.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+          "imagen": "/uploads/imagenes/DSC_0075.JPG"
         }
       ],
       "metodologias": [
@@ -162,17 +162,17 @@
         {
           "nombre": "Talleres comunitarios",
           "descripcion": "Charlas en comunidades mineras y zonas periurbanas de Oruro.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+          "imagen": "/uploads/imagenes/tortas__2.jpg"
         },
         {
           "nombre": "Asesoría legal",
           "descripcion": "Acompañamiento en denuncias y trámites migratorios.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+          "imagen": "/uploads/imagenes/DSC_0075.JPG"
         },
         {
           "nombre": "Campañas de difusión",
           "descripcion": "Material informativo sobre líneas de ayuda y derechos.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+          "imagen": "/uploads/imagenes/DSC_0082.JPG"
         }
       ],
       "metodologias": [
@@ -206,17 +206,17 @@
         {
           "nombre": "Red de apoyo",
           "descripcion": "Vinculación con instituciones y organizaciones de la región oriental.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+          "imagen": "/uploads/imagenes/DSC_0090.JPG"
         },
         {
           "nombre": "Ferias informativas",
           "descripcion": "Jornadas públicas de orientación migratoria y prevención.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+          "imagen": "/uploads/imagenes/tortas__2.jpg"
         },
         {
           "nombre": "Acompañamiento integral",
           "descripcion": "Atención psicológica, legal y social para víctimas de trata.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+          "imagen": "/uploads/imagenes/DSC_0075.JPG"
         }
       ],
       "metodologias": [
@@ -260,17 +260,17 @@
         {
           "nombre": "Talleres de prevención",
           "descripcion": "Formación en instituciones educativas y espacios comunitarios de Sucre.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+          "imagen": "/uploads/imagenes/DSC_0075.JPG"
         },
         {
           "nombre": "Campañas de difusión",
           "descripcion": "Difusión de derechos y líneas de ayuda en zonas urbanas y rurales.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+          "imagen": "/uploads/imagenes/DSC_0082.JPG"
         },
         {
           "nombre": "Acompañamiento legal",
           "descripcion": "Asesoría jurídica y acompañamiento en procesos de regularización.",
-          "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+          "imagen": "/uploads/imagenes/tortas__2.jpg"
         }
       ],
       "metodologias": [
@@ -309,7 +309,7 @@
       "boton": "Registra tu Donación"
     },
     "frase": "Apóyanos en nuestra labor, juntos construimos soluciones.",
-    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+    "imagen": "/uploads/imagenes/tortas__2.jpg"
   },
   "serParte": {
     "titulo": "SE PARTE DEL PROGRAMA",

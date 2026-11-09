@@ -11,11 +11,12 @@ backend:
         update: 'Update {{collection}} "{{slug}}"'
         delete: 'Delete {{collection}} "{{slug}}"'
 
+# Las imágenes y archivos se guardan en el repositorio (sin Cloudflare R2).
+# media_folder/public_folder globales son el respaldo; cada campo image/file define su subcarpeta por tipo:
+#   public/uploads/imagenes (fotos), public/uploads/pdf, public/uploads/docs (Word/Excel/PowerPoint), public/uploads/otros
+# Regla: máx. 1 MB por foto (límite aplicado en cada campo de imagen). Videos: no se suben aquí (usar YouTube/Vimeo).
 media_folder: "public/uploads"
 public_folder: "/uploads"
-
-media_library:
-    name: r2-media
 
 collections:
     # =========================
@@ -44,6 +45,9 @@ collections:
                       label: "Imagen"
                       name: "imagen"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
 
                 # NUESTROS ALCANCES (5 cifras: las 3 primeras arriba, las 2 últimas abajo)
                 - label: "Nuestros Alcances - Cifras"
@@ -73,6 +77,9 @@ collections:
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
+                        media_folder: "/public/uploads/imagenes"
+                        public_folder: "/uploads/imagenes"
+                        media_library: { config: { max_file_size: 1048576 } }
 
                 # LÍNEA DE AYUDA (Imagen al lado derecho)
                 - label: "Línea de Ayuda - Imagen y mensaje"
@@ -82,6 +89,9 @@ collections:
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
+                        media_folder: "/public/uploads/imagenes"
+                        public_folder: "/uploads/imagenes"
+                        media_library: { config: { max_file_size: 1048576 } }
                       - label: "Mensaje"
                         name: "mensaje"
                         widget: "string"
@@ -101,6 +111,9 @@ collections:
                 - label: "Hero - Imagen"
                   name: "heroImagen"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
                 - label: "Descripción del programa"
                   name: "descripcion"
@@ -140,6 +153,9 @@ collections:
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
 
                 - label: "Testimonios - Carrusel Inferior (Verde)"
@@ -173,6 +189,9 @@ collections:
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
 
                 - label: "Metodologías de Prevención"
@@ -190,6 +209,9 @@ collections:
                             name: "archivo",
                             widget: "file",
                             required: false,
+                            media_folder: "/public/uploads/pdf",
+                            public_folder: "/uploads/pdf",
+                            hint: "Solo PDF. Máx. recomendado: 5 MB.",
                         }
 
                 - label: "Investigaciones"
@@ -207,6 +229,9 @@ collections:
                             name: "archivo",
                             widget: "file",
                             required: false,
+                            media_folder: "/public/uploads/pdf",
+                            public_folder: "/uploads/pdf",
+                            hint: "Solo PDF. Máx. recomendado: 5 MB.",
                         }
 
                 - label: "Formulario de Donación"
@@ -215,7 +240,7 @@ collections:
                   fields:
                       - { label: "Título", name: "titulo", widget: "string" }
                       - { label: "Frase", name: "frase", widget: "string" }
-                      - { label: "Imagen", name: "imagen", widget: "image" }
+                      - { label: "Imagen", name: "imagen", widget: "image", media_folder: "/public/uploads/imagenes", public_folder: "/uploads/imagenes", media_library: { config: { max_file_size: 1048576 } } }
 
     # =========================
     # NOTICIAS
@@ -235,6 +260,9 @@ collections:
                   name: "heroImagen"
                   widget: "image"
                   required: false
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
                 - label: "Nuestras Últimas Noticias"
                   name: "noticias"
                   widget: "list"
@@ -256,6 +284,9 @@ collections:
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
                       - {
                             label: "Párrafos del detalle",
@@ -279,6 +310,9 @@ collections:
                                     label: "Imagen",
                                     name: "imagen",
                                     widget: "image",
+                                    media_folder: "/public/uploads/imagenes",
+                                    public_folder: "/uploads/imagenes",
+                                    media_library: { config: { max_file_size: 1048576 } },
                                 },
                             max: 2,
                             required: false,
@@ -310,6 +344,9 @@ collections:
                   name: "heroImagen"
                   widget: "image"
                   required: false
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
                 - label: "Lista de Eventos"
                   name: "tarjetasEventos"
                   widget: "list"
@@ -338,6 +375,9 @@ collections:
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
                       - label: "Clasificación / Dirigido A (Chips)"
                         name: "dirigidoA"
@@ -381,6 +421,9 @@ collections:
                       - label: "Imagen de fondo"
                         name: "imagenFondo"
                         widget: "image"
+                        media_folder: "/public/uploads/imagenes"
+                        public_folder: "/uploads/imagenes"
+                        media_library: { config: { max_file_size: 1048576 } }
                 - label: "Contactos"
                   name: "contactos"
                   widget: "list"
@@ -407,6 +450,9 @@ collections:
                       - label: "Imagen"
                         name: "imagen"
                         widget: "image"
+                        media_folder: "/public/uploads/imagenes"
+                        public_folder: "/uploads/imagenes"
+                        media_library: { config: { max_file_size: 1048576 } }
                       - label: "Pasos"
                         name: "pasos"
                         widget: "list"
@@ -433,6 +479,9 @@ collections:
                   name: "heroImagen"
                   widget: "image"
                   required: false
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
                 - label: "Texto Barra Línea de Ayuda"
                   name: "lineaAyudaTexto"
                   widget: "string"
@@ -451,6 +500,9 @@ collections:
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
                 - label: "Postulación de Profesionales"
                   name: "postulacion"
@@ -472,12 +524,18 @@ collections:
                             name: "archivoPdf",
                             widget: "file",
                             required: false,
+                            media_folder: "/public/uploads/pdf",
+                            public_folder: "/uploads/pdf",
+                            hint: "Solo PDF. Máx. recomendado: 5 MB.",
                         }
                       - {
                             label: "Imagen",
                             name: "imagen",
                             widget: "image",
                             required: false,
+                            media_folder: "/public/uploads/imagenes",
+                            public_folder: "/uploads/imagenes",
+                            media_library: { config: { max_file_size: 1048576 } },
                         }
                 - label: "Sedes"
                   name: "sedes"
@@ -561,6 +619,9 @@ collections:
                 - label: "Imagen de fondo"
                   name: "imagenFondo"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
             # =========================
             # IDENTIDAD
@@ -616,6 +677,9 @@ collections:
                 - label: "Imagen"
                   name: "imagen"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
             # =========================
             # EQUIPO
@@ -638,6 +702,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Dirección Ejecutiva"
                   name: "direccionEjecutiva"
                   widget: "list"
@@ -652,6 +719,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "La Paz"
                   name: "laPaz"
                   widget: "list"
@@ -666,6 +736,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "El Alto"
                   name: "elAlto"
                   widget: "list"
@@ -680,6 +753,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Oruro"
                   name: "oruro"
                   widget: "list"
@@ -694,6 +770,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Santa Cruz"
                   name: "santaCruz"
                   widget: "list"
@@ -708,6 +787,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Sucre"
                   name: "sucre"
                   widget: "list"
@@ -722,6 +804,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Organizaciones Aliadas"
                   name: "organizacionesAliadas"
                   widget: "list"
@@ -736,6 +821,9 @@ collections:
                       name: "foto"
                       widget: "image"
                       required: false
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
 
     # =========================
     # NOTICIAS
@@ -769,6 +857,9 @@ collections:
           name: "imagen"
           widget: "image"
           required: true
+          media_folder: "/public/uploads/imagenes"
+          public_folder: "/uploads/imagenes"
+          media_library: { config: { max_file_size: 1048576 } }
         - label: "Imágenes secundarias"
           name: "imagenes"
           widget: "list"
@@ -777,6 +868,9 @@ collections:
             label: "Imagen"
             name: "imagen"
             widget: "image"
+            media_folder: "/public/uploads/imagenes"
+            public_folder: "/uploads/imagenes"
+            media_library: { config: { max_file_size: 1048576 } }
         - label: "Párrafos"
           name: "parrafos"
           widget: "list"
@@ -815,6 +909,9 @@ collections:
                 - label: "Imagen de fondo"
                   name: "imagenFondo"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
             # =========================
             # DESCRIPCIÓN
@@ -880,6 +977,9 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                 - label: "Metodologías"
                   name: "metodologias"
                   widget: "list"
@@ -897,7 +997,9 @@ collections:
                       name: "archivo"
                       widget: "file"
                       required: false
-                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada."
+                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada. PDF, Word, Excel o PowerPoint. Máx. recomendado: 5 MB."
+                      media_folder: "/public/uploads/docs"
+                      public_folder: "/uploads/docs"
                 - label: "Investigaciones"
                   name: "investigaciones"
                   widget: "list"
@@ -915,7 +1017,9 @@ collections:
                       name: "archivo"
                       widget: "file"
                       required: false
-                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada."
+                      hint: "Se usa si 'Descargable' está activado. Sin archivo, el botón no abre nada. PDF, Word, Excel o PowerPoint. Máx. recomendado: 5 MB."
+                      media_folder: "/public/uploads/docs"
+                      public_folder: "/uploads/docs"
 
             # =========================
             # DONACIÓN
@@ -933,6 +1037,9 @@ collections:
                 - label: "Imagen"
                   name: "imagen"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
                 - label: "Etiquetas"
                   name: "etiquetas"
                   widget: "object"
@@ -1028,6 +1135,9 @@ collections:
                 - label: "Imagen de fondo"
                   name: "imagenFondo"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
             # =========================
             # CÓMIC
@@ -1045,6 +1155,9 @@ collections:
                 - label: "Ilustración"
                   name: "ilustracion"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
                 - label: "Cómics"
                   name: "items"
                   widget: "list"
@@ -1055,10 +1168,15 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                     - label: "Archivo descargable"
                       name: "archivo"
                       widget: "file"
-                      hint: "Sube el archivo o pega su URL"
+                      hint: "Sube el archivo o pega su URL PDF, Word, Excel o PowerPoint. Máx. recomendado: 5 MB."
+                      media_folder: "/public/uploads/docs"
+                      public_folder: "/uploads/docs"
 
             # =========================
             # PREVENCIÓN
@@ -1083,10 +1201,15 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                     - label: "Archivo descargable"
                       name: "archivo"
                       widget: "file"
-                      hint: "Sube el archivo o pega su URL"
+                      hint: "Sube el archivo o pega su URL PDF, Word, Excel o PowerPoint. Máx. recomendado: 5 MB."
+                      media_folder: "/public/uploads/docs"
+                      public_folder: "/uploads/docs"
 
             # =========================
             # INFOGRAFÍAS
@@ -1111,10 +1234,15 @@ collections:
                     - label: "Imagen"
                       name: "imagen"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                     - label: "Archivo descargable"
                       name: "archivo"
                       widget: "file"
-                      hint: "Sube el archivo o pega su URL"
+                      hint: "Sube el archivo o pega su URL PDF, Word, Excel o PowerPoint. Máx. recomendado: 5 MB."
+                      media_folder: "/public/uploads/docs"
+                      public_folder: "/uploads/docs"
 
             # =========================
             # VIDEOS
@@ -1139,6 +1267,9 @@ collections:
                     - label: "Miniatura"
                       name: "thumbnail"
                       widget: "image"
+                      media_folder: "/public/uploads/imagenes"
+                      public_folder: "/uploads/imagenes"
+                      media_library: { config: { max_file_size: 1048576 } }
                     - label: "URL del video"
                       name: "videoUrl"
                       widget: "string"
@@ -1174,6 +1305,9 @@ collections:
                 - label: "Imagen de fondo"
                   name: "imagenFondo"
                   widget: "image"
+                  media_folder: "/public/uploads/imagenes"
+                  public_folder: "/uploads/imagenes"
+                  media_library: { config: { max_file_size: 1048576 } }
 
             - label: "Título de sección"
               name: "tituloSeccion"
@@ -1201,6 +1335,9 @@ collections:
               widget: "image"
               required: false
               hint: "Se muestra tras enviar una donación. Al vencer, el QR deja de mostrarse solo."
+              media_folder: "/public/uploads/imagenes"
+              public_folder: "/uploads/imagenes"
+              media_library: { config: { max_file_size: 1048576 } }
             - label: "Fecha de creación"
               name: "fechaCreacion"
               widget: "date"
