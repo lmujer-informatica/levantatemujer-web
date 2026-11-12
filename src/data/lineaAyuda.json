@@ -4,7 +4,7 @@
       "No estás sola, estamos contigo",
       "Tu denuncia salva vidas"
     ],
-    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788154977645-WhatsApp_Image_2026-07-13_at_3.48.57_PM.jpeg"
+    "imagenFondo": "/uploads/imagenes/WhatsApp_Image_2026-07-13_at_3.48.57_PM.jpeg"
   },
   "contactos": [
     {
@@ -53,7 +53,7 @@
       "titulo": "Por Violencia",
       "ley": "Ley 348",
       "descripcion_ley": "La Ley Integral para Garantizar a las Mujeres una Vida Libre de Violencia protege tus derechos y sanciona cualquier tipo de agresión física, psicológica o sexual en Bolivia.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788155068105-ATENCION_PSICOLOGICA_ADOLESCENTE_MUJER.JPG",
+      "imagen": "/uploads/imagenes/ATENCION_PSICOLOGICA_ADOLESCENTE_MUJER.JPG",
       "pasos": [
         "Acude de inmediato a la Fuerza Especial de Lucha Contra la Violencia (FELCV) o a un centro de salud más cercano si necesitas atención médica prioritaria.",
         "Presenta formalmente tu denuncia verbal o escrita relatando los hechos de manera detallada ante la instancia policial o fiscalía.",
@@ -64,7 +64,7 @@
       "titulo": "Por Trata y Tráfico",
       "ley": "Ley 263",
       "descripcion_ley": "Denuncia cualquier red o situación sospechosa de captación, traslado, acogida o explotación de personas bajo la normativa vigente de protección en el país.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1788155101144-Fiscal_a_General_del_Estado_socializ__el_Proyecto_de_Ley_para_la_Protecci_n_de_la_Integridad_Sexual_de_Ni_as__Ni_os_y_Adolescentes_en_Entornos_Digitales_3__3_.png",
+      "imagen": "/uploads/imagenes/proyecto-ley-integridad-sexual-entornos-digitales.png",
       "pasos": [
         "Identifica y anota cualquier dato clave sobre la desaparición, el traslado sospechoso o la ubicación de la persona afectada.",
         "Comunícate de forma confidencial con las líneas de emergencia nacionales o acude a la División de Trata y Tráfico de Personas de la Policía Boliviana.",

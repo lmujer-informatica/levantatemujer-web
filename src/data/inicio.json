@@ -5,8 +5,8 @@
     "Levántate Mujer, Cree en Ti"
   ],
   "heroImagenes": [
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
-    "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+    "/uploads/imagenes/DSC_0082.JPG",
+    "/uploads/imagenes/DSC_0090.JPG"
   ],
   "estadisticas": [
     { "valor": "6840", "etiqueta": "Personas Capacitadas" },
@@ -19,16 +19,16 @@
     {
       "nombre": "Mujeres Libres de Violencia",
       "descripcion": "Trabajamos activamente en la prevención y atención integral a mujeres víctimas de violencia, brindando acompañamiento psicológico, asesoría legal y espacios seguros de contención.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+      "imagen": "/uploads/imagenes/DSC_0090.JPG"
     },
     {
       "nombre": "Respuesta a la Trata e Inmigración",
       "descripcion": "Promovemos la protección y el acompañamiento integral de personas en situación de trata y migración, brindando orientación, asistencia y herramientas para fortalecer sus derechos, seguridad y oportunidades de integración.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+      "imagen": "/uploads/imagenes/tortas__2.jpg"
     }
   ],
   "lineaAyuda": {
-    "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+    "imagen": "/uploads/imagenes/DSC_0090.JPG",
     "mensaje": "Tu valentía abre caminos, nosotros acompañamos"
   }
 }

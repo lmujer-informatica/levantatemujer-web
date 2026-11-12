@@ -22,7 +22,7 @@
       "Caminamos juntas hacia la justicia",
       "Levántate, el mundo necesita tu luz"
     ],
-    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+    "imagenFondo": "/uploads/imagenes/DSC_0082.JPG"
   },
   "identidad": {
     "historia": {
@@ -42,17 +42,17 @@
     {
       "nombre": "Acogida",
       "descripcion": "Creamos espacios seguros donde cada mujer se siente escuchada, respetada y acompañada en todo momento.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG"
+      "imagen": "/uploads/imagenes/DSC_0075.JPG"
     },
     {
       "nombre": "Misericordia",
       "descripcion": "Actuamos con compasión y empatía, entendiendo el dolor ajeno y ofreciendo apoyo sin condiciones.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg"
+      "imagen": "/uploads/imagenes/tortas__2.jpg"
     },
     {
       "nombre": "Justicia",
       "descripcion": "Defendemos los derechos de las mujeres y trabajamos para que la justicia llegue a cada rincón del país.",
-      "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG"
+      "imagen": "/uploads/imagenes/DSC_0090.JPG"
     }
   ],
   "equipo": {

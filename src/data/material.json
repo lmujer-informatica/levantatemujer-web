@@ -22,21 +22,21 @@
       "Caminamos juntas hacia la justicia",
       "Levántate, el mundo necesita tu luz"
     ],
-    "imagenFondo": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG"
+    "imagenFondo": "/uploads/imagenes/DSC_0082.JPG"
   },
   "comic": {
     "titulo": "Cómic “Anita”",
     "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-    "ilustracion": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+    "ilustracion": "/uploads/imagenes/DSC_0090.JPG",
     "items": [
       {
         "titulo": "Título del Cómic",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
+        "imagen": "/uploads/imagenes/DSC_0075.JPG",
         "archivo": "#"
       },
       {
         "titulo": "Título del Cómic",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
+        "imagen": "/uploads/imagenes/tortas__2.jpg",
         "archivo": "#"
       }
     ]
@@ -47,17 +47,17 @@
     "items": [
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
+        "imagen": "/uploads/imagenes/DSC_0075.JPG",
         "archivo": "#"
       },
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+        "imagen": "/uploads/imagenes/DSC_0090.JPG",
         "archivo": "#"
       },
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
+        "imagen": "/uploads/imagenes/tortas__2.jpg",
         "archivo": "#"
       }
     ]
@@ -68,17 +68,17 @@
     "items": [
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+        "imagen": "/uploads/imagenes/DSC_0090.JPG",
         "archivo": "#"
       },
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787545891744-DSC_0075.JPG",
+        "imagen": "/uploads/imagenes/DSC_0075.JPG",
         "archivo": "#"
       },
       {
         "titulo": "Título",
-        "imagen": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787546361484-tortas__2.jpg",
+        "imagen": "/uploads/imagenes/tortas__2.jpg",
         "archivo": "#"
       }
     ]
@@ -89,13 +89,13 @@
       {
         "titulo": "Titulo del Video",
         "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        "thumbnail": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540888025-DSC_0082.JPG",
+        "thumbnail": "/uploads/imagenes/DSC_0082.JPG",
         "videoUrl": "#"
       },
       {
         "titulo": "Titulo del Video",
         "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        "thumbnail": "https://pub-4cb52416ccd048d8bbd2581c34b82329.r2.dev/uploads/1787540872375-DSC_0090.JPG",
+        "thumbnail": "/uploads/imagenes/DSC_0090.JPG",
         "videoUrl": "#"
       }
     ]
