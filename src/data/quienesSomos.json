@@ -151,6 +151,10 @@
       {
         "nombre": "Karla Alessandra Gutiérrez Veliz ",
         "cargo": "Asistente técnico "
+      },
+      {
+        "nombre": "María Estela Marca Marca",
+        "cargo": "Facilitadora"
       }
     ],
     "santaCruz": [
@@ -172,19 +176,31 @@
     ],
     "sucre": [
       {
-        "nombre": "Cristiano Ronaldo",
+        "nombre": "Carla Belen Perez Villca ",
+        "cargo": "Trabajadora Social",
+        "foto": ""
+      },
+      {
+        "nombre": "Maria Eugenia Martínez Beltran",
         "cargo": "Coordinadora",
         "foto": ""
       },
       {
-        "nombre": "Eva Tobalina",
-        "cargo": "Psicóloga",
+        "nombre": "Sonia Leslie La Madrid Pianya ",
+        "cargo": "Contadora",
         "foto": ""
       },
       {
-        "nombre": "Carlos Caballero Jurado",
-        "cargo": "Asesora Legal",
-        "foto": ""
+        "nombre": "Elvia Dolores Miranda Azurduy ",
+        "cargo": "Psicóloga"
+      },
+      {
+        "nombre": "Hilda Reyna Flores",
+        "cargo": "Trabajadora Social"
+      },
+      {
+        "nombre": "Jimmy Mamani Nina",
+        "cargo": "Técnico"
       }
     ],
     "organizacionesAliadas": [
