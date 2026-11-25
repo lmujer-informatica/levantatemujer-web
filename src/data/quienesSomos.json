@@ -60,195 +60,218 @@
     "direccionEjecutiva": [
       {
         "nombre": "Alfredo Alfaro Chirinos",
-        "cargo": "Director Ejecutivo"
+        "cargo": "Director Ejecutivo",
+        "foto": "/uploads/imagenes/equipo-alfredo-alfaro-chirinos.jpg"
       },
       {
         "nombre": "Alan Deivid Figueroa Frías ",
         "cargo": "Director de Planificación,  Monitoreo y Evaluación ",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-alan-deivid-figueroa-frias.jpg"
       },
       {
         "nombre": "Maria Teresa Tejerina Romero",
         "cargo": "Directora de Administración y Finanzas",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-maria-teresa-tejerina-romero.jpg"
       },
       {
         "nombre": "Kevin Jherson Illanes Guillen ",
         "cargo": "Contador",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-kevin-jherson-illanes-guillen.jpg"
       },
       {
         "nombre": "Alisson Flores Santa Cruz",
-        "cargo": "Comunicaciones"
+        "cargo": "Comunicaciones",
+        "foto": "/uploads/imagenes/equipo-alisson-flores-santa-cruz.jpg"
       }
     ],
     "laPaz": [
       {
         "nombre": "Elena Suárez Cordero",
         "cargo": "Coordinadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-elena-suarez-cordero.jpg"
       },
       {
         "nombre": "Eddy Vladimir Mamani Quispe",
         "cargo": "Abogado",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-eddy-vladimir-mamani-quispe.jpg"
       },
       {
         "nombre": "David Ricardo Velasco Guachalla",
         "cargo": "Facilitador Prevención",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-david-ricardo-velasco-guachalla.jpg"
       },
       {
         "nombre": "Ana María Callizaya Mamani",
-        "cargo": "Trabajadora Social"
+        "cargo": "Trabajadora Social",
+        "foto": "/uploads/imagenes/equipo-ana-maria-callizaya-mamani.jpg"
       },
       {
         "nombre": "Verónica Mamani Quispe",
-        "cargo": "Abogado"
+        "cargo": "Abogado",
+        "foto": "/uploads/imagenes/equipo-veronica-mamani-quispe.jpg"
       },
       {
         "nombre": "Rosario Mary Chuquimia Marca",
-        "cargo": "Psicóloga"
+        "cargo": "Psicóloga",
+        "foto": "/uploads/imagenes/equipo-rosario-mary-chuquimia-marca.jpg"
       },
       {
         "nombre": "Livia Magdalena Carreño Calizaya",
-        "cargo": "Abogada"
+        "cargo": "Abogada",
+        "foto": "/uploads/imagenes/equipo-livia-magdalena-carreno-calizaya.jpg"
       },
       {
         "nombre": "Ana Carla Benito Parra ",
-        "cargo": "Psicóloga"
+        "cargo": "Psicóloga",
+        "foto": "/uploads/imagenes/equipo-ana-carla-benito-parra.jpg"
       }
     ],
     "elAlto": [
       {
         "nombre": "Jessica Wendy Martinez Ávila ",
         "cargo": "Psicóloga Técnico Facilitadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-jessica-wendy-martinez-avila.jpg"
       },
       {
         "nombre": "Rosario Mamani Apaza",
         "cargo": "Trabajadora Social",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-rosario-mamani-apaza.jpg"
       },
       {
         "nombre": "Elizabeth Marianela Saenz Paz",
         "cargo": "Contadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-elizabeth-marianela-saenz-paz.jpg"
       },
       {
         "nombre": "Miguel Angel Fernández Quispe",
-        "cargo": "Abogado"
+        "cargo": "Abogado",
+        "foto": "/uploads/imagenes/equipo-miguel-angel-fernandez-quispe.jpg"
       },
       {
         "nombre": "William Ricardo Chávez Torres",
-        "cargo": "Psicólogo"
+        "cargo": "Psicólogo",
+        "foto": "/uploads/imagenes/equipo-william-ricardo-chavez-torres.jpg"
       },
       {
         "nombre": "Monica Mamani Mendoza",
-        "cargo": "Trabajadora Social"
+        "cargo": "Trabajadora Social",
+        "foto": "/uploads/imagenes/equipo-monica-mamani-mendoza.jpg"
       },
       {
         "nombre": "Jeanette Huayta Marquez",
-        "cargo": "Coordinadora"
+        "cargo": "Coordinadora",
+        "foto": "/uploads/imagenes/equipo-jeanette-huayta-marquez.jpg"
       },
       {
         "nombre": "Criss Luciana Rocha Alvarado ",
-        "cargo": "Psicóloga NNA"
+        "cargo": "Psicóloga NNA",
+        "foto": "/uploads/imagenes/equipo-criss-luciana-rocha-alvarado.jpg"
       },
       {
         "nombre": "Jhosett Adriana Hinojosa Espinoza",
-        "cargo": "Psicóloga"
+        "cargo": "Psicóloga",
+        "foto": "/uploads/imagenes/equipo-jhosett-adriana-hinojosa-espinoza.jpg"
       }
     ],
     "oruro": [
       {
         "nombre": "Hortensia Huarino Oscco",
         "cargo": "Coordinadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-hortensia-huarino-oscco.jpg"
       },
       {
         "nombre": "Gabriela Loredo Berbetty",
         "cargo": "Psicoterapeuta",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-gabriela-loredo-berbetty.jpg"
       },
       {
         "nombre": "Miguel Ángel Nicolas Mejía",
         "cargo": "Contador",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-miguel-angel-nicolas-mejia.jpg"
       },
       {
         "nombre": "Arlynes Jacqueline Arratia Rodríguez",
-        "cargo": "Responsable de Programa "
+        "cargo": "Responsable de Programa ",
+        "foto": "/uploads/imagenes/equipo-arlynes-jacqueline-arratia-rodriguez.jpg"
       },
       {
         "nombre": "Karen Lyss Rodriguez Condori ",
-        "cargo": "Abogads"
+        "cargo": "Abogads",
+        "foto": "/uploads/imagenes/equipo-karen-lyss-rodriguez-condori.jpg"
       },
       {
         "nombre": "Karla Alessandra Gutiérrez Veliz ",
-        "cargo": "Asistente técnico "
+        "cargo": "Asistente técnico ",
+        "foto": "/uploads/imagenes/equipo-karla-alessandra-gutierrez-veliz.jpg"
       },
       {
         "nombre": "María Estela Marca Marca",
-        "cargo": "Facilitadora"
+        "cargo": "Facilitadora",
+        "foto": "/uploads/imagenes/equipo-maria-estela-marca-marca.jpg"
       }
     ],
     "santaCruz": [
       {
         "nombre": "Kariduen Villafuerte ",
         "cargo": "Coordinadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-kariduen-villafuerte.jpg"
       },
       {
         "nombre": "Miguel Negrete",
         "cargo": "Técnico",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-miguel-negrete.jpg"
       },
       {
         "nombre": "Nohelia Ramirez",
         "cargo": "Educadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-nohelia-ramirez.jpg"
       },
       {
         "nombre": "Geraldine Viscarra",
-        "cargo": "Contadora"
+        "cargo": "Contadora",
+        "foto": "/uploads/imagenes/equipo-geraldine-viscarra.jpg"
       },
       {
         "nombre": "Lourdes Silva ",
-        "cargo": "Técnico"
+        "cargo": "Técnico",
+        "foto": "/uploads/imagenes/equipo-lourdes-silva.jpg"
       },
       {
         "nombre": "Rilma Ortiz ",
-        "cargo": "Educadora"
+        "cargo": "Educadora",
+        "foto": "/uploads/imagenes/equipo-rilma-ortiz.jpg"
       }
     ],
     "sucre": [
       {
         "nombre": "Carla Belen Perez Villca ",
         "cargo": "Trabajadora Social",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-carla-belen-perez-villca.jpg"
       },
       {
         "nombre": "Maria Eugenia Martínez Beltran",
         "cargo": "Coordinadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-maria-eugenia-martinez-beltran.jpg"
       },
       {
         "nombre": "Sonia Leslie La Madrid Pianya ",
         "cargo": "Contadora",
-        "foto": ""
+        "foto": "/uploads/imagenes/equipo-sonia-leslie-la-madrid-pianya.jpg"
       },
       {
         "nombre": "Elvia Dolores Miranda Azurduy ",
-        "cargo": "Psicóloga"
+        "cargo": "Psicóloga",
+        "foto": "/uploads/imagenes/equipo-elvia-dolores-miranda-azurduy.jpg"
       },
       {
         "nombre": "Hilda Reyna Flores",
-        "cargo": "Trabajadora Social"
+        "cargo": "Trabajadora Social",
+        "foto": "/uploads/imagenes/equipo-hilda-reyna-flores.jpg"
       },
       {
         "nombre": "Jimmy Mamani Nina",
-        "cargo": "Técnico"
+        "cargo": "Técnico",
+        "foto": "/uploads/imagenes/equipo-jimmy-mamani-nina.jpg"
       }
     ],
     "organizacionesAliadas": []

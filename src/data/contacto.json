@@ -21,63 +21,63 @@
     "sedes": [
         {
             "nombre": "La Paz",
-            "telefono": "+591 60000000",
-            "correo": "levantate@gmail.com",
-            "direccion": "Zona, calle, número",
-            "horario": "8:00 - 20:00",
+            "telefono": "2 2410025",
+            "correo": "lapaz@levantatemujer.com",
+            "direccion": "Centro Terapéutico Sartasim Kullakita - Zona Central",
+            "horario": "Lunes a Viernes: 08:30 - 17:00",
             "lat": -16.4955,
             "lng": -68.1336,
-            "facebook": "#",
-            "instagram": "#",
-            "tiktok": "#"
+            "facebook": "https://facebook.com/fundacionlevantatemujer",
+            "instagram": "https://instagram.com/fundacionlevantatemujer",
+            "tiktok": "https://tiktok.com/@fundacionlevantatemujer"
         },
         {
             "nombre": "El Alto",
-            "telefono": "+591 60000000",
-            "correo": "levantate@gmail.com",
-            "direccion": "Zona, calle, número",
-            "horario": "8:00 - 20:00",
+            "telefono": "+591 60025000",
+            "correo": "elalto@levantatemujer.com",
+            "direccion": "Centro Sartasim Warmi - Distrito 8, Senkata 79",
+            "horario": "Lunes a Viernes: 08:30 - 17:00",
             "lat": -16.51,
             "lng": -68.1625,
-            "facebook": "#",
-            "instagram": "#",
-            "tiktok": "#"
+            "facebook": "https://facebook.com/fundacionlevantatemujer",
+            "instagram": "https://instagram.com/fundacionlevantatemujer",
+            "tiktok": "https://tiktok.com/@fundacionlevantatemujer"
         },
         {
             "nombre": "Oruro",
-            "telefono": "+591 60000000",
-            "correo": "levantate@gmail.com",
-            "direccion": "Zona, calle, número",
-            "horario": "8:00 - 20:00",
+            "telefono": "800 10 8004",
+            "correo": "oruro@levantatemujer.com",
+            "direccion": "Regional Oruro - Centro de Atención Integral",
+            "horario": "Lunes a Viernes: 08:30 - 17:00",
             "lat": -17.9647,
             "lng": -67.1063,
-            "facebook": "#",
-            "instagram": "#",
-            "tiktok": "#"
+            "facebook": "https://facebook.com/fundacionlevantatemujer",
+            "instagram": "https://instagram.com/fundacionlevantatemujer",
+            "tiktok": "https://tiktok.com/@fundacionlevantatemujer"
         },
         {
             "nombre": "Santa Cruz",
-            "telefono": "+591 60000000",
-            "correo": "levantate@gmail.com",
-            "direccion": "Zona, calle, número",
-            "horario": "8:00 - 20:00",
+            "telefono": "+591 78183103",
+            "correo": "santacruz@levantatemujer.com",
+            "direccion": "Regional Santa Cruz - Centro de Acompañamiento y Prevención",
+            "horario": "Lunes a Viernes: 08:30 - 17:00",
             "lat": -17.7833,
             "lng": -63.1821,
-            "facebook": "#",
-            "instagram": "#",
-            "tiktok": "#"
+            "facebook": "https://facebook.com/fundacionlevantatemujer",
+            "instagram": "https://instagram.com/fundacionlevantatemujer",
+            "tiktok": "https://tiktok.com/@fundacionlevantatemujer"
         },
         {
             "nombre": "Sucre",
-            "telefono": "+591 60000000",
-            "correo": "levantate@gmail.com",
-            "direccion": "Zona, calle, número",
-            "horario": "8:00 - 20:00",
+            "telefono": "6453944",
+            "correo": "sucre@levantatemujer.com",
+            "direccion": "Regional Sucre - Centro de Orientación y Atención Integral",
+            "horario": "Lunes a Viernes: 08:30 - 17:00",
             "lat": -19.0353,
             "lng": -65.2592,
-            "facebook": "#",
-            "instagram": "#",
-            "tiktok": "#"
+            "facebook": "https://facebook.com/fundacionlevantatemujer",
+            "instagram": "https://instagram.com/fundacionlevantatemujer",
+            "tiktok": "https://tiktok.com/@fundacionlevantatemujer"
         }
     ]
 }

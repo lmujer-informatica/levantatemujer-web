@@ -69,40 +69,40 @@
       ],
       "metodologias": [
         {
-          "titulo": "Metodología A",
-          "resumen": "Enfoque participativo con comunidades para la prevención del delito de trata de personas.",
+          "titulo": "Prevención y Sensibilización Comunitaria",
+          "resumen": "Talleres participativos con juntas vecinales, unidades educativas y organizaciones sociales para alertar sobre la trata de personas.",
           "descargable": false
         },
         {
-          "titulo": "Metodología B",
-          "resumen": "Acompañamiento psicosocial individual y familiar con seguimiento integral.",
+          "titulo": "Acompañamiento Psicosocial Integral",
+          "resumen": "Atención terapéutica individual y familiar con enfoque restaurativo y seguimiento psicosocial continuo.",
           "descargable": true
         },
         {
-          "titulo": "Metodología C",
-          "resumen": "Formación de líderes y lideresas comunitarias como agentes de cambio.",
+          "titulo": "Formación de Promotoras Comunitarias",
+          "resumen": "Capacitación a lideresas territoriales como agentes de cambio y vigilancia preventiva contra la violencia.",
           "descargable": false
         },
         {
-          "titulo": "Metodología D",
-          "resumen": "Vinculación con redes de apoyo interinstitucionales para atención conjunta.",
+          "titulo": "Articulación Intersectorial de Protección",
+          "resumen": "Vinculación con defensorías, FELCV, SEDEGES y redes de apoyo para una respuesta integral oportuna.",
           "descargable": true
         }
       ],
       "investigaciones": [
         {
-          "titulo": "Estudio 2026",
-          "resumen": "Diagnóstico sobre las rutas de trata e inmigración irregular en la ciudad de La Paz.",
+          "titulo": "Diagnóstico de Rutas y Vulnerabilidad Territorial - La Paz",
+          "resumen": "Estudio situacional sobre dinámicas de captación, migración y factores de riesgo en zonas urbanas.",
           "descargable": true
         },
         {
-          "titulo": "Informe Quincenal",
-          "resumen": "Sistematización de atenciones y resultados de la red de apoyo local.",
+          "titulo": "Sistematización de Experiencias y Acompañamiento - La Paz",
+          "resumen": "Registro y evaluación de casos atendidos por los centros integrales de la Fundación.",
           "descargable": false
         },
         {
-          "titulo": "Mapa de Riesgo",
-          "resumen": "Identificación de zonas vulnerables y puntos de captación en el territorio.",
+          "titulo": "Cartografía y Detección de Puntos Críticos - La Paz",
+          "resumen": "Mapeo geoespacial de zonas de riesgo y redes de alerta comunitaria en el territorio.",
           "descargable": true
         }
       ]
@@ -128,30 +128,30 @@
       ],
       "metodologias": [
         {
-          "titulo": "Metodología A",
-          "resumen": "Sensibilización en unidades educativas y espacios públicos de alto tránsito.",
+          "titulo": "Prevención y Sensibilización Comunitaria",
+          "resumen": "Talleres participativos con juntas vecinales, unidades educativas y organizaciones sociales para alertar sobre la trata de personas.",
           "descargable": false
         },
         {
-          "titulo": "Metodología B",
-          "resumen": "Casas de acogida temporal y protocolo de reintegración social.",
+          "titulo": "Acompañamiento Psicosocial Integral",
+          "resumen": "Atención terapéutica individual y familiar con enfoque restaurativo y seguimiento psicosocial continuo.",
           "descargable": true
         },
         {
-          "titulo": "Metodología C",
-          "resumen": "Red de voluntariado joven para prevención y difusión de derechos.",
+          "titulo": "Formación de Promotoras Comunitarias",
+          "resumen": "Capacitación a lideresas territoriales como agentes de cambio y vigilancia preventiva contra la violencia.",
           "descargable": false
         }
       ],
       "investigaciones": [
         {
-          "titulo": "Estudio 2026",
-          "resumen": "Análisis de flujos migratorios y dinámicas de trata en El Alto.",
+          "titulo": "Diagnóstico de Rutas y Vulnerabilidad Territorial - El Alto",
+          "resumen": "Estudio situacional sobre dinámicas de captación, migración y factores de riesgo en zonas urbanas.",
           "descargable": true
         },
         {
-          "titulo": "Informe Semestral",
-          "resumen": "Resultados del programa de acompañamiento y derivación de casos.",
+          "titulo": "Sistematización de Experiencias y Acompañamiento - El Alto",
+          "resumen": "Registro y evaluación de casos atendidos por los centros integrales de la Fundación.",
           "descargable": true
         }
       ]
@@ -177,25 +177,25 @@
       ],
       "metodologias": [
         {
-          "titulo": "Metodología A",
-          "resumen": "Trabajo preventivo con juntas vecinales y organizaciones de base.",
+          "titulo": "Prevención y Sensibilización Comunitaria",
+          "resumen": "Talleres participativos con juntas vecinales, unidades educativas y organizaciones sociales para alertar sobre la trata de personas.",
           "descargable": false
         },
         {
-          "titulo": "Metodología B",
-          "resumen": "Rutas de derivación coordinadas con la felcv y defensorías locales.",
+          "titulo": "Acompañamiento Psicosocial Integral",
+          "resumen": "Atención terapéutica individual y familiar con enfoque restaurativo y seguimiento psicosocial continuo.",
           "descargable": true
         }
       ],
       "investigaciones": [
         {
-          "titulo": "Mapeo 2026",
-          "resumen": "Caracterización de zonas de captación en la región de Oruro.",
+          "titulo": "Diagnóstico de Rutas y Vulnerabilidad Territorial - Oruro",
+          "resumen": "Estudio situacional sobre dinámicas de captación, migración y factores de riesgo en zonas urbanas.",
           "descargable": true
         },
         {
-          "titulo": "Boletín Mensual",
-          "resumen": "Sistematización de avisos y denuncias ciudadanas registradas.",
+          "titulo": "Sistematización de Experiencias y Acompañamiento - Oruro",
+          "resumen": "Registro y evaluación de casos atendidos por los centros integrales de la Fundación.",
           "descargable": false
         }
       ]
@@ -221,35 +221,35 @@
       ],
       "metodologias": [
         {
-          "titulo": "Metodología A",
-          "resumen": "Estrategias de prevención en aeropuertos y terminales de buses.",
+          "titulo": "Prevención y Sensibilización Comunitaria",
+          "resumen": "Talleres participativos con juntas vecinales, unidades educativas y organizaciones sociales para alertar sobre la trata de personas.",
           "descargable": true
         },
         {
-          "titulo": "Metodología B",
-          "resumen": "Reinserción laboral y formación técnica para sobrevivientes.",
+          "titulo": "Acompañamiento Psicosocial Integral",
+          "resumen": "Atención terapéutica individual y familiar con enfoque restaurativo y seguimiento psicosocial continuo.",
           "descargable": false
         },
         {
-          "titulo": "Metodología C",
-          "resumen": "Alertas tempranas con transporte interprovincial e interdepartamental.",
+          "titulo": "Formación de Promotoras Comunitarias",
+          "resumen": "Capacitación a lideresas territoriales como agentes de cambio y vigilancia preventiva contra la violencia.",
           "descargable": true
         }
       ],
       "investigaciones": [
         {
-          "titulo": "Estudio 2026",
-          "resumen": "Rutas comerciales y de traslado de personas en la región oriental.",
+          "titulo": "Diagnóstico de Rutas y Vulnerabilidad Territorial - Santa Cruz",
+          "resumen": "Estudio situacional sobre dinámicas de captación, migración y factores de riesgo en zonas urbanas.",
           "descargable": true
         },
         {
-          "titulo": "Informe Anual",
-          "resumen": "Impacto del programa y métricas de atención en Santa Cruz.",
+          "titulo": "Sistematización de Experiencias y Acompañamiento - Santa Cruz",
+          "resumen": "Registro y evaluación de casos atendidos por los centros integrales de la Fundación.",
           "descargable": true
         },
         {
-          "titulo": "Análisis Sectorial",
-          "resumen": "Informe sobre explotación laboral y captación en rubros informales.",
+          "titulo": "Cartografía y Detección de Puntos Críticos - Santa Cruz",
+          "resumen": "Mapeo geoespacial de zonas de riesgo y redes de alerta comunitaria en el territorio.",
           "descargable": true
         }
       ]
@@ -275,25 +275,25 @@
       ],
       "metodologias": [
         {
-          "titulo": "Metodología A",
-          "resumen": "Prevención con estudiantes y padres de familia en colegios de la capital.",
+          "titulo": "Prevención y Sensibilización Comunitaria",
+          "resumen": "Talleres participativos con juntas vecinales, unidades educativas y organizaciones sociales para alertar sobre la trata de personas.",
           "descargable": false
         },
         {
-          "titulo": "Metodología B",
-          "resumen": "Atención integral con enfoque intercultural y de derechos humanos.",
+          "titulo": "Acompañamiento Psicosocial Integral",
+          "resumen": "Atención terapéutica individual y familiar con enfoque restaurativo y seguimiento psicosocial continuo.",
           "descargable": true
         }
       ],
       "investigaciones": [
         {
-          "titulo": "Mapeo 2026",
-          "resumen": "Diagnóstico sobre migración interna y trata en Chuquisaca.",
+          "titulo": "Diagnóstico de Rutas y Vulnerabilidad Territorial - Sucre",
+          "resumen": "Estudio situacional sobre dinámicas de captación, migración y factores de riesgo en zonas urbanas.",
           "descargable": true
         },
         {
-          "titulo": "Boletín Mensual",
-          "resumen": "Registro de actividades de prevención y atención realizadas.",
+          "titulo": "Sistematización de Experiencias y Acompañamiento - Sucre",
+          "resumen": "Registro y evaluación de casos atendidos por los centros integrales de la Fundación.",
           "descargable": false
         }
       ]

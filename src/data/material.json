@@ -97,16 +97,16 @@
     "titulo": "Videos Educativos",
     "items": [
       {
-        "titulo": "Titulo del Video",
-        "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        "thumbnail": "/uploads/imagenes/DSC_0082.JPG",
-        "videoUrl": "#"
+        "titulo": "Prevención de Violencias en la Comunidad",
+        "descripcion": "Campaña audiovisual institucional orientada a la identificación de señales de riesgo y activación oportuna de redes de apoyo.",
+        "thumbnail": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg",
+        "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       },
       {
-        "titulo": "Titulo del Video",
-        "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+        "titulo": "Uso Seguro de Redes Sociales y Ciberseguridad",
+        "descripcion": "Guía pedagógica en video sobre detección de engaños digitales y prevención de la trata en plataformas virtuales.",
         "thumbnail": "/uploads/imagenes/noticia-periodistas-sucre.jpeg",
-        "videoUrl": "#"
+        "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }
     ]
   }
