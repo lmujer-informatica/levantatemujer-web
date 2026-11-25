@@ -34,23 +34,33 @@
       "colorTema": "#2C8E9E"
     },
     {
-      "id": 4,
-      "fecha": "2026-10-14",
-      "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
+      "imagenes": [
+        "/uploads/imagenes/DSC_0082.JPG",
+        "/uploads/imagenes/tortas__2.jpg"
+      ],
+      "colorTema": "#93A635",
       "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
+      "url": "https://levantatemujer.org/campana-2026",
       "imagen": "/uploads/imagenes/DSC_0090.JPG",
+      "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
       "parrafos": [
         "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod. Nibh libero fermentum donec duis risus maecenas, scelerisque cubilia hac hendrerit quisque torquent.",
         "Vel netus ultricies fames egestas. Himenaeos rutrum placerat morbi conubia potenti mus nulla habitant turpis, est netus gravida natoque metus dignissim congue laoreet. Scelerisque parturient hendrerit per habitasse integer litora nisi, luctus pulvinar himenaeos euismod purus condimentum nullam arcu.",
         "Vehicula imperdiet quis tristique, accumsan cursus justo mattis tincidunt ante, nisl dui fringilla elementum.\nSegunda línea del mismo párrafo, para comprobar que los saltos de línea se respetan en el detalle.",
         "Cierre del texto: lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       ],
-      "imagenes": [
-        "/uploads/imagenes/DSC_0082.JPG",
-        "/uploads/imagenes/tortas__2.jpg"
-      ],
-      "url": "https://levantatemujer.org/campana-2026",
-      "colorTema": "#93A635"
+      "id": 4,
+      "fecha": "2026-10-14"
+    },
+    {
+      "colorTema": "#2C8E9E",
+      "titulo": "Compromiso comunitario por la niñez: La Fundación Levántate Mujer se une a la jornada de prevención contra la violencia sexual en Senkata",
+      "fecha": "2026-08-01",
+      "descripcion": "En el marco del Día de Solidaridad con Víctimas de Violencia Sexual, la Fundación participó en la caminata y feria educativa en el Coliseo de Senkata 79 del Distrito 8 de El Alto, movilizando a brigadas juveniles y familias.",
+      "imagen": "/uploads/imagenes/agosto_image1.jpeg",
+      "parrafos": [
+        "En fiel sintonía con la misión de acoger, proteger y restituir la dignidad de las personas más vulnerables —carisma heredado de la Congregación de Nuestra Señora de la Caridad del Buen Pastor—, la Fundación Levántate Mujer Sartasim Warmi El Alto tuvo una destacada participación en la Caminata y Feria Educativa conmemorativa.\n\nLa actividad se llevó a cabo en las instalaciones del Coliseo de Senkata 79, un punto neurálgico del Distrito 8 de la ciudad de El Alto, articulando esfuerzos con la Casa Kusisiña y la Red Interinstitucional Contra la Violencia.\n\nUn aspecto central fue la presencia de la brigada juvenil «Guardianes Antiviolencia y Trata de Personas», quienes lideraron dinámicas participativas transmitiendo un mensaje de alerta, solidaridad y esperanza entre sus pares."
+      ]
     }
   ]
 }
