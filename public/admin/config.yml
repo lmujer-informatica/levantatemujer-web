@@ -130,8 +130,11 @@ collections:
                       - {
                             label: "Fecha",
                             name: "fecha",
-                            widget: "date",
+                            widget: "datetime",
                             format: "YYYY-MM-DD",
+                            time_format: false,
+                            date_format: "YYYY-MM-DD",
+                            picker_utc: true,
                         }
                       - {
                             label: "Nombre del Testigo",
@@ -166,8 +169,11 @@ collections:
                       - {
                             label: "Fecha",
                             name: "fecha",
-                            widget: "date",
+                            widget: "datetime",
                             format: "YYYY-MM-DD",
+                            time_format: false,
+                            date_format: "YYYY-MM-DD",
+                            picker_utc: true,
                         }
                       - {
                             label: "Nombre del Testigo",
@@ -271,8 +277,11 @@ collections:
                       - {
                             label: "Fecha",
                             name: "fecha",
-                            widget: "date",
+                            widget: "datetime",
                             format: "YYYY-MM-DD",
+                            time_format: false,
+                            date_format: "YYYY-MM-DD",
+                            picker_utc: true,
                         }
                       - {
                             label: "Descripción",
@@ -355,8 +364,11 @@ collections:
                       - {
                             label: "Fecha",
                             name: "fecha",
-                            widget: "date",
+                            widget: "datetime",
                             format: "YYYY-MM-DD",
+                            time_format: false,
+                            date_format: "YYYY-MM-DD",
+                            picker_utc: true,
                         }
                       - { label: "Hora", name: "hora", widget: "string", default: "09:00 - 12:00" }
                       - label: "Sede / Departamento"
@@ -1340,14 +1352,20 @@ collections:
               media_library: { config: { max_file_size: 1048576 } }
             - label: "Fecha de creación"
               name: "fechaCreacion"
-              widget: "date"
+              widget: "datetime"
               format: "YYYY-MM-DD"
+              time_format: false
+              date_format: "YYYY-MM-DD"
+              picker_utc: true
               required: false
               hint: "Obligatoria si hay imagen. El QR se muestra desde este día (inclusive)."
             - label: "Fecha de vencimiento"
               name: "fechaVencimiento"
-              widget: "date"
+              widget: "datetime"
               format: "YYYY-MM-DD"
+              time_format: false
+              date_format: "YYYY-MM-DD"
+              picker_utc: true
               required: false
               hint: "Obligatoria si hay imagen. Al vencer, el QR deja de mostrarse solo (el último día sigue visible)."
             - label: "Título"
