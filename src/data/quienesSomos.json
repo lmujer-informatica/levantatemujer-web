@@ -56,14 +56,12 @@
     }
   ],
   "equipo": {
-    "directorio": [
+    "directorio": [],
+    "direccionEjecutiva": [
       {
         "nombre": "Alfredo Alfaro Chirinos",
-        "cargo": "Director Ejecutivo",
-        "foto": ""
-      }
-    ],
-    "direccionEjecutiva": [
+        "cargo": "Director Ejecutivo"
+      },
       {
         "nombre": "Alan Deivid Figueroa Frías ",
         "cargo": "Director de Planificación,  Monitoreo y Evaluación ",
