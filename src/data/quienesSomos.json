@@ -203,19 +203,31 @@
     ],
     "santaCruz": [
       {
-        "nombre": "Guts",
+        "nombre": "Kariduen Villafuerte ",
         "cargo": "Coordinadora",
         "foto": ""
       },
       {
-        "nombre": "Daniel Rabinovich",
-        "cargo": "Psicóloga",
+        "nombre": "Miguel Negrete",
+        "cargo": "Técnico",
         "foto": ""
       },
       {
-        "nombre": "Aldo Bartra",
-        "cargo": "Asesora Legal",
+        "nombre": "Nohelia Ramirez",
+        "cargo": "Educadora",
         "foto": ""
+      },
+      {
+        "nombre": "Geraldine Viscarra",
+        "cargo": "Contadora"
+      },
+      {
+        "nombre": "Lourdes Silva ",
+        "cargo": "Técnico"
+      },
+      {
+        "nombre": "Rilma Ortiz ",
+        "cargo": "Educadora"
       }
     ],
     "sucre": [
