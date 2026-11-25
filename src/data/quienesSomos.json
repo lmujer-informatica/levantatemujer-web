@@ -92,36 +92,80 @@
     ],
     "laPaz": [
       {
-        "nombre": "Ricardo Somocurcio",
-        "cargo": "Psicóloga",
-        "foto": ""
-      },
-      {
-        "nombre": "Edward Elric",
-        "cargo": "Asesora Legal",
-        "foto": ""
-      },
-      {
-        "nombre": "Casar Octaviano Augusto",
-        "cargo": "Trabajadora Social",
-        "foto": ""
-      }
-    ],
-    "elAlto": [
-      {
-        "nombre": "Ekko",
+        "nombre": "Elena Suárez Cordero",
         "cargo": "Coordinadora",
         "foto": ""
       },
       {
-        "nombre": "Arthur Morgan",
-        "cargo": "Psicóloga",
+        "nombre": "Eddy Vladimir Mamani Quispe",
+        "cargo": "Abogado",
         "foto": ""
       },
       {
-        "nombre": "Björn Ulvaeus",
-        "cargo": "Asesora Legal",
+        "nombre": "David Ricardo Velasco Guachalla",
+        "cargo": "Facilitador Prevención",
         "foto": ""
+      },
+      {
+        "nombre": "Ana María Callizaya Mamani",
+        "cargo": "Trabajadora Social"
+      },
+      {
+        "nombre": "Verónica Mamani Quispe",
+        "cargo": "Abogado"
+      },
+      {
+        "nombre": "Rosario Mary Chuquimia Marca",
+        "cargo": "Psicóloga"
+      },
+      {
+        "nombre": "Livia Magdalena Carreño Calizaya",
+        "cargo": "Abogada"
+      },
+      {
+        "nombre": "Ana Carla Benito Parra ",
+        "cargo": "Psicóloga"
+      }
+    ],
+    "elAlto": [
+      {
+        "nombre": "Jessica Wendy Martinez Ávila ",
+        "cargo": "Psicóloga Técnico Facilitadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Rosario Mamani Apaza",
+        "cargo": "Trabajadora Social",
+        "foto": ""
+      },
+      {
+        "nombre": "Elizabeth Marianela Saenz Paz",
+        "cargo": "Contadora",
+        "foto": ""
+      },
+      {
+        "nombre": "Miguel Angel Fernández Quispe",
+        "cargo": "Abogado"
+      },
+      {
+        "nombre": "William Ricardo Chávez Torres",
+        "cargo": "Psicólogo"
+      },
+      {
+        "nombre": "Monica Mamani Mendoza",
+        "cargo": "Trabajadora Social"
+      },
+      {
+        "nombre": "Jeanette Huayta Marquez",
+        "cargo": "Coordinadora"
+      },
+      {
+        "nombre": "Criss Luciana Rocha Alvarado ",
+        "cargo": "Psicóloga NNA"
+      },
+      {
+        "nombre": "Jhosett Adriana Hinojosa Espinoza",
+        "cargo": "Psicóloga"
       }
     ],
     "oruro": [
