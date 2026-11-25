@@ -75,19 +75,23 @@
     ],
     "direccionEjecutiva": [
       {
-        "nombre": "William Afton",
-        "cargo": "Directora Ejecutiva",
+        "nombre": "Alan Deivid Figueroa Frías ",
+        "cargo": "Director de Planificación,  Monitoreo y Evaluación ",
         "foto": ""
       },
       {
-        "nombre": "Meruem",
-        "cargo": "Subdirectora",
+        "nombre": "Maria Teresa Tejerina Romero",
+        "cargo": "Directora de Administración y Finanzas",
         "foto": ""
       },
       {
-        "nombre": "Daniel Sempere",
-        "cargo": "Coordinadora General",
+        "nombre": "Kevin Jherson Illanes Guillen ",
+        "cargo": "Contador",
         "foto": ""
+      },
+      {
+        "nombre": "Alisson Flores Santa Cruz",
+        "cargo": "Comunicaciones"
       }
     ],
     "laPaz": [
