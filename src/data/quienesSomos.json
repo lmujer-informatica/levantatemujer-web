@@ -251,22 +251,6 @@
         "cargo": "Técnico"
       }
     ],
-    "organizacionesAliadas": [
-      {
-        "nombre": "Fundación Mujeres en Marcha",
-        "rubro": "Derechos Humanos",
-        "foto": ""
-      },
-      {
-        "nombre": "Red de Mujeres Bolivianas",
-        "rubro": "Incidencia Política",
-        "foto": ""
-      },
-      {
-        "nombre": "Colectiva Igualdad Ya",
-        "rubro": "Género y Justicia",
-        "foto": ""
-      }
-    ]
+    "organizacionesAliadas": []
   }
 }
