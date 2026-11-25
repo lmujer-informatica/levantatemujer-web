@@ -25,61 +25,71 @@
     "imagenFondo": "/uploads/imagenes/DSC_0082.JPG"
   },
   "comic": {
-    "titulo": "Cómic “Anita”",
-    "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-    "ilustracion": "/uploads/imagenes/DSC_0090.JPG",
+    "titulo": "Cómics Educativos de Prevención",
+    "descripcion": "Material didáctico e historietas ilustradas orientadas a la sensibilización, prevención de la violencia intrafamiliar y detección temprana de situaciones de vulnerabilidad en la niñez y adolescencia.",
+    "ilustracion": "/uploads/imagenes/noticia-senkata-agosto.jpeg",
     "items": [
       {
-        "titulo": "Título del Cómic",
-        "imagen": "/uploads/imagenes/DSC_0075.JPG",
-        "archivo": "#"
+        "titulo": "Cómic Anita",
+        "imagen": "/uploads/imagenes/DSC_0090.JPG",
+        "archivo": "/uploads/pdf/comic-anita.pdf"
       },
       {
-        "titulo": "Título del Cómic",
-        "imagen": "/uploads/imagenes/tortas__2.jpg",
-        "archivo": "#"
+        "titulo": "Cómic Mercedes (Vol. 1)",
+        "imagen": "/uploads/imagenes/DSC_0075.JPG",
+        "archivo": "/uploads/pdf/comic-mercedes-1.pdf"
+      },
+      {
+        "titulo": "Cómic Mercedes (Vol. 2)",
+        "imagen": "/uploads/imagenes/DSC_0082.JPG",
+        "archivo": "/uploads/pdf/comic-mercedes-2.pdf"
+      },
+      {
+        "titulo": "Prevención en Redes",
+        "imagen": "/uploads/imagenes/noticia-entorno-digital.jpeg",
+        "archivo": "/uploads/pdf/comic-redes-sociales.pdf"
       }
     ]
   },
   "prevencion": {
-    "titulo": "Material de Prevención",
-    "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+    "titulo": "Material de Prevención y Derechos",
+    "descripcion": "Herramientas de orientación, cartillas preventivas y guías didácticas para familias, lideresas comunitarias y personal de respuesta.",
     "items": [
       {
-        "titulo": "Título",
-        "imagen": "/uploads/imagenes/DSC_0075.JPG",
-        "archivo": "#"
+        "titulo": "Seguridad en Entornos Digitales",
+        "imagen": "/uploads/imagenes/noticia-entorno-digital.jpeg",
+        "archivo": "/uploads/pdf/comic-redes-sociales.pdf"
       },
       {
-        "titulo": "Título",
-        "imagen": "/uploads/imagenes/DSC_0090.JPG",
-        "archivo": "#"
+        "titulo": "Detección Temprana de Violencia",
+        "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg",
+        "archivo": "/uploads/pdf/comic-anita.pdf"
       },
       {
-        "titulo": "Título",
-        "imagen": "/uploads/imagenes/tortas__2.jpg",
-        "archivo": "#"
+        "titulo": "Red Comunitaria y Derechos",
+        "imagen": "/uploads/imagenes/noticia-promotoras-chuquisaca.jpeg",
+        "archivo": "/uploads/pdf/comic-mercedes-1.pdf"
       }
     ]
   },
   "infografias": {
-    "titulo": "Infografías Educativas",
-    "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
+    "titulo": "Infografías y Recursos Visuales",
+    "descripcion": "Síntesis gráficas explicativas sobre rutas de denuncia, derechos fundamentales y mecanismos de protección integral.",
     "items": [
       {
-        "titulo": "Título",
+        "titulo": "Rutas de Atención Integral",
         "imagen": "/uploads/imagenes/DSC_0090.JPG",
-        "archivo": "#"
+        "archivo": "/uploads/pdf/comic-anita.pdf"
       },
       {
-        "titulo": "Título",
+        "titulo": "Ciberseguridad y Prevención de Trata",
+        "imagen": "/uploads/imagenes/noticia-entorno-digital.jpeg",
+        "archivo": "/uploads/pdf/comic-redes-sociales.pdf"
+      },
+      {
+        "titulo": "Contención y Derivación Oportuna",
         "imagen": "/uploads/imagenes/DSC_0075.JPG",
-        "archivo": "#"
-      },
-      {
-        "titulo": "Título",
-        "imagen": "/uploads/imagenes/tortas__2.jpg",
-        "archivo": "#"
+        "archivo": "/uploads/pdf/comic-mercedes-2.pdf"
       }
     ]
   },

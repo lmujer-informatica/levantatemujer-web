@@ -8,58 +8,162 @@
   "noticias": [
     {
       "id": 1,
-      "fecha": "2026-09-20",
-      "titulo": "Inicio de Talleres de Capacitación Técnica",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG",
-      "url": "https://levantatemujer.org/capacitacion",
-      "colorTema": "#2C8E9E"
+      "fecha": "2026-08-01",
+      "titulo": "Compromiso comunitario por la niñez: La Fundación Levántate Mujer se une a la jornada de prevención contra la violencia sexual y la trata en el Distrito 8",
+      "descripcion": "En el marco del Día de Solidaridad con Víctimas de Violencia Sexual, la Fundación participó en la caminata y feria educativa en Senkata 79 (Distrito 8 de El Alto).",
+      "imagen": "/uploads/imagenes/noticia-senkata-agosto.jpeg",
+      "colorTema": "#2C8E9E",
+      "parrafos": [
+        "En fiel sintonía con la misión de acoger, proteger y restituir la dignidad de las personas más vulnerables —carisma heredado de la Congregación de Nuestra Señora de la Caridad del Buen Pastor—, la Fundación Levántate Mujer Sartasim Warmi El Alto tuvo una destacada participación en la Caminata y Feria Educativa realizada en conmemoración al «Día de Solidaridad con Niñas, Niños y Adolescentes Víctimas de Violencia Sexual» (recordado oficialmente cada 9 de agosto).",
+        "La actividad se llevó a cabo el pasado 1 de agosto en las instalaciones del Coliseo de Senkata 79, un punto neurálgico del Distrito 8 de la ciudad de El Alto. El encuentro fue el resultado de un esfuerzo de articulación interinstitucional organizado junto a la Casa Kusisiña y la Red Interinstitucional Contra la Violencia del Distrito 8, logrando convocar a vecinos, familias, líderes locales y diversas organizaciones sociales comprometidas con la protección de la infancia.",
+        "Acción comunitaria y prevención en el territorio",
+        "Esta movilización pública se enmarcó formalmente en el desarrollo del proyecto «Fortalecimiento del sistema de Atención y Prevención Contra la Trata de Personas en Bolivia», una iniciativa que busca sensibilizar a la población y consolidar redes de protección social efectivas en las zonas urbanas de mayor vulnerabilidad.",
+        "Durante la jornada, el equipo técnico multidisciplinario de la Fundación Levántate Mujer Sartasim Warmi El Alto desplegó una labor de sensibilización e información a través de la entrega de material didáctico y herramientas conceptuales enfocadas en la detección temprana y prevención del abuso sexual infantil, así como de los delitos de trata de personas y tráfico ilícito de migrantes.",
+        "El valor fundamental del voluntariado juvenil",
+        "Un aspecto central de la participación de la Fundación fue la presencia activa de la brigada de jóvenes «Guardianes Antiviolencia y Trata de Personas». Este grupo de brigadistas comunitarios, formados bajo los principios de empatía, justicia social y buen trato que promueve la espiritualidad del Buen Pastor, desempeñó un rol protagónico al liderar dinámicas participativas con los asistentes, transmitiendo un mensaje claro de alerta, solidaridad y esperanza entre sus pares.",
+        "El trabajo de la brigada refleja la apuesta estratégica de la Fundación por empoderar a la propia juventud de El Alto, convirtiéndola en un agente de cambio capaz de vigilar, proteger y denunciar situaciones que pongan en riesgo la integridad física y emocional de la niñez en sus propios barrios y colegios.",
+        "Una alianza continua por la defensa de los derechos humanos",
+        "Inspirada en el enfoque del Buen Pastor, que concibe el servicio social no solo como una asistencia, sino como un acto profundo de amor, restitución de derechos y transformación social, la Fundación Levántate Mujer valoró de manera muy especial el compromiso demostrado por las organizaciones aliadas, las autoridades locales y la comunidad en general.",
+        "Con este tipo de acciones públicas y territoriales, la Fundación Levántate Mujer reafirma su labor constante en la ciudad de El Alto, consolidándose como un referente en la defensa irrestricta de los derechos humanos y en la construcción de entornos seguros, compasivos y libres de cualquier forma de violencia para las futuras generaciones."
+      ]
     },
     {
       "id": 2,
-      "fecha": "2026-09-28",
-      "titulo": "Feria de Emprendedoras en la Plaza Central",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG",
-      "url": "https://levantatemujer.org/feria-emprendedoras",
-      "colorTema": "#93A635"
+      "fecha": "2026-08-09",
+      "titulo": "En el Día Nacional de la Solidaridad con las víctimas de agresiones sexuales: La Fundación Levántate Mujer se suma a la marcha de sensibilización en Sucre",
+      "descripcion": "La Fundación Levántate Mujer se sumó a la movilización ciudadana en Sucre y demandó justicia oportuna y protección integral a la niñez y adolescencia.",
+      "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg",
+      "colorTema": "#93A635",
+      "parrafos": [
+        "Bajo el compromiso de proteger la vida, promover la justicia social y velar por la dignidad de la infancia y adolescencia —principios alineados al carisma y visión de la Congregación de Nuestra Señora de la Caridad del Buen Pastor—, la Fundación Levántate Mujer participó en la marcha de sensibilización realizada en la ciudad de Sucre en conmemoración del Día Nacional de la Solidaridad con las Víctimas de Agresiones Sexuales y en Contra de la Violencia Sexual en Niñas, Niños y Adolescentes.",
+        "El recorrido se desplegó por las principales arterias de la capital del país, constituyéndose en un espacio público de visibilización y denuncia activa frente a las violaciones a los derechos humanos que afectan a la población infantil y juvenil.",
+        "Alianza interinstitucional por la prevención y los derechos",
+        "La movilización destacó por su alta capacidad de convocatoria e integración interinstitucional, contando con la presencia de entidades públicas y de la sociedad civil como el Servicio Departamental de Gestión Social (SEDEGES), el Centro de Prevención y Atención a la Trata de Personas (CEPAT), la Secretaría de Desarrollo Humano y Social del Gobierno Autónomo Departamental de Chuquisaca, la Defensoría del Pueblo, la Fuerza Especial de Lucha Contra la Violencia (FELCV), Aldeas Infantiles SOS y la red de EDUACTIVISTAS, entre otros actores sociales.",
+        "A lo largo del trayecto, las delegaciones difundieron materiales orientativos y proclamaron consignas orientadas a la detección temprana, la denuncia oportuna y la construcción de entornos seguros para la niñez.",
+        "Participación juvenil y uso de nuevas tecnologías",
+        "Tras la movilización de las calles, la jornada prosiguió con un acto de premiación del concurso de videos cortos en la red social TikTok. Esta iniciativa buscó involucrar de manera directa a adolescentes y jóvenes, empleando plataformas digitales para transformar sus voces en herramientas pedagógicas de prevención contra la violencia sexual entre pares y en sus entornos cercanos.",
+        "La participación de las nuevas generaciones en estos certámenes creativos demuestra la importancia de fomentar liderazgos juveniles alineados a la empatía, el cuidado mutuo y el respeto irrestricto a los derechos fundamentales.",
+        "Continuidad en la misión",
+        "Para la Fundación Levántate Mujer, este tipo de intervenciones públicas en el departamento de Chuquisaca reafirma la trascendencia del trabajo articulado entre el Estado, las organizaciones eclesiales y la sociedad civil. La institución mantiene su firme compromiso de continuar impulsando estrategias de prevención, acompañamiento humano e incidencia social para erradicar toda forma de vulneración hacia niñas, niños y adolescentes."
+      ]
     },
     {
       "id": 3,
-      "fecha": "2026-10-08",
-      "titulo": "Convenio Interinstitucional por la Igualdad",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG",
-      "url": "https://levantatemujer.org/convenio-igualdad",
-      "colorTema": "#2C8E9E"
-    },
-    {
-      "imagenes": [
-        "/uploads/imagenes/DSC_0082.JPG",
-        "/uploads/imagenes/tortas__2.jpg"
-      ],
-      "colorTema": "#93A635",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus.",
-      "url": "https://levantatemujer.org/campana-2026",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG",
-      "titulo": "Lanzamiento de la Campaña Comunitaria 2026",
-      "parrafos": [
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod. Nibh libero fermentum donec duis risus maecenas, scelerisque cubilia hac hendrerit quisque torquent.",
-        "Vel netus ultricies fames egestas. Himenaeos rutrum placerat morbi conubia potenti mus nulla habitant turpis, est netus gravida natoque metus dignissim congue laoreet. Scelerisque parturient hendrerit per habitasse integer litora nisi, luctus pulvinar himenaeos euismod purus condimentum nullam arcu.",
-        "Vehicula imperdiet quis tristique, accumsan cursus justo mattis tincidunt ante, nisl dui fringilla elementum.\nSegunda línea del mismo párrafo, para comprobar que los saltos de línea se respetan en el detalle.",
-        "Cierre del texto: lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-      ],
-      "id": 4,
-      "fecha": "2026-10-14"
-    },
-    {
+      "fecha": "2026-08-25",
+      "titulo": "Fortaleciendo la primera línea de respuesta: La Fundación Levántate Mujer capacita al equipo de la Defensoría de la Niñez y Adolescencia en Santa Cruz",
+      "descripcion": "Fortaleciendo la primera línea de respuesta: formación multidisciplinaria sobre abordaje y restitución de derechos a funcionarios de la Defensoría de la Niñez de Sucre.",
+      "imagen": "/uploads/imagenes/noticia-defensoria-sucre.jpeg",
       "colorTema": "#2C8E9E",
-      "titulo": "La Fundación Levántate Mujer se une a la jornada de prevención contra la violencia sexual en Senkata",
-      "fecha": "2026-08-01",
-      "descripcion": "En el marco del Día de Solidaridad con Víctimas de Violencia Sexual, la Fundación participó en la caminata y feria educativa en el Coliseo de Senkata 79 del Distrito 8 de El Alto, movilizando a brigadas juveniles y familias.",
-      "imagen": "/uploads/imagenes/agosto_image1.jpeg",
       "parrafos": [
-        "En fiel sintonía con la misión de acoger, proteger y restituir la dignidad de las personas más vulnerables —carisma heredado de la Congregación de Nuestra Señora de la Caridad del Buen Pastor—, la Fundación Levántate Mujer Sartasim Warmi El Alto tuvo una destacada participación en la Caminata y Feria Educativa conmemorativa.\n\nLa actividad se llevó a cabo en las instalaciones del Coliseo de Senkata 79, un punto neurálgico del Distrito 8 de la ciudad de El Alto, articulando esfuerzos con la Casa Kusisiña y la Red Interinstitucional Contra la Violencia.\n\nUn aspecto central fue la presencia de la brigada juvenil «Guardianes Antiviolencia y Trata de Personas», quienes lideraron dinámicas participativas transmitiendo un mensaje de alerta, solidaridad y esperanza entre sus pares."
+        "Guiada por la mística de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que pone al centro la dignidad humana, la acogida y la restitución de derechos de las personas más vulnerables, la Fundación Levántate Mujer llevó a cabo un taller de fortalecimiento de capacidades dirigido al personal técnico y profesional de la Defensoría de la Niñez y Adolescencia (DNA) del municipio de Santa Cruz.",
+        "La jornada de capacitación se desarrolló como parte de la planificación conjunta con esta instancia gubernamental estratégica, cuyos equipos multidisciplinarios desempeñan una labor fundamental en la primera línea de atención y resguardo de la infancia y adolescencia cruceña.",
+        "Herramientas para la protección y restitución de derechos",
+        "Durante el espacio formativo, la Fundación Levántate Mujer dotó a los servidores públicos de marcos conceptuales actualizados y herramientas procedimentales clave para la identificación oportuna, abordaje técnico y atención integral de posibles casos de trata de personas y tráfico ilícito de migrantes.",
+        "El taller enfatizó la importancia de optimizar los protocolos de actuación, garantizando que cada procedimiento responda de forma oportuna, compasiva y eficaz a las necesidades de niñas, niños y adolescentes en situación de riesgo.",
+        "Trabajo articulado en favor de la infancia",
+        "Para la Fundación Levántate Mujer, la cualificación continua de los actores institucionales es un pilar indispensable para consolidar un sistema local de protección sólido. A través del fortalecimiento de la Defensoría de la Niñez y Adolescencia, la institución reafirma su compromiso de seguir tejiendo redes de articulación que garanticen entornos seguros y libres de violencia para la niñez en Santa Cruz."
+      ]
+    },
+    {
+      "id": 4,
+      "fecha": "2026-09-04",
+      "titulo": "Un hito histórico en Chuquisaca: Promotoras comunitarias obtienen su Personalidad Jurídica para fortalecer la prevención de la violencia de género",
+      "descripcion": "Lideresas comunitarias de Chuquisaca obtienen su Personalidad Jurídica, consolidando una red legal y territorial contra la violencia de género.",
+      "imagen": "/uploads/imagenes/noticia-promotoras-chuquisaca.jpeg",
+      "colorTema": "#93A635",
+      "parrafos": [
+        "Fieles al carisma y espiritualidad de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que impulsa la promoción humana, el empoderamiento y la restitución de la dignidad de las mujeres, la Fundación Levántate Mujer celebró un avance histórico en la defensa de los derechos humanos en el departamento de Chuquisaca.",
+        "El pasado 4 de septiembre, en el marco del proyecto «Fortalecimiento integral a mujeres y familias vulnerables y/o víctimas de violencia de género e intrafamiliar, en las ciudades de El Alto, Sucre y Oruro - Fase II», se realizó la entrega oficial de la Personalidad Jurídica a la red de promotoras comunitarias de la región.",
+        "El acto fue liderado por el Director Ejecutivo de la Fundación Levántate Mujer, Lic. Alfredo Alfaro Ch., y contó con la destacada presencia de autoridades e instituciones aliadas, entre ellas el Delegado Defensorial de Chuquisaca, Humberto Mayorga, la Secretaria de Desarrollo Social, Lidia Alejandra Gutiérrez, además de representantes del Instituto Politécnico Tomás Katari (IPTK), el Centro Juana Azurduy y la Organización No Gubernamental Nor Sud, entre otros actores estratégicos del territorio.",
+        "Consolidación institucional y autonomía para la incidencia social",
+        "Con la obtención de esta personería, el colectivo se constituye formalmente bajo el nombre de «Asociación de promotoras comunitarias en prevención de la violencia en razón de género - Chuquisaca». Esta importante formalización legal abre un nuevo capítulo para la organización comunitaria, permitiéndoles:",
+        "Fortalecer la representatividad e incidencia pública: Posicionarse como un actor social reconocido con voz propia ante las instancias gubernamentales y la toma de decisiones locales.",
+        "Gestionar alianzas y proyectos independientes: Captar recursos y establecer acuerdos interinstitucionales para ampliar la cobertura de sus acciones.",
+        "Sostener la labor de acompañamiento y prevención: Ejecutar de manera sostenible su plan de incidencia para el resguardo, orientación y defensa de los derechos de las mujeres en sus propios barrios y comunidades.",
+        "Transformación social desde las bases",
+        "Para la Fundación Levántate Mujer, la consolidación de esta asociación representa la concreción de un modelo de intervención que no solo asiste, sino que capacita y libera las potencialidades de las propias mujeres para ser agentes transformadoras de su entorno.",
+        "Inspirada en el enfoque del Buen Pastor, la institución reconoce y felicita la constancia, valentía y compromiso de cada una de las promotoras comunitarias que hicieron posible este logro, reafirmando que el trabajo articulado con la sociedad civil y las instituciones es el camino para garantizar una vida libre de violencia para las mujeres y sus familias."
+      ]
+    },
+    {
+      "id": 5,
+      "fecha": "2026-09-18",
+      "titulo": "Proteger la vida en el entorno digital: La Fundación Levántate Mujer resalta la formación en habilidades digitales para familias de Santa Cruz",
+      "descripcion": "Talleres especializados en habilidades digitales y ciberseguridad para prevenir la captación de menores y la trata de personas en redes sociales.",
+      "imagen": "/uploads/imagenes/noticia-entorno-digital.jpeg",
+      "colorTema": "#2C8E9E",
+      "parrafos": [
+        "Inspirada en el carisma de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que promueve la protección integral, la prevención y el cuidado compasivo de las familias más vulnerables, la Fundación Levántate Mujer destaca las acciones orientadas a fortalecer la seguridad de la niñez en los espacios virtuales.",
+        "En este marco, el Gobierno Autónomo Municipal de Santa Cruz de la Sierra llevó a cabo una jornada de capacitación enfocada en el desarrollo de habilidades digitales, dirigida de manera específica a madres, padres y cuidadores de los niños y niñas que asisten a los Centros Municipales Infantiles del municipio.",
+        "Las familias como primera línea de defensa y protección",
+        "La iniciativa parte del reconocimiento fundamental de que el núcleo familiar constituye el primer entorno de resguardo para la infancia. Brindar herramientas prácticas a los adultos responsables permite que puedan acompañar, orientar y supervisar de forma efectiva el uso de las tecnologías de la información y comunicación por parte de sus hijas e hijos.",
+        "Con esta formación, se busca prevenir riesgos asociados al entorno virtual, como el ciberacoso, la violencia digital, la captación con fines de explotación o la trata de personas, promoviendo la construcción de hogares seguros, conscientes, respetuosos y libres de todo tipo de violencia.",
+        "Unidos por la prevención y el bienestar de la infancia",
+        "Para la Fundación Levántate Mujer, la alfabetización digital y la concienciación de los cuidadores son pilares fundamentales dentro de los sistemas modernos de protección infantil.",
+        "La institución reafirma la importancia de este tipo de alianzas e iniciativas públicas que capacitan a las familias, garantizando que el entorno digital se convierta en un espacio de aprendizaje y desarrollo saludable, y no en una fuente de vulneración de los derechos de la niñez."
+      ]
+    },
+    {
+      "id": 6,
+      "fecha": "2026-09-29",
+      "titulo": "Autonomía económica y talento alteño: La Fundación Levántate Mujer acompaña a mujeres emprendedoras en «La Paz Expone»",
+      "descripcion": "La Fundación acompañó a mujeres egresadas de talleres técnicos en la exhibición y comercialización de repostería y artesanía en «La Paz Expone».",
+      "imagen": "/uploads/imagenes/noticia-la-paz-expone.jpeg",
+      "colorTema": "#93A635",
+      "parrafos": [
+        "Fieles al carisma y la misión de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que promueve la justicia social, el empoderamiento y la restitución de la dignidad de las mujeres mediante el desarrollo integral, la Fundación Levántate Mujer impulsó la presencia de emprendedoras de la ciudad de El Alto en la 9na versión de la feria multisectorial La Paz Expone: Una feria con altura.",
+        "La participación de las expositoras se enmarca en el proyecto «Fortaleciendo la inclusión económica: Apertura de mercados locales para mujeres emprendedoras en el municipio de El Alto», iniciativa que se ejecuta en coordinación con la Unidad de la Mujer del Gobierno Autónomo Municipal de El Alto para abrir espacios comerciales sostenibles fuera de su jurisdicción local.",
+        "Visibilización del trabajo y apertura de mercados",
+        "Durante la feria, realizada del 3 al 13 de septiembre en el Campo Ferial Chuquiago Marka de la ciudad de La Paz, las emprendedoras ocuparon un espacio destacado en la segunda planta del Bloque Rojo (stands 15 al 20). En estos puestos, comercializaron variedad de productos elaborados con mano de obra y esfuerzo alteño, mostrando la calidad, creatividad y resiliencia del sector.",
+        "La presencia en esta plataforma ferial busca promover la autonomía económica de las mujeres, permitiéndoles generar ingresos propios, diversificar sus redes de clientes y consolidar sus iniciativas productivas a mayor escala.",
+        "El desarrollo económico como pilar de transformación",
+        "Para la Fundación Levántate Mujer, el acceso a mercados y el fortalecimiento de capacidades productivas constituyen herramientas fundamentales para romper círculos de vulnerabilidad y dependencia económica en las familias.",
+        "A través de esta alianza interinstitucional con la Alcaldía alteña, la Fundación reafirma su compromiso de continuar gestionando espacios de promoción comercial e inclusión financiera, acompañando a las mujeres en la construcción de proyectos de vida dignos, autosustentables y con impacto positivo en sus comunidades."
+      ]
+    },
+    {
+      "id": 7,
+      "fecha": "2026-10-15",
+      "titulo": "Alianzas Estratégicas por la Autonomía Económica: la Fundación Levántate Mujer Impulsa la Conformación del Comité Intersectorial de Mujeres Emprendedoras en el Alto",
+      "descripcion": "Articulación estratégica con el GAMEA y sectores productivos para impulsar la sostenibilidad económica y autonomía de mujeres en El Alto.",
+      "imagen": "/uploads/imagenes/noticia-comite-intersectorial.jpeg",
+      "colorTema": "#2C8E9E",
+      "parrafos": [
+        "En fidelidad a la misión y mística de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que promueve la justicia social, el empoderamiento y la dignificación del trabajo de las mujeres en situación de vulnerabilidad, la Fundación Levántate Mujer concretó un avance clave en favor del tejido productivo y las familias de la ciudad de El Alto.",
+        "En alianza estratégica con el Gobierno Autónomo Municipal de El Alto a través de la Unidad de la Mujer y la organización Aldeas Infantiles SOS, se llevó a cabo el segundo encuentro interinstitucional orientando esfuerzos hacia la conformación del Comité Intersectorial en favor de las Mujeres Emprendedoras.",
+        "La jornada reunió a representantes de diversas instituciones públicas, privadas y organizaciones de la sociedad civil, consolidando un espacio de trabajo colaborativo destinado a generar oportunidades económicas sostenibles y de largo plazo para el sector.",
+        "Articulación institucional y sinergia por el empoderamiento",
+        "Durante la reunión, autoridades y líderes de las organizaciones participantes resaltaron la importancia de articular acciones conjuntas:",
+        "Maritza Condori, representante de la Unidad de la Mujer de la Alcaldía de El Alto, enfatizó que este Comité permitirá fortalecer la representatividad y consolidación del sector, brindando a las mujeres herramientas concretas para incrementar sus ingresos y mejorar su calidad de vida.",
+        "Jeanette Huayta, Coordinadora Regional de la Fundación Levántate Mujer, detalló el alcance de la propuesta:",
+        "«El propósito es conformar un espacio que agrupe a instituciones que trabajan con mujeres emprendedoras. Tenemos iniciativas como la promoción de propuestas normativas en favor de este sector, además de impulsar mesas de trabajo que nos permitan articular esfuerzos y desarrollar acciones colectivas en beneficio de las mujeres emprendedoras.»",
+        "Omar Pacosillo, Gerente Operativo de Aldeas Infantiles SOS, subrayó el valor de la sinergia entre los sectores público y privado para transformar realidades y multiplicar el impacto positivo en familias en situación de vulnerabilidad.",
+        "Jhaquelin Quispe, del Centro de Comunicación Cultural Chasqui, ponderó la apertura de estos espacios de concertación entre entidades que acompañan de cerca el trabajo de las productoras y comerciantes locales.",
+        "Construyendo equidad y bienestar integral",
+        "Para la Fundación Levántate Mujer, promover la autonomía financiera de las mujeres es una vía indispensable para romper círculos de violencia y garantizar el desarrollo pleno de las familias.",
+        "A través de la conformación de este Comité Intersectorial, la institución reafirma su compromiso de seguir impulsando políticas públicas, marcos normativos y proyectos colectivos que aseguren un futuro con dignidad, justicia y equidad para todas las mujeres alteñas."
+      ]
+    },
+    {
+      "id": 8,
+      "fecha": "2026-10-24",
+      "titulo": "Comunicación con Enfoque de Derechos: la Fundación Levántate Mujer Capacita a Periodistas y Comunicadores de Sucre Sobre la Prevención de la Trata de Personas",
+      "descripcion": "Capacitación a comunicadores y periodistas de Sucre sobre el tratamiento ético, con enfoque de derechos y no revictimizante en medios de comunicación.",
+      "imagen": "/uploads/imagenes/noticia-periodistas-sucre.jpeg",
+      "colorTema": "#93A635",
+      "parrafos": [
+        "Fieles al carisma y espiritualidad de la Congregación de Nuestra Señora de la Caridad del Buen Pastor, que promueve la defensa irrestricta de la dignidad humana, la justicia social y la protección de las personas más vulnerables, la Fundación Levántate Mujer – Sayariy Warmi Regional Sucre llevó a cabo una jornada de capacitación y sensibilización dirigida a integrantes del Sindicato de Productores Independientes y Autogestionarios (SPIAF).",
+        "La actividad tuvo como objetivo central profundizar el conocimiento de comunicadores y periodistas sobre el delito de la trata de personas y sus implicaciones en la vulneración de los derechos humanos, reconociendo el rol clave que desempeñan los medios de difusión en la construcción de una sociedad informada y protegida.",
+        "Herramientas conceptuales para la identificación del delito",
+        "Durante la jornada formativa, se abordaron elementos técnicos y procedimentales sobre la tipificación de la trata de personas, analizando sus dinámicas, características y sus 14 fines de explotación. El espacio permitió absolver dudas y esclarecer conceptos fundamentales, dado que parte de los asistentes desconocía aspectos esenciales para la detección e identificación oportuna de este delito.",
+        "Ética periodística, tratamiento responsable y no revictimización",
+        "Un eje fundamental del taller fue el análisis de la responsabilidad ética y social de los profesionales de la comunicación al abordar casos de trata de personas. Se enfatizó la necesidad de:",
+        "Emitir información veraz, rigurosa y responsable para alertar a la población sin generar sensacionalismo.",
+        "Proteger la identidad, la privacidad y la dignidad de las víctimas, evitando cualquier forma de revictimización en las coberturas mediáticas.",
+        "Promover una cultura de prevención y sensibilización que respete plenamente los derechos fundamentales de las personas afectadas y sus familias.",
+        "Articulación en el Consejo Departamental de Chuquisaca",
+        "Asimismo, se reflexionó sobre la importancia de la participación activa de periodistas y comunicadores en el Consejo Departamental de Lucha contra la Trata y Tráfico de Personas de Chuquisaca. Se resaltó que su involucramiento en esta instancia estratégica fortalece la coordinación interinstitucional, optimiza las campañas de prevención y contribuye a una respuesta social articulada frente a este flagelo.",
+        "Con esta iniciativa, la Fundación Levántate Mujer – Sayariy Warmi reafirma su compromiso de seguir capacitando a actores clave de la sociedad civil, promoviendo una comunicación humana, ética y comprometida con la protección de la vida y la justicia social."
       ]
     }
   ]

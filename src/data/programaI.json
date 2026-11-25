@@ -7,148 +7,148 @@
   "testimoniosSuperior": [
     {
       "id": 1,
-      "titulo": "Una nueva oportunidad de vida",
-      "fecha": "2026-09-15",
-      "autor": "María González",
-      "rol": "Egresada del Programa",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "titulo": "Más allá de la adversidad: Siempre hay una nueva oportunidad",
+      "fecha": "2026-08-15",
+      "autor": "Bricelia Flores",
+      "rol": "Emprendedora y Participante de Capacitación Técnica",
+      "texto": "La capacitación técnica recibida no solo me brindó herramientas prácticas y valiosas, sino que me infundió la confianza y motivación necesarias para emprender y crecer personal y laboralmente. El acompañamiento constante de la Fundación me permitió dar continuidad a mi emprendimiento y construir un sustento digno.",
+      "imagen": "/uploads/imagenes/testimonio-bricelia-flores.jpg"
     },
     {
       "id": 2,
-      "titulo": "Recuperando mi autonomía",
-      "fecha": "2026-10-02",
-      "autor": "Lucía Fernández",
-      "rol": "Participante de Talleres",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "titulo": "Retomando mis derechos, autonomía y economía familiar",
+      "fecha": "2026-09-10",
+      "autor": "Palmira Llalle",
+      "rol": "Promotora Comunitaria y Emprendedora",
+      "texto": "Desde que concluí los cursos de capacitación técnica, no he dejado de formarme activamente en el fortalecimiento de capacidades y como promotora comunitaria. Este proceso transformó a mi familia, permitiéndome dejar atrás la violencia, retomar mis derechos y construir autonomía económica.",
+      "imagen": "/uploads/imagenes/testimonio-palmira-llalle.jpg"
     },
     {
       "id": 3,
-      "titulo": "Fortaleciendo mi voz",
-      "fecha": "2026-10-10",
-      "autor": "Carmen Rojas",
-      "rol": "Líder Comunitaria",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "titulo": "Un espacio seguro donde sanar y volver a empezar",
+      "fecha": "2026-09-22",
+      "autor": "Participante de Atención Psicosocial",
+      "rol": "Egresada del Centro Terapéutico Sartasim Kullakita",
+      "texto": "En el Centro Sartasim Kullakita encontré un equipo multidisciplinario que me escuchó con respeto y sin juzgar. Gracias a la terapia individual y al apoyo legal, logré recuperar mi estabilidad emocional, proteger a mis hijas y cerrar ciclos de dolor.",
+      "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg"
     },
     {
       "id": 4,
-      "titulo": "Construyendo un futuro seguro",
-      "fecha": "2026-10-14",
-      "autor": "Elena Morales",
-      "rol": "Emprendedora",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "titulo": "Juntas somos más fuertes frente a la violencia",
+      "fecha": "2026-10-05",
+      "autor": "Lideresa de Chuquisaca",
+      "rol": "Red de Promotoras Comunitarias",
+      "texto": "Consolidar nuestra personería jurídica como promotoras comunitarias nos da la fuerza legal y organizativa para vigilar, contener y orientar a mujeres y familias en nuestros barrios, construyendo entornos seguros y libres de violencia.",
+      "imagen": "/uploads/imagenes/noticia-promotoras-chuquisaca.jpeg"
     }
   ],
   "testimoniosInferior": [
     {
-      "id": 5,
-      "titulo": "El poder de la sororidad",
-      "fecha": "2026-09-20",
-      "autor": "Patricia Paredes",
-      "rol": "Voluntaria Comunitaria",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "id": 2,
+      "titulo": "Retomando mis derechos, autonomía y economía familiar",
+      "fecha": "2026-09-10",
+      "autor": "Palmira Llalle",
+      "rol": "Promotora Comunitaria y Emprendedora",
+      "texto": "Desde que concluí los cursos de capacitación técnica, no he dejado de formarme activamente en el fortalecimiento de capacidades y como promotora comunitaria. Este proceso transformó a mi familia, permitiéndome dejar atrás la violencia, retomar mis derechos y construir autonomía económica.",
+      "imagen": "/uploads/imagenes/testimonio-palmira-llalle.jpg"
     },
     {
-      "id": 6,
-      "titulo": "Acompañamiento sin juzgar",
+      "id": 1,
+      "titulo": "Más allá de la adversidad: Siempre hay una nueva oportunidad",
+      "fecha": "2026-08-15",
+      "autor": "Bricelia Flores",
+      "rol": "Emprendedora y Participante de Capacitación Técnica",
+      "texto": "La capacitación técnica recibida no solo me brindó herramientas prácticas y valiosas, sino que me infundió la confianza y motivación necesarias para emprender y crecer personal y laboralmente. El acompañamiento constante de la Fundación me permitió dar continuidad a mi emprendimiento y construir un sustento digno.",
+      "imagen": "/uploads/imagenes/testimonio-bricelia-flores.jpg"
+    },
+    {
+      "id": 4,
+      "titulo": "Juntas somos más fuertes frente a la violencia",
       "fecha": "2026-10-05",
-      "autor": "Gabriela Vaca",
-      "rol": "Beneficiaria de Apoyo Legal",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "autor": "Lideresa de Chuquisaca",
+      "rol": "Red de Promotoras Comunitarias",
+      "texto": "Consolidar nuestra personería jurídica como promotoras comunitarias nos da la fuerza legal y organizativa para vigilar, contener y orientar a mujeres y familias en nuestros barrios, construyendo entornos seguros y libres de violencia.",
+      "imagen": "/uploads/imagenes/noticia-promotoras-chuquisaca.jpeg"
     },
     {
-      "id": 7,
-      "titulo": "Sanando juntas",
-      "fecha": "2026-10-12",
-      "autor": "Rosa Mamani",
-      "rol": "Participante de Terapia Grupal",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
-    },
-    {
-      "id": 8,
-      "titulo": "Mi camino hacia la libertad",
-      "fecha": "2026-10-15",
-      "autor": "Teresa Choque",
-      "rol": "Promotora de Derechos",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "id": 3,
+      "titulo": "Un espacio seguro donde sanar y volver a empezar",
+      "fecha": "2026-09-22",
+      "autor": "Participante de Atención Psicosocial",
+      "rol": "Egresada del Centro Terapéutico Sartasim Kullakita",
+      "texto": "En el Centro Sartasim Kullakita encontré un equipo multidisciplinario que me escuchó con respeto y sin juzgar. Gracias a la terapia individual y al apoyo legal, logré recuperar mi estabilidad emocional, proteger a mis hijas y cerrar ciclos de dolor.",
+      "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg"
     }
   ],
   "testimonios": [
     {
       "id": 1,
-      "titulo": "Una nueva oportunidad de vida",
-      "fecha": "2026-09-15",
-      "autor": "María González",
-      "rol": "Egresada del Programa",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "titulo": "Más allá de la adversidad: Siempre hay una nueva oportunidad",
+      "fecha": "2026-08-15",
+      "autor": "Bricelia Flores",
+      "rol": "Emprendedora y Participante de Capacitación Técnica",
+      "texto": "La capacitación técnica recibida no solo me brindó herramientas prácticas y valiosas, sino que me infundió la confianza y motivación necesarias para emprender y crecer personal y laboralmente. El acompañamiento constante de la Fundación me permitió dar continuidad a mi emprendimiento y construir un sustento digno.",
+      "imagen": "/uploads/imagenes/testimonio-bricelia-flores.jpg"
     },
     {
-      "id": 8,
-      "titulo": "Mi camino hacia la libertad",
-      "fecha": "2026-10-15",
-      "autor": "Teresa Choque",
-      "rol": "Promotora de Derechos",
-      "texto": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "id": 2,
+      "titulo": "Retomando mis derechos, autonomía y economía familiar",
+      "fecha": "2026-09-10",
+      "autor": "Palmira Llalle",
+      "rol": "Promotora Comunitaria y Emprendedora",
+      "texto": "Desde que concluí los cursos de capacitación técnica, no he dejado de formarme activamente en el fortalecimiento de capacidades y como promotora comunitaria. Este proceso transformó a mi familia, permitiéndome dejar atrás la violencia, retomar mis derechos y construir autonomía económica.",
+      "imagen": "/uploads/imagenes/testimonio-palmira-llalle.jpg"
     }
   ],
   "metodologias": [
     {
       "id": 1,
-      "titulo": "Metodología de Círculos de Apoyo y Contención",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
-      "archivo": ""
+      "titulo": "Metodología de Intervención Integral Sartasim Kullakita",
+      "descripcion": "Modelo de atención interdisciplinaria en Trabajo Social, Psicología y Patrocinio Legal para la restitución plena de derechos de víctimas de violencia sexual y trata.",
+      "archivo": "/uploads/pdf/comic-anita.pdf"
     },
     {
       "id": 2,
-      "titulo": "Guía Práctica de Prevención Comunitaria",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
-      "archivo": ""
+      "titulo": "Guía de Grupos de Apoyo Mutuo con Adolescentes",
+      "descripcion": "Herramienta psicoeducativa estructurada en 10 sesiones sobre autoconcepto, resiliencia, proyecto de vida y resignificación del trauma.",
+      "archivo": "/uploads/pdf/comic-mercedes-1.pdf"
     },
     {
       "id": 3,
-      "titulo": "Manual de Rutas de Atención y Derivación",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
-      "archivo": ""
+      "titulo": "Protocolo de Primer Contacto y Acogida Institucional",
+      "descripcion": "Criterios de escucha activa, contención en crisis y evaluación de riesgo bajo los principios de dignidad y preservación del interés superior.",
+      "archivo": "/uploads/pdf/comic-mercedes-2.pdf"
     },
     {
       "id": 4,
-      "titulo": "Herramientas de Empoderamiento y Resiliencia",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
-      "archivo": ""
+      "titulo": "Plan Formativo para la Autonomía Económica",
+      "descripcion": "Estrategia pedagógica para el desarrollo de habilidades técnicas, emprendimiento gastronómico y gestión de negocios sostenibles.",
+      "archivo": "/uploads/pdf/comic-redes-sociales.pdf"
     }
   ],
   "investigaciones": [
     {
       "id": 1,
-      "titulo": "Diagnóstico de Violencias Basadas en Género",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "titulo": "Diagnóstico de Violencia Sexual y Comercial en Ciudades del Eje",
+      "descripcion": "Estudio situacional sobre las dinámicas de vulnerabilidad, captación y rutas de atención en El Alto, La Paz y Sucre.",
       "archivo": ""
     },
     {
       "id": 2,
-      "titulo": "Estudio de Impacto de Programas Psicosociales",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "titulo": "Impacto de la Formación de Promotoras Comunitarias",
+      "descripcion": "Evaluación del rol preventivo y de alerta temprana que desempeñan las redes comunitarias de mujeres en zonas periurbanas.",
       "archivo": ""
     },
     {
       "id": 3,
-      "titulo": "Análisis de Barreras en el Acceso a la Justicia",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "titulo": "Barreras de Acceso a la Justicia en Delitos de Violencia Sexual",
+      "descripcion": "Análisis jurídico-institucional sobre las dificultades procesales, revictimización y tiempos de respuesta en el sistema judicial.",
       "archivo": ""
     },
     {
       "id": 4,
-      "titulo": "Investigación sobre Redes de Soporte Comunitario",
-      "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit aenean, ut lacinia mi porta mollis porttitor lacus, taciti mattis elementum sagittis nibh sollicitudin te.",
+      "titulo": "Habilidades Digitales y Prevención de Trata en Jóvenes",
+      "descripcion": "Sistematización de experiencias en el uso seguro de tecnologías y redes sociales frente a mecanismos de captación digital.",
       "archivo": ""
     }
   ],

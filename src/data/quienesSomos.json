@@ -41,18 +41,18 @@
   "valores": [
     {
       "nombre": "Acogida",
-      "descripcion": "Creamos espacios seguros donde cada mujer se siente escuchada, respetada y acompañada en todo momento.",
-      "imagen": "/uploads/imagenes/DSC_0075.JPG"
+      "descripcion": "Creamos espacios seguros y cálidos donde cada mujer y su familia son recibidas con respeto, escucha activa y contención sin juzgar.",
+      "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg"
     },
     {
       "nombre": "Misericordia",
-      "descripcion": "Actuamos con compasión y empatía, entendiendo el dolor ajeno y ofreciendo apoyo sin condiciones.",
-      "imagen": "/uploads/imagenes/tortas__2.jpg"
+      "descripcion": "Inspiradas en el carisma del Buen Pastor, actuamos con profunda empatía y compromiso humano ante el dolor y las vivencias de cada persona.",
+      "imagen": "/uploads/imagenes/noticia-defensoria-sucre.jpeg"
     },
     {
       "nombre": "Justicia",
-      "descripcion": "Defendemos los derechos de las mujeres y trabajamos para que la justicia llegue a cada rincón del país.",
-      "imagen": "/uploads/imagenes/DSC_0090.JPG"
+      "descripcion": "Promovemos la restitución irrestricta de derechos fundamentales, el patrocinio legal ético y la transformación de estructuras que perpetúan la violencia.",
+      "imagen": "/uploads/imagenes/noticia-promotoras-chuquisaca.jpeg"
     }
   ],
   "equipo": {
