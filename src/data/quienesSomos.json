@@ -126,19 +126,31 @@
     ],
     "oruro": [
       {
-        "nombre": "Sam Beam",
+        "nombre": "Hortensia Huarino Oscco",
         "cargo": "Coordinadora",
         "foto": ""
       },
       {
-        "nombre": "Isabelle Geo Pommet",
-        "cargo": "Psicóloga",
+        "nombre": "Gabriela Loredo Berbetty",
+        "cargo": "Psicoterapeuta",
         "foto": ""
       },
       {
-        "nombre": "Michael Jackson",
-        "cargo": "Asesora Legal",
+        "nombre": "Miguel Ángel Nicolas Mejía",
+        "cargo": "Contador",
         "foto": ""
+      },
+      {
+        "nombre": "Arlynes Jacqueline Arratia Rodríguez",
+        "cargo": "Responsable de Programa "
+      },
+      {
+        "nombre": "Karen Lyss Rodriguez Condori ",
+        "cargo": "Abogads"
+      },
+      {
+        "nombre": "Karla Alessandra Gutiérrez Veliz ",
+        "cargo": "Asistente técnico "
       }
     ],
     "santaCruz": [
