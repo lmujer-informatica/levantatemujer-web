@@ -31,7 +31,7 @@
     "items": [
       {
         "titulo": "Cómic Anita",
-        "imagen": "/uploads/imagenes/DSC_0090.JPG",
+        "imagen": "/uploads/imagenes/feria-educativa-comunitaria.jpeg",
         "archivo": "/uploads/pdf/comic-anita.pdf"
       },
       {
@@ -78,7 +78,7 @@
     "items": [
       {
         "titulo": "Rutas de Atención Integral",
-        "imagen": "/uploads/imagenes/DSC_0090.JPG",
+        "imagen": "/uploads/imagenes/noticia-solidaridad-agosto.jpeg",
         "archivo": "/uploads/pdf/comic-anita.pdf"
       },
       {
@@ -105,7 +105,7 @@
       {
         "titulo": "Titulo del Video",
         "descripcion": "Lorem ipsum dolor sit amet consectetur adipiscing elit congue, dictum per commodo nostra aliquet quisque etiam luctus, velit cum mauris mi fusce bibendum euismod.",
-        "thumbnail": "/uploads/imagenes/DSC_0090.JPG",
+        "thumbnail": "/uploads/imagenes/noticia-periodistas-sucre.jpeg",
         "videoUrl": "#"
       }
     ]

@@ -1,18 +1,22 @@
 {
-    "heroFrases": ["Contáctanos", "Estamos para Ti", "Juntas Avanzamos"],
-    "heroImagen": "/uploads/imagenes/DSC_0090.JPG",
+    "heroFrases": [
+        "Contáctanos",
+        "Estamos para Ti",
+        "Juntas Avanzamos"
+    ],
+    "heroImagen": "/uploads/imagenes/noticia-comite-intersectorial.jpeg",
     "lineaAyudaTexto": "Línea de Ayuda",
     "contactoGeneral": {
         "titulo": "Contacto General",
         "mensajeImagen": "Escríbenos, juntos construimos soluciones.",
-        "imagen": "/uploads/imagenes/DSC_0090.JPG"
+        "imagen": "/uploads/imagenes/asesoria-profesional-equipo.jpeg"
     },
     "postulacion": {
         "titulo": "Postulación de profesionales",
         "subtitulo": "Tu interés nos inspira, revisaremos tu perfil.",
         "textoDescarga": "Descarga nuestro modelo de CV",
         "archivoPdf": "",
-        "imagen": "/uploads/imagenes/DSC_0090.JPG"
+        "imagen": "/uploads/imagenes/taller-capacitacion-comunitaria.jpeg"
     },
     "sedes": [
         {
