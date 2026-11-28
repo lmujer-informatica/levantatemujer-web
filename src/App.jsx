@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
 import SalidaSegura from "./components/shared/SalidaSegura";
+import ScrollArriba from "./components/shared/ScrollArriba";
 
 import Inicio from './pages/inicio/Inicio';
 import QuienesSomos from './pages/quienesSomos/quienesSomos';
@@ -20,6 +21,7 @@ import Contacto from "./pages/contacto/Contacto";
 function App() {
     return (
         <BrowserRouter>
+            <ScrollArriba />
             <div className="min-h-screen flex flex-col font-sans bg-lm-bg">
                 <Navbar />
                     <Routes>
